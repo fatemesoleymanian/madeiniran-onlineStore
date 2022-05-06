@@ -1,7 +1,7 @@
 <template>
     <div class="blog-wrap-2 mb-30">
         <div class="blog-img-2">
-            <n-link :to="`/blog/${blog.slug}`">
+            <n-link :to="`/blog/${blog.id}`">
                 <img :src="blog.featuredImage" :alt="blog.title">
             </n-link>
         </div>
@@ -13,18 +13,18 @@
                 </ul>
             </div>
             <h4>
-                <n-link :to="`/blog/${blog.slug}`">{{ blog.title }}</n-link>
+                <n-link :to="`/blog/${blog.id}`">{{ blog.title }}</n-link>
             </h4>
             <p>{{ blog.post_excerpt }}</p>
             <div class="blog-share-comment">
                 <div class="blog-btn-2">
-                    <n-link :to="`/blog/${blog.slug}`">بیشتر ...</n-link>
+                    <n-link :to="`/blog/${blog.id}`">بیشتر ...</n-link>
                 </div>
                 <div class="blog-share">
                     <div class="share-social">
                         <ul>
                             <li>
-                                <a class="twitter" href="#" target="_blank">
+                                <a class="twitter" @click="copyToClipboard">
                                    <i class="fa fa-share" aria-hidden="true"></i>
                                  </a>
                             </li>
@@ -35,6 +35,7 @@
         </div>
     </div>
 </template>
+
 
 <script>
     export default {
@@ -50,7 +51,16 @@
                     .replace(/--+/g, "-") // Replace multiple - with single -
                     .replace(/^-+/, "") // Trim - from start of text
                     .replace(/-+$/, ""); // Trim - from end of text
-            }
+            },
+             copyToClipboard()
+          {
+            navigator.clipboard.writeText(`https://madein-iran/blog/${this.blog.id}.com`).then(() => {
+              this.$notify({ title: 'لینک بلاگ کپی شد!'})
+            })
+                .catch(() => {
+                  this.$notify({ title: 'خطا در کپی لینک بلاگ!'})
+                });
+          }
         },
     };
 </script>

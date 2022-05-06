@@ -1,17 +1,17 @@
 <template>
     <div class="blog-wrap mb-25">
         <div class="blog-img">
-            <n-link :to="`/blog/${slugify(blog.title)}`">
-                <img :src="blog.imgSrc" :alt="blog.title">
+            <n-link :to="`/blog/${blog.id}`">
+                <img :src="blog.featuredImage" :alt="blog.title">
             </n-link>
-            <span>{{ blog.category[0]}}</span>
+            <span>{{ blog.category.name}}</span>
         </div>
         <div class="blog-content-wrap">
             <div class="blog-content text-center">
                 <h3>
-                    <n-link :to="`/blog/${slugify(blog.title)}`">{{ blog.title }}</n-link>
+                    <n-link :to="`/blog/${blog.id}`">{{ blog.title }}</n-link>
                 </h3>
-                <span>By <n-link to="">{{ blog.author }}</n-link></span>
+                <span>By <n-link to="">Made in Iran</n-link></span>
             </div>
         </div>
     </div>

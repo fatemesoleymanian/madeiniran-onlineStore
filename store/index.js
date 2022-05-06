@@ -9,7 +9,9 @@ export const state = () => ({
     products: products,
     cart: [],
     wishlist: [],
-    compare: []
+    compare: [],
+    blogs: [],
+    latestBlogs:[],
 })
 
 
@@ -19,6 +21,12 @@ export const getters = {
         return state.products
     },
 
+    getBlogs(state) {
+        return state.blogs
+    },
+    getLatestBlogs(state) {
+        return state.latestBlogs
+    },
     getCart: state => {
         return state.cart
     },
@@ -90,7 +98,13 @@ export const mutations = {
     SET_PRODUCT(state, product) {
         state.products = product
     },
+    SET_BLOG(state, blog) {
+        state.blogs = blog
+    },
 
+    SET_LATEST_BLOG(state, blogs) {
+        state.latestBlogs = blogs
+    },
     UPDATE_CART(state, payload) {
         const item = state.cart.find(el => payload.id === el.id)
         if (item) {
@@ -160,6 +174,12 @@ export const actions = {
 
     removeProductFromCart({commit}, product) {
         commit('REMOVE_PRODUCT_FROM_CART', product)
+    },
+    updateBlogs({commit}, blog) {
+        commit('SET_BLOG', blog)
+    },
+    updateLatestBlogs({commit}, blogs) {
+        commit('SET_LATEST_BLOG', blogs)
     },
 
     decreaseProduct({ commit }, product) {

@@ -14,10 +14,10 @@
                 li {
                     color: $dark;
                     display: inline-block;
-                    font-size: 14px;
-                    letter-spacing: 1px;
+                    font-size: 12px;
+                    //letter-spacing: 1px;
                     list-style: outside none none;
-                    margin: 0 17px 0 0;
+                    margin: 0 0 0 17px;
                     position: relative;
                     text-transform: uppercase;
                     display: inline-block;
@@ -86,10 +86,8 @@
             li {
                 margin-right: 10px;
                 position: relative;
-                a {
                     text-transform: capitalize;
                     font-size: 15px;
-                }
             }
         }
     }

@@ -4,8 +4,8 @@
             <h4 class="pro-sidebar-title">جستجوی وبلاگ</h4>
             <div class="pro-sidebar-search mb-55 mt-25">
                 <form class="pro-sidebar-search-form">
-                    <input type="text" placeholder="جستجو ...">
-                    <button>
+                    <input type="text" placeholder="جستجو ..." v-model="str">
+                    <button @click="search_blog">
                         <i class="pe-7s-search"></i>
                     </button>
                 </form>
@@ -13,32 +13,20 @@
         </div>
         <div class="sidebar-widget">
             <h4 class="pro-sidebar-title">وبلاگ های اخیر</h4>
-            <div class="sidebar-project-wrap mt-30">
-                <div class="single-sidebar-blog">
-                    <div class="sidebar-blog-img">
-                        <n-link to="/blog/a-guide-to-latest-trends-product">
-                            <img src="/img/blog/sidebar-1.jpg" alt="">
-                        </n-link>
-                    </div>
-                    <div class="sidebar-blog-content">
-                        <span>عکاسی</span>
-                        <h4>
-                            <n-link to="/blog/a-guide-to-latest-trends-product">
-                           تیتر وبلاگ</n-link>
-                        </h4>
-                    </div>
-                </div>
+            <div class="sidebar-project-wrap mt-30" v-for="(blog ,i ) in latest" :key="i" v-if="latest.length">
+               
                  <div class="single-sidebar-blog">
                     <div class="sidebar-blog-img">
-                        <n-link to="/blog/a-guide-to-latest-trends-product">
-                            <img src="/img/blog/sidebar-1.jpg" alt="">
+                        <n-link :to="`/blog/${blog.id}`">
+                            <img :src="blog.featuredImage" :alt="blog.title">
                         </n-link>
                     </div>
                     <div class="sidebar-blog-content">
-                        <span>عکاسی</span>
+                        <span>{{blog.category.name}}</span>
                         <h4>
-                            <n-link to="/blog/a-guide-to-latest-trends-product">
-                           تیتر وبلاگ</n-link>
+                            <n-link :to="`/blog/${blog.id}`">
+                          {{blog.title}}
+                          </n-link>
                         </h4>
                     </div>
                 </div>
@@ -47,34 +35,25 @@
         </div>
         <div class="sidebar-widget mt-35">
             <h4 class="pro-sidebar-title">دسته بندیها</h4>
-            <ul class="sidebar-widget-list mt-20">
-                <li class="sidebar-widget-list-left">
-                    <n-link to="/blog/blog-without-sidebar">
+            <ul class="sidebar-widget-list mt-20" v-for="(c,i) in categories" :key="i" v-if="categories.length">
+                <li class="sidebar-widget-list-left" @click="filterCat(c.name)">
+                    <a href="#">
                         <span class="check-mark"></span>
-                        حبوبات
-                        <span>8</span>
-                    </n-link>
+                        {{c.name}}
+                        <span>{{c.blog.length}}</span>
+                    </a>
                 </li>
-                <li class="sidebar-widget-list-left">
-                    <n-link to="/blog/blog-without-sidebar">
-                        <span class="check-mark"></span>
-                        غلات
-                        <span>5</span>
-                    </n-link>
-                </li>
+            
             </ul>
         </div>
         <div class="sidebar-widget mt-50">
             <h4 class="pro-sidebar-title">تگ</h4>
             <div class="sidebar-widget-tag mt-25">
-                <ul>
-                    <li>
-                        <n-link to="/blog/blog-without-sidebar">سلولزی</n-link>
+                <ul v-for="(t,i) in tags" :key="i" v-if="tags.length">
+                    <li @click="filterTag(t.name)">
+                        <a href="#">{{t.name}}</a>
                     </li>
-                    <li>
-                        <n-link to="/blog/blog-without-sidebar">فروشگاه</n-link>
-                    </li>
-                   
+                  
                 </ul>
             </div>
         </div>
@@ -83,6 +62,57 @@
 
 <script>
     export default {
+        data()
+        {
+            return{
+                str:'',
+                latest:[],
+                categories:[],
+                tags:[]
+            }
+
+        },
+        async mounted(){
+            const [tags,categories,latestBlogs] = await Promise.all(
+                  [
+                this.$axios.get('tags'),
+                 this.$axios.get('blog_categories'),
+                this.$axios.get('blogs_latest')
+            ]);
+
+            this.tags = tags.data;
+            this.categories =categories.data;
+
+            this.latest = latestBlogs.data
+            
+        },
+        methods:{
+            async search_blog(e){
+                e.preventDefault();
+                if(this.str)
+                {
+                    const result = await this.$axios.get(`blogs/search/${this.str}`);
+                    console.log(result.data.blogs.data)
+                   this.$store.dispatch('updateBlogs', result.data.blogs.data);
+                   console.log(this.$store.getters.getBlogs)
+                }
+            },
+            filterCat(key)
+            {
+                let blogs = this.$store.getters.getBlogs
+                 this.$store.dispatch('updateBlogs',blogs.filter((blog) => blog.category.name.match(key)));
+            },
+            filterTag(key)
+            {
+                let blogs = this.$store.getters.getBlogs
+                 this.$store.dispatch('updateBlogs',blogs.filter(blog => {
+                   return blog.tag.some(n=>{
+                       return n.name.match(key)
+                   })
+                 }
+                 ));
+            }
+        }
 
     };
 </script>

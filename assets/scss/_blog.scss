@@ -126,14 +126,14 @@
                 li {
                     color: $dark;
                     display: inline-block;
-                    font-size: 14px;
-                    letter-spacing: 1px;
+                    font-size: 12px;
+                    //letter-spacing: 1px;
                     list-style: outside none none;
-                    margin: 0 17px 0 0;
+                    margin: 0 0 0 17px;
                     position: relative;
                     text-transform: uppercase;
                     display: inline-block;
-                    line-height: 1;
+                    //line-height: 1;
                     &::before {
                         background-color: #555;
                         content: "";
@@ -165,7 +165,7 @@
                 margin: 10px 0 12px;
             }
             a {
-               color: $dark; 
+               color: $dark;
                 &:hover {
                     color: $theme-color;
                 }
@@ -324,14 +324,14 @@
                                         height: 25px;
                                         line-height: 23px;
                                         width: 25px;
-                                    } 
+                                    }
                                 }
                             }
                         }
                     }
                 }
             }
-        } 
+        }
     }
 }
 .blog-without-sidebar {

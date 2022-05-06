@@ -43,7 +43,7 @@
     }
 }
 .logo {
-	margin-top: 32px;
+	margin-top: 12px;
     @media #{$md-layout, $xs-layout}{
         margin-top: 0px;
     }
@@ -301,7 +301,7 @@
 
 .is-sticky .logo ,
 .is-sticky .header-right-wrap {
-	margin-top: 22px;
+	margin-top: 15px;
     @media #{$md-layout, $xs-layout, $md-layout}{
         margin-top: 0px;
     }
