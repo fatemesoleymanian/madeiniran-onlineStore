@@ -307,7 +307,7 @@
             font-size: 28px;
             display: inline-block;
             position: absolute;
-            right: 0;
+            left: 0;
             top: 0;
             cursor: pointer;
 

@@ -5,17 +5,12 @@
         
         <div class="login-register-area pt-100 pb-100">
             <div class="container">
-                <div class="login-register-tab-list nav">
-                    <button @click="comA('Login')" :class="{ active: isActive === 'Login' }" >
-                        Login
-                    </button>
-                    <button @click="comA('Register')" :class="{ active: isActive === 'Register' }" >
-                        Register
-                    </button>
-                </div>
                 <div class="row">
                     <div class="col-lg-7 col-12 ms-auto me-auto">
-                        <component :is="isActive" />
+                        <div class="entrance">
+                        <Login v-if="!flag"/>
+                        <Register v-if="flag"/>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -41,14 +36,22 @@
 
         data() {
             return {
-                isActive: "Login",
+                
             };
         },
 
-        methods: {
-            comA(item) {
-                this.isActive = item;
-            }
+        methods:{
+           
+          
+        },
+        mounted()
+        {
+             if (localStorage.getItem('116111107101110')) window.location = '/my-account';  
+        },
+        computed: {
+             flag(){
+             return this.$store.getters.getFlag
+             }
         },
         head() {
             return {

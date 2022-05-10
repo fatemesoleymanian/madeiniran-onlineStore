@@ -1,4 +1,10 @@
+export default function ({ $axios, error: nuxtError }) {
+    this.$axios.setToken(localStorage.getItem('116111107101110'), 'Bearer')
 
-// const that = this.$axios;
-// that.setBaseURL('http://localhost:8000/api/');
-// export default  that;
+    // Adds header: `Content-Type: application/x-www-form-urlencoded` to only post requests
+    this.$axios.setHeader('Content-Type', 'application/json', [
+      'post'
+    ])
+  }
+  
+  

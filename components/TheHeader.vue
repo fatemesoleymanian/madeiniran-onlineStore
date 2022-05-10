@@ -28,23 +28,26 @@
                                         <input type="text" placeholder="جستجو ..." />
                                         <button class="button-search"><i class="pe-7s-search"></i></button>
                                     </form>
-                                </div> 
+                                </div>
                             </div>
                             <div class="same-style account-setting">
                                 <button class="account-setting-active" @click="isOpenAccountSettings = !isOpenAccountSettings"><i class="pe-7s-user-female"></i></button>
                                 <div class="account-dropdown" :class="{ active:isOpenAccountSettings }">
                                     <ul>
-                                        <li><n-link to="/login-register">ورود | ثبت نام</n-link></li>
-                                        <li><n-link to="/my-account">حساب من</n-link></li>
+                                        <li v-if="!auth"><n-link to="/login-register">ورود | ثبت نام</n-link></li>
+                                        <li v-if="auth"><n-link to="/my-account">حساب من</n-link></li>
+                                        <li v-if="auth"><a href="#" @click="logout">
+                                        خروج از حساب </a></li>
                                     </ul>
                                 </div>
                             </div>
-                           
-                            <div class="same-style header-wishlist  d-none d-lg-block">
+
+                            <div v-if="auth"
+                            class="same-style header-wishlist  d-none d-lg-block">
                                 <n-link to="/wishlist"><i class="pe-7s-like"></i></n-link>
                                 <span class="count-style">{{ wishlistItemCount }}</span>
                             </div>
-                            <div class="same-style cart-wrap">
+                            <div class="same-style cart-wrap" v-if="auth">
                                 <button class="icon-cart" @click="openCart = !openCart">
                                     <i class="pe-7s-shopbag"></i>
                                     <span class="count-style">{{ cartItemCount }}</span>
@@ -66,7 +69,7 @@
 </template>
 
 <script>
-    export default {
+  export default {
         components: {
             Navigation: () => import("@/components/Navigation"),
             MiniCart: () => import("@/components/MiniCart"),
@@ -90,7 +93,8 @@
                 isOpenSearch: false,
                 isOpenAccountSettings: false,
                 openCart: false,
-                navOpen: false
+                navOpen: false,
+                auth:false
             }
         },
 
@@ -102,7 +106,26 @@
                 } else {
                     this.isSticky = false
                 }
-            }) 
+            });
+             if (localStorage.getItem('116111107101110'))
+             {
+                 this. auth = true
+             }
+        },
+        methods:{
+                async logout()
+                {
+                    this.$axios.setToken(localStorage.getItem('116111107101110'),'Bearer')
+                const logout = await this.$axios.post('logout')
+                    localStorage.removeItem('116111107101110');
+                    localStorage.removeItem('117115101114');
+                    localStorage.removeItem('099097114100');
+                    localStorage.removeItem('key');
+                  this.$axios.setToken(false)
+                    window.location = '/'
+
+
+            }
         }
     };
 </script>

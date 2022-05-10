@@ -19,7 +19,7 @@
         span {
             color: #242424;
             font-size: 15px;
-            left: 20px;
+            right: 20px;
             position: absolute;
             top: 16px;
         }
@@ -41,7 +41,7 @@
                 font-family: "FontAwesome";
                 font-size: 16px;
                 position: absolute;
-                right: 10px;
+                left: 10px;
                 top: 19px;
             }
             &:hover::before {
@@ -74,12 +74,19 @@
                 font-size: 14px;
                 text-transform: capitalize;
             }
-            input {
+            input,textarea {
                 background: transparent none repeat scroll 0 0;
                 border: 1px solid #ebebeb;
                 color: $black;
                 height: 40px;
                 padding: 0 15px;
+            }
+            textarea{
+                min-height: 80px;
+                @media #{$lg-layout} {
+                    min-height: 80px;
+                    width:350px;
+                }
             }
         }
         .billing-back-btn {

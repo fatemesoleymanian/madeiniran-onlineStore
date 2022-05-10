@@ -222,5 +222,9 @@
                 title: "سبد خرید"
             }
         },
+         mounted()
+        {
+             if (!localStorage.getItem('116111107101110')) window.location = '/';  
+        },
     };
 </script>

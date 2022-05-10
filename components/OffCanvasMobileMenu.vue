@@ -16,24 +16,7 @@
                 <div class="menu-navigation">
                     <ResponsiveMobileMenu />
                 </div>
-                <div class="offcanvas-tools">
-                    <div class="same-language-currency">
-                        <span>Choose Language</span>
-                        <select name="language">
-                            <option value="english">English</option>
-                            <option value="hindi">Hindi</option>
-                            <option value="spanish">Spanish</option>
-                        </select>
-                    </div>
-                    <div class="same-language-currency">
-                        <span>Choose Currency</span>
-                        <select name="currency">
-                            <option value="usd">USD</option>
-                            <option value="eur">EUR</option>
-                            <option value="rup">Rup</option>
-                        </select>
-                    </div>
-                </div>
+
                 <div class="offcanvas-widget-area">
                     <ul>
                         <li>

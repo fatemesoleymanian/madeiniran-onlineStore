@@ -34,7 +34,7 @@
         }
     }
 }
-    
+    .entrance{
 .login-form,
 .register-form {
     box-shadow: 0 0 6px rgba(0, 0, 0, 0.1);
@@ -46,7 +46,7 @@
     @media #{$xs-layout}{
         padding: 40px 15px;
     }
-    form {
+    .form {
         input {
             background-color: transparent;
             border: 1px solid #ebebeb;
@@ -55,6 +55,9 @@
             height: 45px;
             margin-bottom: 30px;
             padding: 0 15px;
+            &:focus{
+                border:1px solid $theme-color;
+            }
         }
         input[type="checkbox"] {
             height: 15px;
@@ -100,6 +103,7 @@
         }
     }
 }
+    }
 
 .login-register-area {
     @media #{$xs-layout} {

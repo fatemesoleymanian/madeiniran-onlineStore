@@ -12,6 +12,8 @@ export const state = () => ({
     compare: [],
     blogs: [],
     latestBlogs:[],
+    flag : false,
+    newUser:false
 })
 
 
@@ -21,6 +23,14 @@ export const getters = {
         return state.products
     },
 
+    getNewUser(state)
+    {
+        return state.newUser
+    },
+    getFlag(state)
+    {
+        return state.flag
+    },
     getBlogs(state) {
         return state.blogs
     },
@@ -102,8 +112,16 @@ export const mutations = {
         state.blogs = blog
     },
 
+    SET_NEW_USER(state,newUser)
+    {
+        state.newUser = newUser
+    },
     SET_LATEST_BLOG(state, blogs) {
         state.latestBlogs = blogs
+    },
+    SET_FLAG(state,flag)
+    {
+        state.flag = flag
     },
     UPDATE_CART(state, payload) {
         const item = state.cart.find(el => payload.id === el.id)
@@ -172,6 +190,14 @@ export const actions = {
         commit('UPDATE_CART', payload)
     },
 
+    setFlag({commit},flag)
+    {
+        commit('SET_FLAG',flag)
+    },
+    setNewUser({commit},newUser)
+    {
+        commit('SET_NEW_USER',newUser)
+    },
     removeProductFromCart({commit}, product) {
         commit('REMOVE_PRODUCT_FROM_CART', product)
     },
