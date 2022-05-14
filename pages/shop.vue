@@ -2,7 +2,7 @@
     <div class="shop-page-wrapper">
         <HeaderWithTopbar containerClass="container" />
         <Breadcrumb pageTitle="لیست محصولات" />
-        
+
         <!-- product items wrapper -->
         <div class="shop-area pt-100 pb-100">
             <div class="container">
@@ -12,13 +12,14 @@
                         <div class="shop-top-bar">
                             <div class="select-showing-wrap">
                                 <div class="shop-select">
-                                    <select v-model="selectedPrice">
-                                        <option value="default">Default</option>
-                                        <option value="low2high">Price - Low to High</option>
-                                        <option value="high2low">Price - High to Low</option>
+                                    <select v-model="selectedPrice" >
+                                        <option value="new" label="جدید ترین" >جدید ترین</option>
+                                        <option value="old" label="قدیمی ترین">قدیمی ترین</option>
+                                        <option value="expensive" label="گران ترین">گران ترین</option>
+                                        <option value="cheap" label="ارزانترین">ارزانترین</option>
                                     </select>
                                 </div>
-                                <p>Showing {{perPage * currentPage - perPage + 1}} to {{perPage * currentPage > filterItems.length ? filterItems.length : perPage * currentPage}} of {{filterItems.length}} result</p>
+                                <p>مشاهده {{perPage * currentPage - perPage + 1}} تا {{perPage * currentPage > filterItems.length ? filterItems.length : perPage * currentPage}} از {{filterItems.length}} نتیجه</p>
                             </div>
                             <div class="shop-tab">
                                 <button @click="layout = 'twoColumn'" :class="{ active : layout === 'twoColumn' }">
@@ -81,8 +82,8 @@
                 prevSelectedSizeName: '',
                 prevSelectedColorName: '',
                 currentPage: 1,
-                perPage: 9,
-                selectedPrice: 'default'
+                perPage: 10 ,
+                selectedPrice: 'new'
             }
         },
 
@@ -101,7 +102,24 @@
             },
         },
 
-        mounted(){
+        async mounted(){
+          const [products,categories,tags] = await Promise.all([
+            this.$axios.get('/products'),
+            this.$axios.get('/categories'),
+            this.$axios.get('/tags_with_product'),
+          ]);
+          this.$store.dispatch('setProduct',products.data);
+          this.$store.dispatch('setCategory',categories.data);
+          this.$store.dispatch('setTags',tags.data);
+           let states = [];
+          for (let s in products.data)
+          {
+            for (let t in products.data[s].state)
+            {
+              if (!states.includes(products.data[s].state[t].type)) states.push(products.data[s].state[t].type)
+            }
+          }
+          this.$store.dispatch('setState',states)
             this.updateProductData()
         },
 
@@ -114,77 +132,66 @@
                 this.paginateClickCallback(1);
 
                 const categoryName = this.$route.query.category;
-                const sizeName = this.$route.query.size;
-                const colorName = this.$route.query.color;
+                const stateName = this.$route.query.state;
                 const tagName = this.$route.query.tag;
-                
+
                 if( Object.keys(this.$route.query).length === 0){
                     this.filterItems = [...this.products]
                 }
-                
+
                 if(categoryName && this.prevSelectedCategoryName !== categoryName){
-                    if(Boolean(categoryName) === false || categoryName === this.slugify("all categories")){
+                    if(Boolean(categoryName) === false || categoryName === 'all'){
                         this.filterItems = [...this.products]
                     }
                     else {
-                        const resultData = this.products.filter((item) => this.slugify(item.category).includes(categoryName));
-                        this.filterItems = [];
-                        this.filterItems.push(...resultData);
-                    }
-                }
-        
-                if(colorName && this.prevSelectedColorName !== colorName){
-                    if(Boolean(colorName) === false || colorName === this.slugify("all colors")){
-                        this.filterItems = [...this.products]
-                    }
-                    else {
-                        const resultData = this.products.filter((item) => item.variation?.color.includes(colorName));
+                        const resultData = this.products.filter((item) => item.category.id == categoryName);
                         this.filterItems = [];
                         this.filterItems.push(...resultData);
                     }
                 }
 
-                if(sizeName && this.prevSelectedSizeName !== sizeName){
-                    if(Boolean(sizeName) === false || sizeName === this.slugify("all sizes")){
+                if(stateName && this.prevSelectedColorName !== stateName){
+                    if(Boolean(stateName) === false || stateName === 'all'){
                         this.filterItems = [...this.products]
                     }
                     else {
-                        const resultData = this.products.filter((item) => item.variation?.sizes.includes(sizeName));
+                        const resultData = this.products.filter(item => {
+                          return item.state.some(n=>{
+                            return n.type.includes(stateName)
+                          })
+                        })
                         this.filterItems = [];
                         this.filterItems.push(...resultData);
                     }
                 }
-            
                 if(tagName && this.prevSelectedTagName !== tagName){
                     if(tagName){
-                        const resultData = this.products.filter((item) => this.slugify(item.tag).includes(tagName));
+
+                        const resultData = this.products.filter(item => {
+                          return item.tag.some(n=>{
+                            return n.id ==tagName
+                          })
+                        })
                         this.filterItems = [];
                         this.filterItems.push(...resultData);
                     }
-                    else {
+                    if(Boolean(tagName) === false || tagName === 'all'){
                         this.filterItems = [...this.products]
-                    } 
+                    }
                 }
-                
+
                 this.prevSelectedCategoryName = categoryName;
-                this.prevSelectedColorName = colorName;
-                this.prevSelectedSizeName = sizeName;
+                this.prevSelectedStateName = stateName;
                 this.prevSelectedTagName = tagName;
             },
 
             discountedPrice(product) {
-                return product.price - (product.price * product.discount / 100)
+                return product.state[0].price
             },
 
-            slugify(text) {
-                return text
-                    .toString()
-                    .toLowerCase()
-                    .replace(/\s+/g, "-") // Replace spaces with -
-                    .replace(/[^\w-]+/g, "") // Remove all non-word chars
-                    .replace(/--+/g, "-") // Replace multiple - with single -
-                    .replace(/^-+/, "") // Trim - from start of text
-                    .replace(/-+$/, ""); // Trim - from end of text
+            id(product)
+            {
+              return product.id;
             }
         },
 
@@ -194,15 +201,25 @@
             },
 
             selectedPrice(){
+              console.log(this.selectedPrice)
                 switch (this.selectedPrice) {
-                    case "low2high":
-                        this.filterItems =  this.filterItems.sort((a, b)=> this.discountedPrice(a) - this.discountedPrice(b))
+                    case "new":
+                      this.filterItems = [...this.products]
                         break;
-                    case "high2low":
-                        this.filterItems =  this.filterItems.sort((a, b)=> this.discountedPrice(b) -  this.discountedPrice(a))
+                    case "old":
+                        this.filterItems =  this.filterItems.sort((a, b)=>
+                            this.id(a) -  this.id(b))
                         break;
+                  case "expensive":
+                    this.filterItems =  this.filterItems.sort((a, b)=>
+                        this.discountedPrice(b) -  this.discountedPrice(a))
+                    break;
+                  case "cheap":
+                    this.filterItems =  this.filterItems.sort((a, b)=>
+                        this.discountedPrice(a) -  this.discountedPrice(b))
+                    break;
                     default:
-                        this.filterItems = [...this.products]
+                      this.filterItems = [...this.products]
                 }
             }
         },

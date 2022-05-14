@@ -220,7 +220,7 @@ export default {
 
   },
   async mounted() {
-    if (!localStorage.getItem('116111107101110')) return window.location = '/';
+    if (!localStorage.getItem('116111107101110')) return window.location = '/login-register';
     // return     console.log(localStorage.getItem('117115101114'))
 
     await this.$axios.setToken(localStorage.getItem('116111107101110'),'Bearer');

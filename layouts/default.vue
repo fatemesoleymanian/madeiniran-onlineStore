@@ -28,7 +28,7 @@
                 });
             },
         },
-        mounted() {
+        async mounted() {
             window.addEventListener("scroll", () => {
                 let scroll = window.scrollY;
                 if (scroll >= 500) {
@@ -38,6 +38,14 @@
                     this.isVisible = false;
                 }
             });
+          if (localStorage.getItem('116111107101110'))
+          {
+            const user = localStorage.getItem('117115101114');
+            const userr = JSON.parse(user)
+            this.$axios.setToken(localStorage.getItem('116111107101110'),'Bearer');
+            const card = await this.$axios.get(`/card/${userr.id}`)
+            this.$store.dispatch('initCart',card.data.products)
+          }
         },
     };
 </script>

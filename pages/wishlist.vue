@@ -2,7 +2,7 @@
     <div class="cart-page-wrapper">
         <HeaderWithTopbar containerClass="container" />
         <Breadcrumb pageTitle="علاقه مندیها" />
-        
+
         <!-- wishlist section start -->
         <div class="cart-main-area pt-90 pb-100">
             <div class="container">
@@ -93,7 +93,7 @@
             removeProductFromWishlist(product) {
                 // for notification
                 this.$notify({ title: 'Remove item from wishlist!'})
-                
+
                 this.$store.dispatch('removeProductFromWishlist', product)
             },
 
@@ -120,7 +120,7 @@
         },
          mounted()
         {
-             if (!localStorage.getItem('116111107101110')) window.location = '/';  
+             if (!localStorage.getItem('116111107101110')) window.location = '/login-register';
         },
     };
 </script>

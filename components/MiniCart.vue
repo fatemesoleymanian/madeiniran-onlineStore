@@ -4,16 +4,16 @@
             <ul>
                 <li class="single-shopping-cart" v-for="(product, index) in products" :key="index">
                     <div class="shopping-cart-img">
-                        <n-link :to="`/product/${slugify(product.title)}`">
-                            <img :src="product.images[0]" :alt="product.title">
+                        <n-link :to="`/product/${product.name}`">
+                            <img :src="product.image" :alt="product.name">
                         </n-link>
                     </div>
                     <div class="shopping-cart-title">
                         <h4>
-                            <n-link :to="`/product/${slugify(product.title)}`">{{ product.title }}</n-link>
+                            <n-link :to="`/product/${product.name}`">{{ product.name }}</n-link>
                         </h4>
                         <h6>تعداد : {{ product.cartQuantity }}</h6>
-                        <span>  {{ discountedPrice(product).toFixed(2) }} تومان</span>
+                        <span>  {{ product.discount }} تومان</span>
                     </div>
                     <div class="shopping-cart-delete">
                         <button @click="removeProduct(product)">
@@ -23,18 +23,18 @@
                 </li>
             </ul>
             <div class="shopping-cart-total">
-                <h4> 
+                <h4>
                     مجموع :
-                    <span class="shop-total"> {{ total.toFixed(2) }} تومان</span>
+                    <span class="shop-total"> {{ total }} تومان</span>
                   </h4>
             </div>
             <div class="shopping-cart-btn btn-hover text-center" @click="$emit('minicartClose')">
-                <n-link to="/cart" class="default-btn">view cart</n-link>
-                <n-link to="/checkout" class="default-btn">checkout</n-link>
+                <n-link to="/cart" class="default-btn">مشاهده سبد خرید</n-link>
+                <n-link to="/checkout" class="default-btn">پرداخت</n-link>
             </div>
         </div>
         <div class="shopping-cart-content text-center" v-else>
-            <p>No items added to cart</p>
+            <p>هیچ محصولی در سبد خرید وجود ندارد!</p>
         </div>
     </div>
 </template>
@@ -55,24 +55,11 @@
         methods: {
             removeProduct(product) {
                 // for notification
-                this.$notify({ title: 'Item remove from cart!'})
+                this.$notify({ title: 'محصول از سبد خرید حذف شد!'})
                 this.$store.dispatch('removeProductFromCart', product)
             },
 
-            discountedPrice(product) {
-                return product.price - (product.price * product.discount / 100)
-            },
 
-            slugify(text) {
-                return text
-                    .toString()
-                    .toLowerCase()
-                    .replace(/\s+/g, "-") // Replace spaces with -
-                    .replace(/[^\w-]+/g, "") // Remove all non-word chars
-                    .replace(/--+/g, "-") // Replace multiple - with single -
-                    .replace(/^-+/, "") // Trim - from start of text
-                    .replace(/-+$/, ""); // Trim - from end of text
-            }
         },
     };
 </script>

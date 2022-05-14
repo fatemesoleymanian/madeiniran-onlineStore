@@ -19,12 +19,12 @@
             display: flex;
         }
         .shop-select {
-            margin-right: 50px;
+            margin-left: 50px;
             @media #{$xs-layout}{
-                margin-right: 0;
+                margin-left: 0;
             }
             @media #{$sm-layout}{
-                margin-right: 30px;
+                margin-left: 30px;
             }
             select {
                 font-size: 14px;
@@ -51,7 +51,7 @@
             color: #606060;
             font-size: 18px;
             padding: 0;
-            margin-left: 20px;
+            margin-right: 20px;
             &:hover,
             &.active {
                 color: #fa6bff;
@@ -111,7 +111,7 @@
         .pro-action {
             .pro-wishlist,
             .pro-compare {
-                margin-left: 15px;
+                margin-right: 15px;
                 button {
                     font-size: 20px;
                     &:hover {
@@ -147,14 +147,14 @@
                 }
             }
             .product-content {
-                text-align: left !important;
-                padding-left: 30px;
+                text-align: right !important;
+                padding-right: 30px;
                 @media #{$xs-layout}{
-                    padding-left: 0;
+                    padding-right: 0;
                     margin-top: 20px;
                 }
                 @media #{$sm-layout}{
-                    padding-left: 30px;
+                    padding-right: 30px;
                     margin-top: 0;
                 }
                 &__list-view {

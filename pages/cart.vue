@@ -23,16 +23,16 @@
                                 <tbody>
                                     <tr v-for="(product, index) in products" :key="index">
                                         <td class="product-thumbnail">
-                                            <n-link :to="`/product/${slugify(product.title)}`">
-                                                <img :src="product.images[0]" :alt="product.title">
+                                            <n-link :to="`/product/${product.product.name}`">
+                                                <img :src="product.product.image" :alt="product.product.name">
                                             </n-link>
                                         </td>
                                         <td class="product-name">
-                                            <n-link :to="`/product/${slugify(product.title)}`">{{ product.title }}</n-link>
+                                            <n-link :to="`/product/${product.product.name}`">{{ product.product.name }}</n-link>
                                         </td>
                                         <td class="product-price-cart">
-                                            <span class="amount">${{ discountedPrice(product).toFixed(2) }}</span>
-                                            <del class="old">${{ product.price.toFixed(2) }}</del>
+                                            <span class="amount">${{ product.product.discount }}</span>
+                                            <del class="old">${{ product.product.discount }}</del>
                                         </td>
                                         <td class="product-quantity">
                                             <div class="cart-plus-minus">
@@ -41,7 +41,7 @@
                                                 <button @click="incrementProduct(product)" class="inc qtybutton">+</button>
                                             </div>
                                         </td>
-                                        <td class="product-subtotal">${{ product.total.toFixed(2) }}</td>
+                                        <td class="product-subtotal">${{ product.total }}</td>
                                         <td class="product-remove">
                                             <button @click="removeProduct(product)"><i class="fa fa-times"></i></button>
                                         </td>
@@ -108,7 +108,7 @@
                             <div class="col-lg-4 col-md-6">
                                 <div class="discount-code-wrapper">
                                     <div class="title-wrap">
-                                    <h4 class="cart-bottom-title section-bg-gray">Use Coupon Code</h4> 
+                                    <h4 class="cart-bottom-title section-bg-gray">Use Coupon Code</h4>
                                     </div>
                                     <div class="discount-code">
                                         <p>Enter your coupon code if you have one.</p>
@@ -200,21 +200,10 @@
                 if (confirm("Are you sure you want to clear cart")) {
                     // for notification
                     this.$notify({ title: 'Item remove from cart!'})
-                    
+
                     this.$store.commit('CLEAR_CART')
                 }
             },
-
-            slugify(text) {
-                return text
-                    .toString()
-                    .toLowerCase()
-                    .replace(/\s+/g, "-") // Replace spaces with -
-                    .replace(/[^\w-]+/g, "") // Remove all non-word chars
-                    .replace(/--+/g, "-") // Replace multiple - with single -
-                    .replace(/^-+/, "") // Trim - from start of text
-                    .replace(/-+$/, ""); // Trim - from end of text
-            }
         },
 
         head() {
@@ -222,9 +211,19 @@
                 title: "سبد خرید"
             }
         },
-         mounted()
+        async mounted()
         {
-             if (!localStorage.getItem('116111107101110')) window.location = '/';  
+             if (!localStorage.getItem('116111107101110')) window.location = '/login-register';
+
+             else {
+               const user = localStorage.getItem('117115101114');
+               const userr = JSON.parse(user)
+               this.$axios.setToken(localStorage.getItem('116111107101110'),'Bearer');
+               const card = await this.$axios.get(`/card/${userr.id}`)
+              this.$store.dispatch('initCart',card.data.products)
+              // console.log(card.data.products)
+                 console.log(this.$store.getters.getCart)
+             }
         },
     };
 </script>

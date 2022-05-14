@@ -174,15 +174,15 @@
                 font-weight: 500;
                 position: relative;
                 transition: none;
-                &::before {
-                    position: absolute;
-                    content: "";
-                    right: -13px;
-                    top: 10px;
-                    width: 7px;
-                    height: 2px;
-                    background-color: $black;
-                }
+                //&::before {
+                //    position: absolute;
+                //    content: "";
+                //    right: -13px;
+                //    top: 10px;
+                //    width: 7px;
+                //    height: 2px;
+                //    background-color: $black;
+                //}
                 &:last-child:before {
                     display: none;
                 }
@@ -209,12 +209,12 @@
 .product-details-content {
     @media #{$lg-layout, $md-layout}{
         &.ml-70{
-            margin-left: 0;
+            margin-right: 0;
         }
     }
     @media #{$xs-layout}{
         &.ml-70{
-            margin-left: 0;
+            margin-right :0;
             margin-top: 30px;
         }
     }
@@ -232,7 +232,7 @@
     .product-details-price {
         display: flex;
         align-items: center;
-        margin: 15px 0 26px;
+        margin: 20px 0 26px;
         span {
             font-size: 24px;
             color: #fe5252;
@@ -240,7 +240,7 @@
                 color: $dark;
                 font-size: 18px;
                 text-decoration: line-through;
-                margin-left: 20px;
+                margin-right: 20px;
             }
         }
     }
@@ -279,7 +279,7 @@
             }
         }
     }
-    p {
+    .p {
         font-size: 15px;
         line-height: 28px;
         color: $dark;
@@ -503,15 +503,15 @@
                 }
 
                 & input:checked + .check-mark {
-                    &:before, 
+                    &:before,
                     &:after {
                         opacity: 1;
                         visibility: visible;
-                    } 
+                    }
                 }
                 &.brown {
-                    background-color: brown;  
-                    border: 1px solid brown;  
+                    background-color: brown;
+                    border: 1px solid brown;
                 }
                 &.black {
                     background-color: $dark;
@@ -546,7 +546,8 @@
                 }
                 .check-mark {
                     min-width: 32px;
-                    height: 30px;
+                    //height: 30px;
+                    padding: 10px;
                     font-size: 13px;
                     text-align: center;
                     line-height: 30px;
@@ -560,7 +561,7 @@
                 }
             }
         }
-        
+
     }
 }
 
@@ -792,7 +793,7 @@
                     }
                 }
             }
-        }  
+        }
     }
     &.pro-puce-color {
         .product-img {
@@ -823,7 +824,7 @@
                     }
                 }
             }
-        }  
+        }
     }
 }
 

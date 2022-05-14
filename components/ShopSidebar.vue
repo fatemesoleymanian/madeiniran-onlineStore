@@ -1,51 +1,50 @@
 <template>
     <div class="sidebar-style" :class="classes">
         <div class="sidebar-widget">
-            <h4 class="pro-sidebar-title">Search</h4>
-            <div class="pro-sidebar-search mb-50 mt-25">
-                <form class="pro-sidebar-search-form">
-                    <input type="text" placeholder="Search here...">
-                    <button>
-                        <i class="pe-7s-search"></i>
-                    </button>
-                </form>
-            </div>
+<!--            <h4 class="pro-sidebar-title">جستجو</h4>-->
+<!--            <div class="pro-sidebar-search mb-50 mt-25">-->
+<!--                <form class="pro-sidebar-search-form">-->
+<!--                    <input type="text" placeholder="جستجوی محصول ..." @keyup.enter="search" v-model="str">-->
+<!--                    <button @click="search">-->
+<!--                        <i class="pe-7s-search" ></i>-->
+<!--                    </button>-->
+<!--                </form>-->
+<!--            </div>-->
         </div>
 
         <!-- category widget  -->
         <div class="sidebar-widget">
-            <h4 class="pro-sidebar-title">Categories</h4>
+            <h4 class="pro-sidebar-title">دسته بندی ها</h4>
             <ul class="sidebar-widget-list mt-20">
+              <li class="sidebar-widget-list-left">
+                <n-link :to="`?category=all`" >
+                  <span class="check-mark"></span>
+                  همه
+                </n-link>
+              </li>
                 <li class="sidebar-widget-list-left" v-for="(category, index) in categoryList" :key="index">
-                    <n-link :to="`?category=${slugify(category)}`">
+                    <n-link :to="`?category=${category.id}`" >
                         <span class="check-mark"></span>
-                        {{ category }}
+                        {{ category.name }}
                     </n-link>
                 </li>
             </ul>
         </div>
 
-        <!-- color widget  -->
+        <!-- state widget  -->
         <div class="sidebar-widget mt-50">
-            <h4 class="pro-sidebar-title">Colour</h4>
+            <h4 class="pro-sidebar-title">ظرفیت ها</h4>
             <ul class="sidebar-widget-list mt-20">
-                <li class="sidebar-widget-list-left" v-for="(color, index) in colorList" :key="index" >
-                    <n-link :to="`?color=${slugify(color)}`">
+              <li class="sidebar-widget-list-left">
+                <n-link :to="`?state=all`">
+                  <span class="check-mark"></span>
+              همه
+                </n-link>
+              </li>
+                <li class="sidebar-widget-list-left" v-for="(state, index) in stateList" :key="index" >
+                    <n-link :to="`?state=${state}`">
                         <span class="check-mark"></span>
-                        {{ color }}
-                    </n-link>
-                </li>
-            </ul>
-        </div>
-
-        <!-- size widget  -->
-        <div class="sidebar-widget mt-50">
-            <h4 class="pro-sidebar-title">Sizes</h4>
-            <ul class="sidebar-widget-list mt-20">
-                <li class="sidebar-widget-list-left" v-for="(size, index) in sizeList" :key="index" >
-                    <n-link :to="`?size=${slugify(size)}`">
-                        <span class="check-mark"></span>
-                        {{ size }}
+                        {{ state }}
                     </n-link>
                 </li>
             </ul>
@@ -53,12 +52,17 @@
 
         <!-- tag widget  -->
         <div class="sidebar-widget sidebar-widget__tag mt-60">
-            <h4 class="pro-sidebar-title">Tags</h4>
+            <h4 class="pro-sidebar-title">تگ ها</h4>
             <div class="sidebar-widget-tag mt-30">
                 <ul>
+                  <li >
+                    <n-link :to="`?tag=all`">
+                      همه
+                    </n-link>
+                  </li>
                     <li v-for="(tag, index) in tagList" :key="index">
-                        <n-link :to="`?tag=${slugify(tag)}`">
-                            {{ tag }}
+                        <n-link :to="`?tag=${tag.id}`">
+                            {{ tag.name }}
                         </n-link>
                     </li>
                 </ul>
@@ -70,15 +74,18 @@
 <script>
     export default {
         props: ["classes"],
+      data()
+      {
+        return{
+          // str:''
+        }
+      },
         computed: {
             categoryList() {
                 return this.$store.getters.categoryList
             },
-            sizeList() {
-                return this.$store.getters.sizeList
-            },
-            colorList() {
-                return this.$store.getters.colorList
+            stateList() {
+                return this.$store.getters.stateList
             },
             tagList() {
                 return this.$store.getters.tagList
@@ -86,16 +93,17 @@
         },
 
         methods: {
-            slugify(text) {
-                return text
-                    .toString()
-                    .toLowerCase()
-                    .replace(/\s+/g, "-") // Replace spaces with -
-                    .replace(/[^\w-]+/g, "") // Remove all non-word chars
-                    .replace(/--+/g, "-") // Replace multiple - with single -
-                    .replace(/^-+/, "") // Trim - from start of text
-                    .replace(/-+$/, ""); // Trim - from end of text
-            }
+           // async search(e)
+           //  {
+           //    e.preventDefault();
+           //    if(this.str)
+           //    {
+           //      const result = await this.$axios.get(`just_products_search/${this.str}`);
+           //      this.$store.dispatch('setProduct', result.data.products);
+           //    }
+           //
+           //  },
+
         }
     };
 </script>

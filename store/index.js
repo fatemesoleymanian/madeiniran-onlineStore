@@ -1,19 +1,20 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
 
-import products from "../data/product.json";
-
 Vue.use(Vuex)
 
 export const state = () => ({
-    products: products,
+    products: [],
     cart: [],
     wishlist: [],
     compare: [],
     blogs: [],
     latestBlogs:[],
     flag : false,
-    newUser:false
+    newUser:false,
+    categories:[],
+    tags:[],
+    states:[]
 })
 
 
@@ -21,6 +22,9 @@ export const state = () => ({
 export const getters = {
     getProducts(state) {
         return state.products
+    },
+    getStates(state) {
+        return state.states
     },
 
     getNewUser(state)
@@ -87,17 +91,15 @@ export const getters = {
         })
     },
 
-    categoryList: state => {
-        return ["all categories",...new Set(state.products.map((list) => list.category).flat())]
+    categoryList(state) {
+        return state.categories
     },
     tagList: state => {
-        return [...new Set(state.products.map((list) => list.tag).flat())]
+        return state.tags
     },
-    sizeList: state => {
-        return ["all sizes",...new Set(state.products.map((list) => list.variation?.sizes).flat())].filter(Boolean)
-    },
-    colorList: state => {
-        return ["all colors",...new Set(state.products.map((list) => list.variation?.color).flat())].filter(Boolean)
+
+    stateList: state => {
+        return state.states
     },
 }
 
@@ -108,10 +110,20 @@ export const mutations = {
     SET_PRODUCT(state, product) {
         state.products = product
     },
+    SET_STATE(state, states) {
+        state.states = states
+    },
     SET_BLOG(state, blog) {
         state.blogs = blog
     },
 
+    SET_CART(state,cart)
+    {
+        state.cart = cart
+    },
+    SET_TAG(state,tag){
+        state.tags = tag
+    },
     SET_NEW_USER(state,newUser)
     {
         state.newUser = newUser
@@ -122,6 +134,10 @@ export const mutations = {
     SET_FLAG(state,flag)
     {
         state.flag = flag
+    },
+    SET_Category(state,category)
+    {
+        state.categories = category
     },
     UPDATE_CART(state, payload) {
         const item = state.cart.find(el => payload.id === el.id)
@@ -186,13 +202,31 @@ export const mutations = {
 
 // contains your actions
 export const actions = {
+
+    setProduct({commit},product){
+        commit('SET_PRODUCT',product)
+    },
+    setState({commit},state){
+        commit('SET_STATE',state)
+    },
     addToCartItem({commit}, payload) {
         commit('UPDATE_CART', payload)
     },
 
+    initCart({commit},cart)
+    {
+        commit('SET_CART',cart)
+    },
+    setTags({commit},tag){
+        commit('SET_TAG',tag)
+    },
     setFlag({commit},flag)
     {
         commit('SET_FLAG',flag)
+    },
+    setCategory({commit},category)
+    {
+        commit('SET_Category',category)
     },
     setNewUser({commit},newUser)
     {
