@@ -34,10 +34,12 @@
                             </div>
                         </div>
                         <!-- end shop top bar -->
+                      <div id="loading" v-if="loader"></div>
 
                         <!-- shop product -->
-                        <div class="shop-bottom-area mt-35">
-                            <div class="row product-layout" :class="{ 'list': layout === 'list', 'grid three-column': layout === 'threeColumn', 'grid two-column': layout === 'twoColumn' }">
+                        <div class="shop-bottom-area mt-35" v-if="!loader">
+                            <div class="row product-layout"
+                                 :class="{ 'list': layout === 'list', 'grid three-column': layout === 'threeColumn', 'grid two-column': layout === 'twoColumn' }">
                                 <div class="col-xl-4 col-sm-6" v-for="(product, index) in getItems" :key="index" >
                                     <ProductGridItem :product="product" :layout="layout"  />
                                 </div>
@@ -45,8 +47,11 @@
                         </div>
                         <!-- end shop product -->
 
-                        <div v-if="getPaginateCount > 1">
-                            <pagination class="pro-pagination-style shop-pagination mt-30" v-model="currentPage" :per-page="perPage" :records="filterItems.length" @paginate="paginateClickCallback" :page-count="getPaginateCount" />
+                        <div v-if="getPaginateCount > 1 ">
+                            <pagination class="pro-pagination-style shop-pagination mt-30"
+                                        v-model="currentPage" :per-page="perPage"
+                                        :records="filterItems.length" @paginate="paginateClickCallback"
+                                        :page-count="getPaginateCount" />
                         </div>
                     </div>
 
@@ -65,6 +70,7 @@
 
 <script>
     export default {
+
         components: {
             HeaderWithTopbar: () => import('@/components/TheHeader'),
             Breadcrumb: () => import('@/components/Breadcrumb'),
@@ -75,6 +81,7 @@
 
         data() {
             return {
+              loader:true,
                 layout: "threeColumn",
                 filterItems: [],
                 prevSelectedCategoryName: '',
@@ -103,6 +110,7 @@
         },
 
         async mounted(){
+          this.loader =true
           const [products,categories,tags] = await Promise.all([
             this.$axios.get('/products'),
             this.$axios.get('/categories'),
@@ -121,6 +129,8 @@
           }
           this.$store.dispatch('setState',states)
             this.updateProductData()
+          this.loader = false
+
         },
 
         methods: {
@@ -232,3 +242,25 @@
     };
 </script>
 
+<style scoped>
+@import url(https://fonts.googleapis.com/css?family=Roboto:100);
+
+
+#loading {
+  margin: 100px auto;
+  width: 80px;
+  height: 80px;
+  border: 3px solid rgba(0,0,0,.5);
+  border-radius: 50%;
+  border-top-color: #000;
+  animation: spin 1s ease-in-out infinite;
+  -webkit-animation: spin 1s ease-in-out infinite;
+}
+
+@keyframes spin {
+  to { -webkit-transform: rotate(360deg); }
+}
+@-webkit-keyframes spin {
+  to { -webkit-transform: rotate(360deg); }
+}
+</style>

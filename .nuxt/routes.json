@@ -112,6 +112,13 @@
     "_name": "_b56657e4"
   },
   {
+    "name": "search-str",
+    "path": "/search/:str?",
+    "component": "E:\\\\My Portfolio\\\\Freelancing\\\\MadeInIr\\\\front\\\\MadeInIran\\\\pages\\\\search\\\\_str.vue",
+    "chunkName": "pages/search/_str",
+    "_name": "_575140a6"
+  },
+  {
     "name": "index",
     "path": "/",
     "component": "E:\\\\My Portfolio\\\\Freelancing\\\\MadeInIr\\\\front\\\\MadeInIran\\\\pages\\\\index.vue",

@@ -14,7 +14,7 @@
         <div class="sidebar-widget">
             <h4 class="pro-sidebar-title">وبلاگ های اخیر</h4>
             <div class="sidebar-project-wrap mt-30" v-for="(blog ,i ) in latest" :key="i" v-if="latest.length">
-               
+
                  <div class="single-sidebar-blog">
                     <div class="sidebar-blog-img">
                         <n-link :to="`/blog/${blog.id}`">
@@ -30,10 +30,11 @@
                         </h4>
                     </div>
                 </div>
-               
+
             </div>
         </div>
-        <div class="sidebar-widget mt-35">
+      <span class="clear_blog_filter py-4" @click="clearFilter" >حذف همه فیلتر ها  <i class="fa fa-trash" aria-hidden="true"></i></span>
+      <div class="sidebar-widget mt-35">
             <h4 class="pro-sidebar-title">دسته بندیها</h4>
             <ul class="sidebar-widget-list mt-20" v-for="(c,i) in categories" :key="i" v-if="categories.length">
                 <li class="sidebar-widget-list-left" @click="filterCat(c.name)">
@@ -43,7 +44,7 @@
                         <span>{{c.blog.length}}</span>
                     </a>
                 </li>
-            
+
             </ul>
         </div>
         <div class="sidebar-widget mt-50">
@@ -53,7 +54,7 @@
                     <li @click="filterTag(t.name)">
                         <a href="#">{{t.name}}</a>
                     </li>
-                  
+
                 </ul>
             </div>
         </div>
@@ -68,7 +69,8 @@
                 str:'',
                 latest:[],
                 categories:[],
-                tags:[]
+                tags:[],
+              blogs_no_filter:[]
             }
 
         },
@@ -83,8 +85,9 @@
             this.tags = tags.data;
             this.categories =categories.data;
 
-            this.latest = latestBlogs.data
-            
+            this.latest = latestBlogs.data;
+            this.blogs_no_filter = this.$store.getters.getBlogs
+
         },
         methods:{
             async search_blog(e){
@@ -111,7 +114,11 @@
                    })
                  }
                  ));
-            }
+            },
+          clearFilter()
+          {
+            this.$store.dispatch('updateBlogs',this.blogs_no_filter)
+          }
         }
 
     };

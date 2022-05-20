@@ -12,7 +12,7 @@
             <div class="product-action" v-if="layout === 'twoColumn' || layout === 'threeColumn'">
                 <div class="pro-same-action pro-wishlist">
                     <button class="btn" title="لیست علاقمندیها" @click="addToWishlist(product)">
-                        <i class="pe-7s-like"></i>
+                        <i :class="checkIsLiked === true ? 'fa fa-heart' : 'pe-7s-like'"></i>
                     </button>
                 </div>
                 <div class="pro-same-action pro-cart">
@@ -71,8 +71,8 @@
 <!--                <i class="fa fa-star-o"></i>-->
 <!--            </div>-->
             <div class="product-price">
-                <span>{{ product.state[0].discounted_price }} تومان </span>-
-                <span class="old" v-if="product.discount > 0">{{ product.state[0].price }}تومان</span>
+                <span>{{ product.state[0].discounted_price.replace(/\B(?=(\d{3})+(?!\d))/g, ',') }} تومان </span>-
+                <span class="old" v-if="product.discount > 0">{{ product.state[0].price.replace(/\B(?=(\d{3})+(?!\d))/g, ',') }}تومان</span>
             </div>
             <div class="product-content__list-view" v-if="layout === 'list'">
                 <p  v-html="product.description_excerpt"></p>
@@ -88,7 +88,7 @@
                     </div>
                     <div class="pro-wishlist">
                         <button @click="addToWishlist(product)">
-                            <i class="fa fa-heart-o"></i>
+                            <i :class="checkIsLiked === true ? 'fa fa-heart' : 'fa fa-heart-o'"></i>
                         </button>
                     </div>
 
@@ -102,8 +102,17 @@
     export default {
         props: ["product", "layout"],
 
+      computed: {
+            checkIsLiked()
+            {
+              if (this.$store.state.wishlist.find(el => this.product.id === el.id)) return true;
+              else return  false;
+            }
+          },
+
         methods: {
             addToCart(product) {
+              if (!localStorage.getItem('116111107101110')) return  window.location = '/login-register';
                 const prod = {...product, cartQuantity: 1}
                 // for notification
                 if (this.$store.state.cart.find(el => product.id === el.id)) {
@@ -119,18 +128,34 @@
                 return product.price - (product.price * product.discount / 100)
             },
 
-            addToWishlist(product) {
+            async addToWishlist(product) {
+              if (!localStorage.getItem('116111107101110')) return  window.location = '/login-register';
                 // for notification
-                if (this.$store.state.wishlist.find(el => product.id === el.id)) {
-                    this.$notify({ title: 'این محصول در لیست علاقمندیهای شما وجود دارد!' })
-                } else {
-                    this.$notify({ title: 'این محصول به لیست علاقمندی های شما افزوده شد!'})
-                }
+              const user = localStorage.getItem('117115101114');
+              const userr = JSON.parse(user);
+              const data = {
+                user: userr.id,
+                product: product.id,
+              }
+              this.$axios.setToken(localStorage.getItem('116111107101110'), 'Bearer');
 
+              if (this.$store.state.wishlist.find(el => product.id === el.id)) {
+                const remove = await  this.$axios.delete('/bookmark',{data})
+                this.$store.dispatch('removeProductFromWishlist',product)
+                this.$notify({title: 'این محصول از لیست علاقمندیهای شما حذف شد!'})
+              }
+              else {
+                const card = await this.$axios.post(`/bookmark`, data)
+                this.$notify({title: 'این محصول به لیست علاقمندیهای شما افزوده شد!'})
                 this.$store.dispatch('addToWishlist', product)
+              }
             },
 
             onClick(product) {
+              const category = product.category.name;
+              const states = product.state
+              this.$store.dispatch('setOneCategoryProduct',category)
+              this.$store.dispatch('setOneProductStates',states)
                 this.$modal.show('quickview', product);
             },
 

@@ -7,7 +7,7 @@
             <div class="product-details-img">
               <div class="product-badges">
                 <span class="product-label pink" v-if="product.state">جدید</span>
-                <span class="product-label purple" v-if="product.state">-{{ product.state[0].discounted_price }}%</span>
+                <span class="product-label purple" v-if="product.state">-{{ product.state[0].discounted_price.replace(/\B(?=(\d{3})+(?!\d))/g, ',') }}%</span>
               </div>
               <swiper :options="swiperOptionTop" ref="swiperTop">
                 <div class="large-img swiper-slide">
@@ -32,8 +32,8 @@
           <div class="product-details-content ml-70">
             <h2>{{ product.name }}</h2>
             <div class="product-details-price">
-              <span>  {{ discounted_price }} تومان  </span>
-              <span class="old" v-if="product.discount > 0">{{ pricee }} تومان</span>
+              <span>  {{ discounted_price.replace(/\B(?=(\d{3})+(?!\d))/g, ',') }} تومان  </span>
+              <span class="old" v-if="product.discount > 0">{{ pricee.replace(/\B(?=(\d{3})+(?!\d))/g, ',') }} تومان</span>
             </div>
             <div class="pro-details-rating-wrap">
               <!--                            <div class="pro-details-rating" v-if="product.state ">-->
@@ -73,7 +73,7 @@
               <!--                            </div>-->
               <!--                            <span><a href="#">{{ product.discount }} Reviews</a></span>-->
             </div>
-            <div class="p" v-html="product.description"></div>
+            <div class="p" v-html="product.description_excerpt"></div>
             <div class="pro-details-size-color" v-if="product.state">
               <!--                            <div class="pro-details-color-wrap">-->
               <!--                                <h6 class="label">Color</h6>-->
@@ -88,7 +88,7 @@
                 <h6 class="label">ظرفیت ها :</h6>
                 <div class="pro-details-size-content">
                   <label class="radio" v-for="(item, index) in product.state" :key="index">
-                    <input type="radio" name="sizeGroup"  @click="priceByState(index)"/>
+                    <input type="radio" name="sizeGroup" checked  @click="priceByState(index)"/>
                     <span class="check-mark">{{ item.type }}</span>
                   </label>
                 </div>
@@ -104,7 +104,9 @@
                 <button @click="addToCart(product)">افزودن به سبد خرید</button>
               </div>
               <div class="pro-details-wishlist">
-                <button @click="addToWishlist(product)" title="wishlist"><i class="fa fa-heart-o"></i></button>
+                <button @click="addToWishlist(product)" title="لیست علاقمندیها">
+                  <i :class="checkIsLiked === true ? 'fa fa-heart' : 'fa fa-heart-o'"></i>
+                </button>
               </div>
             </div>
             <div class="pro-details-meta">
@@ -208,8 +210,16 @@ export default {
   //   return console.log(this.product)
   // },
     mounted() {
+      this.indexOfState=(this.states.length-1)
    this.settingPrice()
     },
+  computed:{
+    checkIsLiked()
+    {
+      if (this.$store.state.wishlist.find(el => this.product.id === el.id)) return true;
+      else return  false;
+    }
+  },
 
   methods: {
     priceByState(index)
@@ -232,24 +242,30 @@ export default {
       }
     },
     async addToCart(product) {
+      if (!localStorage.getItem('116111107101110')) return  window.location = '/login-register';
+      if (this.state_id === '') return  this.$notify({title: 'لطفا ظرفیت محصول را انتخاب کنید!'})
       const prod = {...product, cartQuantity: this.singleQuantity}
       // for notification
       if (this.$store.state.cart.find(el => this.state_id === el.state_id)) {
         this.$notify({title: 'این محصول در سبد خرید شما وجود دارد!'})
-      } else {
+      }
+      else {
         const user = localStorage.getItem('117115101114');
         const userr = JSON.parse(user)
 
         const data = {
           user_id: userr.id,
           product: product.id,
-          state: this.state_id
+          state: this.state_id,
+          count:this.singleQuantity
         }
         this.$axios.setToken(localStorage.getItem('116111107101110'), 'Bearer');
         const card = await this.$axios.post(`/card`, data)
         this.$notify({title: 'محصول با موفقیت به سبد خرید افزوده شد!'})
+        const newPro = await  this.$axios.get(`/card_one_pro/${card.data.msg.id}`);
+        this.$store.dispatch('addToCartItem',newPro.data.product[0] )
       }
-      this.$store.dispatch('addToCartItem', prod)
+
     },
 
     discountedPrice(product) {
@@ -257,26 +273,41 @@ export default {
     },
 
     increaseQuantity() {
+      if (!localStorage.getItem('116111107101110')) return  window.location = '/login-register';
       if (this.product.inventory >= this.singleQuantity) this.singleQuantity++
     },
 
     decreaseQuantity() {
+      if (!localStorage.getItem('116111107101110')) return  window.location = '/login-register';
       if (this.singleQuantity > 1) this.singleQuantity--
     },
 
-    addToWishlist(product) {
+    async addToWishlist(product) {
+      if (!localStorage.getItem('116111107101110')) return  window.location = '/login-register';
       // for notification
-      if (this.$store.state.wishlist.find(el => product.id === el.id)) {
-        this.$notify({title: 'این محصول در لیست علاقمندیهای شما وجود دارد!'})
-      } else {
-        this.$notify({title: 'این محصول به لیست علاقمندیهای شما افزوده شد!'})
+      const user = localStorage.getItem('117115101114');
+      const userr = JSON.parse(user);
+      const data = {
+        user: userr.id,
+        product: product.id,
       }
-      this.$store.dispatch('addToWishlist', product)
+      this.$axios.setToken(localStorage.getItem('116111107101110'), 'Bearer');
+
+      if (this.$store.state.wishlist.find(el => product.id === el.id)) {
+      const remove = await  this.$axios.delete('/bookmark',{data})
+        this.$store.dispatch('removeProductFromWishlist',product)
+        this.$notify({title: 'این محصول از لیست علاقمندیهای شما حذف شد!'})
+      }
+      else {
+        const card = await this.$axios.post(`/bookmark`, data)
+        this.$notify({title: 'این محصول به لیست علاقمندیهای شما افزوده شد!'})
+        this.$store.dispatch('addToWishlist', product)
+      }
+
     },
 
   },
 };
 </script>
 
-hme ksm mn mirm bkhabm ke frda biam dan ghshngm=)))))
-sob insta bia pishm muchh be srt nfsm:* :* :*
+

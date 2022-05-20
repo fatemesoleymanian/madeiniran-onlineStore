@@ -7,41 +7,46 @@
             <div class="container">
                 <div class="row">
                     <div class="col-12" v-if="products.length > 0">
-                        <h3 class="cart-page-title">Your cart items</h3>
-                        <div class="table-content table-responsive cart-table-content">
+                        <h3 class="cart-page-title">سبد خرید شما</h3>
+                      <div id="loading" v-if="loader"></div>
+                      <div class="table-content table-responsive cart-table-content" v-if="!loader">
                             <table>
                                 <thead>
                                     <tr>
-                                        <th>Image</th>
-                                        <th>Product Name</th>
-                                        <th>Until Price</th>
-                                        <th>Qty</th>
-                                        <th>Subtotal</th>
-                                        <th>action</th>
+                                        <th>عکس محصول</th>
+                                        <th>نام محصول</th>
+                                        <th>قیمت محصول</th>
+                                        <th>ظرفیت</th>
+                                        <th>تعداد</th>
+                                        <th>قیمت (بر اساس تعداد)</th>
+                                        <th>عملیات</th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     <tr v-for="(product, index) in products" :key="index">
                                         <td class="product-thumbnail">
-                                            <n-link :to="`/product/${product.product.name}`">
+                                            <n-link :to="`/product/${product.product.id}`">
                                                 <img :src="product.product.image" :alt="product.product.name">
                                             </n-link>
                                         </td>
                                         <td class="product-name">
-                                            <n-link :to="`/product/${product.product.name}`">{{ product.product.name }}</n-link>
+                                            <n-link :to="`/product/${product.product.id}`">{{ product.product.name }}</n-link>
                                         </td>
                                         <td class="product-price-cart">
-                                            <span class="amount">${{ product.product.discount }}</span>
-                                            <del class="old">${{ product.product.discount }}</del>
+                                            <span class="amount">{{ product.state.discounted_price.replace(/\B(?=(\d{3})+(?!\d))/g, ',') }}تومان</span>
+                                            <del class="old" v-if="product.product.discount >0">{{ product.state.price.replace(/\B(?=(\d{3})+(?!\d))/g, ',') }}</del>
                                         </td>
+                                      <td class="product-price-cart">
+                                        <span class="amount">{{ product.state.type }}</span>
+                                      </td>
                                         <td class="product-quantity">
                                             <div class="cart-plus-minus">
                                                 <button @click="decrementProduct(product)" class="dec qtybutton">-</button>
-                                                <input class="cart-plus-minus-box" type="text" :value="product.cartQuantity" readonly>
+                                                <input class="cart-plus-minus-box" type="text" :value="product.count " readonly>
                                                 <button @click="incrementProduct(product)" class="inc qtybutton">+</button>
                                             </div>
                                         </td>
-                                        <td class="product-subtotal">${{ product.total }}</td>
+                                        <td class="product-subtotal">{{ (product.count * product.state.discounted_price).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',') }} تومان </td>
                                         <td class="product-remove">
                                             <button @click="removeProduct(product)"><i class="fa fa-times"></i></button>
                                         </td>
@@ -49,85 +54,41 @@
                                 </tbody>
                             </table>
                         </div>
-                        <div class="row">
+                        <div class="row" v-if="!loader">
                             <div class="col-lg-12">
                                 <div class="cart-shiping-update-wrapper">
                                     <div class="cart-shiping-update">
-                                        <n-link to="/shop">Continue Shopping</n-link>
+                                        <n-link to="/shop">ادامه خرید</n-link>
                                     </div>
                                     <div class="cart-clear">
-                                        <button @click="clearCart()">Clear Shopping Cart</button>
+                                        <button @click="clearCart()">خالی کردن سبد خرید</button>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                        <div class="row">
+                        <div class="row" v-if="!loader">
                             <div class="col-lg-4 col-md-6">
-                                <div class="cart-tax">
-                                    <div class="title-wrap">
-                                        <h4 class="cart-bottom-title section-bg-gray">Estimate Shipping And Tax</h4>
-                                    </div>
-                                    <div class="tax-wrapper">
-                                        <p>Enter your destination to get a shipping estimate.</p>
-                                        <div class="tax-select-wrapper">
-                                            <div class="tax-select">
-                                                <label>
-                                                    * Country
-                                                </label>
-                                                <select class="email s-email s-wid">
-                                                    <option>Bangladesh</option>
-                                                    <option>Albania</option>
-                                                    <option>Aland Islands</option>
-                                                    <option>Afghanistan</option>
-                                                    <option>Belgium</option>
-                                                </select>
-                                            </div>
-                                            <div class="tax-select">
-                                                <label>
-                                                    * Region / State
-                                                </label>
-                                                <select class="email s-email s-wid">
-                                                    <option>Bangladesh</option>
-                                                    <option>Albania</option>
-                                                    <option>Aland Islands</option>
-                                                    <option>Afghanistan</option>
-                                                    <option>Belgium</option>
-                                                </select>
-                                            </div>
-                                            <div class="tax-select">
-                                                <label>
-                                                    * Zip/Postal Code
-                                                </label>
-                                                <input type="text">
-                                            </div>
-                                            <button class="cart-btn-2" type="submit">Get A Quote</button>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-lg-4 col-md-6">
-                                <div class="discount-code-wrapper">
-                                    <div class="title-wrap">
-                                    <h4 class="cart-bottom-title section-bg-gray">Use Coupon Code</h4>
-                                    </div>
-                                    <div class="discount-code">
-                                        <p>Enter your coupon code if you have one.</p>
-                                        <form>
-                                            <input type="text" required="" name="name">
-                                            <button class="cart-btn-2" type="submit">Apply Coupon</button>
-                                        </form>
-                                    </div>
-                                </div>
+
                             </div>
                             <div class="col-lg-4 col-md-12">
-                                <div class="grand-total">
-                                    <div class="title-wrap">
-                                        <h4 class="cart-bottom-title section-bg-gary-cart">Cart Total</h4>
-                                    </div>
-                                    <h5>Total products <span>${{ total.toFixed(2) }}</span></h5>
-                                    <h4 class="grand-total-title">Grand Total  <span>${{ total.toFixed(2) }}</span></h4>
-                                    <n-link to="/checkout">Proceed to Checkout</n-link>
+                              <div class="grand-total">
+                                <div class="title-wrap">
+                                  <h4 class="cart-bottom-title section-bg-gary-cart">مجموع :</h4>
                                 </div>
+                                <h5> مجموع <span>
+                                  {{ total }} تومان
+                                </span>
+                                </h5>
+                                <h4 class="grand-total-title">
+                                  مجموع قیمت <span>
+                                  {{ total }} تومان
+                                  </span>
+                                </h4>
+                                <n-link to="/checkout">تسویه حساب</n-link>
+                              </div>
+                            </div>
+                            <div class="col-lg-4 col-md-6">
+
                             </div>
                         </div>
                     </div>
@@ -136,8 +97,8 @@
                             <div class="icon">
                                 <i class="pe-7s-cart"></i>
                             </div>
-                            <h4>No items found in cart</h4>
-                            <n-link to="/shop" class="empty-cart__button">Shop Now</n-link>
+                            <h4>هیچ محصولی در سبد خرید شما یافت نشد!</h4>
+                            <n-link to="/shop" class="empty-cart__button">همین الان خرید کن</n-link>
                         </div>
                     </div>
                 </div>
@@ -149,6 +110,7 @@
 
 <script>
     export default {
+
         components: {
             HeaderWithTopbar: () => import('@/components/TheHeader'),
             Breadcrumb: () => import('@/components/Breadcrumb'),
@@ -156,7 +118,9 @@
         },
         data() {
             return {
-                singleQuantity: 1
+              loader:true,
+                singleQuantity: 1,
+              cardProducts : []
             }
         },
 
@@ -166,29 +130,55 @@
             },
 
             total() {
-                return this.$store.getters.getTotal
+              let total =0;
+              for (let i in this.$store.getters.getCart)
+              {
+                // console.log(this.$store.getters.getCart[i])
+               let item = this.$store.getters.getCart[i].state.discounted_price * this.$store.getters.getCart[i].count;
+
+                total += item ;
+              }
+
+              return  total.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')
+
             },
         },
 
         methods: {
-            incrementProduct(product) {
-                const prod = { ...product, cartQuantity: 1 }
-                if (product.cartQuantity < product.quantity) {
-                    this.$store.dispatch('addToCartItem', prod)
+            async incrementProduct(product) {
+
+                if (product.count < product.product.inventory) {
+                    this.$store.dispatch('addToCartItem', product);
+
+                  const data = {
+                    id: product.id,
+                  }
+                  this.$axios.setToken(localStorage.getItem('116111107101110'), 'Bearer');
+                  const card = await this.$axios.post(`/card_inc_count`, data)
+                }
+
+            },
+
+            async decrementProduct(product) {
+
+                if (product.count > 1) {
+                    this.$store.dispatch('decreaseProduct', product)
+                  const data = {
+                    id: product.id,
+                  }
+                  this.$axios.setToken(localStorage.getItem('116111107101110'), 'Bearer');
+                  const card = await this.$axios.post(`/card_dec_count`, data)
                 }
             },
 
-            decrementProduct(product) {
-                const prod = { ...product, cartQuantity: 1 }
-                if (product.cartQuantity > 1) {
-                    this.$store.dispatch('decreaseProduct', prod)
-                }
-            },
-
-            removeProduct(product) {
+            async removeProduct(product) {
                 // for notification
-                this.$notify({ title: 'Item remove from cart!'})
-
+              const data = {
+                id: product.id,
+              }
+              this.$axios.setToken(localStorage.getItem('116111107101110'), 'Bearer');
+              const card = await this.$axios.delete(`/card`, {data})
+              this.$notify({ title: 'محصول از سبد شما حذف گردید!'})
                 this.$store.dispatch('removeProductFromCart', product)
             },
 
@@ -196,10 +186,18 @@
                 return product.price - (product.price * product.discount / 100)
             },
 
-            clearCart() {
-                if (confirm("Are you sure you want to clear cart")) {
+            async clearCart() {
+                if (confirm("از خالی کردن سبد خرید خود اطمینان دارید؟")) {
                     // for notification
-                    this.$notify({ title: 'Item remove from cart!'})
+                  const user = localStorage.getItem('117115101114');
+                  const userr = JSON.parse(user)
+
+                  const data = {
+                    user_id: userr.id,
+                  }
+                  this.$axios.setToken(localStorage.getItem('116111107101110'), 'Bearer');
+                  const card = await this.$axios.delete(`/empty_card`, {data})
+                    this.$notify({ title: 'سبد خرید شما خالی شد!'})
 
                     this.$store.commit('CLEAR_CART')
                 }
@@ -216,14 +214,37 @@
              if (!localStorage.getItem('116111107101110')) window.location = '/login-register';
 
              else {
+               this.loader = true
                const user = localStorage.getItem('117115101114');
                const userr = JSON.parse(user)
                this.$axios.setToken(localStorage.getItem('116111107101110'),'Bearer');
                const card = await this.$axios.get(`/card/${userr.id}`)
               this.$store.dispatch('initCart',card.data.products)
-              // console.log(card.data.products)
-                 console.log(this.$store.getters.getCart)
+               this.cardProducts = card.data.products
+              this.loader = false
              }
         },
     };
 </script>
+<style scoped>
+@import url(https://fonts.googleapis.com/css?family=Roboto:100);
+
+
+#loading {
+  margin: 50px auto;
+  width: 80px;
+  height: 80px;
+  border: 3px solid rgba(0,0,0,.5);
+  border-radius: 50%;
+  border-top-color: #000;
+  animation: spin 1s ease-in-out infinite;
+  -webkit-animation: spin 1s ease-in-out infinite;
+}
+
+@keyframes spin {
+  to { -webkit-transform: rotate(360deg); }
+}
+@-webkit-keyframes spin {
+  to { -webkit-transform: rotate(360deg); }
+}
+</style>

@@ -29,7 +29,7 @@ h3.cart-page-title {
                 padding: 21px 45px 22px;
                 text-align: center;
                 text-transform: uppercase;
-                vertical-align: middle; 
+                vertical-align: middle;
                 white-space: nowrap;
                 @media #{$lg-layout}{
                     padding: 21px 35px 22px;
@@ -100,7 +100,7 @@ h3.cart-page-title {
                     }
                     input.cart-plus-minus-box {
                         color: $dark;
-                        float: left;
+                        float: right;
                         font-size: 14px;
                         height: 40px;
                         margin: 0;
@@ -139,7 +139,7 @@ h3.cart-page-title {
             td {
                 color: $dark;
                 font-size: 15px;
-                padding: 30px 0 30px 30px;
+                padding: 20px 20px 20px 0;
                 text-align: center;
             }
         }
@@ -330,7 +330,7 @@ h3.cart-page-title {
             background-color: #e3e1e1;
             content: "";
             height: 1px;
-            left: 0;
+            right: 0;
             position: absolute;
             top: 10px;
             transition: all 0.4s ease 0s;
@@ -342,7 +342,7 @@ h3.cart-page-title {
             font-size: 18px;
             font-weight: 500;
             margin: 0;
-            padding-right: 18px;
+            padding-left: 18px;
         }
         .section-bg-gary-cart {
             background-color: #f9f9f9;
@@ -354,7 +354,7 @@ h3.cart-page-title {
         font-size: 14px;
         margin: 36px 0 27px;
         span {
-            float: right;
+            float: left;
             font-size: 18px;
             font-weight: 500;
         }
@@ -402,7 +402,7 @@ h3.cart-page-title {
         font-weight: 500;
         margin: 0 0 25px;
         span {
-            float: right;
+            float: left;
         }
     }
     a {
@@ -426,7 +426,7 @@ h3.cart-page-title {
     @media #{$xs-layout} {
         margin: 30px 0;
     }
-    
+
 }
 
 .empty-cart {

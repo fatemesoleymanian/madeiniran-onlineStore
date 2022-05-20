@@ -6,39 +6,37 @@
         <!-- wishlist section start -->
         <div class="cart-main-area pt-90 pb-100">
             <div class="container">
-                <div class="row" v-if="products.length > 0">
-                    <div class="col-12">
-                        <h3 class="cart-page-title">Your wishlist items</h3>
+              <div id="loading" v-if="loader"></div>
+              <div class="row" v-if="products.length > 0">
+
+                  <div class="col-12">
+                        <h3 class="cart-page-title">لیست محصولات مورد علاقه شما</h3>
                         <div class="table-content table-responsive cart-table-content">
                             <table>
                                 <thead>
                                     <tr>
-                                        <th>Image</th>
-                                        <th>Product Name</th>
-                                        <th>Until Price</th>
-                                        <th>Add To Cart</th>
-                                        <th>Action</th>
+                                        <th>عکس محصول</th>
+                                        <th>نام محصول</th>
+                                        <th>درصد تخفیف</th>
+                                        <th>عملیات</th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr v-for="(product, index) in products" :key="index">
+                                    <tr v-for="(product, index) in markedProducts" :key="index">
                                         <td class="product-thumbnail">
-                                            <n-link :to="`/product/${slugify(product.title)}`">
-                                                <img :src="product.images[0]" :alt="product.title">
+                                            <n-link :to="`/product/${product.product.id}`">
+                                                <img :src="product.product.image" :alt="product.product.name">
                                             </n-link>
                                         </td>
                                         <td class="product-name">
-                                            <n-link :to="`/product/${slugify(product.title)}`">{{ product.title }}</n-link>
+                                            <n-link :to="`/product/${product.product.id}`">{{ product.product.name }}</n-link>
                                         </td>
                                         <td class="product-price-cart">
-                                            <span class="amount">${{ discountedPrice(product).toFixed(2) }}</span>
-                                            <del class="old" v-if="product.discount > 0">${{ product.price.toFixed(2) }}</del>
-                                        </td>
-                                        <td class="product-wishlist-cart">
-                                            <button @click="addToCart(product)">add to cart</button>
+                                            <span class="amount" v-if="product.product.discount">{{ product.product.discount }}%</span>
+                                            <span class="amount" v-else>بدون تخفیف</span>
                                         </td>
                                         <td class="product-remove">
-                                            <button @click="removeProductFromWishlist(product)"><i class="fa fa-times"></i></button>
+                                            <button @click="removeProductFromWishlist(product,index)"><i class="fa fa-times"></i></button>
                                         </td>
                                     </tr>
                                 </tbody>
@@ -52,8 +50,8 @@
                             <div class="icon">
                                 <i class="pe-7s-like"></i>
                             </div>
-                            <h4>No items found in wishlist</h4>
-                            <n-link to="/shop" class="empty-cart__button">Add Item</n-link>
+                            <h4>هیچ محصولی در لیست علاقمندی شما یافت نشد!</h4>
+                            <n-link to="/shop" class="empty-cart__button">افزودن محصول</n-link>
                         </div>
                     </div>
                 </div>
@@ -66,11 +64,18 @@
 
 <script>
     export default {
+      data(){
+        return{
+          markedProducts:[],
+          loader:true
+        }
+      },
         components: {
             HeaderWithTopbar: () => import("@/components/TheHeader"),
             Breadcrumb: () => import("@/components/Breadcrumb"),
             TheFooter: () => import("@/components/TheFooter"),
         },
+
         computed: {
             products() {
                 return this.$store.getters.getWishlist
@@ -78,39 +83,26 @@
         },
 
         methods: {
-            addToCart(product) {
-                const prod = {...product, cartQuantity: 1}
+
+           async removeProductFromWishlist(product,i) {
                 // for notification
-                if (this.$store.state.cart.find(el => product.id === el.id)) {
-                    this.$notify({ title: 'Already added to cart update with one' })
-                } else {
-                    this.$notify({ title: 'Add to cart successfully!'})
-                }
+              const data = {
+                id: product.id,
+              }
 
-                this.$store.dispatch('addToCartItem', prod)
-            },
+              this.$axios.setToken(localStorage.getItem('116111107101110'), 'Bearer');
+              const card = await this.$axios.delete(`/bookmark`, {data})
 
-            removeProductFromWishlist(product) {
-                // for notification
-                this.$notify({ title: 'Remove item from wishlist!'})
-
-                this.$store.dispatch('removeProductFromWishlist', product)
+                this.$store.dispatch('removeProductFromWishlist', product.product)
+             this.$notify({ title: 'محصول از لیست علاقمندیهای شما حذف گردید!'})
+             this.markedProducts.splice(i,1)
             },
 
             discountedPrice(product) {
                 return product.price - (product.price * product.discount / 100)
             },
 
-            slugify(text) {
-                return text
-                    .toString()
-                    .toLowerCase()
-                    .replace(/\s+/g, "-") // Replace spaces with -
-                    .replace(/[^\w-]+/g, "") // Remove all non-word chars
-                    .replace(/--+/g, "-") // Replace multiple - with single -
-                    .replace(/^-+/, "") // Trim - from start of text
-                    .replace(/-+$/, ""); // Trim - from end of text
-            }
+
         },
 
         head() {
@@ -118,9 +110,45 @@
                 title: "علاقه مندیها"
             }
         },
-         mounted()
-        {
-             if (!localStorage.getItem('116111107101110')) window.location = '/login-register';
-        },
+         async mounted() {
+           if (!localStorage.getItem('116111107101110')) window.location = '/login-register';
+           else{
+             this.loader = true
+             const user = localStorage.getItem('117115101114');
+           const userr = JSON.parse(user)
+           this.$axios.setToken(localStorage.getItem('116111107101110'), 'Bearer');
+           const wishlist = await this.$axios.get(`/bookmark/${userr.id}`)
+             let products =[];
+             for (let i in wishlist.data.products)
+             {
+               products.push(wishlist.data.products[i].product)
+             }
+           this.$store.dispatch('initWishlist', products)
+           this.markedProducts = wishlist.data.products
+             this.loader = false
+         }
+      }
     };
 </script>
+<style scoped>
+@import url(https://fonts.googleapis.com/css?family=Roboto:100);
+
+
+#loading {
+  margin: 50px auto;
+  width: 80px;
+  height: 80px;
+  border: 3px solid rgba(0,0,0,.5);
+  border-radius: 50%;
+  border-top-color: #000;
+  animation: spin 1s ease-in-out infinite;
+  -webkit-animation: spin 1s ease-in-out infinite;
+}
+
+@keyframes spin {
+  to { -webkit-transform: rotate(360deg); }
+}
+@-webkit-keyframes spin {
+  to { -webkit-transform: rotate(360deg); }
+}
+</style>

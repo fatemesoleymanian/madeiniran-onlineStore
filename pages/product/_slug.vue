@@ -3,7 +3,7 @@
         <TheHeader containerClass="container" />
         <Breadcrumb :pageTitle="products.name" />
         <ProductDetailsWrapper  :product="products" :category="category" :states="states"/>
-        <ProductDetailsDescriptionReview />
+        <ProductDetailsDescriptionReview :product="products" />
         <TheFooter />
     </div>
 </template>

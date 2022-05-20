@@ -43,8 +43,19 @@
             const user = localStorage.getItem('117115101114');
             const userr = JSON.parse(user)
             this.$axios.setToken(localStorage.getItem('116111107101110'),'Bearer');
-            const card = await this.$axios.get(`/card/${userr.id}`)
+            const [card,bookmark] = await Promise.all([
+              this.$axios.get(`/card/${userr.id}`),
+              this.$axios.get(`/bookmark/${userr.id}`),
+
+            ])
+
             this.$store.dispatch('initCart',card.data.products)
+            const bProd = [];
+            for (let i in bookmark.data.products)
+            {
+              bProd.push(bookmark.data.products[i].product)
+            }
+            this.$store.dispatch('initWishlist',bProd)
           }
         },
     };

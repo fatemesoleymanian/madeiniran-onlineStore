@@ -4,11 +4,12 @@
         <Breadcrumb :pageTitle="blogs.title" />
 
         <div class="Blog-details-inner pt-100 pb-100">
-            <div class="container">
+          <div class="container">
                 <div class="row flex-row-reverse">
                     <div class="col-lg-12">
-                        <div class="blog-details-wrapper ml-20">
-                            <div class="blog-details-top">
+                      <div id="loading" v-if="loader"></div>
+                      <div class="blog-details-wrapper ml-20">
+                        <div class="blog-details-top" v-if="!loader">
                                 <div class="blog-details-img">
                                     <img :src="blogs.featuredImage" :alt="blogs.title">
                                 </div>
@@ -23,7 +24,7 @@
                                     <div v-html="blogs.post"></div>
                                 </div>
                             </div>
-                            <div class="tag-share">
+                            <div class="tag-share" v-if="blogs">
                                 <div class="dec-tag">
                                     <ul v-for="(tag,i) in blogs.tag" :key="i" v-if="blogs.tag.length">
                                         <li>{{ tag.name }}</li>
@@ -44,11 +45,14 @@
                                     </div>
                                 </div>
                             </div>
+                          <div v-if="blogs.length === 0">
+                            <h3 class="text-center p-5">پستی یافت نشد!</h3>
+                          </div>
                             <div class="next-previous-post">
-                                <a :href="`/blog/${before}`" v-if="before"> 
-                                <i class="fa fa-angle-right"></i>  پست قبل 
+                                <a :href="`/blog/${before}`" v-if="before">
+                                <i class="fa fa-angle-right"></i>  پست قبل
                                 </a>
-                                <a :href="`/blog/${after}`" v-if="after"> 
+                                <a :href="`/blog/${after}`" v-if="after">
                                 پست بعد <i class="fa fa-angle-left"></i>
                                 </a>
                             </div>
@@ -70,13 +74,16 @@
                 blogs:[],
                 id: this.$route.params.slug,
                 before:'',
-                after:''
+                after:'',
+              loader:true
             }
         },
 
        async mounted () {
+          this.loader = true
           const blog = await this.$axios.get(`blogs/${this.id}`)
           this.blogs = blog.data
+         this.loader = false
         },
         async created()
         {
@@ -86,16 +93,7 @@
         },
 
         methods: {
-            slugify(text) {
-                return text
-                    .toString()
-                    .toLowerCase()
-                    .replace(/\s+/g, "-") // Replace spaces with -
-                    .replace(/[^\w-]+/g, "") // Remove all non-word chars
-                    .replace(/--+/g, "-") // Replace multiple - with single -
-                    .replace(/^-+/, "") // Trim - from start of text
-                    .replace(/-+$/, ""); // Trim - from end of text
-            },
+
           copyToClipboard()
           {
             navigator.clipboard.writeText(`https://madein-iran/blog/${this.id}.com`).then(() => {
@@ -114,3 +112,25 @@
         },
     };
 </script>
+<style scoped>
+@import url(https://fonts.googleapis.com/css?family=Roboto:100);
+
+
+#loading {
+  margin: 50px auto;
+  width: 80px;
+  height: 80px;
+  border: 3px solid rgba(0,0,0,.5);
+  border-radius: 50%;
+  border-top-color: #000;
+  animation: spin 1s ease-in-out infinite;
+  -webkit-animation: spin 1s ease-in-out infinite;
+}
+
+@keyframes spin {
+  to { -webkit-transform: rotate(360deg); }
+}
+@-webkit-keyframes spin {
+  to { -webkit-transform: rotate(360deg); }
+}
+</style>

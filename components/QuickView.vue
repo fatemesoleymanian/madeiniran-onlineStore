@@ -6,12 +6,12 @@
                     <div class="product-details-slider">
                         <div class="product-details-img">
                             <div class="product-badges">
-                                <span class="product-label pink" v-if="product.new">New</span>
+                                <span class="product-label pink" v-if="product.discount">جدید</span>
                                 <span class="product-label purple" v-if="product.discount">-{{ product.discount }}%</span>
                             </div>
                             <swiper :options="swiperOptionTop">
-                                <div class="large-img swiper-slide" v-for="(image, index) in product.images" :key="index">
-                                    <img class="img-fluid" :src="image" :alt="product.title">
+                                <div class="large-img swiper-slide" >
+                                    <img class="img-fluid" :src="product.image" :alt="product.name">
                                 </div>
                                 <div class="quickview-nav swiper-button-prev">
                                     <i class="pe-7s-angle-left"></i>
@@ -31,66 +31,66 @@
                                 <i class="fa fa-times"></i>
                             </button>
                         </div>
-                        <h2>{{ product.title }}</h2>
+                        <h2>{{ product.name }}</h2>
                         <div class="product-details-price">
-                            <span>${{ discountedPrice(product).toFixed(2) }}</span>
-                            <span class="old" v-if="product.discount > 0">${{ product.price.toFixed(2) }}</span>
+                            <span> {{ discounted_price.replace(/\B(?=(\d{3})+(?!\d))/g, ',') }} تومان </span>
+                            <span class="old" v-if="product.discount > 0">{{ pricee.replace(/\B(?=(\d{3})+(?!\d))/g, ',') }} تومان</span>
                         </div>
-                        <div class="pro-details-rating-wrap">
-                            <div class="pro-details-rating" v-if="product.rating == 5">
-                                <i class="fa fa-star-o yellow"></i>
-                                <i class="fa fa-star-o yellow"></i>
-                                <i class="fa fa-star-o yellow"></i>
-                                <i class="fa fa-star-o yellow"></i>
-                                <i class="fa fa-star-o yellow"></i>
-                            </div>
-                            <div class="pro-details-rating" v-if="product.rating == 4">
-                                <i class="fa fa-star-o yellow"></i>
-                                <i class="fa fa-star-o yellow"></i>
-                                <i class="fa fa-star-o yellow"></i>
-                                <i class="fa fa-star-o yellow"></i>
-                                <i class="fa fa-star-o"></i>
-                            </div>
-                            <div class="pro-details-rating" v-if="product.rating == 3">
-                                <i class="fa fa-star-o yellow"></i>
-                                <i class="fa fa-star-o yellow"></i>
-                                <i class="fa fa-star-o yellow"></i>
-                                <i class="fa fa-star-o"></i>
-                                <i class="fa fa-star-o"></i>
-                            </div>
-                            <div class="pro-details-rating" v-if="product.rating == 2">
-                                <i class="fa fa-star-o yellow"></i>
-                                <i class="fa fa-star-o yellow"></i>
-                                <i class="fa fa-star-o"></i>
-                                <i class="fa fa-star-o"></i>
-                                <i class="fa fa-star-o"></i>
-                            </div>
-                            <div class="pro-details-rating" v-if="product.rating == 1">
-                                <i class="fa fa-star-o yellow"></i>
-                                <i class="fa fa-star-o"></i>
-                                <i class="fa fa-star-o"></i>
-                                <i class="fa fa-star-o"></i>
-                                <i class="fa fa-star-o"></i>
-                            </div>
-                            <span><a href="#">{{ product.rating }} Reviews</a></span>
+                          <div class="pro-details-rating-wrap">
+<!--                              <div class="pro-details-rating" v-if="product.state">-->
+<!--                                  <i class="fa fa-star-o yellow"></i>-->
+<!--                                  <i class="fa fa-star-o yellow"></i>-->
+<!--                                  <i class="fa fa-star-o yellow"></i>-->
+<!--                                  <i class="fa fa-star-o yellow"></i>-->
+<!--                                  <i class="fa fa-star-o yellow"></i>-->
+<!--                              </div>-->
+<!--                            <div class="pro-details-rating" v-if="product.rating == 4">-->
+<!--                                <i class="fa fa-star-o yellow"></i>-->
+<!--                                <i class="fa fa-star-o yellow"></i>-->
+<!--                                <i class="fa fa-star-o yellow"></i>-->
+<!--                                <i class="fa fa-star-o yellow"></i>-->
+<!--                                <i class="fa fa-star-o"></i>-->
+<!--                            </div>-->
+<!--                            <div class="pro-details-rating" v-if="product.rating == 3">-->
+<!--                                <i class="fa fa-star-o yellow"></i>-->
+<!--                                <i class="fa fa-star-o yellow"></i>-->
+<!--                                <i class="fa fa-star-o yellow"></i>-->
+<!--                                <i class="fa fa-star-o"></i>-->
+<!--                                <i class="fa fa-star-o"></i>-->
+<!--                            </div>-->
+<!--                            <div class="pro-details-rating" v-if="product.rating == 2">-->
+<!--                                <i class="fa fa-star-o yellow"></i>-->
+<!--                                <i class="fa fa-star-o yellow"></i>-->
+<!--                                <i class="fa fa-star-o"></i>-->
+<!--                                <i class="fa fa-star-o"></i>-->
+<!--                                <i class="fa fa-star-o"></i>-->
+<!--                            </div>-->
+<!--                            <div class="pro-details-rating" v-if="product.rating == 1">-->
+<!--                                <i class="fa fa-star-o yellow"></i>-->
+<!--                                <i class="fa fa-star-o"></i>-->
+<!--                                <i class="fa fa-star-o"></i>-->
+<!--                                <i class="fa fa-star-o"></i>-->
+<!--                                <i class="fa fa-star-o"></i>-->
+<!--                            </div>-->
+<!--                            <span><a href="#">{{ product.rating }} Reviews</a></span>-->
                         </div>
-                        <p>{{ product.description }}</p>
-                        <div class="pro-details-size-color" v-if="product.variation">
-                            <div class="pro-details-color-wrap">
-                                <h6 class="label">Color</h6>
-                                <div class="pro-details-color-content">
-                                    <label :class="item" class="radio" v-for="(item, index) in product.variation.color" :key="index" >
-                                        <input type="radio" name="colorGroup"/>
-                                        <span class="check-mark"></span>
-                                    </label>
-                                </div>
-                            </div>
+                        <p>{{ product.description_excerpt }}</p>
+                        <div class="pro-details-size-color" v-if="product.state">
+<!--                            <div class="pro-details-color-wrap">-->
+<!--                                <h6 class="label">Color</h6>-->
+<!--                                <div class="pro-details-color-content">-->
+<!--                                    <label :class="item" class="radio" v-for="(item, index) in product.variation.color" :key="index" >-->
+<!--                                        <input type="radio" name="colorGroup"/>-->
+<!--                                        <span class="check-mark"></span>-->
+<!--                                    </label>-->
+<!--                                </div>-->
+<!--                            </div>-->
                             <div class="pro-details-size-wrap">
-                                <h6 class="label">Size</h6>
+                                <h6 class="label">ظرفیت ها</h6>
                                 <div class="pro-details-size-content">
-                                    <label class="radio" v-for="(item, index) in product.variation.sizes" :key="index">
-                                        <input type="radio" name="sizeGroup" />
-                                        <span class="check-mark">{{ item }}</span>
+                                    <label class="radio" v-for="(item, index) in product.state" :key="index">
+                                        <input type="radio" name="sizeGroup" checked  @click="priceByState(index)" />
+                                        <span class="check-mark">{{ item.type }}</span>
                                     </label>
                                 </div>
                             </div>
@@ -102,60 +102,61 @@
                                 <button @click="increaseQuantity()" class="inc qtybutton">+</button>
                             </div>
                             <div class="pro-details-cart btn-hover">
-                                <button @click="addToCart(product)">Add To Cart</button>
+                                <button @click="addToCart(product)">افزودن به سبد خرید</button>
                             </div>
                             <div class="pro-details-wishlist">
-                                <button @click="addToWishlist(product)"><i class="fa fa-heart-o"></i></button>
+                                <button @click="addToWishlist(product)">
+                                  <i :class="checkIsLiked === true ? 'fa fa-heart' : 'fa fa-heart-o'"></i></button>
                             </div>
-                            <div class="pro-details-compare">
-                                <button @click="addToCompare(product)"><i class="pe-7s-shuffle"></i></button>
-                            </div>
+<!--                            <div class="pro-details-compare">-->
+<!--                                <button @click="addToCompare(product)"><i class="pe-7s-shuffle"></i></button>-->
+<!--                            </div>-->
                         </div>
                         <div class="pro-details-meta">
-                            <span class="label">Categories:</span>
+                            <span class="label">دسته بندی :</span>
                             <ul>
-                                <li v-for="(category, index) in product.category" :key="index">
-                                    <n-link :to="`/shop?category=${category}`">{{ category }},</n-link>
+                                <li>
+                                    <n-link :to="`/shop?category=`">{{ category }}</n-link>
                                 </li>
                             </ul>
                         </div>
                         <div class="pro-details-meta">
-                            <span class="label">Tag:</span>
+                            <span class="label">تگ ها :</span>
                             <ul>
                                 <li v-for="(tag, index) in product.tag" :key="index">
-                                    <n-link :to="`/shop?tag=${tag}`">{{ tag }},</n-link>
+                                    <n-link :to="`/shop?tag=${tag}`">{{ tag.name }},</n-link>
                                 </li>
                             </ul>
                         </div>
-                        <div class="pro-details-social">
-                            <ul>
-                                <li>
-                                    <a href="https://www.facebook.com/" target="_blank">
-                                        <i class="fa fa-facebook"></i>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="https://dribbble.com/" target="_blank">
-                                        <i class="fa fa-dribbble"></i>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="https://www.pinterest.com/" target="_blank">
-                                        <i class="fa fa-pinterest-p"></i>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="https://twitter.com/" target="_blank">
-                                        <i class="fa fa-twitter"></i>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="https://www.linkedin.com/" target="_blank">
-                                        <i class="fa fa-linkedin"></i>
-                                    </a>
-                                </li>
-                            </ul>
-                        </div>
+<!--                        <div class="pro-details-social">-->
+<!--                            <ul>-->
+<!--                                <li>-->
+<!--                                    <a href="https://www.facebook.com/" target="_blank">-->
+<!--                                        <i class="fa fa-facebook"></i>-->
+<!--                                    </a>-->
+<!--                                </li>-->
+<!--                                <li>-->
+<!--                                    <a href="https://dribbble.com/" target="_blank">-->
+<!--                                        <i class="fa fa-dribbble"></i>-->
+<!--                                    </a>-->
+<!--                                </li>-->
+<!--                                <li>-->
+<!--                                    <a href="https://www.pinterest.com/" target="_blank">-->
+<!--                                        <i class="fa fa-pinterest-p"></i>-->
+<!--                                    </a>-->
+<!--                                </li>-->
+<!--                                <li>-->
+<!--                                    <a href="https://twitter.com/" target="_blank">-->
+<!--                                        <i class="fa fa-twitter"></i>-->
+<!--                                    </a>-->
+<!--                                </li>-->
+<!--                                <li>-->
+<!--                                    <a href="https://www.linkedin.com/" target="_blank">-->
+<!--                                        <i class="fa fa-linkedin"></i>-->
+<!--                                    </a>-->
+<!--                                </li>-->
+<!--                            </ul>-->
+<!--                        </div>-->
                     </div>
                 </div>
             </div>
@@ -180,65 +181,120 @@
                         prevEl: '.swiper-button-prev'
                     }
                 },
+              category:'',
+              states:[],
+              pricee :'',
+              discounted_price:'',
+              state_id : '',
+              indexOfState:''
             }
         },
-
-        computed: {
+      computed: {
             product() {
+              this.states = this.$store.getters.getOneProductStates
+
+              this.category = this.$store.getters.getOneCategory;
+              this.settingPrice();
                 return this.item;
-            }
+            },
+        checkIsLiked()
+        {
+          if (this.$store.state.wishlist.find(el => this.product.id === el.id)) return true;
+          else return  false;
+        }
         },
 
         methods: {
             beforeOpen ({params: product}) {
                 this.item = product
             },
+          priceByState(index)
+          {
+            this.indexOfState = index;
+            this.settingPrice()
+          },
+          settingPrice()
+          {
+            for (let i in this.states)
+            {
+              if (i == this.indexOfState)
+              {
+                this.pricee = this.states[i].price;
+                this.discounted_price = this.states[i].discounted_price;
+                this.state_id = this.states[i].id
 
-            addToCart(product) {
-                const prod = {...product, cartQuantity: this.singleQuantity}
-                // for notification
-                if (this.$store.state.cart.find(el => product.id === el.id)) {
-                    this.$notify({ title: 'Already added to cart update with one' })
-                } else {
-                    this.$notify({ title: 'Add to cart successfully!'})
-                }
-                
-                this.$store.dispatch('addToCartItem', prod)
-            },
+              }
+
+            }
+          },
+          async addToCart(product) {
+            if (!localStorage.getItem('116111107101110')) return window.location = '/login-register';
+
+            if (this.state_id === '') return  this.$notify({title: 'لطفا ظرفیت محصول را انتخاب کنید!'})
+
+
+            const prod = {...product, cartQuantity: this.singleQuantity}
+            // for notification
+            if (this.$store.state.cart.find(el => this.state_id === el.state_id  )) {
+              this.$notify({title: 'این محصول در سبد خرید شما وجود دارد!'})
+            }
+            else {
+              const user = localStorage.getItem('117115101114');
+              const userr = JSON.parse(user)
+
+              const data = {
+                user_id: userr.id,
+                product: product.id,
+                state: this.state_id,
+                count:this.singleQuantity
+              }
+              this.$axios.setToken(localStorage.getItem('116111107101110'), 'Bearer');
+              const card = await this.$axios.post(`/card`, data);
+              this.$notify({title: 'محصول با موفقیت به سبد خرید افزوده شد!'})
+              const newPro = await  this.$axios.get(`/card_one_pro/${card.data.msg.id}`);
+              this.$store.dispatch('addToCartItem',newPro.data.product[0] )
+            }
+
+          },
 
             discountedPrice(product) {
                 return product.price - (product.price * product.discount / 100)
             },
 
             increaseQuantity(){
-                if(this.product.quantity > this.singleQuantity) this.singleQuantity++
+              if (!localStorage.getItem('116111107101110')) return  window.location = '/login-register';
+              if (this.product.inventory >= this.singleQuantity) this.singleQuantity++
             },
 
             decreaseQuantity() {
-                if(this.singleQuantity > 1) this.singleQuantity--
+              if (!localStorage.getItem('116111107101110')) return  window.location = '/login-register';
+              if (this.singleQuantity > 1) this.singleQuantity--
             },
 
-            addToWishlist(product) {
+            async addToWishlist(product) {
+              if (!localStorage.getItem('116111107101110')) return window.location = '/login-register';
                 // for notification
-                if (this.$store.state.wishlist.find(el => product.id === el.id)) {
-                    this.$notify({ title: 'Already added to wishlist!' })
-                } else {
-                    this.$notify({ title: 'Add to wishlist successfully!'})
-                }
+              const user = localStorage.getItem('117115101114');
+              const userr = JSON.parse(user);
+              const data = {
+                user: userr.id,
+                product: product.id,
+              }
+              this.$axios.setToken(localStorage.getItem('116111107101110'), 'Bearer');
 
+              if (this.$store.state.wishlist.find(el => product.id === el.id)) {
+                const remove = await  this.$axios.delete('/bookmark',{data})
+                this.$store.dispatch('removeProductFromWishlist',product)
+                this.$notify({title: 'این محصول از لیست علاقمندیهای شما حذف شد!'})
+              }
+              else {
+                const card = await this.$axios.post(`/bookmark`, data)
+                this.$notify({title: 'این محصول به لیست علاقمندیهای شما افزوده شد!'})
                 this.$store.dispatch('addToWishlist', product)
+              }
             },
 
-            addToCompare(product) {
-                // for notification
-                if (this.$store.state.compare.find(el => product.id === el.id)) {
-                    this.$notify({ title: 'Already added to compare!' })
-                } else {
-                    this.$notify({ title: 'Add to compare successfully!'})
-                }
 
-                this.$store.dispatch('addToCompare', product)
-            }
         }
     };
 </script>
@@ -262,6 +318,11 @@
     }
     .vm--overlay {
         background-color: rgba($dark, 0.8);
+      @media #{$md-layout} {
+        right: 0;
+        bottom: 0;
+      }
+
     }
     .vm--modal {
         padding: 15px;
@@ -294,21 +355,28 @@
     }
     .vm--container.scrollable .vm--modal {
         width: 1000px !important;
-        left: 50% !important;
+        left: 25% !important;
         transform: translateX(-50%);
         overflow: unset;
         @media #{$md-layout}{
             width: 700px !important;
+          left: 35% !important;
         }
         @media #{$xs-layout}{
             width: 320px !important;
             top: 30px !important;
         }
+      @media #{$xxs-layout} {
+        left: 40% !important;
+      }
         @media only screen and(min-width: 480px) and (max-width: 579px){
             width: 420px !important;
         }
+      @media only screen and(min-width: 390px) and (max-width: 450px){
+        left: 35% !important;
+      }
         @media #{$sm-layout}{
             width: 500px !important;
         }
     }
-</style>    
+</style>

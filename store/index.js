@@ -14,7 +14,9 @@ export const state = () => ({
     newUser:false,
     categories:[],
     tags:[],
-    states:[]
+    states:[],
+    oneCategory:'',
+    oneProductStates:[]
 })
 
 
@@ -26,7 +28,12 @@ export const getters = {
     getStates(state) {
         return state.states
     },
-
+    getOneCategory(state){
+        return state.oneCategory
+    },
+    getOneProductStates(state){
+        return state.oneProductStates
+    },
     getNewUser(state)
     {
         return state.newUser
@@ -116,10 +123,19 @@ export const mutations = {
     SET_BLOG(state, blog) {
         state.blogs = blog
     },
-
+    SET_ONE_CATEGORY(state, category) {
+        state.oneCategory = category
+    },
+    SET_ONE_PRODUCT_STATES(state, states) {
+        state.oneProductStates = states
+    },
     SET_CART(state,cart)
     {
         state.cart = cart
+    },
+    SET_WISHLIST(state,wishlist)
+    {
+        state.wishlist = wishlist
     },
     SET_TAG(state,tag){
         state.tags = tag
@@ -141,10 +157,14 @@ export const mutations = {
     },
     UPDATE_CART(state, payload) {
         const item = state.cart.find(el => payload.id === el.id)
+
         if (item) {
-            const price = item.discount ? item.price - (item.price *(item.discount)/100) : item.price;
-            item.cartQuantity = item.cartQuantity + payload.cartQuantity
-            item.total = item.cartQuantity * price
+            item.cartQuantity++
+            item.count++
+            //////////////////
+            // const price = item.discount ? item.price - (item.price *(item.discount)/100) : item.price;
+            // item.cartQuantity = item.cartQuantity + payload.cartQuantity
+            // item.total = item.cartQuantity * price
         } else {
             const price = payload.discount ? payload.price - (payload.price *(payload.discount)/100) : payload.price;
             state.cart.push({...payload, cartQuantity: payload.cartQuantity, total: price })
@@ -159,9 +179,14 @@ export const mutations = {
 
     DECREASE_PRODUCT(state, payload) {
         const found = state.cart.find(el => payload.id === el.id)
-        const price = found.discount ? found.price - (found.price *(found.discount)/100) : found.price;
-        found.cartQuantity = found.cartQuantity - payload.cartQuantity
-        found.total = found.cartQuantity * price
+        if (found)
+        {
+            found.cartQuantity--
+            found.count--
+        }
+        // const price = found.discount ? found.price - (found.price *(found.discount)/100) : found.price;
+        // found.cartQuantity = found.cartQuantity - payload.cartQuantity
+        // found.total = found.cartQuantity * price
     },
 
     CLEAR_CART(state) {
@@ -212,10 +237,20 @@ export const actions = {
     addToCartItem({commit}, payload) {
         commit('UPDATE_CART', payload)
     },
+    setOneProductStates({commit}, payload) {
+        commit('SET_ONE_PRODUCT_STATES', payload)
+    },
+    setOneCategoryProduct({commit}, payload) {
+        commit('SET_ONE_CATEGORY', payload)
+    },
 
     initCart({commit},cart)
     {
         commit('SET_CART',cart)
+    },
+    initWishlist({commit},wishlist)
+    {
+        commit('SET_WISHLIST',wishlist)
     },
     setTags({commit},tag){
         commit('SET_TAG',tag)

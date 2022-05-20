@@ -4,16 +4,16 @@
             <ul>
                 <li class="single-shopping-cart" v-for="(product, index) in products" :key="index">
                     <div class="shopping-cart-img">
-                        <n-link :to="`/product/${product.name}`">
-                            <img :src="product.image" :alt="product.name">
+                        <n-link :to="`/product/${product.product.id}`">
+                            <img :src="product.product.image" :alt="product.product.name">
                         </n-link>
                     </div>
                     <div class="shopping-cart-title">
                         <h4>
-                            <n-link :to="`/product/${product.name}`">{{ product.name }}</n-link>
+                            <n-link :to="`/product/${product.product.id}`">{{ product.product.name }}</n-link>
                         </h4>
-                        <h6>تعداد : {{ product.cartQuantity }}</h6>
-                        <span>  {{ product.discount }} تومان</span>
+                        <h6>تعداد : {{ product.count }}</h6>
+                        <span>  {{ (product.count * product.state.discounted_price).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',') }} تومان</span>
                     </div>
                     <div class="shopping-cart-delete">
                         <button @click="removeProduct(product)">
@@ -24,13 +24,13 @@
             </ul>
             <div class="shopping-cart-total">
                 <h4>
-                    مجموع :
-                    <span class="shop-total"> {{ total }} تومان</span>
+                    مجموع   :
+                    <span class="shop-total"> {{ total }} تومان </span>
                   </h4>
             </div>
             <div class="shopping-cart-btn btn-hover text-center" @click="$emit('minicartClose')">
                 <n-link to="/cart" class="default-btn">مشاهده سبد خرید</n-link>
-                <n-link to="/checkout" class="default-btn">پرداخت</n-link>
+                <n-link to="/checkout" class="default-btn">ثبت سفارش</n-link>
             </div>
         </div>
         <div class="shopping-cart-content text-center" v-else>
@@ -48,15 +48,30 @@
                 return this.$store.getters.getCart
             },
             total() {
-                return this.$store.getters.getTotal
+              let total =0;
+              for (let i in this.$store.getters.getCart)
+              {
+                // console.log(this.$store.getters.getCart[i])
+                let item = this.$store.getters.getCart[i].state.discounted_price * this.$store.getters.getCart[i].count;
+                // console.log(item)
+                total += item ;
+              }
+              // console.log('total '+ total)
+              return  total.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')
+
             }
         },
 
         methods: {
-            removeProduct(product) {
+           async removeProduct(product) {
                 // for notification
-                this.$notify({ title: 'محصول از سبد خرید حذف شد!'})
-                this.$store.dispatch('removeProductFromCart', product)
+              const data = {
+                id: product.id,
+              }
+              this.$axios.setToken(localStorage.getItem('116111107101110'), 'Bearer');
+              const card = await this.$axios.delete(`/card`, {data})
+              this.$notify({ title: 'محصول از سبد شما حذف گردید!'})
+              this.$store.dispatch('removeProductFromCart', product)
             },
 
 

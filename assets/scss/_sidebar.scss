@@ -82,8 +82,8 @@
             &:last-child {
                 margin-bottom: 0;
             }
-        }     
-        
+        }
+
         a {
             margin-left: 30px;
             display: block;
@@ -205,6 +205,18 @@
 }
 
 .blog-sidebar {
+    .clear_blog_filter{
+        cursor: pointer;
+        display: flex;
+        justify-content: right;
+        i{
+            padding-right: 10px;
+            padding-top: 5px;
+        }
+        &:hover{
+            color: $theme-color;
+        }
+    }
     @media #{$md-layout, $xs-layout}{
         margin-top: 60px;
     }

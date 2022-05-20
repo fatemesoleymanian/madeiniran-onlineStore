@@ -5,7 +5,8 @@
 
         <div class="blog-area pt-100 pb-100">
             <div class="container">
-                <div class="row flex-row-reverse">
+              <div id="loading" v-if="loader"></div>
+              <div class="row flex-row-reverse">
                     <div class="col-lg-9">
                         <div class="ml-20">
                             <div class="row">
@@ -44,14 +45,15 @@
               response:'',
                 currentPage: 1,
                 perPage: 6,
-                total:1
+                total:1,
+              loader:true
             }
         },
         computed: {
             getBlog(){
                 return this.$store.getters.getBlogs
             },
-            
+
             getItems() {
                 let start = (datal.data.current_page - 1) * datal.data.per_page;
                 let end = datal.data.current_page  * datal.data.per_page;
@@ -63,13 +65,16 @@
         },
         methods: {
             async paginateClickCallback(page) {
+              this.loader = true
                  let datal = await this.$axios.get(`blogs?page=${page}`);
                 localStorage.setItem('blogs',datal.data.data)
                 this.$store.dispatch('updateBlogs', datal.data.data);
                 this.currentPage = Number(page);
+                this.loader = false
             },
         },
       async mounted() {
+          this.loader = true
         let datal = await this.$axios.get('blogs');
         localStorage.setItem('blogs',datal.data.data)
         this.$store.dispatch('updateBlogs', datal.data.data);
@@ -77,7 +82,7 @@
         this.currentPage = this.response.current_page
         this.perPage = this.response.per_page;
         this.total = this.response.total
-    
+      this.loader = false
       },
       head() {
             return {
@@ -86,3 +91,25 @@
         }
     };
 </script>
+<style scoped>
+@import url(https://fonts.googleapis.com/css?family=Roboto:100);
+
+
+#loading {
+  margin: 50px auto;
+  width: 80px;
+  height: 80px;
+  border: 3px solid rgba(0,0,0,.5);
+  border-radius: 50%;
+  border-top-color: #000;
+  animation: spin 1s ease-in-out infinite;
+  -webkit-animation: spin 1s ease-in-out infinite;
+}
+
+@keyframes spin {
+  to { -webkit-transform: rotate(360deg); }
+}
+@-webkit-keyframes spin {
+  to { -webkit-transform: rotate(360deg); }
+}
+</style>
