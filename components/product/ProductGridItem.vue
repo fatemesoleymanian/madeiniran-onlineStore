@@ -2,8 +2,8 @@
     <div class="product-wrap mb-30">
         <div class="product-img">
             <n-link :to="`/product/${product.id}`">
-                <img class="default-img" :src="product.image" :alt="product.name">
-                <img class="hover-img" :src="product.image" :alt="product.name">
+                <img class="default-img" :src="'http://localhost:8000'+product.image" :alt="product.name">
+                <img class="hover-img" :src="'http://localhost:8000'+product.image" :alt="product.name">
             </n-link>
             <div class="product-badges">
                 <span class="product-label pink" v-if="product.state">جدید</span>

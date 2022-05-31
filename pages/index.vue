@@ -13,7 +13,7 @@
     export default {
         components: {
             TheHeader: () => import('@/components/TheHeader'),
-            HeroSlider: () => import('@/components/hero/HeroSlider'),
+            HeroSlider: () => import('@/components/hero/HeroSliderThree'),
             ServicePolicy: () => import('@/components/policy/ServicePolicy'),
             ProductWrapper: () => import('@/components/product/ProductWrapper'),
             BlogWrapper: () => import('@/components/BlogWrapper'),
@@ -24,7 +24,7 @@
                 title: 'فروشگاه ساخت ایران'
             }
         },
-       
+
     };
 </script>
 

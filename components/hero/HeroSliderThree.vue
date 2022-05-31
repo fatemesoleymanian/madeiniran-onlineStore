@@ -1,16 +1,18 @@
 <template>
     <div class="slider-area nav-style-1">
         <swiper :options="swiperOption">
-            <swiper-slide v-for="(slider, index) in sliderData" :key="index" class="single-slider-2 slider-height-2 d-flex align-items-center bg-img" :style="{ backgroundImage:`url(${slider.backgroundImage})` }">
+            <swiper-slide v-for="(slider, index) in sliderData" :key="index"
+                          class="single-slider-2 slider-height-2 d-flex align-items-center bg-img"
+             :style="{ backgroundImage:`url(http://localhost:8000${slider.image})` }">
                 <div class="container">
                     <div class="row">
                         <div class="col-lg-7 col-md-8 ms-auto">
                             <div class="slider-content-3 slider-animation-1 text-center">
-                                <h3>{{ slider.subTitle }}</h3>
-                                <h1>{{ slider.title }}</h1>
-                                <p>{{ slider.desc }}</p>
-                                <div class="slider-btn btn-hover">
-                                    <n-link to="/shop">SHOP NOW</n-link>
+                                <h3 v-if="slider.sub_title">{{ slider.sub_title  }}</h3>
+                                <h1 v-if="slider.title">{{ slider.title }}</h1>
+                                <p v-if="slider.text">{{ slider.text }}</p>
+                                <div v-if="slider.link" class="slider-btn btn-hover">
+                                    <a v-if="slider.link" :href="slider.link">کلیک کن!</a>
                                 </div>
                             </div>
                         </div>
@@ -43,8 +45,8 @@
                         delay: 6000
                     },
                     effect: "fade",
-                    fadeEffect: { 
-                        crossFade: true 
+                    fadeEffect: {
+                        crossFade: true
                     },
                     navigation: {
                         nextEl: '.swiper-button-next',
@@ -52,23 +54,13 @@
                     },
                 },
 
-                sliderData: [
-                    {
-                        id: 1,
-                        subTitle: "Stylish",
-                        title: "Male Clothes",
-                        desc: "30% off Winter Vacation",
-                        backgroundImage: "/img/slider/slider-3-1.jpg"
-                    },
-                    {
-                        id: 2,
-                        subTitle: "Stylish",
-                        title: "Women Clothes",
-                        desc: "40% off Winter Vacation",
-                        backgroundImage: "/img/slider/slider-2-2.jpg"
-                    }
-                ]
+                sliderData: []
             }
         },
+        async mounted()
+       {
+            const slider = await this.$axios.get('/slider_home')
+            this.sliderData = slider.data
+       }
     };
 </script>

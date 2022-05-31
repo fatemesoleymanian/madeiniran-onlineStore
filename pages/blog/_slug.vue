@@ -11,7 +11,7 @@
                       <div class="blog-details-wrapper ml-20">
                         <div class="blog-details-top" v-if="!loader">
                                 <div class="blog-details-img">
-                                    <img :src="blogs.featuredImage" :alt="blogs.title">
+                                    <img :src="'http://localhost:8000'+blogs.featuredImage" :alt="blogs.title">
                                 </div>
                                 <div class="blog-details-content">
                                     <div class="blog-meta-2">

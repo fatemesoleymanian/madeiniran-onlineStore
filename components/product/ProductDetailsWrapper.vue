@@ -11,7 +11,7 @@
               </div>
               <swiper :options="swiperOptionTop" ref="swiperTop">
                 <div class="large-img swiper-slide">
-                  <img class="img-fluid" :src="product.image" :alt="product.name">
+                  <img class="img-fluid" :src="'http://localhost:8000'+product.image" :alt="product.name">
                 </div>
                 <div class="quickview-nav swiper-button-prev">
                   <i class="pe-7s-angle-left"></i>
@@ -22,7 +22,7 @@
               </swiper>
               <swiper class="mt-2" :options="swiperOptionThumbs" ref="swiperThumbs">
                 <div class="thumb-img swiper-slide">
-                  <img class="img-fluid" :src="product.image" :alt="product.name">
+                  <img class="img-fluid" :src="'http://localhost:8000'+product.image" :alt="product.name">
                 </div>
               </swiper>
             </div>

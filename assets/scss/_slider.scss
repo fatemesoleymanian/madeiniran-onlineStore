@@ -122,7 +122,7 @@
 
 .nav-style-1 {
     .hero-slider-nav {
-        left: 80px;
+        right: 80px;
         z-index: 9;
         color: #999;
         font-size: 80px;
@@ -131,7 +131,7 @@
         transition: 0.4s;
         // res
         @media #{$xl-layout, $lg-layout, $md-layout, $xs-layout} {
-            left: 15px;
+            right: 15px;
         }
         &.swiper-button-next {
             right: 80px;
@@ -139,6 +139,14 @@
             // res
             @media #{$xl-layout, $lg-layout, $md-layout, $xs-layout} {
                 right: 15px;
+            }
+        }
+        &.swiper-button-prev {
+            left: 80px;
+            right: auto;
+            // res
+            @media #{$xl-layout, $lg-layout, $md-layout, $xs-layout} {
+                left: 15px;
             }
         }
         &:hover {
@@ -156,7 +164,8 @@
             font-size: 60px;
             background-color: $white;
             &.swiper-button-prev {
-                right: 60px;
+                left: 60px;
+                right: auto;
             }
         }
         &:hover {
