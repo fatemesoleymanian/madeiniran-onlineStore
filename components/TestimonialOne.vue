@@ -5,7 +5,6 @@
                 <div class="col-lg-10 ms-auto me-auto">
                     <swiper :options="testimonialOption">
                         <div class="swiper-slide single-testimonial text-center" v-for="(testimonial, index) in testimonialData" :key="index">
-                            <img :src="testimonial.imgSrc" :alt="testimonial.name">
                             <p>{{ testimonial.desc }}</p>
                             <div class="client-info">
                                 <i class="fa fa-map-signs"></i>
@@ -26,26 +25,16 @@
             return {
                 testimonialOption: {
                     loop: true,
-                    speed: 750,
+                    speed: 950,
                     autoplay: true,
                 },
-                testimonialData: [
-                    {
-                        id: 1,
-                        name: "grace alvarado",
-                        position: "customer",
-                        desc: "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore",
-                        imgSrc: "/img/testimonial/testi-1.png"
-                    },
-                    {
-                        id: 2,
-                        name: "Maria Maya",
-                        position: "customer",
-                        desc: "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore",
-                        imgSrc: "/img/testimonial/testi-1.png"
-                    }
-                ]
+                testimonialData: []
             }
         },
+      async mounted()
+      {
+        const testimonial = await this.$axios.get('/testimonial');
+        this.testimonialData = testimonial.data
+      }
     }
 </script>

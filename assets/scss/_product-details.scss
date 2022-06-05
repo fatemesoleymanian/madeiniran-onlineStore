@@ -87,7 +87,7 @@
     .product-anotherinfo-wrapper {
         ul {
             li {
-                color: $dark; 
+                color: $dark;
                 font-size: 14px;
                 list-style: outside none none;
                 margin: 0 0 13px;
@@ -105,7 +105,7 @@
 
 .single-review {
     display: flex;
-    margin: 0 0 50px;
+    margin: 0 50px 50px 0;
     @media #{$xs-layout} {
         display: block;
     }
@@ -125,12 +125,12 @@
     .review-top-wrap {
         display: flex;
         justify-content: space-between;
-        margin: 0 0 10px;
+        margin: 0 10px 10px 0 ;
         align-items: center;
         .review-left {
             display: flex;
             .review-name {
-                margin-right: 25px;
+                margin-left: 25px;
                 h4 {
                     font-size: 16px;
                     margin: 0;
@@ -147,6 +147,14 @@
                 }
             }
         }
+        a{
+            background:  $theme-color;
+            color: white;
+            &:hover{
+                background: $dark;
+                color: white;
+            }
+        }
         .review-btn a {
             font-weight: 500;
             line-height: 1;
@@ -159,10 +167,10 @@
 }
 
 .single-review.child-review {
-    margin-left: 70px;
+    margin-right: 70px;
     margin-bottom: 0;
     @media #{$xs-layout} {
-        margin-left: 0px;
+        margin-right: 0px;
     }
 }
 

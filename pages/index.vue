@@ -5,6 +5,7 @@
         <ServicePolicy />
         <ProductWrapper :isSectionTitle=true />
         <BlogWrapper />
+      <TestimonialOne />
         <TheFooter />
     </div>
 </template>
@@ -17,7 +18,8 @@
             ServicePolicy: () => import('@/components/policy/ServicePolicy'),
             ProductWrapper: () => import('@/components/product/ProductWrapper'),
             BlogWrapper: () => import('@/components/BlogWrapper'),
-            TheFooter: () => import('@/components/TheFooter'),
+          TestimonialOne: () => import('@/components/TestimonialOne'),
+          TheFooter: () => import('@/components/TheFooter'),
         },
         head() {
             return {
