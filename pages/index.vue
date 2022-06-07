@@ -6,13 +6,16 @@
         <ProductWrapper :isSectionTitle=true />
         <BlogWrapper />
       <TestimonialOne />
+      <NewsletterStyleOne />
         <TheFooter />
     </div>
 </template>
 
 <script>
+    import NewsletterStyleOne from "../components/NewsletterStyleOne";
     export default {
         components: {
+          NewsletterStyleOne,
             TheHeader: () => import('@/components/TheHeader'),
             HeroSlider: () => import('@/components/hero/HeroSliderThree'),
             ServicePolicy: () => import('@/components/policy/ServicePolicy'),
