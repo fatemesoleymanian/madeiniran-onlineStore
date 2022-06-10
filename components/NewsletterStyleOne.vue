@@ -157,7 +157,7 @@
               type: 'error',
             });
           });
-          this.new_ideas.saving = true
+          this.new_ideas.saving = false
           return this.$notify({
             title: "عملیات موفق!",
             text: "اطلاعات با موفقیت ثبت گردید، منتظر تماس ما باشید.",
@@ -197,7 +197,7 @@
                   type: 'error',
                 });
               });
-          this.empty_ideas.saving = true
+          this.empty_ideas.saving = false
           return this.$notify({
             title: "عملیات موفق!",
             text: "اطلاعات با موفقیت ثبت گردید، منتظر تماس ما باشید.",
