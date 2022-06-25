@@ -6,8 +6,7 @@
                 <img class="hover-img" :src="'http://localhost:8000'+product.image" :alt="product.name">
             </n-link>
             <div class="product-badges">
-                <span class="product-label pink" v-if="product.state">جدید</span>
-                <span class="product-label purple" v-if="product.discount">-{{ product.discount }}%</span>
+                <span class="product-label purple" v-if="product.discount>0">{{ product.discount }}%</span>
             </div>
             <div class="product-action" v-if="layout === 'twoColumn' || layout === 'threeColumn'">
                 <div class="pro-same-action pro-wishlist">
@@ -35,41 +34,6 @@
             <h3>
                 <n-link :to="`/product/${product.id}`">{{ product.name }}</n-link>
             </h3>
-            <div class="product-rating" v-if="product.discount">
-                <i class="fa fa-star-o yellow"></i>
-                <i class="fa fa-star-o yellow"></i>
-                <i class="fa fa-star-o yellow"></i>
-                <i class="fa fa-star-o yellow"></i>
-                <i class="fa fa-star-o yellow"></i>
-            </div>
-<!--            <div class="product-rating" v-if="product.rating == 4">-->
-<!--                <i class="fa fa-star-o yellow"></i>-->
-<!--                <i class="fa fa-star-o yellow"></i>-->
-<!--                <i class="fa fa-star-o yellow"></i>-->
-<!--                <i class="fa fa-star-o yellow"></i>-->
-<!--                <i class="fa fa-star-o"></i>-->
-<!--            </div>-->
-<!--            <div class="product-rating" v-if="product.rating == 3">-->
-<!--                <i class="fa fa-star-o yellow"></i>-->
-<!--                <i class="fa fa-star-o yellow"></i>-->
-<!--                <i class="fa fa-star-o yellow"></i>-->
-<!--                <i class="fa fa-star-o"></i>-->
-<!--                <i class="fa fa-star-o"></i>-->
-<!--            </div>-->
-<!--            <div class="product-rating" v-if="product.rating == 2">-->
-<!--                <i class="fa fa-star-o yellow"></i>-->
-<!--                <i class="fa fa-star-o yellow"></i>-->
-<!--                <i class="fa fa-star-o"></i>-->
-<!--                <i class="fa fa-star-o"></i>-->
-<!--                <i class="fa fa-star-o"></i>-->
-<!--            </div>-->
-<!--            <div class="product-rating" v-if="product.rating == 1">-->
-<!--                <i class="fa fa-star-o yellow"></i>-->
-<!--                <i class="fa fa-star-o"></i>-->
-<!--                <i class="fa fa-star-o"></i>-->
-<!--                <i class="fa fa-star-o"></i>-->
-<!--                <i class="fa fa-star-o"></i>-->
-<!--            </div>-->
             <div class="product-price">
                 <span>{{ product.state[0].discounted_price.replace(/\B(?=(\d{3})+(?!\d))/g, ',') }} تومان </span>-
                 <span class="old" v-if="product.discount > 0">{{ product.state[0].price.replace(/\B(?=(\d{3})+(?!\d))/g, ',') }}تومان</span>
@@ -116,9 +80,13 @@
                 const prod = {...product, cartQuantity: 1}
                 // for notification
                 if (this.$store.state.cart.find(el => product.id === el.id)) {
-                    this.$notify({ title: 'این محصول در سبد خرید شما وجود دارد!' })
+                    this.$notify({
+                      type:'error',
+                      title: 'این محصول در سبد خرید شما وجود دارد!' })
                 } else {
-                    this.$notify({ title: 'به سبد خرید شما افزوده شد!'})
+                    this.$notify({
+                      type:'success',
+                      title: 'به سبد خرید شما افزوده شد!'})
                 }
 
                 this.$store.dispatch('addToCartItem', prod)
@@ -142,11 +110,15 @@
               if (this.$store.state.wishlist.find(el => product.id === el.id)) {
                 const remove = await  this.$axios.delete('/bookmark',{data})
                 this.$store.dispatch('removeProductFromWishlist',product)
-                this.$notify({title: 'این محصول از لیست علاقمندیهای شما حذف شد!'})
+                this.$notify({
+                  type:'success',
+                  title: 'این محصول از لیست علاقمندیهای شما حذف شد!'})
               }
               else {
                 const card = await this.$axios.post(`/bookmark`, data)
-                this.$notify({title: 'این محصول به لیست علاقمندیهای شما افزوده شد!'})
+                this.$notify({
+                  type:'success',
+                  title: 'این محصول به لیست علاقمندیهای شما افزوده شد!'})
                 this.$store.dispatch('addToWishlist', product)
               }
             },

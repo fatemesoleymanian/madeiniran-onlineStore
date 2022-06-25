@@ -20,17 +20,17 @@
                 items: [
                     {
                         id: 1,
-                        title: "Our vision",
+                        title: "چشم انداز ها",
                         desc: "Flone provide how all this mistaken idea of denounc pleasure and sing pain was born an will give you a ete account of the system, and expound the actual teangs the eat explorer of the truth."
                     },
                     {
                         id: 2,
-                        title: "Our mission",
+                        title: "ماموریت ها",
                         desc: "Flone provide how all this mistaken idea of denounc pleasure and sing pain was born an will give you a ete account of the system, and expound the actual teangs the eat explorer of the truth."
                     },
                     {
                         id: 3,
-                        title: "Our goal",
+                        title: "ارزش ها",
                         desc: "Flone provide how all this mistaken idea of denounc pleasure and sing pain was born an will give you a ete account of the system, and expound the actual teangs the eat explorer of the truth."
                     }
                 ]

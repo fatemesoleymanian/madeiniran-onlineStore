@@ -94,7 +94,9 @@
               const card = await this.$axios.delete(`/bookmark`, {data})
 
                 this.$store.dispatch('removeProductFromWishlist', product.product)
-             this.$notify({ title: 'محصول از لیست علاقمندیهای شما حذف گردید!'})
+             this.$notify({
+               title: 'محصول از لیست علاقمندیهای شما حذف گردید!',
+               type:'success'})
              this.markedProducts.splice(i,1)
             },
 

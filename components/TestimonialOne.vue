@@ -1,6 +1,7 @@
 <template>
     <div class="testimonial-area pb-95">
         <div class="container">
+          <h4 class="text-center">نظرات مشتریان</h4>
             <div class="row">
                 <div class="col-lg-10 ms-auto me-auto">
                     <swiper :options="testimonialOption">

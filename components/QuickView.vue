@@ -6,18 +6,11 @@
                     <div class="product-details-slider">
                         <div class="product-details-img">
                             <div class="product-badges">
-                                <span class="product-label pink" v-if="product.discount">جدید</span>
-                                <span class="product-label purple" v-if="product.discount">-{{ product.discount }}%</span>
+                                <span class="product-label purple" v-if="product.discount>0">{{ product.discount }}%</span>
                             </div>
                             <swiper :options="swiperOptionTop">
                                 <div class="large-img swiper-slide" >
                                     <img class="img-fluid" :src="'http://localhost:8000'+product.image" :alt="product.name">
-                                </div>
-                                <div class="quickview-nav swiper-button-prev">
-                                    <i class="pe-7s-angle-left"></i>
-                                </div>
-                                <div class="quickview-nav swiper-button-next">
-                                    <i class="pe-7s-angle-right"></i>
                                 </div>
                             </swiper>
                         </div>
@@ -36,55 +29,8 @@
                             <span> {{ discounted_price.replace(/\B(?=(\d{3})+(?!\d))/g, ',') }} تومان </span>
                             <span class="old" v-if="product.discount > 0">{{ pricee.replace(/\B(?=(\d{3})+(?!\d))/g, ',') }} تومان</span>
                         </div>
-                          <div class="pro-details-rating-wrap">
-<!--                              <div class="pro-details-rating" v-if="product.state">-->
-<!--                                  <i class="fa fa-star-o yellow"></i>-->
-<!--                                  <i class="fa fa-star-o yellow"></i>-->
-<!--                                  <i class="fa fa-star-o yellow"></i>-->
-<!--                                  <i class="fa fa-star-o yellow"></i>-->
-<!--                                  <i class="fa fa-star-o yellow"></i>-->
-<!--                              </div>-->
-<!--                            <div class="pro-details-rating" v-if="product.rating == 4">-->
-<!--                                <i class="fa fa-star-o yellow"></i>-->
-<!--                                <i class="fa fa-star-o yellow"></i>-->
-<!--                                <i class="fa fa-star-o yellow"></i>-->
-<!--                                <i class="fa fa-star-o yellow"></i>-->
-<!--                                <i class="fa fa-star-o"></i>-->
-<!--                            </div>-->
-<!--                            <div class="pro-details-rating" v-if="product.rating == 3">-->
-<!--                                <i class="fa fa-star-o yellow"></i>-->
-<!--                                <i class="fa fa-star-o yellow"></i>-->
-<!--                                <i class="fa fa-star-o yellow"></i>-->
-<!--                                <i class="fa fa-star-o"></i>-->
-<!--                                <i class="fa fa-star-o"></i>-->
-<!--                            </div>-->
-<!--                            <div class="pro-details-rating" v-if="product.rating == 2">-->
-<!--                                <i class="fa fa-star-o yellow"></i>-->
-<!--                                <i class="fa fa-star-o yellow"></i>-->
-<!--                                <i class="fa fa-star-o"></i>-->
-<!--                                <i class="fa fa-star-o"></i>-->
-<!--                                <i class="fa fa-star-o"></i>-->
-<!--                            </div>-->
-<!--                            <div class="pro-details-rating" v-if="product.rating == 1">-->
-<!--                                <i class="fa fa-star-o yellow"></i>-->
-<!--                                <i class="fa fa-star-o"></i>-->
-<!--                                <i class="fa fa-star-o"></i>-->
-<!--                                <i class="fa fa-star-o"></i>-->
-<!--                                <i class="fa fa-star-o"></i>-->
-<!--                            </div>-->
-<!--                            <span><a href="#">{{ product.rating }} Reviews</a></span>-->
-                        </div>
                         <p>{{ product.description_excerpt }}</p>
                         <div class="pro-details-size-color" v-if="product.state">
-<!--                            <div class="pro-details-color-wrap">-->
-<!--                                <h6 class="label">Color</h6>-->
-<!--                                <div class="pro-details-color-content">-->
-<!--                                    <label :class="item" class="radio" v-for="(item, index) in product.variation.color" :key="index" >-->
-<!--                                        <input type="radio" name="colorGroup"/>-->
-<!--                                        <span class="check-mark"></span>-->
-<!--                                    </label>-->
-<!--                                </div>-->
-<!--                            </div>-->
                             <div class="pro-details-size-wrap">
                                 <h6 class="label">ظرفیت ها</h6>
                                 <div class="pro-details-size-content">
@@ -204,7 +150,7 @@
         }
         },
 
-        methods: {
+      methods: {
             beforeOpen ({params: product}) {
                 this.item = product
             },
@@ -250,7 +196,9 @@
               }
               this.$axios.setToken(localStorage.getItem('116111107101110'), 'Bearer');
               const card = await this.$axios.post(`/card`, data);
-              this.$notify({title: 'محصول با موفقیت به سبد خرید افزوده شد!'})
+              this.$notify({
+                type:'success',
+                title: 'محصول با موفقیت به سبد خرید افزوده شد!'})
               const newPro = await  this.$axios.get(`/card_one_pro/${card.data.msg.id}`);
               this.$store.dispatch('addToCartItem',newPro.data.product[0] )
             }

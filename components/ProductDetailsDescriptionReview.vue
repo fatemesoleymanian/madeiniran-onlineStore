@@ -148,7 +148,6 @@
         const user = localStorage.getItem('117115101114');
         const userr = JSON.parse(user);
         this.you = userr.id
-        console.log(this.faq)
       },
       methods:{
         async saveComment(e)
@@ -156,7 +155,9 @@
           e.preventDefault()
           if (!localStorage.getItem('116111107101110')) return  window.location = '/login-register';
 
-          if (this.comment.trim() === '') return  this.$notify({title: 'لطفا دیدگاه خود را وارد کنید!'})
+          if (this.comment.trim() === '') return  this.$notify({
+            type:'error',
+            title: 'لطفا دیدگاه خود را وارد کنید!'})
           const data = {
             product:this.product.id,
             user:this.you,
@@ -165,9 +166,13 @@
           this.$axios.setToken(localStorage.getItem('116111107101110'), 'Bearer');
           const comment = await this.$axios.post('pcomment/save',data)
           .catch(()=>{
-            return this.$notify({title: 'خطایی در ثبت دیدگاه بوجود آمد!'})
+            return this.$notify({
+              type:'error',
+              title: 'خطایی در ثبت دیدگاه بوجود آمد!'})
           })
-          this.$notify({title: comment.data.msg})
+          this.$notify({
+            type:'success',
+            title: comment.data.msg})
         },
         async saveForm(e)
         {
@@ -214,7 +219,9 @@
           const form = await this.$axios.post('/faq_form',data)
           .catch(()=>{
             this.saving=false
-            return this.$notify({title: 'خطایی در ارسال اطلاعات بوجود آمد!'})
+            return this.$notify({
+              type:'error',
+              title: 'خطایی در ارسال اطلاعات بوجود آمد!'})
           })
           this.$notify({title: form.data.msg});
           this.saving=false

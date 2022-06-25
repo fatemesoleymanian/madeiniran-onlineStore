@@ -209,7 +209,7 @@ export default {
         address:'',
         plaque:'',
         zip_code:'',
-        floor:'',
+        floor:0,
         id:''
       },
       show:true,
@@ -236,6 +236,7 @@ export default {
     this.data.password = info.data.password
     this.data.address = info.data.address
     this.data.plaque = info.data.plaque
+    this.data.job = info.data.job
     this.data.zip_code = info.data.zip_code
     this.data.floor = info.data.floor
     this.data.id = info.data.id
@@ -243,15 +244,24 @@ export default {
   methods:{
     async update()
     {
-      if (this.data.phone_number.trim() === '') return this.$notify({title:'لطفا شماره تلفن همره را وارد کنید.'})
-      if (this.data.address.trim() === '') return this.$notify({title:'لطفا آدرس را وارد کنید.'})
-      if (this.data.name.trim() === '') return this.$notify({title:'لطفا نام و نام خانوداگی را وارد کنید.'})
+      if (this.data.phone_number.trim() === '') return this.$notify({
+        title:'لطفا شماره تلفن همره را وارد کنید.',
+        type:'error'})
+      if (this.data.address.trim() === '') return this.$notify({
+        title:'لطفا آدرس را وارد کنید.',
+        type:'error'})
+      if (this.data.name.trim() === '') return this.$notify({
+        title:'لطفا نام و نام خانوداگی را وارد کنید.',
+        type:'error'})
       this.show =false;
       this.$axios.setToken(localStorage.getItem('116111107101110'),'Bearer');
       const result = await this.$axios.put('update_acc',this.data);
       this.show =true
       if (result.status === 200)
-      return this.$notify({title:'ویرایش با موفقیت انجام شد.'})
+      return this.$notify({
+        title:'ویرایش با موفقیت انجام شد.',
+        type:'success'
+      })
 
     },
     editAddress()

@@ -146,17 +146,15 @@
 
         methods: {
             async incrementProduct(product) {
+              console.log(product)
 
-                if (product.count < product.product.inventory) {
                     this.$store.dispatch('addToCartItem', product);
 
                   const data = {
                     id: product.id,
                   }
                   this.$axios.setToken(localStorage.getItem('116111107101110'), 'Bearer');
-                  const card = await this.$axios.post(`/card_inc_count`, data)
-                }
-
+                  const card = await this.$axios.post(`/card_inc_count`, data);
             },
 
             async decrementProduct(product) {
@@ -178,7 +176,10 @@
               }
               this.$axios.setToken(localStorage.getItem('116111107101110'), 'Bearer');
               const card = await this.$axios.delete(`/card`, {data})
-              this.$notify({ title: 'محصول از سبد شما حذف گردید!'})
+              this.$notify({
+                title: 'محصول از سبد شما حذف گردید!',
+                type:'success'
+              })
                 this.$store.dispatch('removeProductFromCart', product)
             },
 
@@ -197,7 +198,10 @@
                   }
                   this.$axios.setToken(localStorage.getItem('116111107101110'), 'Bearer');
                   const card = await this.$axios.delete(`/empty_card`, {data})
-                    this.$notify({ title: 'سبد خرید شما خالی شد!'})
+                    this.$notify({
+                      title: 'سبد خرید شما خالی شد!',
+                      type:'success'
+                    })
 
                     this.$store.commit('CLEAR_CART')
                 }

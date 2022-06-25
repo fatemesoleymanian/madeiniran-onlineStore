@@ -1,5 +1,59 @@
 // write your custom scss/css here
+
+/* Webfont: Yekan */
+@font-face {
+    font-family: 'Yekan';
+    src:	url('../fonts/Yekan.eot'); /* IE9 Compat Modes */
+    src:	url('../fonts/Yekan.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+    url('../fonts/Yekan.woff2') format('woff2'), /* Modern Browsers */
+    url('../fonts/Yekan.woff') format('woff'), /* Modern Browsers */
+    url('../fonts/Yekan.otf') format('opentype'), /* Open Type Font */
+    url('../fonts/Yekan.ttf') format('truetype'); /* Safari, Android, iOS */
+    font-weight: normal;
+    font-style: normal;
+    text-rendering: optimizeLegibility;
+    font-display: auto;
+}
 *{
     direction: rtl;
-
+    font-family: 'Yekan';
 }
+.ql-align-right{
+    text-align: right;
+}
+.ql-align-justify{
+    text-align: justify;
+}
+.ql-align-center{
+    text-align: center;
+}
+.ql-syntax{
+background: #1b1b1b;
+    color: #9fa0a2;
+    text-align: left;
+    padding: 5px;
+    border-radius: 5px;
+}
+.ql-indent-5{
+    text-indent: 20px;
+}
+.ql-indent-6
+{
+    text-indent: 30px;
+}
+.ql-direction-rtl{
+    direction: rtl;
+}
+.ql-direction-ltr{
+    direction: ltr;
+}
+.ql-size-large{
+    font-size: large;
+}
+.ql-size-huge{
+    font-size: larger;
+}
+.ql-font-monospace{
+    font-family: monospace;
+}
+

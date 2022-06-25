@@ -38,7 +38,7 @@
             color: #915342;
             font-weight: 600;
             margin: 0;
-            font-family: 'Cormorant Garamond';
+            font-family: 'Yekan';
             @media #{$md-layout}{
                 font-size: 27px;
             }
@@ -51,7 +51,7 @@
             color: #010101;
             margin: 3px 0 58px;
             font-weight: 600;
-            font-family: 'Cormorant Garamond';
+            font-family: 'Yekan';
             @media #{$lg-layout}{
                 margin: 3px 0 25px;
             }
@@ -499,7 +499,7 @@
             }
         }
         h3 {
-            font-family: $cormorantgaramond;
+            font-family: 'Yekan';
             font-size: 36px;
             margin: 9px 0 62px;
             font-weight: 600;
@@ -655,7 +655,7 @@
             margin: 10px 0 4px;
             line-height: 50px;
             text-transform: uppercase;
-            font-family: $abrilfatface;
+            font-family: 'Yekan';
             @media #{$lg-layout}{
                 font-size: 55px;
             }
@@ -679,16 +679,16 @@
             margin: 0px 0 48px;
             line-height: 1;
             text-transform: uppercase;
-            font-family: $abrilfatface;
+            font-family: 'Yekan';
             letter-spacing: 6px;
             @media #{$md-layout}{
                 letter-spacing: 5px;
-                font-size: 20px; 
+                font-size: 20px;
                 margin: 0px 0 27px;
             }
             @media #{$xs-layout}{
                 letter-spacing: 5px;
-                font-size: 17px; 
+                font-size: 17px;
                 margin: 0px 0 15px;
             }
             @media #{$sm-layout}{
@@ -1041,10 +1041,10 @@
                     left: 15px;
                     h3 {
                         font-size: 25px;
-                    } 
+                    }
                     h4 {
                         margin: 3px 0 10px;
-                    } 
+                    }
                 }
             }
             @media #{$xl-layout}{
@@ -1053,10 +1053,10 @@
                     left: 15px;
                     h3 {
                         font-size: 25px;
-                    } 
+                    }
                     h4 {
                         margin: 3px 0 10px;
-                    } 
+                    }
                 }
             }
             @media #{$md-layout}{
@@ -1064,10 +1064,10 @@
                     top: 25px;
                     h3 {
                         font-size: 30px;
-                    } 
+                    }
                     h4 {
                         margin: 3px 0 40px;
-                    } 
+                    }
                 }
             }
         }
@@ -1103,7 +1103,7 @@
             font-size: 48px;
             color: #915342;
             margin: 0;
-            font-family: 'Cormorant Garamond';
+            font-family: 'Yekan';
             @media #{$md-layout}{
                 font-size: 35px;
             }
@@ -1115,7 +1115,7 @@
             font-size: 24px;
             color: #010101;
             font-weight: 500;
-            font-family: 'Cormorant Garamond';
+            font-family: 'Yekan';
             margin: 22px 0 94px;
             @media #{$lg-layout}{
                 margin: 22px 0 34px;
@@ -1158,7 +1158,7 @@
                 span {
                     color: #af163b;
                 }
-            } 
+            }
             a {
                 border: 2px solid #af163b;
                 color: #af163b;
@@ -1208,7 +1208,7 @@
 .medical-contact-text {
     h3 {
         color: #FFFFFF;
-        font-family: $lobster;
+        font-family: 'Yekan';
         font-size: 29px;
         font-style: italic;
         margin: 0 0 11px;

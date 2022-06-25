@@ -10,7 +10,7 @@
                 <span class="product-label purple" v-if="product.discount">-{{ product.discount }}%</span>
             </div>
             <div class="product-action-2">
-                <button class="btn" title="Compare" @click="addToCompare(product)"> 
+                <button class="btn" title="Compare" @click="addToCompare(product)">
                     <i class="pe-7s-shuffle"></i>
                 </button>
                 <button class="btn" title="Add To Cart" @click="addToCart(product)">
@@ -47,7 +47,9 @@
                 const prod = {...product, cartQuantity: 1}
                 // for notification
                 if (this.$store.state.cart.find(el => product.id === el.id)) {
-                    this.$notify({ title: 'Already added to cart update with one' })
+                    this.$notify({
+
+                      title: 'Already added to cart update with one' })
                 } else {
                     this.$notify({ title: 'Add to cart successfully!'})
                 }

@@ -52,7 +52,13 @@
                       <n-link to="/login-register">ورود | ثبت نام</n-link>
                     </li>
                     <li v-if="auth">
-                      <n-link to="/my-account">حساب من</n-link>
+                      <n-link to="/my-account">پروفایل من</n-link>
+                    </li>
+                    <li v-if="auth">
+                      <n-link to="/orders">سفارش های من</n-link>
+                    </li>
+                    <li v-if="auth">
+                      <n-link to="/comments">دیدگاه های من</n-link>
                     </li>
                     <li v-if="auth"><a href="#" @click="logout">
                       خروج از حساب </a></li>

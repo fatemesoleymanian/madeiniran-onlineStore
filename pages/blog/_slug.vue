@@ -97,10 +97,16 @@
           copyToClipboard()
           {
             navigator.clipboard.writeText(`https://madein-iran/blog/${this.id}.com`).then(() => {
-              this.$notify({ title: 'لینک بلاگ کپی شد!'})
+              this.$notify({
+                title: 'لینک بلاگ کپی شد!',
+                type:'success'
+              })
             })
                 .catch(() => {
-                  this.$notify({ title: 'خطا در کپی لینک بلاگ!'})
+                  this.$notify({
+                    title: 'خطا در کپی لینک بلاگ!',
+                    type:'error'
+                  })
                 });
           }
         },

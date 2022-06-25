@@ -10,7 +10,7 @@
                         </div>
                     </div>
                 </div>
-              <div class="col-6 text-center border">
+              <div class="col-6 text-center ">
                 <div class="support-wrap support-1">
                   <div class="support-icon">
                     <img class="animated w-100" width="500" height="100"
@@ -28,28 +28,7 @@
     export default {
         data() {
             return {
-                policies: [
-                    {
-                        icon: "/img/icon-img/support-1.png",
-                        title: "Free Shipping",
-                        subTitle: "Free shipping on all order"
-                    },
-                    {
-                        icon: "/img/icon-img/support-2.png",
-                        title: "Support 24/7",
-                        subTitle: "Support 24 hours a day"
-                    },
-                    {
-                        icon: "/img/icon-img/support-3.png",
-                        title: "Money Return",
-                        subTitle: "30 days for free return"
-                    },
-                    {
-                        icon: "/img/icon-img/support-4.png",
-                        title: "Order Discount",
-                        subTitle: "10% off on your first order"
-                    },
-                ]
+
             }
         },
     };

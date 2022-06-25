@@ -60,4 +60,7 @@
         },
     };
 </script>
-
+<style>
+* {
+}
+</style>

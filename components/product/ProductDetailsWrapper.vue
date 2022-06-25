@@ -6,22 +6,10 @@
           <div class="product-details-slider">
             <div class="product-details-img">
               <div class="product-badges">
-                <span class="product-label pink" v-if="product.state">جدید</span>
-                <span class="product-label purple" v-if="product.state">-{{ product.state[0].discounted_price.replace(/\B(?=(\d{3})+(?!\d))/g, ',') }}%</span>
+                <span class="product-label purple" v-if="product.discount> 0">{{ product.discount }}%</span>
               </div>
               <swiper :options="swiperOptionTop" ref="swiperTop">
                 <div class="large-img swiper-slide">
-                  <img class="img-fluid" :src="'http://localhost:8000'+product.image" :alt="product.name">
-                </div>
-                <div class="quickview-nav swiper-button-prev">
-                  <i class="pe-7s-angle-left"></i>
-                </div>
-                <div class="quickview-nav swiper-button-next">
-                  <i class="pe-7s-angle-right"></i>
-                </div>
-              </swiper>
-              <swiper class="mt-2" :options="swiperOptionThumbs" ref="swiperThumbs">
-                <div class="thumb-img swiper-slide">
                   <img class="img-fluid" :src="'http://localhost:8000'+product.image" :alt="product.name">
                 </div>
               </swiper>
@@ -181,17 +169,6 @@ export default {
         }
       },
 
-      swiperOptionThumbs: {
-        loop: true,
-        spaceBetween: 10,
-        centeredSlides: true,
-        slidesPerView: 5,
-        freeMode: true,
-        watchSlidesVisibility: true,
-        watchSlidesProgress: true,
-        slideToClickedSlide: true,
-        loopedSlides: 5, // looped slides should be the same
-      },
       slug: this.$route.params.slug,
       indexOfState:this.states.length-1,
       pricee :'',
@@ -243,11 +220,15 @@ export default {
     },
     async addToCart(product) {
       if (!localStorage.getItem('116111107101110')) return  window.location = '/login-register';
-      if (this.state_id === '') return  this.$notify({title: 'لطفا ظرفیت محصول را انتخاب کنید!'})
+      if (this.state_id === '') return  this.$notify({
+        type:'error',
+        title: 'لطفا ظرفیت محصول را انتخاب کنید!'})
       const prod = {...product, cartQuantity: this.singleQuantity}
       // for notification
       if (this.$store.state.cart.find(el => this.state_id === el.state_id)) {
-        this.$notify({title: 'این محصول در سبد خرید شما وجود دارد!'})
+        this.$notify({
+          type:'error',
+          title: 'این محصول در سبد خرید شما وجود دارد!'})
       }
       else {
         const user = localStorage.getItem('117115101114');
@@ -261,7 +242,9 @@ export default {
         }
         this.$axios.setToken(localStorage.getItem('116111107101110'), 'Bearer');
         const card = await this.$axios.post(`/card`, data)
-        this.$notify({title: 'محصول با موفقیت به سبد خرید افزوده شد!'})
+        this.$notify({
+          type:'success',
+          title: 'محصول با موفقیت به سبد خرید افزوده شد!'})
         const newPro = await  this.$axios.get(`/card_one_pro/${card.data.msg.id}`);
         this.$store.dispatch('addToCartItem',newPro.data.product[0] )
       }
@@ -296,11 +279,15 @@ export default {
       if (this.$store.state.wishlist.find(el => product.id === el.id)) {
       const remove = await  this.$axios.delete('/bookmark',{data})
         this.$store.dispatch('removeProductFromWishlist',product)
-        this.$notify({title: 'این محصول از لیست علاقمندیهای شما حذف شد!'})
+        this.$notify({
+          type:'success',
+          title: 'این محصول از لیست علاقمندیهای شما حذف شد!'})
       }
       else {
         const card = await this.$axios.post(`/bookmark`, data)
-        this.$notify({title: 'این محصول به لیست علاقمندیهای شما افزوده شد!'})
+        this.$notify({
+          type:'success',
+          title: 'این محصول به لیست علاقمندیهای شما افزوده شد!'})
         this.$store.dispatch('addToWishlist', product)
       }
 

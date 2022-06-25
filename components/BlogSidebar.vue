@@ -77,7 +77,7 @@
         async mounted(){
             const [tags,categories,latestBlogs] = await Promise.all(
                   [
-                this.$axios.get('tags'),
+                this.$axios.get('/tags_only_blog'),
                  this.$axios.get('blog_categories'),
                 this.$axios.get('blogs_latest')
             ]);

@@ -30,7 +30,9 @@ export default {
             if(this.data.key.trim() === '' )
             {
                 this.loading = false;
-                 return this.$notify({ title: 'لطفا شماره موبایل یا ایمیل خود را وارد کنید.'});
+                 return this.$notify({
+                   title: 'لطفا شماره موبایل یا ایمیل خود را وارد کنید.',
+                   type:'error'});
             }
 
             const log = await this.$axios.post('login_or_reg',this.data);
@@ -41,10 +43,16 @@ export default {
              {this.$store.dispatch('setNewUser',false)}
             if(log.data.email) {
                 this.loading =false;
-                return this.$notify({ title: 'خطا در ارسال کد.  لطفا مجددا وارد شوید.'});
+
+                return this.$notify({
+                  title: 'خطا در ارسال کد.  لطفا مجددا وارد شوید.',
+                  type:'error'});
+
             }
             localStorage.setItem('key',this.data.key);
-            this.$notify({ title: 'کد تایید به شما ارسال شد.'});
+            this.$notify({
+              title: 'کد تایید به شما ارسال شد.',
+              type:'success'});
             this.loading =false;
              this.$store.dispatch('setFlag', true);
 

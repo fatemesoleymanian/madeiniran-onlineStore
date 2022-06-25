@@ -195,14 +195,30 @@
         async saveOrderAndPay()
         {
           //validation
-          if (this.user_info.name == null || this.user_info.name.trim() === '') return this.$notify({ title: 'نام و نام خانوادگی الزامی است.'})
-          if (this.user_info.phone_number == null || this.user_info.phone_number.trim() === '') return this.$notify({ title: 'شماره تماس الزامی است.'})
-          if (this.user_info.floor == null || this.user_info.floor === '') return this.$notify({ title: 'شماره واحد یا طبقه الزامی است.'})
-          if (this.user_info.zip_code == null || this.user_info.zip_code.trim() === '') return this.$notify({ title: 'کد پستی الزامی است.'})
-          if (this.user_info.plaque == null || this.user_info.plaque === '') return this.$notify({ title: 'شماره پلاک الزامی است.'})
-          if (this.user_info.address == null || this.user_info.address.trim() === '') return this.$notify({ title: 'آدرس مقصد الزامی است.'})
-          if (this.user_info.phone_number.length !== 11 ) return this.$notify({ title: 'شماره تماس اشتباه است.'})
-          if (this.user_info.zip_code.length !== 10 ) return this.$notify({ title: 'کدپستی اشتباه است.'})
+          if (this.user_info.name == null || this.user_info.name.trim() === '') return this.$notify(
+              { title: 'نام و نام خانوادگی الزامی است.',
+              type:'error'})
+          if (this.user_info.phone_number == null || this.user_info.phone_number.trim() === '') return this.$notify({
+            title: 'شماره تماس الزامی است.',
+          type:'error'})
+          if (this.user_info.floor == null || this.user_info.floor === '') return this.$notify({
+            title: 'شماره واحد یا طبقه الزامی است.',
+            type:'error'})
+          if (this.user_info.zip_code == null || this.user_info.zip_code.trim() === '') return this.$notify({
+            title: 'کد پستی الزامی است.',
+            type:'error'})
+          if (this.user_info.plaque == null || this.user_info.plaque === '') return this.$notify({
+            title: 'شماره پلاک الزامی است.',
+            type:'error'})
+          if (this.user_info.address == null || this.user_info.address.trim() === '') return this.$notify({
+            title: 'آدرس مقصد الزامی است.',
+            type:'error'})
+          if (this.user_info.phone_number.length !== 11 ) return this.$notify({
+            title: 'شماره تماس اشتباه است.',
+            type:'error'})
+          if (this.user_info.zip_code.length !== 10 ) return this.$notify({
+            title: 'کدپستی اشتباه است.',
+            type:'error'})
 
           //update user information
           const user = localStorage.getItem('117115101114');
@@ -219,13 +235,14 @@
           this.$axios.setToken(localStorage.getItem('116111107101110'),'Bearer');
           const update_user_info = await this.$axios.post('order/step_2',data);
           console.log(update_user_info.data.msg+'update user message')
+          //GO TO PAYMENT PAGE NOW
 
           //save order
-          const order_data = {
-            user: userr.id
-          }
-          const save_order = await this.$axios.post('order/step_1',order_data);
-          //GO TO PAYMENT PAGE NOW
+          // const order_data = {
+          //   user: userr.id
+          // }
+          // const save_order = await this.$axios.post('order/step_1',order_data);
+          // in methode vase vghtie ke pay ba success bood
 
 
         }

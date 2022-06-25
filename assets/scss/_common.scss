@@ -41,7 +41,7 @@ body {
     line-height: 24px;
     font-size: 14px;
     font-weight: 400;
-    font-family: $poppins;
+    font-family: 'Yekan';
     color: $black;
 }
 
@@ -52,7 +52,7 @@ h4,
 h5,
 h6 {
     color: $heading-color;
-    font-family: $poppins;
+    font-family: 'Yekan';
     font-weight: 400;
     margin-top: 0;
     line-height: 1.1;
@@ -64,7 +64,7 @@ p {
     line-height: 24px;
     color: $dark;
     margin-bottom: 15px;
-    font-family: $poppins;
+    font-family: 'Yekan';
 }
 
 h1 {
@@ -150,7 +150,7 @@ ul {
 }
 
 
-/*-- 
+/*--
     - Common Classes
 -----------------------------------------*/
 
@@ -911,7 +911,7 @@ a:hover {
     padding-bottom: 55px;
     @media #{$xs-layout}{
 		padding-bottom: 15px;
-	}   
+	}
 }
 
 .pb-60 {
@@ -961,7 +961,7 @@ a:hover {
     padding-bottom: 100px;
     @media #{$xs-layout} {
         padding-bottom: 30px;
-    }  
+    }
 }
 
 .pb-105 {
@@ -1132,7 +1132,7 @@ a:hover {
 
 
 /***************************
-    Page section padding 
+    Page section padding
 ****************************/
 
 .ptb-0 {
@@ -1249,7 +1249,7 @@ a:hover {
 
 
 /***************************
-    Page section margin 
+    Page section margin
 ****************************/
 
 .mtb-0 {
@@ -1500,8 +1500,8 @@ textarea:focus {
 }
 
 
-/*-- 
-    Scroll Up 
+/*--
+    Scroll Up
 -----------------------------------------*/
 
 .scroll-top {
@@ -1621,7 +1621,7 @@ textarea:focus {
             z-index: 9;
         }
     }
-} 
+}
 @media #{$xs-layout} {
     .res-white-overly-xs {
         position: relative;
@@ -1651,7 +1651,7 @@ textarea:focus {
             z-index: 9;
         }
     }
-} 
+}
 
 .btn-hover {
     a,
@@ -1663,7 +1663,7 @@ textarea:focus {
             border: 1px solid $theme-color;
             color: $white;
         }
-        &:before, 
+        &:before,
         &:after {
             content: '';
             position: absolute;
@@ -1774,7 +1774,7 @@ a.default-btn {
 	width: 100%;
 	height: 100%;
 	top: 0;
-	left: 0; 
+	left: 0;
 	z-index: 0;
 	background-color: rgba(0,0,0,0);
 }
@@ -1811,7 +1811,7 @@ a.default-btn {
 .swiper-button-next:after,
 .swiper-button-prev:after {
     display: none;
-}   
+}
 
 // notification css
 .notification-title {

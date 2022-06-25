@@ -57,7 +57,9 @@ export default {
       const log = await this.$axios.post('confirm_code', this.data);
       if (log.status === 200) {
         this.loading = false;
-        return this.$notify({title: log.data.msg});
+        return this.$notify({
+          type:'success',
+          title: log.data.msg});
       }
       if (log.status === 201) {
         localStorage.setItem('117115101114',JSON.stringify(log.data.user));
@@ -92,7 +94,9 @@ export default {
         return this.$notify({ title: 'خطا در ارسال کد.  لطفا مجددا وارد شوید.'});
       }
       localStorage.setItem('key',this.data.key);
-      this.$notify({ title: 'کد تایید به شما ارسال شد.'});
+      this.$notify({
+        type:'success',
+        title: 'کد تایید به شما ارسال شد.'});
       this.$store.dispatch('setFlag', true);
       this.end =false;
       this.countDown = 8;

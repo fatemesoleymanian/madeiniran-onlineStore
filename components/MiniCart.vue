@@ -70,7 +70,9 @@
               }
               this.$axios.setToken(localStorage.getItem('116111107101110'), 'Bearer');
               const card = await this.$axios.delete(`/card`, {data})
-              this.$notify({ title: 'محصول از سبد شما حذف گردید!'})
+              this.$notify({
+                type:'success',
+                title: 'محصول از سبد شما حذف گردید!'})
               this.$store.dispatch('removeProductFromCart', product)
             },
 

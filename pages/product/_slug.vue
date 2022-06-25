@@ -28,7 +28,9 @@
 
         const faqs = await this.$axios.get(`/products_faq${this.slug}`)
             .catch(()=>{
-              return this.$notify({title: 'خطایی  بوجود آمد!'})
+              return this.$notify({
+                title: 'خطایی  بوجود آمد!',
+                type:'error'})
             });
         this.faq = faqs.data;
         console.log(this.faq)
