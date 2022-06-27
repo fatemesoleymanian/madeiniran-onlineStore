@@ -1,0 +1,1 @@
+__NUXT_JSONP__("/comments", {data:[{}],fetch:{},mutations:[]});

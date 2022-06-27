@@ -48,8 +48,8 @@ export default {
         }
     ],
     axios: {
-        baseURL:"http://localhost:8000/api/",
-    
+        baseURL:"https://apidemo.madein-iran.com/public/api",
+
     },
     // Auto import components (https://go.nuxtjs.dev/config-components)
     components: true,

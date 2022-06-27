@@ -1,0 +1,1 @@
+__NUXT_JSONP__("/shop-grid-two-column", {data:[{}],fetch:{},mutations:[]});

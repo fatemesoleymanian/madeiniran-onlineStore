@@ -244,13 +244,13 @@ export default {
   methods:{
     async update()
     {
-      if (this.data.phone_number.trim() === '') return this.$notify({
+      if (this.data.phone_number === null) return this.$notify({
         title:'لطفا شماره تلفن همره را وارد کنید.',
         type:'error'})
-      if (this.data.address.trim() === '') return this.$notify({
+      if (this.data.address === null) return this.$notify({
         title:'لطفا آدرس را وارد کنید.',
         type:'error'})
-      if (this.data.name.trim() === '') return this.$notify({
+      if (this.data.name === null) return this.$notify({
         title:'لطفا نام و نام خانوداگی را وارد کنید.',
         type:'error'})
       this.show =false;
@@ -262,7 +262,6 @@ export default {
         title:'ویرایش با موفقیت انجام شد.',
         type:'success'
       })
-
     },
     editAddress()
     {

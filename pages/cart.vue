@@ -26,7 +26,7 @@
                                     <tr v-for="(product, index) in products" :key="index">
                                         <td class="product-thumbnail">
                                             <n-link :to="`/product/${product.product.id}`">
-                                                <img :src="'http://localhost:8000'+product.product.image" :alt="product.product.name">
+                                                <img :src="'https://apidemo.madein-iran.com/public'+product.product.image" :alt="product.product.name">
                                             </n-link>
                                         </td>
                                         <td class="product-name">

@@ -1,0 +1,1 @@
+__NUXT_JSONP__("/compare", {data:[{}],fetch:{},mutations:[]});

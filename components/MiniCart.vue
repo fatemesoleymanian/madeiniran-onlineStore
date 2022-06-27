@@ -5,7 +5,7 @@
                 <li class="single-shopping-cart" v-for="(product, index) in products" :key="index">
                     <div class="shopping-cart-img">
                         <n-link :to="`/product/${product.product.id}`">
-                            <img :src="'http://localhost:8000'+product.product.image" :alt="product.product.name">
+                            <img :src="'https://apidemo.madein-iran.com/public'+product.product.image" :alt="product.product.name">
                         </n-link>
                     </div>
                     <div class="shopping-cart-title">

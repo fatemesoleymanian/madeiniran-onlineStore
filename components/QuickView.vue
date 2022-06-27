@@ -10,7 +10,7 @@
                             </div>
                             <swiper :options="swiperOptionTop">
                                 <div class="large-img swiper-slide" >
-                                    <img class="img-fluid" :src="'http://localhost:8000'+product.image" :alt="product.name">
+                                    <img class="img-fluid" :src="'https://apidemo.madein-iran.com/public'+product.image" :alt="product.name">
                                 </div>
                             </swiper>
                         </div>

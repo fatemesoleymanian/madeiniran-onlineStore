@@ -1,0 +1,1 @@
+__NUXT_JSONP__("/shop-grid-right-sidebar", {data:[{}],fetch:{},mutations:[]});

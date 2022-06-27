@@ -18,7 +18,7 @@
                  <div class="single-sidebar-blog">
                     <div class="sidebar-blog-img">
                         <n-link :to="`/blog/${blog.id}`">
-                            <img :src="'http://localhost:8000'+blog.featuredImage" :alt="blog.title">
+                            <img :src="'https://apidemo.madein-iran.com/public'+blog.featuredImage" :alt="blog.title">
                         </n-link>
                     </div>
                     <div class="sidebar-blog-content">

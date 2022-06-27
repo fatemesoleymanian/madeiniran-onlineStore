@@ -2,8 +2,8 @@
     <div class="product-wrap mb-30">
         <div class="product-img">
             <n-link :to="`/product/${product.id}`">
-                <img class="default-img" :src="'http://localhost:8000'+product.image" :alt="product.name">
-                <img class="hover-img" :src="'http://localhost:8000'+product.image" :alt="product.name">
+                <img class="default-img" :src="'https://apidemo.madein-iran.com/public'+product.image" :alt="product.name">
+                <img class="hover-img" :src="'https://apidemo.madein-iran.com/public'+product.image" :alt="product.name">
             </n-link>
             <div class="product-badges">
                 <span class="product-label purple" v-if="product.discount>0">{{ product.discount }}%</span>
