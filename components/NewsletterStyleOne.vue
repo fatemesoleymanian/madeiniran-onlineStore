@@ -4,7 +4,7 @@
             <div class="row">
                 <div class="col-xl-5 col-lg-7 ms-auto me-auto">
                     <div class="subscribe-style-3 text-center">
-                        <h2 style="font-size: 26pt">فرم تقاضای خط تولید </h2>
+                        <h2 style="font-size: 24pt">فرم تقاضای خط تولید </h2>
                         <p class="pb-5">چنانچه به دنبال راه اندازی خط تولید خود هستید فرم زیر را پر کنید.</p>
                       <div class="description-review-area py-4">
                         <div class="container">

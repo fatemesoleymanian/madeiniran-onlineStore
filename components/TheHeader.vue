@@ -155,9 +155,11 @@ export default {
 
 
     },
-    async search() {
+    async search(e) {
+      e.preventDefault();
       if (this.srch) {
-        window.location = `/search/${this.srch}`;
+        localStorage.setItem('srch',this.srch)
+        window.location = '/compare';
       }
     },
     suggestion() {
@@ -168,7 +170,8 @@ export default {
         this.active = false
       }
     },
-    async getSugges() {
+    async getSugges(e) {
+      e.preventDefault();
       const suggestion = await this.$axios.get('/products_search_suggestion');
 
       for (let i in suggestion.data.products) {

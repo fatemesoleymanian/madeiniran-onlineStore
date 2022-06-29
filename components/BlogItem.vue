@@ -11,7 +11,7 @@
                 <h3>
                     <n-link :to="`/blog/${blog.id}`">{{ blog.title }}</n-link>
                 </h3>
-                <span>منتشر شده توسط <a href="https://madein-iran.com/">ساخت ایران</a></span>
+                <span >{{blog.post_excerpt.substring(0,55)}}...</span>
             </div>
         </div>
     </div>

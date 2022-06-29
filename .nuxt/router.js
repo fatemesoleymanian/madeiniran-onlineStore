@@ -33,7 +33,6 @@ const _db58b35e = () => interopDefault(import('..\\pages\\terms-conditions.vue' 
 const _7987bcd8 = () => interopDefault(import('..\\pages\\wishlist.vue' /* webpackChunkName: "pages/wishlist" */))
 const _39be17e5 = () => interopDefault(import('..\\pages\\blog\\_slug.vue' /* webpackChunkName: "pages/blog/_slug" */))
 const _b56657e4 = () => interopDefault(import('..\\pages\\product\\_slug.vue' /* webpackChunkName: "pages/product/_slug" */))
-const _575140a6 = () => interopDefault(import('..\\pages\\search\\_str.vue' /* webpackChunkName: "pages/search/_str" */))
 const _3ce18562 = () => interopDefault(import('..\\pages\\index.vue' /* webpackChunkName: "pages/index" */))
 
 const emptyFn = () => {}
@@ -163,10 +162,6 @@ export const routerOptions = {
     path: "/product/:slug?",
     component: _b56657e4,
     name: "product-slug"
-  }, {
-    path: "/search/:str?",
-    component: _575140a6,
-    name: "search-str"
   }, {
     path: "/",
     component: _3ce18562,

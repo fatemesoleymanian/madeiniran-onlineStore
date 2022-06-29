@@ -3,7 +3,7 @@
         <swiper :options="swiperOption">
             <swiper-slide v-for="(slider, index) in sliderData" :key="index"
                           class="single-slider-2 slider-height-2 d-flex align-items-center bg-img"
-             :style="{ backgroundImage:`url(http://localhost:8000${slider.image})` }">
+             :style="{ backgroundImage:`url(https://apidemo.madein-iran.com/public${slider.image})` }">
                 <div class="container">
                     <div class="row">
                         <div class="col-lg-7 col-md-8 ms-auto">

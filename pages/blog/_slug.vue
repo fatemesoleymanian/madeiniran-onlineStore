@@ -98,13 +98,13 @@
           {
             navigator.clipboard.writeText(`https://madein-iran/blog/${this.id}.com`).then(() => {
               this.$notify({
-                title: 'لینک بلاگ کپی شد!',
+                title: 'لینک پست کپی شد!',
                 type:'success'
               })
             })
                 .catch(() => {
                   this.$notify({
-                    title: 'خطا در کپی لینک بلاگ!',
+                    title: 'خطا در کپی لینک پست!',
                     type:'error'
                   })
                 });

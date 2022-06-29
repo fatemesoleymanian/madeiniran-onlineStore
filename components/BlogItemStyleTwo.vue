@@ -57,12 +57,12 @@
             navigator.clipboard.writeText(`https://madein-iran/blog/${this.blog.id}.com`).then(() => {
               this.$notify({
                 type:'success',
-                title: 'لینک بلاگ کپی شد!'})
+                title: 'لینک پست کپی شد!'})
             })
                 .catch(() => {
                   this.$notify({
                     type:'error',
-                    title: 'خطا در کپی لینک بلاگ!'})
+                    title: 'خطا در کپی لینک پست!'})
                 });
           }
         },
