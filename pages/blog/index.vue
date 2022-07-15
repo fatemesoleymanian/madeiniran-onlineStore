@@ -10,16 +10,17 @@
                     <div class="col-lg-9">
                         <div class="ml-20">
                             <div class="row">
-                                <div class="col-md-6 col-12" v-for="(blog, index) in getItems" :key="index">
+                                <div class="col-md-6 col-12" v-for="(blog, index) in getBlog" :key="index">
                                     <BlogItemStyleTwo :blog="blog" />
                                 </div>
                             </div>
                         </div>
-                        <div v-if="getPaginateCount > 1">
-                            <pagination class="pro-pagination-style shop-pagination mt-30"
-                             v-model="currentPage" :per-page="perPage" :records="response.length"
-                              @paginate="paginateClickCallback" :page-count="getPaginateCount" />
-                        </div>
+                      <div v-if="getPaginateCount > 1 ">
+                        <pagination class="pro-pagination-style shop-pagination mt-30"
+                                    v-model="currentPage" :per-page="perPage"
+                                    :records="blogs.length" @paginate="paginateClickCallback"
+                                    :page-count="getPaginateCount" />
+                      </div>
                     </div>
                     <div class="col-lg-3">
                         <BlogSidebar />
@@ -46,7 +47,6 @@
                 currentPage: 1,
                 perPage: 6,
               loader:true,
-              datal:''
             }
         },
         computed: {
@@ -64,13 +64,8 @@
             },
         },
         methods: {
-            async paginateClickCallback(page) {
-              this.loader = true
-                 let datal = await this.$axios.get(`blogs?page=${page}`);
-                localStorage.setItem('blogs',datal.data.data)
-                this.$store.dispatch('updateBlogs', datal.data.data);
+             paginateClickCallback(page) {
                 this.currentPage = Number(page);
-                this.loader = false
             },
         },
       async mounted() {

@@ -12,7 +12,7 @@
             </div>
         </div>
         <div class="sidebar-widget">
-            <h4 class="pro-sidebar-title">وبلاگ های اخیر</h4>
+            <h4 class="pro-sidebar-title">پست های اخیر</h4>
             <div class="sidebar-project-wrap mt-30" v-for="(blog ,i ) in latest" :key="i" v-if="latest.length">
 
                  <div class="single-sidebar-blog">

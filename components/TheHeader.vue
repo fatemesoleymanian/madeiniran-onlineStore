@@ -140,7 +140,6 @@ export default {
     if (localStorage.getItem('116111107101110')) {
       this.auth = true
     }
-    console.log('header')
   },
   methods: {
     async logout() {

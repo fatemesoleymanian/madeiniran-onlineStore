@@ -14,8 +14,13 @@
       <div class="container">
         <div class="description-review-wrapper">
           <div class="description-review-topbar nav">
-            <a data-bs-toggle="tab" class="active" href="#des-details1">محصولات</a>
-            <a data-bs-toggle="tab" href="#des-details2">وبلاگ</a>
+            <a data-bs-toggle="tab" class="active" href="#des-details1">
+              <span style="background: #a749ff;color: #fff;padding:0 3px;font-size: 0.6em;border-radius: 50%">{{products.length}}</span>
+              محصولات</a>
+            <a data-bs-toggle="tab" href="#des-details2">
+              وبلاگ
+              <span style="background: #a749ff;color: #fff;padding:0 3px;font-size: 0.6em;border-radius: 50%">{{blogs.length}}</span>
+            </a>
           </div>
           <div class="tab-content description-review-bottom">
             <div id="loading" v-if="loader"></div>

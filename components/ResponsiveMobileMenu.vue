@@ -12,7 +12,7 @@
                     <n-link :to="link.url"> {{ link.title }} </n-link>
                     <span class='submenu-toggle' v-if="link.submenu">
                         <i class="pe-7s-angle-down"></i>
-                    </span> 
+                    </span>
                     <ul class="submenu" v-if="link.submenu">
                         <li v-for='(link, i) in link.submenu' :key='i'>
                             <n-link :to="link.url"> {{ link.title }} </n-link>
@@ -31,7 +31,7 @@
                 menus: [
                     {
                         url: '/',
-                        title: 'Home',
+                        title: 'دسته بندی محصولات',
                         submenu: [
                             {
                                 url: '',
@@ -87,7 +87,7 @@
                     },
                     {
                         url: '/shop',
-                        title: 'Shop',
+                        title: 'محصولات',
                         submenu: [
                             {
                                 url: '',
@@ -145,7 +145,7 @@
                     },
                     {
                         url: '',
-                        title: 'Pages',
+                        title: 'دپارتمان ها',
                         submenu: [
                             {
                                 url: '/cart',
@@ -191,7 +191,7 @@
                     },
                     {
                         url: '/blog',
-                        title: 'Blog',
+                        title: 'وبلاگ',
                         submenu: [
                             {
                                 url: '/blog',
@@ -213,14 +213,14 @@
                     },
                     {
                         url: '/contact',
-                        title: 'Contact',
+                        title: 'تماس با ما',
                     }
                 ]
             }
         },
         mounted() {
             let getSiblings = function (e) {
-                let siblings = []; 
+                let siblings = [];
                 if(!e.parentNode) {
                     return siblings;
                 }
@@ -283,7 +283,7 @@
             }
             li {
                 margin-bottom: 5px;
-                
+
                 &.title > {
                     a {
                         font-weight: 500;
