@@ -65,7 +65,7 @@ export default {
         localStorage.setItem('117115101114',JSON.stringify(log.data.user));
         localStorage.setItem('116111107101110', log.data.token);
         localStorage.setItem('099097114100', log.data.card);
-        window.location = '/'
+        this.$router.go(-1);
       }
       console.log(log.status)
     },
