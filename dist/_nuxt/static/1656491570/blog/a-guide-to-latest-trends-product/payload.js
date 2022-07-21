@@ -1,1 +1,0 @@
-__NUXT_JSONP__("/blog/a-guide-to-latest-trends-product", {data:[{}],fetch:{},mutations:[]});

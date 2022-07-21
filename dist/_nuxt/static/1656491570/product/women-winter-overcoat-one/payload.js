@@ -1,1 +1,0 @@
-__NUXT_JSONP__("/product/women-winter-overcoat-one", {data:[{}],fetch:{},mutations:[]});

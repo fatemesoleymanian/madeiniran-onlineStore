@@ -31,190 +31,50 @@
                 menus: [
                     {
                         url: '/',
-                        title: 'دسته بندی محصولات',
-                        submenu: [
-                            {
-                                url: '',
-                                title: 'Home Group 01',
-                                submenu: [
-                                    {
-                                        url: '/',
-                                        title: 'Home Fashion One',
-                                    },
-                                    {
-                                        url: '/home-fashion-two',
-                                        title: 'Home Fashion Two',
-                                    },
-                                    {
-                                        url: '/home-fashion-three',
-                                        title: 'Home Fashion Three',
-                                    }
-                                ]
-                            },
-                            {
-                                url: '',
-                                title: 'Home Group 02',
-                                submenu: [
-                                    {
-                                        url: '/home-fashion-four',
-                                        title: 'Home Fashion Four',
-                                    },
-                                    {
-                                        url: '/home-fashion-five',
-                                        title: 'Home Fashion Five',
-                                    },
-                                    {
-                                        url: '/home-fashion-six',
-                                        title: 'Home Fashion Six',
-                                    }
-                                ]
-                            },
-                            {
-                                url: '',
-                                title: 'Home Group 03',
-                                submenu: [
-                                    {
-                                        url: '/home-fashion-seven',
-                                        title: 'Home Fashion Seven',
-                                    },
-                                    {
-                                        url: '/home-cosmetics',
-                                        title: 'Home Cosmetics',
-                                    }
-                                ]
-                            }
-                        ]
+                        title: 'صفحه اصلی',
                     },
                     {
                         url: '/shop',
                         title: 'محصولات',
-                        submenu: [
-                            {
-                                url: '',
-                                title: 'shop layout',
-                                submenu: [
-                                    {
-                                        url: '/shop',
-                                        title: 'shop grid standard',
-                                    },
-                                    {
-                                        url: '/shop-grid-two-column',
-                                        title: 'shop grid two column',
-                                    },
-                                    {
-                                        url: '/shop-grid-no-sidebar',
-                                        title: 'shop grid no sidebar',
-                                    },
-                                    {
-                                        url: '/shop-grid-full-width',
-                                        title: 'shop grid full width',
-                                    },
-                                    {
-                                        url: '/shop-grid-right-sidebar',
-                                        title: 'shop grid right sidebar',
-                                    },
-                                    {
-                                        url: '/shop-list-standard',
-                                        title: 'shop list standard',
-                                    },
-                                    {
-                                        url: '/shop-list-full-width',
-                                        title: 'shop list full width',
-                                    },
-                                ]
-                            },
-                            {
-                                url: '',
-                                title: 'product details',
-                                submenu: [
-                                    {
-                                        url: '/product/crew-ventile-coat-one',
-                                        title: 'product variation',
-                                    },
-                                    {
-                                        url: '/product/product-affiliate',
-                                        title: 'product affiliate',
-                                    },
-                                    {
-                                        url: '/product/women-winter-overcoat-one',
-                                        title: 'product simple',
-                                    }
-                                ]
-                            }
-                        ]
                     },
                     {
-                        url: '',
+                        url: '/',
                         title: 'دپارتمان ها',
                         submenu: [
                             {
-                                url: '/cart',
-                                title: 'Cart',
+                                url: '/',
+                                title: 'فنی',
                             },
                             {
-                                url: '/checkout',
-                                title: 'Checkout',
+                                url: '/',
+                                title: 'خدمات پس از فروش و پشتیبانی',
                             },
                             {
-                                url: '/wishlist',
-                                title: 'Wishlist',
+                                url: '/',
+                                title: 'آموزش',
                             },
                             {
-                                url: '/compare',
-                                title: 'Compare',
+                                url: '/',
+                                title: 'بازاریابی و فروش',
                             },
                             {
-                                url: '/about',
-                                title: 'About us',
-                            },
-                            {
-                                url: '/my-account',
-                                title: 'My Account',
-                            },
-                            {
-                                url: '/login-register',
-                                title: 'Login / Register',
-                            },
-                            {
-                                url: '/contact',
-                                title: 'Contact us',
-                            },
-                            {
-                                url: '/privacy-policy',
-                                title: 'Privacy Policy',
-                            },
-                            {
-                                url: '/terms-conditions',
-                                title: 'Terms & Conditions',
-                            },
+                                url: '/',
+                                title: 'کسب و کار',
+                            }
                         ]
                     },
                     {
                         url: '/blog',
                         title: 'وبلاگ',
-                        submenu: [
-                            {
-                                url: '/blog',
-                                title: 'blog standard',
-                            },
-                            {
-                                url: '/blog/blog-right-sidebar',
-                                title: 'blog right sidebar',
-                            },
-                            {
-                                url: '/blog/blog-without-sidebar',
-                                title: 'blog no sidebar',
-                            },
-                            {
-                                url: '/blog/a-guide-to-latest-trends-product',
-                                title: 'blog details',
-                            }
-                        ]
                     },
                     {
                         url: '/contact',
                         title: 'تماس با ما',
-                    }
+                    },
+                  {
+                    url: '/about',
+                    title: 'درباره ما',
+                  }
                 ]
             }
         },

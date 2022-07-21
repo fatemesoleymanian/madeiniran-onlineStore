@@ -35,8 +35,8 @@
                 <n-link :to="`/product/${product.id}`">{{ product.name }}</n-link>
             </h3>
             <div class="product-price">
-                <span>{{ product.state[0].discounted_price.replace(/\B(?=(\d{3})+(?!\d))/g, ',') }} تومان </span>-
-                <span class="old" v-if="product.discount > 0">{{ product.state[0].price.replace(/\B(?=(\d{3})+(?!\d))/g, ',') }}تومان</span>
+<!--                <span>{{ product.state[0].discounted_price.replace(/\B(?=(\d{3})+(?!\d))/g, ',') }} تومان </span>- -->
+<!--                <span class="old" v-if="product.discount > 0">{{ product.state[0].price.replace(/\B(?=(\d{3})+(?!\d))/g, ',') }}تومان</span>-->
             </div>
             <div class="product-content__list-view" v-if="layout === 'list'">
                 <p  v-html="product.description_excerpt"></p>

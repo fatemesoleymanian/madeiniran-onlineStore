@@ -6,7 +6,8 @@
 
             <ul class="nav product-tab-list pt-30 pb-55 justify-content-center">
                 <li class="nav-item" role="presentation">
-                    <button class="nav-link active" data-bs-toggle="pill" data-bs-target="#new-product" role="tab">جدید ترین محصولات</button>
+                    <button class="nav-link active" data-bs-toggle="pill" data-bs-target="#new-product" role="tab">
+                      جدید ترین خطوط تولید</button>
                 </li>
             </ul>
             <div class="tab-content">

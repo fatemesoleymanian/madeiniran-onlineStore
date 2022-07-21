@@ -10,11 +10,11 @@
                         <div class="container">
                           <div class="description-review-wrapper">
                             <div class="description-review-topbar nav">
-                              <a data-bs-toggle="tab" href="#new-ideas" style="font-size: 14pt">ایده شخصی دارم</a>
+                              <a class="active" data-bs-toggle="tab" href="#new-ideas" style="font-size: 14pt">ایده شخصی دارم</a>
                               <a data-bs-toggle="tab" href="#empty-ideas" style="font-size: 14pt">ایده ای ندارم</a>
                             </div>
                             <div class="tab-content description-review-bottom">
-                              <div id="new-ideas" class="tab-pane ">
+                              <div id="new-ideas" class="tab-pane active">
                                 <div class="row">
                                   <div class="col-12">
                                     <div class="ratting-form-wrapper pl-50" id="form-new">
@@ -71,7 +71,13 @@
                                                 <input placeholder="شماره تماس :" type="tel" v-model="empty_ideas.phone_number">
                                               </div>
                                             </div>
-
+                                            <div class="col-12">
+                                              <select class="form-select text-end form-select-sm w-100" aria-label="اتنخاب محصول"
+                                                       v-model="empty_ideas.product">
+                                                <option selected>اتنخاب محصول</option>
+                                                <option v-for="(c,i) in products" :key="i" :value="c.name">{{c.name}}</option>
+                                              </select>
+                                            </div>
                                           </div>
                                           <div class="row">
                                             <div class="col-md-12 text-center">
@@ -114,7 +120,9 @@
             saving:false,
             full_name:'',
             phone_number:'',
+            product:'اتنخاب محصول'
           },
+          products:[]
         }
       },
       methods:{
@@ -187,6 +195,7 @@
           const data = {
             full_name : this.empty_ideas.full_name,
             phone_number : this.empty_ideas.phone_number,
+            product : this.empty_ideas.product,
           }
           const empty = await this.$axios.post('/job_production_empty', data)
               .catch(()=>{
@@ -204,7 +213,11 @@
             type: 'success',
           });
         }
+      },
+      async created()
+      {
+        let p = await this.$axios.get('/products_totaly')
+        this.products = p.data
       }
-
     };
 </script>

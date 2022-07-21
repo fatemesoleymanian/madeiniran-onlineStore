@@ -1,7 +1,7 @@
 <template>
     <div class="shop-page-wrapper">
         <HeaderWithTopbar containerClass="container" />
-        <Breadcrumb pageTitle="ارتباط با ما" />
+        <Breadcrumb pageTitle="تماس با ما" />
         <ContactInfo />
         <TheFooter />
     </div>
