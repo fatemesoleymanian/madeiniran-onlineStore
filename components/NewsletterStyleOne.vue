@@ -72,9 +72,9 @@
                                               </div>
                                             </div>
                                             <div class="col-12">
-                                              <select class="form-select text-end form-select-sm w-100" aria-label="اتنخاب محصول"
+                                              <select class="form-select text-end form-select-sm w-100" aria-label="انتخاب خط تولید"
                                                        v-model="empty_ideas.product">
-                                                <option selected>اتنخاب محصول</option>
+                                                <option selected>انتخاب خط تولید</option>
                                                 <option v-for="(c,i) in products" :key="i" :value="c.name">{{c.name}}</option>
                                               </select>
                                             </div>

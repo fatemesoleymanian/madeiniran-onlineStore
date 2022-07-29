@@ -53,11 +53,12 @@
         }
         @media #{$xs-layout} {
             margin: 0 4px 15px;
-            font-size: 18px;
+            font-size: 12px;
             padding: 0px 0px 8px;
         }
         @media #{$sm-layout} {
             margin: 0 8px 0px 0;
+            font-size: 14px;
             padding: 0px 5px 0px;
         }
     }

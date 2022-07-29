@@ -4,46 +4,97 @@
             <div class="description-review-wrapper">
                 <div class="description-review-topbar nav">
                     <a data-bs-toggle="tab" class="active" href="#details">مشخصات فنی</a>
-                      <a data-bs-toggle="tab" href="#comments">دیدگاه ها</a>
+                      <a data-bs-toggle="tab" href="#comments">فرم درخواست نمایندگی</a>
                       <a data-bs-toggle="tab" href="#fqs">پرسش های متداول</a>
                 </div>
                 <div class="tab-content description-review-bottom">
                     <div id="comments" class="tab-pane ">
                       <div class="row">
-                        <div class="col-lg-7">
-                          <div class="review-wrapper" v-for="(c,i) in product.comment" :key="i" v-if="product.comment.length">
-                            <div class="single-review" v-if="c.status === 1 ">
-                              <div class="review-img px-2">
-                                <img style="border-radius:50%;float: left; "
-                                     width="30" height="30" src="/img/testimonial/testi-1.png"
-                                     :alt="c.user_id">
-                              </div>
-                              <div class="review-content" v-if="c.status === 1 ">
-                                <div class="review-top-wrap">
-                                  <div class="review-left">
-                                    <div class="review-name" v-if="c.user_id === you">
-                                      <h4>دیدگاه شما</h4>
-                                    </div>
-                                  </div>
-                                </div>
-                                <div class="review-bottom">
-                                  <p v-if="c.status === 1 ">{{c.comment}}</p>
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-
-                        </div>
-                        <div class="col-lg-5">
+                        <div class="col-lg-2"></div>
+                        <div class="col-lg-8 col-12">
                           <div class="ratting-form-wrapper pl-50">
-                            <h3 class="py-3">افزودن دیدگاه</h3>
                             <div class="ratting-form">
                               <form>
                                 <div class="row">
+                                  <div class="col-md-6">
+                                    <div class="rating-form-style mb-10">
+                                      <input placeholder="نام و نام خانودگی" type="text" v-model="full_name">
+                                    </div>
+                                  </div>
+                                  <div class="col-md-6">
+                                    <div class="rating-form-style mb-10">
+                                      <input placeholder="شماره تماس" type="text" v-model="phone_number">
+                                    </div>
+                                  </div>
+                                  <div class="col-md-6">
+                                    <div class="rating-form-style mb-10">
+                                      <input placeholder="شهر مورد درخواست " v-model="city" type="text">
+                                    </div>
+                                  </div>
+                                  <div class="col-md-6">
+                                    <div class="rating-form-style mb-10">
+                                      <input placeholder="سن" type="text" v-model="age">
+                                    </div>
+                                  </div>
+                                  <div class="col-md-6">
+                                    <div class="rating-form-style mb-10">
+                                      <div class="form-floating">
+                                        <select class="form-select form-control-sm" id="education" name="education" v-model="education">
+                                          <option>زیر دیپلم</option>
+                                          <option>دیپلم</option>
+                                          <option>کاردانی</option>
+                                          <option>کارشناسی</option>
+                                          <option> کارشناسی ارشد</option>
+                                          <option> دکتری</option>
+                                        </select>
+                                        <label for="education" class="form-label">تحصیلات</label>
+                                      </div>
+                                    </div>
+                                  </div>
+                                  <div class="col-md-6">
+                                    <div class="rating-form-style mb-10">
+                                      <div class="form-floating">
+                                        <select class="form-select" id="package" name="package" v-model="selected_package">
+                                          <option v-for="(s,i) in product.state" :key="i">{{s.type}}</option>
+                                        </select>
+                                        <label for="package" class="form-label">پکیج مد نظر</label>
+                                      </div>
+                                    </div>
+                                  </div>
+                                  <div class="col-md-6">
+                                    <div class="rating-form-style mb-10">
+                                      <input placeholder="رشته تحصیلی" type="text" v-model="course">
+                                    </div>
+                                  </div>
+                                  <div class="col-md-6">
+                                    <div class="rating-form-style mb-10">
+                                      <input placeholder="سوابق شغلی " type="text" v-model="work_experience">
+                                    </div>
+                                  </div>
+                                  <div class="col-md-6">
+                                    <div class="rating-form-style mb-10">
+                                      <input placeholder="شغل فعلی" type="text" v-model="job">
+                                    </div>
+                                  </div>
+                                  <div class="col-md-12">
+                                    <div class="rating-form-style mb-10">
+                                      <span>اگر قبلا با کارشناسان مجموعه ما تماس داشتید کارشناس مربوطه خود را انتخاب کنید :</span>
+                                      <div class="form-floating mb-3 mt-3">
+                                        <select class="form-select" id="experts" name="experts" v-model="experts">
+                                          <option>خانم صادقی</option>
+                                          <option>خانم طهرانی</option>
+                                          <option>خانم مقدم</option>
+                                        </select>
+                                        <label for="experts" class="form-label">کارشناس مربوطه</label>
+                                      </div>
+                                    </div>
+                                  </div>
+
                                   <div class="col-md-12">
                                     <div class="rating-form-style form-submit">
-                                      <textarea v-model="comment"  name="Your Review" placeholder="دیدگاه شما درباره ی محصول"></textarea>
-                                      <input type="submit" value="ثبت دیدگاه" @click="saveComment">
+                                      <textarea   name="Your Review" placeholder="دلایل شما برای دریافت نمایندگی" v-model="reasons"></textarea>
+                                      <input type="submit" :value="sending ? 'در حال ثبت  ...' : 'ثبت '" class="float-start text-start"
+                                             :disabled="sending" :loading="sending"   @click="saveComment">
                                     </div>
                                   </div>
                                 </div>
@@ -51,6 +102,7 @@
                             </div>
                           </div>
                         </div>
+                        <div class="col-lg-2"></div>
                       </div>
                     </div>
                     <div id="details" class="tab-pane active" v-html="product.description">
@@ -137,42 +189,87 @@
       data(){
         return{
           saving:false,
-          comment:'',
-          you:'',
+          sending:false,
+          city:'',
+          age:'',
           ques_number:'',
           full_name:'',
-          phone_number:''
+          phone_number:'',
+          education:'',
+          course:'',
+          work_experience:'',
+          job:'',
+          selected_package:'',
+          reasons:'',
+          experts:'',
         }
       },
       async mounted() {
         const user = localStorage.getItem('117115101114');
         const userr = JSON.parse(user);
-        this.you = userr.id
       },
       methods:{
         async saveComment(e)
         {
           e.preventDefault()
+          this.sending = true
           if (!localStorage.getItem('116111107101110')) return  window.location = '/login-register';
+          if (this.full_name.trim() === '') {
+            this.sending = false;
+            return  this.$notify({
+              text: ".لطفا نام و نام خانوادگی را وارد کنید",
+              type: "error",
+            });
+          }
+          if (this.phone_number.trim() === '') {
+            this.sending = false;
+            return  this.$notify({
+              text: ".لطفا شماره تماس را وارد کنید",
+              type: "error",
+            });
+          }
+          if(this.phone_number.length !== 11 ) {
+            this.sending = false;
+            return  this.$notify({
+              text: ".لطفا تلفن همراه را به درستی وارد کنید",
+              type: "error",
+              });
+          }
+          if (this.city.trim() === '') {
+            this.sending = false;
+            return  this.$notify({
+              text: ".لطفا شهر مورد درخواست را وارد کنید",
+              type: "error",
+            });
+          }
 
-          if (this.comment.trim() === '') return  this.$notify({
-            type:'error',
-            title: 'لطفا دیدگاه خود را وارد کنید!'})
           const data = {
-            product:this.product.id,
-            user:this.you,
-            comment:this.comment,
+            product:this.product.name,
+            city:this.city,
+            age:this.age,
+            full_name:this.full_name,
+            phone_number:this.phone_number,
+            education:this.education,
+            course:this.course,
+            work_experience:this.work_experience,
+            job:this.job,
+            selected_package:this.selected_package,
+            reasons:this.reasons,
+            experts:this.experts,
+
           }
           this.$axios.setToken(localStorage.getItem('116111107101110'), 'Bearer');
           const comment = await this.$axios.post('pcomment/save',data)
           .catch(()=>{
+            this.sending = false
             return this.$notify({
               type:'error',
-              title: 'خطایی در ثبت دیدگاه بوجود آمد!'})
+              title: 'خطایی در ثبت اطلاعات بوجود آمد!'})
           })
           this.$notify({
             type:'success',
             title: comment.data.msg})
+          this.sending = false
         },
         async saveForm(e)
         {

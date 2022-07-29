@@ -1,11 +1,12 @@
 <template>
+
     <div class="product-details-page-wrapper">
         <TheHeader containerClass="container" />
         <Breadcrumb :pageTitle="blogs.title" />
 
-        <div class="Blog-details-inner pt-100 pb-100">
+        <div class="Blog-details-inner pt-100 pb-100 px-4" >
           <div class="container">
-                <div class="row flex-row-reverse">
+                <div class="row flex-row-reverse px-2">
                     <div class="col-lg-12">
                       <div id="loading" v-if="loader"></div>
                       <div class="blog-details-wrapper ml-20">
@@ -79,17 +80,17 @@
             }
         },
 
-       async mounted () {
-          this.loader = true
-          const blog = await this.$axios.get(`blogs/${this.id}`)
-          this.blogs = blog.data
-         this.loader = false
-        },
         async created()
         {
-            const id = await this.$axios.get(`blogs_id/${this.id}`);
+          this.loader = true
+          const [blog,id] = await Promise.all([
+            this.$axios.get(`blogs/${this.id}`),
+            this.$axios.get(`blogs_id/${this.id}`)
+          ]);
+          this.blogs = blog.data
             if(id.data.after) this.after = id.data.after.id;
             if(id.data.before) this.before = id.data.before.id
+          this.loader = false
         },
 
         methods: {
