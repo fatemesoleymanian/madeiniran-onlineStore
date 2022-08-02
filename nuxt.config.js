@@ -1,6 +1,23 @@
+const axios = require('axios');
+
 export default {
     generate: {
         fallback: true,
+        // routes() {
+        //     let products = axios.get('https://apidemo.madein-iran.com/public/api/products').then(res => {
+        //         return res.data.map(product => {
+        //             return '/product/' + product.id
+        //         })
+        //     })
+        //     let blogs = axios.get('https://apidemo.madein-iran.com/public/api/blogs').then(res => {
+        //         return res.data.map(blog => {
+        //             return '/blog/' + blog.id
+        //         })
+        //     })
+        //     return [products , blogs]
+        // }
+        // or
+        routes: ['/product/21', '/product/20', '/product/19','/blog/17']
          },
 
     target: 'static', // default is 'server'

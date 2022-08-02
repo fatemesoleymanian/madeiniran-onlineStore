@@ -16,7 +16,7 @@
               products:'',
               category:'',
               states:'',
-              faq:[]
+              faq:[],
             }
         },
       async mounted() {
@@ -38,7 +38,13 @@
 
         head() {
             return {
-                title: this.products.name
+                title: this.products.name,
+              meta:[
+                {
+                  hid:this.products.metaKeyword,
+                  name:this.products.pageTitle,
+                  content:this.products.metaDescription
+                }]
             }
         },
 

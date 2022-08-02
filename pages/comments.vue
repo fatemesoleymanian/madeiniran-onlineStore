@@ -6,10 +6,10 @@
       <div class="row my-5">
         <div class="col-md-2 pb-sm-3">
               <h3 class="d-flex justify-content-center py-5 text-dark"
-                  style="font-weight: 500" v-if="comments">دیدگاه ها</h3>
+                  style="font-weight: 500" >دیدگاه ها</h3>
         </div>
         <div class="col-md-10">
-          <div class="review-wrapper rounded bg-gray" style="border-top:1px solid #a749ff; " v-for="(c,i) in comments" :key="i" v-if="comments">
+          <div class="review-wrapper rounded bg-gray" style="border-top:1px solid #a749ff; " v-for="(c,i) in product_comments" :key="i" v-if="product_comments">
             <div class="row text-center fw-bold py-4 my-2">
               <div class="col-3"> <h4>{{c.comment }}</h4></div>
               <div class="col-3"> <h5>ایجاد در {{c.created_at}}</h5></div>
@@ -22,10 +22,23 @@
             </div>
 
                     </div>
+          <div class="review-wrapper rounded bg-gray" style="border-top:1px solid #a749ff; " v-for="(c,i) in blog_comments" :key="i" v-if="blog_comments">
+            <div class="row text-center fw-bold py-4 my-2">
+              <div class="col-3"> <h4>{{c.comment }}</h4></div>
+              <div class="col-3"> <h5>ایجاد در {{c.created_at}}</h5></div>
+              <div class="col-3">  <p>{{c.status ? 'تایید شده' : 'هنوز تایید نشده' }}</p></div>
+              <div class="col-3">
+                <p ><a  style="color: #a749ff" :href="`/blog/${c.blog_id}`">
+                مشاهده پست
+              </a>
+              </p></div>
+            </div>
+
+                    </div>
 
             </div>
 
-          <div v-if="!comments.length">
+          <div v-if="!product_comments.length && !blog_comments.length">
             <div class="text-center">
               <h5 class="fw-bold">هنوز هیچ نظری ندارید!</h5>
             </div>
@@ -48,7 +61,8 @@
 
         data() {
             return {
-                comments:[]
+                product_comments:[],
+                blog_comments:[],
             }
         },
 
@@ -58,7 +72,9 @@
           const userr = JSON.parse(user);
            await this.$axios.get(`/show_comments${userr.id}`)
           .then((res)=>{
-            this.comments = res.data
+            console.log(res)
+            this.product_comments = res.data[0].comment;
+            this.blog_comments = res.data[0].blog_comment;
           })
           .catch(()=>{
              return this.$notify({

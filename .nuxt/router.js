@@ -7,10 +7,12 @@ import scrollBehavior from './router.scrollBehavior.js'
 const _7c513aec = () => interopDefault(import('..\\pages\\about.vue' /* webpackChunkName: "pages/about" */))
 const _3b74b92d = () => interopDefault(import('..\\pages\\blog\\index.vue' /* webpackChunkName: "pages/blog/index" */))
 const _2fc1db9a = () => interopDefault(import('..\\pages\\cart.vue' /* webpackChunkName: "pages/cart" */))
+const _6d8d53d6 = () => interopDefault(import('..\\pages\\catalog.vue' /* webpackChunkName: "pages/catalog" */))
 const _3b54a84e = () => interopDefault(import('..\\pages\\checkout.vue' /* webpackChunkName: "pages/checkout" */))
 const _88c394f2 = () => interopDefault(import('..\\pages\\comments.vue' /* webpackChunkName: "pages/comments" */))
 const _ddfc2abc = () => interopDefault(import('..\\pages\\compare.vue' /* webpackChunkName: "pages/compare" */))
 const _a7f48746 = () => interopDefault(import('..\\pages\\contact.vue' /* webpackChunkName: "pages/contact" */))
+const _b45d414a = () => interopDefault(import('..\\pages\\delsey-packages.vue' /* webpackChunkName: "pages/delsey-packages" */))
 const _36c66e69 = () => interopDefault(import('..\\pages\\home-cosmetics.vue' /* webpackChunkName: "pages/home-cosmetics" */))
 const _2270695c = () => interopDefault(import('..\\pages\\home-fashion-five.vue' /* webpackChunkName: "pages/home-fashion-five" */))
 const _2b2f87c6 = () => interopDefault(import('..\\pages\\home-fashion-four.vue' /* webpackChunkName: "pages/home-fashion-four" */))
@@ -59,6 +61,10 @@ export const routerOptions = {
     component: _2fc1db9a,
     name: "cart"
   }, {
+    path: "/catalog",
+    component: _6d8d53d6,
+    name: "catalog"
+  }, {
     path: "/checkout",
     component: _3b54a84e,
     name: "checkout"
@@ -74,6 +80,10 @@ export const routerOptions = {
     path: "/contact",
     component: _a7f48746,
     name: "contact"
+  }, {
+    path: "/delsey-packages",
+    component: _b45d414a,
+    name: "delsey-packages"
   }, {
     path: "/home-cosmetics",
     component: _36c66e69,

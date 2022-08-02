@@ -57,6 +57,9 @@
                     <li v-if="auth">
                       <n-link to="/orders">سفارش های من</n-link>
                     </li>
+                    <li v-if="auth">
+                      <n-link to="/comments">دیدگاه های من</n-link>
+                    </li>
                     <li v-if="auth"><a href="#" @click="logout">
                       خروج از حساب </a></li>
                   </ul>

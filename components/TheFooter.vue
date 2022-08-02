@@ -48,9 +48,9 @@
                         </div>
                         <div class="footer-list">
                             <ul>
-                                <li><a href="https://www.facebook.com/" target="_blank">فیسبوک</a></li>
+                                <li><a href="https://www.aparat.com/madein_ir.ir" target="_blank">آپارات</a></li>
                                 <li><a href="https://twitter.com/" target="_blank">توییتر</a></li>
-                                <li><a href="https://www.instagram.com/" target="_blank">اینستاگرام</a></li>
+                                <li><a href="https://www.instagram.com/madein_ir.ir/" target="_blank">اینستاگرام</a></li>
                                 <li><a href="https://www.youtube.com/" target="_blank">یوتیوب</a></li>
                             </ul>
                         </div>

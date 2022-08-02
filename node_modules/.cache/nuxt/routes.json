@@ -21,6 +21,13 @@
     "_name": "_2fc1db9a"
   },
   {
+    "name": "catalog",
+    "path": "/catalog",
+    "component": "E:\\\\My Portfolio\\\\Freelancing\\\\MadeInIr\\\\front\\\\MadeInIran\\\\pages\\\\catalog.vue",
+    "chunkName": "pages/catalog",
+    "_name": "_6d8d53d6"
+  },
+  {
     "name": "checkout",
     "path": "/checkout",
     "component": "E:\\\\My Portfolio\\\\Freelancing\\\\MadeInIr\\\\front\\\\MadeInIran\\\\pages\\\\checkout.vue",
@@ -47,6 +54,13 @@
     "component": "E:\\\\My Portfolio\\\\Freelancing\\\\MadeInIr\\\\front\\\\MadeInIran\\\\pages\\\\contact.vue",
     "chunkName": "pages/contact",
     "_name": "_a7f48746"
+  },
+  {
+    "name": "delsey-packages",
+    "path": "/delsey-packages",
+    "component": "E:\\\\My Portfolio\\\\Freelancing\\\\MadeInIr\\\\front\\\\MadeInIran\\\\pages\\\\delsey-packages.vue",
+    "chunkName": "pages/delsey-packages",
+    "_name": "_b45d414a"
   },
   {
     "name": "home-cosmetics",
