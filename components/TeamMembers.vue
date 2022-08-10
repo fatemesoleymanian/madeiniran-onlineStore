@@ -9,7 +9,7 @@
                 <div class="col-lg-3 col-sm-6" v-for="(member, index) in teamMemberData" :key="index">
                     <div class="team-wrapper mb-30">
                         <div class="team-img">
-                            <img :src="'https://apidemo.madein-iran.com/public'+member.iconImage" :alt="member.name">
+                            <img :src="'https://api.madein-iran.com/public'+member.iconImage" :alt="member.name">
 <!--                            <div class="team-action">-->
 <!--                                <a :href="s" v-for="(social, index) in member.socialLink" :key="index">-->
 <!--                                    <i :class="social.icon"></i>-->

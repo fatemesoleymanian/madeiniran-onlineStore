@@ -184,46 +184,49 @@
           </div>
           <div id="comments" class="tab-pane">
             <div class="row">
-            <div class="col-lg-7">
-              <div class="review-wrapper" v-for="comment in product.comment" :key="comment" v-if="product.comment.length">
-                <div class="single-review" v-if="comment.status === 1">
-                  <div class="review-img">
-                    <img src="/img/testimonial/testi-1.png"  class="rounded" :alt="product.name">
-                  </div>
-                  <div class="review-content">
-                    <div class="review-top-wrap">
-                      <div class="review-left">
-                        <div class="review-name" v-if="comment.user_id === yourId">
-                          <h4>دیدگاه شما</h4>
+              <div class="col-lg-7">
+                <div class="review-wrapper" v-for="comment in product.comment" :key="comment"
+                     v-if="product.comment.length">
+                  <div class="single-review" v-if="comment.status === 1">
+                    <div class="review-img">
+                      <img src="/img/testimonial/testi-1.png" class="rounded" :alt="product.name">
+                    </div>
+                    <div class="review-content">
+                      <div class="review-top-wrap">
+                        <div class="review-left">
+                          <div class="review-name" v-if="comment.user_id === yourId">
+                            <h4>دیدگاه شما</h4>
+                          </div>
                         </div>
                       </div>
-                    </div>
-                    <div class="review-bottom px-3">
-                      <p>{{comment.comment}}</p>
+                      <div class="review-bottom px-3">
+                        <p>{{ comment.comment }}</p>
+                      </div>
                     </div>
                   </div>
                 </div>
               </div>
-            </div>
-            <div class="col-lg-5">
-              <div class="ratting-form-wrapper pl-50">
-                <h3 class="py-3">دیدگاه خود را اضافه کنید.</h3>
-                <div class="ratting-form">
-                  <form>
-                    <div class="row">
-                      <div class="col-md-12">
-                        <div class="rating-form-style form-submit">
-                          <textarea name="comment" placeholder="متن دیدگاه" v-model="yourCommentForProduct"></textarea>
-                          <input type="submit" :value="commenting ? 'در حال ارسال دیدگاه' : ' ارسال دیدگاه'" class="float-start"
-                                 :disabled="commenting" @click="saveComment">
+              <div class="col-lg-5">
+                <div class="ratting-form-wrapper pl-50">
+                  <h3 class="py-3">دیدگاه خود را اضافه کنید.</h3>
+                  <div class="ratting-form">
+                    <form>
+                      <div class="row">
+                        <div class="col-md-12">
+                          <div class="rating-form-style form-submit">
+                            <textarea name="comment" placeholder="متن دیدگاه"
+                                      v-model="yourCommentForProduct"></textarea>
+                            <input type="submit" :value="commenting ? 'در حال ارسال دیدگاه' : ' ارسال دیدگاه'"
+                                   class="float-start"
+                                   :disabled="commenting" @click="saveComment">
+                          </div>
                         </div>
                       </div>
-                    </div>
-                  </form>
+                    </form>
+                  </div>
                 </div>
               </div>
             </div>
-          </div>
           </div>
         </div>
       </div>
@@ -256,7 +259,7 @@ export default {
       yourCommentForProduct: ''
     }
   },
-  async created() {
+  async mounted() {
     if (localStorage.getItem('117115101114')) {
       const user = localStorage.getItem('117115101114');
       const userr = JSON.parse(user);

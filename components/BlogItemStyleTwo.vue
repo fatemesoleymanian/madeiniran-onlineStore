@@ -2,13 +2,13 @@
     <div class="blog-wrap-2 mb-30">
         <div class="blog-img-2">
             <n-link :to="`/blog/${blog.id}`">
-                <img :src="'https://apidemo.madein-iran.com/public'+blog.featuredImage" :alt="blog.title">
+                <img :src="'https://api.madein-iran.com/public'+blog.featuredImage" :alt="blog.title">
             </n-link>
         </div>
         <div class="blog-content-2">
             <div class="blog-meta-2">
                 <ul>
-                    <li>{{ blog.updated_at }}</li>
+                    <li>{{ blog.created_at }}</li>
 
                 </ul>
             </div>
@@ -54,7 +54,7 @@
             },
              copyToClipboard()
           {
-            navigator.clipboard.writeText(`https://madein-iran/blog/${this.blog.id}.com`).then(() => {
+            navigator.clipboard.writeText(`https://madein-iran.com/blog/${this.blog.id}`).then(() => {
               this.$notify({
                 type:'success',
                 title: 'لینک پست کپی شد!'})

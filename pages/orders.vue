@@ -34,7 +34,7 @@
                         <div class="row">
                           <div class="col-lg-12 col-md-12" v-for="(d,j) in details" :key="j" v-if="details.length && !loader">
                             <div class="billing-info d-flex justify-content-between align-items-center">
-                            <img :src="'https://apidemo.madein-iran.com/public'+d.product.image" :alt="d.product.name"
+                            <img :src="'https://api.madein-iran.com/public'+d.product.image" :alt="d.product.name"
                                  width="100" height="100">
                               <h4>
                                 <a :href="`/product/${d.product.id}`">

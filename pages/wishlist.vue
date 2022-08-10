@@ -25,7 +25,7 @@
                                     <tr v-for="(product, index) in markedProducts" :key="index">
                                         <td class="product-thumbnail">
                                             <n-link :to="`/product/${product.product.id}`">
-                                                <img :src="'https://apidemo.madein-iran.com/public'+product.product.image" :alt="product.product.name">
+                                                <img :src="'https://api.madein-iran.com/public'+product.product.image" :alt="product.product.name">
                                             </n-link>
                                         </td>
                                         <td class="product-name">

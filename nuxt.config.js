@@ -4,12 +4,12 @@ export default {
     generate: {
         fallback: true,
         // routes() {
-        //     let products = axios.get('https://apidemo.madein-iran.com/public/api/products').then(res => {
+        //     let products = axios.get('https://api.madein-iran.com/public/api/products').then(res => {
         //         return res.data.map(product => {
         //             return '/product/' + product.id
         //         })
         //     })
-        //     let blogs = axios.get('https://apidemo.madein-iran.com/public/api/blogs').then(res => {
+        //     let blogs = axios.get('https://api.madein-iran.com/public/api/blogs').then(res => {
         //         return res.data.map(blog => {
         //             return '/blog/' + blog.id
         //         })
@@ -17,7 +17,7 @@ export default {
         //     return [products , blogs]
         // }
         // or
-        routes: ['/product/21', '/product/20', '/product/19','/blog/17']
+        routes: ['/product/21', '/product/20', '/product/19','/blog/17','/blog/21','/blog/22']
          },
 
     target: 'static', // default is 'server'
@@ -65,7 +65,7 @@ export default {
         }
     ],
     axios: {
-        baseURL:"https://apidemo.madein-iran.com/public/api",
+        baseURL:"https://api.madein-iran.com/public/api",
 
     },
     // Auto import components (https://go.nuxtjs.dev/config-components)

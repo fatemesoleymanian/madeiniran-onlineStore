@@ -12,12 +12,12 @@
             <div class="blog-details-wrapper ml-20">
               <div class="blog-details-top" v-if="!loader">
                 <div class="blog-details-img">
-                  <img :src="'https://apidemo.madein-iran.com/public'+blogs.featuredImage" :alt="blogs.title">
+                  <img :src="'https://api.madein-iran.com/public'+blogs.featuredImage" :alt="blogs.title">
                 </div>
                 <div class="blog-details-content">
                   <div class="blog-meta-2">
                     <ul>
-                      <li>{{ blogs.updated_at }}</li>
+                      <li>{{ blogs.created_at }}</li>
 
                     </ul>
                   </div>
@@ -59,7 +59,6 @@
               </div>
               <!-- comments here-->
               <div class="blog-comment-wrapper mt-55">
-                <h4 class="blog-dec-title">دیدگاه ها :</h4>
                 <div class="single-comment-wrapper mt-35" v-for="comment in blogs.comment" :key="comment"
                      v-if="blogs.comment.length">
                   <div class="review-img px-4" v-if="comment.status === 1">
@@ -128,6 +127,7 @@ export default {
       const userr = JSON.parse(user);
       this.yourId = userr.id;
     }
+    console.log(this.blogs.comment)
   },
 
   methods: {

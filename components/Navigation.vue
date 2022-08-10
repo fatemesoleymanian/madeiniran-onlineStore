@@ -25,16 +25,16 @@
         </ul>
       </li>
       <li>
-        <n-link to="/shop">محصولات </n-link>
+        <n-link to="/shop">خطوط تولید </n-link>
       </li>
       <li>
         <n-link to="/blog">وبلاگ </n-link>
       </li>
       <li>
-        <n-link to="/contact">تماس با ما </n-link>
+        <n-link to="/about">درباره ما </n-link>
       </li>
       <li>
-        <n-link to="/about">درباره ما </n-link>
+        <n-link to="/contact">تماس با ما </n-link>
       </li>
 <!--        <li>-->
 <!--            <n-link to="/">دسته بندی محصولات <i class="fa fa-angle-down"></i></n-link>-->

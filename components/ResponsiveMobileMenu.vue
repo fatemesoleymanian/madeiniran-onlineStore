@@ -35,7 +35,7 @@
                     },
                     {
                         url: '/shop',
-                        title: 'محصولات',
+                        title: 'خطوط تولید',
                     },
                     {
                         url: '/',
@@ -67,14 +67,14 @@
                         url: '/blog',
                         title: 'وبلاگ',
                     },
+                  {
+                    url: '/about',
+                    title: 'درباره ما',
+                  },
                     {
                         url: '/contact',
                         title: 'تماس با ما',
                     },
-                  {
-                    url: '/about',
-                    title: 'درباره ما',
-                  }
                 ]
             }
         },

@@ -13,7 +13,7 @@
             <div class="tab-content">
                 <div class="tab-pane fade show active" id="new-product" role="tabpanel">
                     <div class="row">
-                        <div class="col-xl-3 col-lg-4 col-sm-6" v-for="(product, index) in latestProducts" :key="index">
+                        <div class="col-xl-4 col-lg-4 col-sm-6" v-for="(product, index) in latestProducts" :key="index">
                             <ProductGridItem :product="product" :layout="layout" />
                         </div>
                     </div>
