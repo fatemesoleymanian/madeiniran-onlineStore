@@ -1,1 +1,0 @@
-(window.webpackJsonp=window.webpackJsonp||[]).push([[64],{436:function(e,t,n){"use strict";n.r(t);var r={name:"catalog",beforeCreate:function(){this.$router.push("/product/19")}},o=n(12),component=Object(o.a)(r,(function(){var e=this.$createElement;return(this._self._c||e)("div")}),[],!1,null,"6a9597b4",null);t.default=component.exports}}]);

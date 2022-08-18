@@ -157,14 +157,14 @@
             description : this.new_ideas.description,
           }
           const idea = await this.$axios.post('/job_production_ideas', data)
-          .catch(()=>{
-            this.new_ideas.saving = true
-            return this.$notify({
-              title: "عملیات ناموفق!",
-              text: "خطایی در ثبت اطلاعات رخ داد.",
-              type: 'error',
-            });
-          });
+              .catch(() => {
+                this.new_ideas.saving = true
+                return this.$notify({
+                  title: "عملیات ناموفق!",
+                  text: "خطایی در ثبت اطلاعات رخ داد.",
+                  type: 'error',
+                });
+              });
           this.new_ideas.saving = false
           return this.$notify({
             title: "عملیات موفق!",

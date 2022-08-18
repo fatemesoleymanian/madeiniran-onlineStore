@@ -17,7 +17,7 @@ export default {
         //     return [products , blogs]
         // }
         // or
-        routes: ['/product/21', '/product/20', '/product/19','/blog/17','/blog/21','/blog/22']
+        routes: ['/product/21', '/product/20', '/product/19','/blog/17','/blog/21','/blog/22','/blog/24']
          },
 
     target: 'static', // default is 'server'

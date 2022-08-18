@@ -1,1 +1,0 @@
-(window.webpackJsonp=window.webpackJsonp||[]).push([[69],{441:function(e,t,n){"use strict";n.r(t);var c={name:"delsey-packages",beforeCreate:function(){this.$router.push("/product/20")}},r=n(12),component=Object(r.a)(c,(function(){var e=this.$createElement;return(this._self._c||e)("div")}),[],!1,null,"67c9e6bc",null);t.default=component.exports}}]);

@@ -1,5 +1,6 @@
 <template>
     <div class="home-page-wrapper">
+      <newsletters-popup />
         <TheHeader />
         <HeroSlider />
         <ServicePolicy />
@@ -12,10 +13,9 @@
 </template>
 
 <script>
-    import NewsletterStyleOne from "../components/NewsletterStyleOne";
     export default {
         components: {
-          NewsletterStyleOne,
+          NewslettersPopup: () => import('@/components/newslettersPopup'),
             TheHeader: () => import('@/components/TheHeader'),
             HeroSlider: () => import('@/components/hero/HeroSliderThree'),
             ServicePolicy: () => import('@/components/policy/ServicePolicy'),
@@ -23,6 +23,7 @@
             BlogWrapper: () => import('@/components/BlogWrapper'),
           TestimonialOne: () => import('@/components/TestimonialOne'),
           TheFooter: () => import('@/components/TheFooter'),
+          NewsletterStyleOne : () => import('@/components/NewsletterStyleOne')
         },
         head() {
             return {

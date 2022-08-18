@@ -25,6 +25,7 @@ You can directly use them in pages and other components without the need to impo
 - `<Login>` | `<login>` (components/Login.vue)
 - `<MiniCart>` | `<mini-cart>` (components/MiniCart.vue)
 - `<Navigation>` | `<navigation>` (components/Navigation.vue)
+- `<NewslettersPopup>` | `<newsletters-popup>` (components/newslettersPopup.vue)
 - `<NewsletterStyleOne>` | `<newsletter-style-one>` (components/NewsletterStyleOne.vue)
 - `<NewsletterStyleTwo>` | `<newsletter-style-two>` (components/NewsletterStyleTwo.vue)
 - `<OffCanvasMobileMenu>` | `<off-canvas-mobile-menu>` (components/OffCanvasMobileMenu.vue)

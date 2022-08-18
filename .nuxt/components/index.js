@@ -17,6 +17,7 @@ export { default as InstagramPostWrapper } from '../..\\components\\InstagramPos
 export { default as Login } from '../..\\components\\Login.vue'
 export { default as MiniCart } from '../..\\components\\MiniCart.vue'
 export { default as Navigation } from '../..\\components\\Navigation.vue'
+export { default as NewslettersPopup } from '../..\\components\\newslettersPopup.vue'
 export { default as NewsletterStyleOne } from '../..\\components\\NewsletterStyleOne.vue'
 export { default as NewsletterStyleTwo } from '../..\\components\\NewsletterStyleTwo.vue'
 export { default as OffCanvasMobileMenu } from '../..\\components\\OffCanvasMobileMenu.vue'

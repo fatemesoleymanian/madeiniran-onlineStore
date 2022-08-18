@@ -56,6 +56,9 @@
   "Navigation": {
     "description": "Auto imported from components/Navigation.vue"
   },
+  "NewslettersPopup": {
+    "description": "Auto imported from components/newslettersPopup.vue"
+  },
   "NewsletterStyleOne": {
     "description": "Auto imported from components/NewsletterStyleOne.vue"
   },
