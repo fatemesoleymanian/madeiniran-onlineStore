@@ -27,10 +27,10 @@
                 <div class="search-content" :class="{ active:isOpenSearch }">
                   <form>
                     <div>
-                    <input type="text" placeholder="جستجو ..." v-model="srch"
-                           @keyup.enter="search"
-                           @keyup="suggestion"
-                           @click="getSugges"/>
+                      <input type="text" placeholder="جستجو ..." v-model="srch"
+                             @keyup.enter="search"
+                             @keyup="suggestion"
+                             @click="getSugges"/>
                       <button class="button-search" @click="search">
                         <i class="pe-7s-search"></i></button>
                     </div>
@@ -38,7 +38,7 @@
                   </form>
                   <ul :class="active ? ' suggestions clearfix active' : 'suggestions clearfix' " id="srch-sugg">
                     <li v-for="(r,i) in results" :key="i" v-if="results.length" @click="srch=r" class="py-2">
-                      {{r}}
+                      {{ r }}
                     </li>
                   </ul>
                 </div>
@@ -144,20 +144,24 @@ export default {
   methods: {
     async logout() {
       this.$axios.setToken(localStorage.getItem('116111107101110'), 'Bearer')
-      const logout = await this.$axios.post('logout')
+      await this.$axios.post('logout')
+          .then(resp => {
+            console.log(resp)
+          })
+          .catch(error => {
+            console.log(error)
+          });
       localStorage.removeItem('116111107101110');
       localStorage.removeItem('117115101114');
       localStorage.removeItem('099097114100');
       localStorage.removeItem('key');
       this.$axios.setToken(false)
       window.location = '/'
-
-
     },
     async search(e) {
       e.preventDefault();
       if (this.srch) {
-        localStorage.setItem('srch',this.srch)
+        localStorage.setItem('srch', this.srch)
         window.location = '/compare';
       }
     },

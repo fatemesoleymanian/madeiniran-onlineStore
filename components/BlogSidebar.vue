@@ -63,6 +63,7 @@
 
 <script>
     export default {
+      props:['latest_four_blogs'],
         data()
         {
             return{
@@ -75,17 +76,16 @@
 
         },
         async mounted(){
-            const [tags,categories,latestBlogs] = await Promise.all(
+            const [tags,categories] = await Promise.all(
                   [
                 this.$axios.get('/tags_only_blog'),
                  this.$axios.get('blog_categories'),
-                this.$axios.get('blogs_latest')
             ]);
 
             this.tags = tags.data;
             this.categories =categories.data;
 
-            this.latest = latestBlogs.data;
+            this.latest = this.latest_four_blogs;
             this.blogs_no_filter = this.$store.getters.getBlogs
 
         },

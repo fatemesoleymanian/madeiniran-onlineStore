@@ -42,14 +42,14 @@
                               </a>
                               </h4>
                               <h5>ظرفیت : {{d.state.type}}</h5>
-                              <h5>{{d.state.discounted_price.replace(/\B(?=(\d{3})+(?!\d))/g, ',')}} تومان</h5>
+                              <!-- <h5>{{d.state.discounted_price.replace(/\B(?=(\d{3})+(?!\d))/g, ',')}} تومان</h5> -->
                               <h5> به تعداد {{d.count}}</h5>
                             </div>
                           </div>
                         </div>
                         <div class="billing-back-btn float-start">
                           <div class="billing-btn">
-                            <h5 >{{total.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')}} تومان</h5>
+                            <!-- <h5 >{{total.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')}} تومان</h5> -->
                           </div>
                         </div>
 

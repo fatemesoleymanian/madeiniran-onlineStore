@@ -46,9 +46,16 @@
             const [card,bookmark] = await Promise.all([
               this.$axios.get(`/card/${userr.id}`),
               this.$axios.get(`/bookmark/${userr.id}`),
-
             ])
-
+                .catch(error=>{
+              console.log(error)
+              localStorage.removeItem('116111107101110');
+              localStorage.removeItem('117115101114');
+              localStorage.removeItem('099097114100');
+              localStorage.removeItem('key');
+              this.$axios.setToken(false)
+              window.location = '/';
+            });
             this.$store.dispatch('initCart',card.data.products)
             const bProd = [];
             for (let i in bookmark.data.products)
@@ -56,6 +63,7 @@
               bProd.push(bookmark.data.products[i].product)
             }
             this.$store.dispatch('initWishlist',bProd)
+
           }
         },
     };

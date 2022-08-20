@@ -119,15 +119,27 @@
              const user = localStorage.getItem('117115101114');
            const userr = JSON.parse(user)
            this.$axios.setToken(localStorage.getItem('116111107101110'), 'Bearer');
-           const wishlist = await this.$axios.get(`/bookmark/${userr.id}`)
-             let products =[];
-             for (let i in wishlist.data.products)
-             {
-               products.push(wishlist.data.products[i].product)
-             }
-           this.$store.dispatch('initWishlist', products)
-           this.markedProducts = wishlist.data.products
-             this.loader = false
+            await this.$axios.get(`/bookmark/${userr.id}`)
+             .then(response=>{
+               let products =[];
+               for (let i in response.data.products)
+               {
+                 products.push(response.data.products[i].product)
+               }
+               this.$store.dispatch('initWishlist', products)
+               this.markedProducts = response.data.products
+               this.loader = false
+             })
+             .catch(error=>{
+               console.log(error)
+               localStorage.removeItem('116111107101110');
+               localStorage.removeItem('117115101114');
+               localStorage.removeItem('099097114100');
+               localStorage.removeItem('key');
+               this.$axios.setToken(false)
+               window.location = '/';
+             });
+
          }
       }
     };

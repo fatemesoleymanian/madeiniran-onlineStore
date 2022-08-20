@@ -25,7 +25,7 @@
             <div class="shopping-cart-total">
                 <h4>
                     مجموع   :
-                    <span class="shop-total"> {{ total }} تومان </span>
+                    <!-- <span class="shop-total"> {{ total }} تومان </span> -->
                   </h4>
             </div>
             <div class="shopping-cart-btn btn-hover text-center" @click="$emit('minicartClose')">

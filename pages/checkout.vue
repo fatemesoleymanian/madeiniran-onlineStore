@@ -108,8 +108,8 @@
                                                 <i class="fa fa-times text-muted" aria-hidden="true"></i>
                                                   {{ product.count }}
                                                 </span>
-                                              <span class="order-price">
-                                                {{ (product.count*product.state.discounted_price).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',') }} تومان</span>
+                                              <!-- <span class="order-price">
+                                                {{ (product.count*product.state.discounted_price).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',') }} تومان</span> -->
                                             </li>
                                         </ul>
                                     </div>
@@ -122,7 +122,7 @@
                                     <div class="your-order-total">
                                         <ul>
                                             <li class="order-total">مبلغ پرداختی سفارش</li>
-                                            <li>{{ total.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',') }} تومان </li>
+                                            <!-- <li>{{ total.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',') }} تومان </li> -->
                                         </ul>
                                     </div>
                                 </div>

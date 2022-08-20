@@ -92,7 +92,6 @@ export default {
     },
   },
   mounted() {
-    console.log('k')
     document.getElementById('newsletterPopUpButton').click();
   }
 }

@@ -33,7 +33,7 @@
                                             <n-link :to="`/product/${product.product.id}`">{{ product.product.name }}</n-link>
                                         </td>
                                         <td class="product-price-cart">
-                                            <span class="amount">{{ product.state.discounted_price.replace(/\B(?=(\d{3})+(?!\d))/g, ',') }}تومان</span>
+                                            <!-- <span class="amount">{{ product.state.discounted_price.replace(/\B(?=(\d{3})+(?!\d))/g, ',') }}تومان</span> -->
                                             <del class="old" v-if="product.product.discount >0">{{ product.state.price.replace(/\B(?=(\d{3})+(?!\d))/g, ',') }}</del>
                                         </td>
                                       <td class="product-price-cart">
@@ -46,7 +46,9 @@
                                                 <button @click="incrementProduct(product)" class="inc qtybutton">+</button>
                                             </div>
                                         </td>
-                                        <td class="product-subtotal">{{ (product.count * product.state.discounted_price).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',') }} تومان </td>
+                                        <td class="product-subtotal">
+                                          <!-- {{ (product.count * product.state.discounted_price).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',') }} تومان  -->
+                                          </td>
                                         <td class="product-remove">
                                             <button @click="removeProduct(product)"><i class="fa fa-times"></i></button>
                                         </td>
@@ -76,12 +78,12 @@
                                   <h4 class="cart-bottom-title section-bg-gary-cart">مجموع :</h4>
                                 </div>
                                 <h5> مجموع <span>
-                                  {{ total }} تومان
+                                  <!-- {{ total }} تومان -->
                                 </span>
                                 </h5>
                                 <h4 class="grand-total-title">
                                   مجموع قیمت <span>
-                                  {{ total }} تومان
+                                  <!-- {{ total }} تومان -->
                                   </span>
                                 </h4>
                                 <n-link to="/checkout">تسویه حساب</n-link>
@@ -222,10 +224,23 @@
                const user = localStorage.getItem('117115101114');
                const userr = JSON.parse(user)
                this.$axios.setToken(localStorage.getItem('116111107101110'),'Bearer');
-               const card = await this.$axios.get(`/card/${userr.id}`)
-              this.$store.dispatch('initCart',card.data.products)
-               this.cardProducts = card.data.products
-              this.loader = false
+               await this.$axios.get(`/card/${userr.id}`)
+               .then(response=>{
+                 this.$store.dispatch('initCart',response.data.products)
+                 this.cardProducts = response.data.products
+                 this.loader = false
+               })
+               .catch(error=>{
+                 console.log(error)
+                 localStorage.removeItem('116111107101110');
+                 localStorage.removeItem('117115101114');
+                 localStorage.removeItem('099097114100');
+                 localStorage.removeItem('key');
+                 this.$axios.setToken(false)
+                 window.location = '/';
+
+               });
+
              }
         },
     };
