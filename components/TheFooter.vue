@@ -2,17 +2,17 @@
   <footer class="footer-area bg-gray pt-100 pb-70">
     <div class="container">
       <div class="row">
-        <div class="col-lg-3 col-sm-4">
+        <div class="col-lg-2 col-sm-4 ">
           <div class="copyright mb-30">
-            <div class="footer-logo mt-0 pt-0">
+            <div class="footer-logo mt-0 pt-0 text-center">
               <n-link to="/">
-                <img width="250" height="100" src="/img/logo/logo.png" alt="logo">
+                <img src="/img/logo/logo.png" alt="logo">
               </n-link>
             </div>
             <p class="pt-5">© 2022 <a href="#" target="_blank">ساخت ایران</a>.<br> All Rights Reserved</p>
           </div>
         </div>
-        <div class="col-lg-3 col-sm-4">
+        <div class="col-lg-2 col-sm-4 ">
           <div class="footer-widget mb-30 ml-30">
             <div class="footer-title">
               <h3 style="font-weight: 700">نقشه سایت</h3>
@@ -31,7 +31,7 @@
                 <li>
                   <n-link to="/contact">تماس با ما</n-link>
                 </li>
-              </ul>
+                </ul>
             </div>
           </div>
         </div>
@@ -63,14 +63,30 @@
                 در جریان جزئیات قرار بگیرید.</p>
               <div class="subscribe-form">
                 <form class="mc-form">
-                  <input class="email" type="text" required placeholder="نام و نام خانوادگی:" name="email" v-model="informationObj.full_name">
-                  <input class="email" type="text" required placeholder="شماره تلفن همراه:" name="email" v-model="informationObj.phone_number">
-                  <button class="button float-start fw-bolder" style="font-size: 18px" name="subscribe" @click="checkAndRegisterInNewsletter"
+                  <input class="email" type="text" required placeholder="نام و نام خانوادگی:" name="email"
+                         v-model="informationObj.full_name">
+                  <input class="email" type="text" required placeholder="شماره تلفن همراه:" name="email"
+                         v-model="informationObj.phone_number">
+                  <button class="button float-start fw-bolder" style="font-size: 18px" name="subscribe"
+                          @click="checkAndRegisterInNewsletter"
                           :disabled="makeButtonLoading" :loading="makeButtonLoading">
                     {{ !makeButtonLoading ? 'ثبت نام' : 'کمی صبر کنید...' }}
                   </button>
                 </form>
               </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-2 col-sm-4">
+          <div class="copyright mb-30">
+            <div class="footer-logo pull-left">
+              <a referrerpolicy="origin" target="_blank"
+                 href="https://trustseal.enamad.ir/?id=293199&amp;Code=G6w73PAJDl7irj1t0umR">
+                <img
+                    referrerpolicy="origin"
+                    src="https://Trustseal.eNamad.ir/logo.aspx?id=293199&amp;Code=G6w73PAJDl7irj1t0umR" alt=""
+                    style="cursor:pointer" id="G6w73PAJDl7irj1t0umR">
+              </a>
             </div>
           </div>
         </div>
@@ -107,7 +123,8 @@ export default {
         title: "خطا!",
         text: "لطفا شماره تلفن همراه خود رابه درستی وارد کنید.",
         type: 'error',
-      });      this.makeButtonLoading = true;
+      });
+      this.makeButtonLoading = true;
       await this.$axios.post('/add_new_receiver', this.informationObj)
           .then((response) => {
             this.makeButtonLoading = false
