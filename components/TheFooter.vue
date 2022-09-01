@@ -1,7 +1,7 @@
 <template>
   <footer class="footer-area bg-gray pt-100 pb-70">
     <div class="container">
-      <div class="row">
+      <div class="row px-1">
         <div class="col-lg-2 col-sm-4 ">
           <div class="copyright mb-30">
             <div class="footer-logo mt-0 pt-0 text-center">
@@ -10,6 +10,31 @@
               </n-link>
             </div>
             <p class="pt-5">© 2022 <a href="#" target="_blank">ساخت ایران</a>.<br> All Rights Reserved</p>
+            <div class="row pt-3">
+              <div class="col-12">
+                <div class="d-flex align-content-between justify-content-between">
+                  <div class="copyright mb-30 " >
+                    <div class="footer-logo" >
+                      <a referrerpolicy="origin" target="_blank"
+                         href="https://trustseal.enamad.ir/?id=293199&amp;Code=G6w73PAJDl7irj1t0umR">
+                        <img
+                            referrerpolicy="origin"
+                            src="https://Trustseal.eNamad.ir/logo.aspx?id=293199&amp;Code=G6w73PAJDl7irj1t0umR" alt=""
+                            style="cursor:pointer" id="G6w73PAJDl7irj1t0umR">
+                      </a>
+                    </div>
+                  </div>
+                  <div class="copyright mb-30 " >
+                    <div class="footer-logo">
+                      <img referrerpolicy='origin' id='rgvjjxlzjzpeesgtapfuesgt' style='cursor:pointer'
+                           onclick='window.open("https://logo.samandehi.ir/Verify.aspx?id=317050&p=xlaorfthjyoeobpddshwobpd", "Popup","toolbar=no, scrollbars=no, location=no, statusbar=no, menubar=no, resizable=0, width=450, height=630, top=30")'
+                           alt='logo-samandehi'
+                           src='https://logo.samandehi.ir/logo.aspx?id=317050&p=qftinbpdyndtlymaujynlyma'/>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
         <div class="col-lg-2 col-sm-4 ">
@@ -31,11 +56,14 @@
                 <li>
                   <n-link to="/contact">تماس با ما</n-link>
                 </li>
-                </ul>
+                <li>
+                  <n-link to="/terms-conditions">قوانین و مقررات</n-link>
+                </li>
+              </ul>
             </div>
           </div>
         </div>
-        <div class="col-lg-3 col-sm-4">
+        <div class="col-lg-4 col-sm-4">
           <div class="footer-widget mb-30 ml-50">
             <div class="footer-title">
               <h3 style="font-weight: 700">راه های تماس</h3>
@@ -53,7 +81,7 @@
             </div>
           </div>
         </div>
-        <div class="col-lg-3 col-sm-6">
+        <div class="col-lg-4 col-sm-6 border rounded-3 pt-3">
           <div class="footer-widget mb-30 ml-10">
             <div class="footer-title">
               <h3><b> ثبت نام در خبرنامه</b></h3>
@@ -69,7 +97,7 @@
                          v-model="informationObj.phone_number">
                   <button class="button float-start fw-bolder" style="font-size: 18px" name="subscribe"
                           @click="checkAndRegisterInNewsletter"
-                          :disabled="makeButtonLoading" :loading="makeButtonLoading">
+                          :disabled="makeButtonLoading" :loading="makeButtonLoading" id="news_letter_btn">
                     {{ !makeButtonLoading ? 'ثبت نام' : 'کمی صبر کنید...' }}
                   </button>
                 </form>
@@ -77,19 +105,7 @@
             </div>
           </div>
         </div>
-        <div class="col-lg-2 col-sm-4">
-          <div class="copyright mb-30">
-            <div class="footer-logo pull-left">
-              <a referrerpolicy="origin" target="_blank"
-                 href="https://trustseal.enamad.ir/?id=293199&amp;Code=G6w73PAJDl7irj1t0umR">
-                <img
-                    referrerpolicy="origin"
-                    src="https://Trustseal.eNamad.ir/logo.aspx?id=293199&amp;Code=G6w73PAJDl7irj1t0umR" alt=""
-                    style="cursor:pointer" id="G6w73PAJDl7irj1t0umR">
-              </a>
-            </div>
-          </div>
-        </div>
+
       </div>
     </div>
   </footer>
@@ -125,6 +141,7 @@ export default {
         type: 'error',
       });
       this.makeButtonLoading = true;
+      document.getElementById('news_letter_btn').style.opacity = 0;
       await this.$axios.post('/add_new_receiver', this.informationObj)
           .then((response) => {
             this.makeButtonLoading = false
@@ -136,6 +153,7 @@ export default {
           })
           .catch(() => {
             this.makeButtonLoading = false
+      document.getElementById('news_letter_btn').style.opacity = 1;
             return this.$notify({
               title: "عملیات ناموفق!",
               text: "خطایی در ثبت اطلاعات رخ داد.",

@@ -11,8 +11,11 @@
               <div id="faq" class="panel-group">
                 <div class="panel panel-default single-my-account">
                   <div class="panel-heading my-account-title">
-                    <h3 class="panel-title"><a data-bs-toggle="collapse" href="#my-account-1">
-                      اطلاعات حساب کاربری </a></h3>
+                    <h3 class="panel-title">
+                      <a data-bs-toggle="collapse" href="#my-account-1">
+                        اطلاعات حساب کاربری
+                      </a>
+                    </h3>
                   </div>
                   <div id="my-account-1" class="panel-collapse collapse show" data-bs-parent="#faq">
                     <div class="panel-body">
@@ -121,7 +124,7 @@
                     <div class="panel-body">
                       <div class="myaccount-info-wrapper">
                         <div class="account-info-wrapper">
-                          <h4>  جزئیات آدرس</h4>
+                          <h4> جزئیات آدرس</h4>
                         </div>
                         <div class="entries-wrapper">
                           <div class="row">
@@ -135,7 +138,7 @@
                                 <div class="col-lg-12 col-md-12">
                                   <div class="billing-info">
                                     <input type="text" maxlength="10" placeholder="کد پستی"
-                                           :readonly="edit"  v-model="data.zip_code"/>
+                                           :readonly="edit" v-model="data.zip_code"/>
                                   </div>
                                 </div>
                                 <div class="col-lg-12 col-md-12">
@@ -194,26 +197,25 @@ export default {
       title: "حساب من",
     }
   },
-  data()
-  {
-    return{
+  data() {
+    return {
       data: {
-        name:'',
-        phone_number:'',
-        home_number:'',
-        national_id:'',
-        job:'',
-        company_name:'',
-        email:'',
-        password:'',
-        address:'',
-        plaque:'',
-        zip_code:'',
-        floor:0,
-        id:''
+        name: '',
+        phone_number: '',
+        home_number: '',
+        national_id: '',
+        job: '',
+        company_name: '',
+        email: '',
+        password: '',
+        address: '',
+        plaque: '',
+        zip_code: '',
+        floor: 0,
+        id: ''
       },
-      show:true,
-      edit:true
+      show: true,
+      edit: true
     }
   },
   created() {
@@ -223,10 +225,10 @@ export default {
     if (!localStorage.getItem('116111107101110')) return window.location = '/login-register';
     // return     console.log(localStorage.getItem('117115101114'))
 
-    await this.$axios.setToken(localStorage.getItem('116111107101110'),'Bearer');
+    await this.$axios.setToken(localStorage.getItem('116111107101110'), 'Bearer');
     const user = JSON.parse(localStorage.getItem('117115101114'));
 
-    const info = await  this.$axios.get(`show_acc/${user.id}`);
+    const info = await this.$axios.get(`show_acc/${user.id}`);
     this.data.name = info.data.name
     this.data.phone_number = info.data.phone_number
     this.data.home_number = info.data.home_number
@@ -241,34 +243,34 @@ export default {
     this.data.floor = info.data.floor
     this.data.id = info.data.id
   },
-  methods:{
-    async update()
-    {
+  methods: {
+    async update() {
       if (this.data.phone_number === null) return this.$notify({
-        title:'لطفا شماره تلفن همره را وارد کنید.',
-        type:'error'})
-      if (this.data.address === null) return this.$notify({
-        title:'لطفا آدرس را وارد کنید.',
-        type:'error'})
-      if (this.data.name === null) return this.$notify({
-        title:'لطفا نام و نام خانوداگی را وارد کنید.',
-        type:'error'})
-      this.show =false;
-      this.$axios.setToken(localStorage.getItem('116111107101110'),'Bearer');
-      const result = await this.$axios.put('update_acc',this.data);
-      this.show =true
-      if (result.status === 200)
-      return this.$notify({
-        title:'ویرایش با موفقیت انجام شد.',
-        type:'success'
+        title: 'لطفا شماره تلفن همره را وارد کنید.',
+        type: 'error'
       })
+      if (this.data.address === null) return this.$notify({
+        title: 'لطفا آدرس را وارد کنید.',
+        type: 'error'
+      })
+      if (this.data.name === null) return this.$notify({
+        title: 'لطفا نام و نام خانوداگی را وارد کنید.',
+        type: 'error'
+      })
+      this.show = false;
+      this.$axios.setToken(localStorage.getItem('116111107101110'), 'Bearer');
+      const result = await this.$axios.put('update_acc', this.data);
+      this.show = true
+      if (result.status === 200)
+        return this.$notify({
+          title: 'ویرایش با موفقیت انجام شد.',
+          type: 'success'
+        })
     },
-    editAddress()
-    {
-      this.edit =false
+    editAddress() {
+      this.edit = false
     },
-    deleteAddress()
-    {
+    deleteAddress() {
       this.data.plaque = ''
       this.data.zip_code = ''
       this.data.floor = ''

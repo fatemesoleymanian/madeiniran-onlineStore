@@ -30,7 +30,7 @@
           </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-primary" @click="checkAndRegisterInNewsletter"
-                    :disabled="makeButtonLoading" :loading="makeButtonLoading">
+                    :disabled="makeButtonLoading" :loading="makeButtonLoading" id="news_letter_btn">
               {{ !makeButtonLoading ? 'ثبت نام' : 'کمی صبر کنید...' }}
             </button>
           </div>
@@ -72,6 +72,7 @@ export default {
         type: 'error',
       });
       this.makeButtonLoading = true;
+      document.getElementById('news_letter_btn').style.opacity = 0;
       await this.$axios.post('/add_new_receiver', this.informationObj)
           .then((response) => {
             this.makeButtonLoading = false
@@ -83,6 +84,7 @@ export default {
           })
           .catch(() => {
             this.makeButtonLoading = false
+      document.getElementById('news_letter_btn').style.opacity = 1;
             return this.$notify({
               title: "عملیات ناموفق!",
               text: "خطایی در ثبت اطلاعات رخ داد.",
