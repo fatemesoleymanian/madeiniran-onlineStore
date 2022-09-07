@@ -16,7 +16,12 @@
 }
 *{
     direction: rtl;
-    font-family: 'Yekan';
+    font-family: persianNumber;
+    font-weight: bold;
+}
+@font-face {
+    font-family: persianNumber;
+    src: url('../fonts/IRANYekanRegular(FaNum).ttf');
 }
 .ql-align-right{
     text-align: right;

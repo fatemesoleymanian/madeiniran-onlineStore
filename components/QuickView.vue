@@ -26,8 +26,8 @@
                         </div>
                         <h2>{{ product.name }}</h2>
                         <div class="product-details-price">
-                            <!-- <span> {{ discounted_price.replace(/\B(?=(\d{3})+(?!\d))/g, ',') }} تومان </span>
-                            <span class="old" v-if="product.discount > 0">{{ pricee.replace(/\B(?=(\d{3})+(?!\d))/g, ',') }} تومان</span> -->
+                            <span style="font-family:persianNumber;"> {{ discounted_price.replace(/\B(?=(\d{3})+(?!\d))/g, ',') }} تومان </span>
+                            <span class="old" v-if="product.discount > 0">{{ pricee.replace(/\B(?=(\d{3})+(?!\d))/g, ',') }} تومان</span>
                         </div>
                         <p>{{ product.description_excerpt }}</p>
                         <div class="pro-details-size-color" v-if="product.state">
@@ -35,7 +35,7 @@
                                 <h6 class="label">ظرفیت ها</h6>
                                 <div class="pro-details-size-content">
                                     <label class="radio" v-for="(item, index) in product.state" :key="index">
-                                        <input type="radio" name="sizeGroup" checked  @click="priceByState(index)" />
+                                        <input type="radio" name="sizeGroup" checked @click="priceByState(index)" />
                                         <span class="check-mark">{{ item.type }}</span>
                                     </label>
                                 </div>

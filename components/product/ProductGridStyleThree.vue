@@ -16,8 +16,8 @@
                         </h3>
                     </div>
                     <div class="price-3">
-                        <span>${{ discountedPrice(product).toFixed(2) }}</span>
-                        <span class="old" v-if="product.discount > 0">${{ product.price.toFixed(2) }}</span>
+                        <span style="font-family:persianNumber;">${{ discountedPrice(product).toFixed(2) }}</span>
+                        <span class="old" v-if="product.discount > 0" style="font-family:persianNumber;">${{ product.price.toFixed(2) }}</span>
                     </div>
                     <div class="product-action-3">
                         <button class="btn" title="Compare" @click="addToCompare(product)"> 

@@ -13,7 +13,7 @@
                             <n-link :to="`/product/${product.product.id}`">{{ product.product.name }}</n-link>
                         </h4>
                         <h6>تعداد : {{ product.count }}</h6>
-                        <span>  {{ (product.count * product.state.discounted_price).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',') }} تومان</span>
+                        <span style="font-family:persianNumber;">  {{ (product.count * product.state.discounted_price).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',') }} تومان</span>
                     </div>
                     <div class="shopping-cart-delete">
                         <button @click="removeProduct(product)">
@@ -25,7 +25,7 @@
             <div class="shopping-cart-total">
                 <h4>
                     مجموع   :
-                    <!-- <span class="shop-total"> {{ total }} تومان </span> -->
+                    <span class="shop-total"> {{ total }} تومان </span>
                   </h4>
             </div>
             <div class="shopping-cart-btn btn-hover text-center" @click="$emit('minicartClose')">

@@ -1,7 +1,7 @@
 <template>
   <div class="testimonial-area pb-95 pt-95">
     <div class="container pb-30">
-      <h3 class="text-center pb-3">ویدئوهای ارسالی از طرف نمایندگان</h3>
+      <h3 class="text-center pb-3"> ویدئوهای ارسالی از طرف نمایندگان</h3>
       <div class="row">
         <div class="col-lg-10 ms-auto me-auto">
           <swiper :options="testimonialOption">

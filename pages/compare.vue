@@ -15,16 +15,18 @@
         <div class="description-review-wrapper">
           <div class="description-review-topbar nav">
             <a data-bs-toggle="tab" class="active" href="#des-details1">
-              <span style="background: #0b4dfc;color: #fff;padding:0 3px;font-size: 0.6em;border-radius: 50%">{{products.length}}</span>
+              <span
+                  style="background: #0b4dfc;color: #fff;padding:0 3px;font-size: 0.6em;border-radius: 50%">{{ products.length }}</span>
               محصولات</a>
             <a data-bs-toggle="tab" href="#des-details2">
               وبلاگ
-              <span style="background: #0b4dfc;color: #fff;padding:0 3px;font-size: 0.6em;border-radius: 50%">{{blogs.length}}</span>
+              <span
+                  style="background: #0b4dfc;color: #fff;padding:0 3px;font-size: 0.6em;border-radius: 50%">{{ blogs.length }}</span>
             </a>
           </div>
           <div class="tab-content description-review-bottom">
             <div id="loading" v-if="loader"></div>
-            <div id="des-details1" class="tab-pane active" >
+            <div id="des-details1" class="tab-pane active">
               <div class="product-description-wrapper" v-if="products.length">
                 <div class="shop-bottom-area mt-35">
                   <div class="row product-layout grid threeColumn">
@@ -43,7 +45,7 @@
                 <h3 class="text-center text-muted p-5">محصولی یافت نشد!</h3>
               </div>
             </div>
-            <div id="des-details2" class="tab-pane " >
+            <div id="des-details2" class="tab-pane ">
               <div class="blog-area pt-100 pb-100">
                 <div class="container">
                   <div class="row flex-row-reverse">
@@ -57,8 +59,9 @@
                       </div>
                       <div v-if="getPaginateBlogCount > 1">
                         <pagination class="pro-pagination-style shop-pagination mt-30"
-                                    v-model="blog.currentPage" :per-page="blog.perPage" :records="filterBlogItems.length"
-                                    @paginate="paginateBlogClickCallback" :page-count="getPaginateBlogCount" />
+                                    v-model="blog.currentPage" :per-page="blog.perPage"
+                                    :records="filterBlogItems.length"
+                                    @paginate="paginateBlogClickCallback" :page-count="getPaginateBlogCount"/>
                       </div>
                     </div>
                     <div v-else>
@@ -72,7 +75,7 @@
         </div>
       </div>
     </div>
-    <QuickView />
+    <QuickView/>
     <TheFooter/>
   </div>
 </template>
@@ -87,18 +90,18 @@ export default {
   },
   data() {
     return {
-      srch :'',
-      loader:true,
+      srch: '',
+      loader: true,
       layout: "threeColumn",
       blogs: [],
-      filterBlogItems:[],
+      filterBlogItems: [],
       products: [],
       filterItems: [],
-      product:{
+      product: {
         currentPage: 1,
         perPage: 10
       },
-      blog:{
+      blog: {
         currentPage: 1,
         perPage: 10
       }
@@ -106,7 +109,7 @@ export default {
   },
   async mounted() {
     this.loader = true
-     this.srch = localStorage.getItem('srch')
+    this.srch = localStorage.getItem('srch')
     const results = await this.$axios.get(`/products_search/${this.srch}`)
     this.blogs = results.data.blogs
     this.filterBlogItems = this.blogs
@@ -151,7 +154,7 @@ export default {
   margin: 50px auto;
   width: 80px;
   height: 80px;
-  border: 3px solid rgba(0,0,0,.5);
+  border: 3px solid rgba(0, 0, 0, .5);
   border-radius: 50%;
   border-top-color: #000;
   animation: spin 1s ease-in-out infinite;
@@ -159,9 +162,14 @@ export default {
 }
 
 @keyframes spin {
-  to { -webkit-transform: rotate(360deg); }
+  to {
+    -webkit-transform: rotate(360deg);
+  }
 }
+
 @-webkit-keyframes spin {
-  to { -webkit-transform: rotate(360deg); }
+  to {
+    -webkit-transform: rotate(360deg);
+  }
 }
 </style>

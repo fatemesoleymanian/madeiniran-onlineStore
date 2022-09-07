@@ -13,18 +13,16 @@
             <div class="row pt-3">
               <div class="col-12">
                 <div class="d-flex align-content-between justify-content-between">
-                  <div class="copyright mb-30 " >
-                    <div class="footer-logo" >
+                  <div class="copyright mb-30 ">
+                    <div class="footer-logo">
                       <a referrerpolicy="origin" target="_blank"
-                         href="https://trustseal.enamad.ir/?id=293199&amp;Code=G6w73PAJDl7irj1t0umR">
-                        <img
-                            referrerpolicy="origin"
-                            src="https://Trustseal.eNamad.ir/logo.aspx?id=293199&amp;Code=G6w73PAJDl7irj1t0umR" alt=""
-                            style="cursor:pointer" id="G6w73PAJDl7irj1t0umR">
-                      </a>
+                         href="https://trustseal.enamad.ir/?id=293199&amp;Code=G6w73PAJDl7irj1t0umR"><img
+                          referrerpolicy="origin"
+                          src="https://Trustseal.eNamad.ir/logo.aspx?id=293199&amp;Code=G6w73PAJDl7irj1t0umR" alt=""
+                          style="cursor:pointer" id="G6w73PAJDl7irj1t0umR"></a>
                     </div>
                   </div>
-                  <div class="copyright mb-30 " >
+                  <div class="copyright mb-30 ">
                     <div class="footer-logo">
                       <img referrerpolicy='origin' id='rgvjjxlzjzpeesgtapfuesgt' style='cursor:pointer'
                            onclick='window.open("https://logo.samandehi.ir/Verify.aspx?id=317050&p=xlaorfthjyoeobpddshwobpd", "Popup","toolbar=no, scrollbars=no, location=no, statusbar=no, menubar=no, resizable=0, width=450, height=630, top=30")'
@@ -71,8 +69,10 @@
             <div class="footer-list">
               <ul>
                 <li>
-                  <p>تلفن : <br>021-72418400 | 021-72418401 <br>021-72418402 | 021-72418403</p></li>
-                <li><p>واتس اپ : <br>09190808506 | 09190808507 <br>09902121045 | 09902121046</p></li>
+                  <p style="font-family: persianNumber">تلفن : <br>021-72418400 | 021-72418401 <br>021-72418402 | 021-72418403</p></li>
+                <li>
+                  <p style="font-family: persianNumber">واتس اپ : <br>09190808506 | 09190808507 <br>09902121045 | 09902121046</p>
+                </li>
                 <li><p>آدرس : تهران - خیابان ولیعصر - روبروی پارک ملت - برج سایه - طبقه چهاردهم.</p></li>
                 <li><p>شبکه‌های اجتماعی: <a href="https://www.instagram.com/madein_ir.ir/"
                                             target="_blank">اینستاگرام</a> - <a
@@ -153,7 +153,7 @@ export default {
           })
           .catch(() => {
             this.makeButtonLoading = false
-      document.getElementById('news_letter_btn').style.opacity = 1;
+            document.getElementById('news_letter_btn').style.opacity = 1;
             return this.$notify({
               title: "عملیات ناموفق!",
               text: "خطایی در ثبت اطلاعات رخ داد.",
@@ -165,3 +165,8 @@ export default {
 
 };
 </script>
+<style>
+/** {*/
+/*  font-family: 'persianNumber' !important;*/
+/*}*/
+</style>

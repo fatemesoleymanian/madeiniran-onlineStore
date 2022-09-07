@@ -1,12 +1,12 @@
 <template>
-<div></div>
+  <div></div>
 </template>
 
 <script>
 export default {
   name: "catalog",
   beforeCreate() {
-   this.$router.push('/product/19')
+    this.$router.push('/product/19')
   }
 }
 </script>

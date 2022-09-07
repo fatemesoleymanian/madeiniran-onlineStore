@@ -20,8 +20,8 @@
           <div class="product-details-content ml-70">
             <h2>{{ product.name }}</h2>
             <div class="product-details-price">
-              <!-- <span>  {{ discounted_price.replace(/\B(?=(\d{3})+(?!\d))/g, ',') }} تومان  </span> -->
-              <!-- <span class="old" v-if="product.discount > 0">{{ pricee.replace(/\B(?=(\d{3})+(?!\d))/g, ',') }} تومان</span> -->
+              <span style="font-family:persianNumber;">  {{ discounted_price.replace(/\B(?=(\d{3})+(?!\d))/g, ',') }} تومان  </span>
+              <span class="old" v-if="product.discount > 0" style="font-family:persianNumber;">{{ pricee.replace(/\B(?=(\d{3})+(?!\d))/g, ',') }} تومان</span>
             </div>
             <div class="pro-details-rating-wrap">
               <!--                            <div class="pro-details-rating" v-if="product.state ">-->
@@ -77,7 +77,7 @@
                 <div class="pro-details-size-content">
                   <label class="radio" v-for="(item, index) in product.state" :key="index">
                     <input type="radio" name="sizeGroup" checked  @click="priceByState(index)"/>
-                    <span class="check-mark">{{ item.type }}</span>
+                    <span class="check-mark" style="font-family:persianNumber;">{{ item.type }}</span>
                   </label>
                 </div>
               </div>
