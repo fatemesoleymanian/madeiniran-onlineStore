@@ -17,8 +17,9 @@ export default {
         //     return [products , blogs]
         // }
         // or
-        routes: ['/product/21', '/product/20', '/product/19','/blog/17','/blog/21','/blog/22','/blog/24','/blog/26','/blog/27']
-         },
+        routes: ['/product/21', '/product/20', '/product/19', '/blog/17', '/blog/21', '/blog/22',
+            '/blog/24', '/blog/26', '/blog/28', '/blog/29', '/blog/30']
+    },
 
     target: 'static', // default is 'server'
 
@@ -27,17 +28,17 @@ export default {
         title: 'فروشگاه ساخت ایران - خانه',
         titleTemplate: 'ساخت ایران | %s',
         meta: [
-            { charset: 'utf-8' },
-            { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-            { hid: 'description', name: 'description', content: '' }
+            {charset: 'utf-8'},
+            {name: 'viewport', content: 'width=device-width, initial-scale=1'},
+            {hid: 'description', name: 'description', content: ''}
         ],
         link: [
-            { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
+            {rel: 'icon', type: 'image/x-icon', href: '/favicon.ico'},
         ],
         htmlAttrs: {
             lang: 'fa',
             dir: 'rtl'
-          },
+        },
     },
 
     // Global CSS (https://go.nuxtjs.dev/config-css)
@@ -65,16 +66,14 @@ export default {
         }
     ],
     axios: {
-        baseURL:"https://api.madein-iran.com/public/api",
+        baseURL: "https://api.madein-iran.com/public/api",
 
     },
     // Auto import components (https://go.nuxtjs.dev/config-components)
     components: true,
 
     // Modules for dev and build (recommended) (https://go.nuxtjs.dev/config-modules)
-    buildModules: [
-
-    ],
+    buildModules: [],
 
     // Modules (https://go.nuxtjs.dev/config-modules)
     modules: [
@@ -91,7 +90,7 @@ export default {
     // Build Configuration (https://go.nuxtjs.dev/config-build)
     build: {
         extractCSS: true,
-        extend (config, ctx) {
+        extend(config, ctx) {
         },
         babel: {
             compact: true,

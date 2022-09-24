@@ -1,6 +1,13 @@
 <template>
   <footer class="footer-area bg-gray pt-100 pb-70">
     <div class="container">
+      <div class="whatsapp">
+        <a href="https://api.whatsapp.com/send?phone=989190808506" target="_blank">
+          <h5>
+            <i class="fa fa-whatsapp fa-2x" aria-hidden="true"></i>
+          </h5>
+        </a>
+      </div>
       <div class="row px-1">
         <div class="col-lg-2 col-sm-4 ">
           <div class="copyright mb-30">

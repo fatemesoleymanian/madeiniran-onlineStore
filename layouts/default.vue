@@ -3,7 +3,7 @@
         <Nuxt />
 
         <client-only>
-            <notifications position="top right" classes='vue-notification error' />
+            <notifications position="bottom right" classes='vue-notification error' style="z-index:9999;"/>
         </client-only>
 
         <button class="scroll-top" @click="scrollToTop" :class="{ 'show': isVisible }">

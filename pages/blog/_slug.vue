@@ -118,8 +118,8 @@ export default {
       this.$axios.get(`blogs_id/${this.id}`)
     ]);
     this.blogs = blog.data
-    if (id.data.after) this.after = id.data.after.id;
-    if (id.data.before) this.before = id.data.before.id
+    if (id.data.after) this.after = id.data.after;
+    if (id.data.before) this.before = id.data.before
     this.loader = false
 
     if (localStorage.getItem('117115101114')) {

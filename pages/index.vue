@@ -6,8 +6,8 @@
         <ServicePolicy />
         <ProductWrapper :isSectionTitle=true />
         <BlogWrapper />
-      <TestimonialOne />
-      <NewsletterStyleOne />
+        <TestimonialOne />
+        <NewsletterStyleOne />
         <TheFooter />
     </div>
 </template>

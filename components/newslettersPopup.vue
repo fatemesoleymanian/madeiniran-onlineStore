@@ -84,7 +84,7 @@ export default {
           })
           .catch(() => {
             this.makeButtonLoading = false
-      document.getElementById('news_letter_btn').style.opacity = 1;
+            document.getElementById('news_letter_btn').style.opacity = 1;
             return this.$notify({
               title: "عملیات ناموفق!",
               text: "خطایی در ثبت اطلاعات رخ داد.",
@@ -92,9 +92,21 @@ export default {
             });
           });
     },
+    showBackupTeamNotification() {
+      const audio = new Audio('/audio/popup-sound.mp3');
+      audio.play();
+      return this.$notify({
+        position: 'bottom right',
+        title: "تیم پشتیبانی ساخت ایران",
+        text: 'سلام اگر سوالی دارید آیکون واتس اپ را کلیک کنید.',
+        type: 'success',
+        duration:20000,
+      });
+    }
   },
   mounted() {
     document.getElementById('newsletterPopUpButton').click();
+    setTimeout(this.showBackupTeamNotification, 10000);
   }
 }
 </script>
