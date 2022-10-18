@@ -196,6 +196,20 @@
     "_name": "_db58b35e"
   },
   {
+    "name": "tutorial-gate",
+    "path": "/tutorial-gate",
+    "component": "E:\\\\My Portfolio\\\\Freelancing\\\\MadeInIr\\\\front\\\\MadeInIran\\\\pages\\\\tutorial-gate.vue",
+    "chunkName": "pages/tutorial-gate",
+    "_name": "_cc716d52"
+  },
+  {
+    "name": "tutorial-videos",
+    "path": "/tutorial-videos",
+    "component": "E:\\\\My Portfolio\\\\Freelancing\\\\MadeInIr\\\\front\\\\MadeInIran\\\\pages\\\\tutorial-videos.vue",
+    "chunkName": "pages/tutorial-videos",
+    "_name": "_28195c64"
+  },
+  {
     "name": "wishlist",
     "path": "/wishlist",
     "component": "E:\\\\My Portfolio\\\\Freelancing\\\\MadeInIr\\\\front\\\\MadeInIran\\\\pages\\\\wishlist.vue",

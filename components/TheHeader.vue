@@ -60,6 +60,9 @@
                     <li v-if="auth">
                       <n-link to="/comments">دیدگاه های من</n-link>
                     </li>
+                    <li v-if="auth">
+                      <n-link to="/tutorial-gate">ویدئو های آموزشی</n-link>
+                    </li>
                     <li v-if="auth"><a href="#" @click="logout">
                       خروج از حساب </a></li>
                   </ul>

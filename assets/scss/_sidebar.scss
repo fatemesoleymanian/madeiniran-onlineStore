@@ -33,11 +33,15 @@
         margin: 0;
     }
     .sidebar-widget-list {
+        .light-back-ground{
+            background-color: $bg-light;
+        }
         .sidebar-widget-list-left {
             display: flex;
             position: relative;
             align-items: center;
             margin-bottom: 15px;
+
             a {
                 position: relative;
                 display: flex;
@@ -52,11 +56,22 @@
                 &:hover,
                 &:focus,
                 &.nuxt-link-exact-active {
-                    .check-mark {
+                    .check-mark , .check-mark2 {
                         border-color: $theme-color;
                         background-color: $theme-color;
                     }
                 }
+            }
+            .check-mark2 {
+                position: absolute;
+                right: 0;
+                width: 0px;
+                height: 0px;
+                border: 1px solid #888;
+                border-radius: 3px;
+                background-color: #fff;
+                margin-left: 5px;
+
             }
             .check-mark {
                 position: absolute;
