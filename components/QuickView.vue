@@ -25,8 +25,8 @@
                             </button>
                         </div>
                         <h2>{{ product.name }}</h2>
-                        <div class="product-details-price">
-                            <span style="font-family:persianNumber;"> {{ discounted_price.replace(/\B(?=(\d{3})+(?!\d))/g, ',') }} تومان </span>
+                        <div class="product-details-price" v-if="auth">
+                            <span style="font-family:persianNumber;" > {{ discounted_price.replace(/\B(?=(\d{3})+(?!\d))/g, ',') }} تومان </span>
                             <span class="old" v-if="product.discount > 0">{{ pricee.replace(/\B(?=(\d{3})+(?!\d))/g, ',') }} تومان</span>
                         </div>
                         <p>{{ product.description_excerpt }}</p>
@@ -132,7 +132,8 @@
               pricee :'',
               discounted_price:'',
               state_id : '',
-              indexOfState:''
+              indexOfState:'',
+              auth: false,
             }
         },
       computed: {
@@ -243,6 +244,11 @@
             },
 
 
+        },
+        mounted(){
+          if (localStorage.getItem('116111107101110')) {
+           this.auth = true
+    }
         }
     };
 </script>

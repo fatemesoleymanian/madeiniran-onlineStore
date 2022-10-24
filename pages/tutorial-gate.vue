@@ -11,7 +11,7 @@
               <div class="login-form">
                 <div class="form">
                   <span class="text-right pb-5 text-muted" style="float:right">برای مشاهده ویدئو های آموزشی لطفا نام کاربری و رمز عبور خود را وارد  کنید.</span>
-                  <input type="text" name="user-name" placeholder="نام کاربری" v-model="data.user_name" >
+                  <input type="text" name="user-name" placeholder="نام کاربری (تلفن همراه با صفر اول)" v-model="data.user_name" >
                   <input type="text" name="password" placeholder="رمزعبور" v-model="data.password" @keyup.enter="login">
                   <div class="button-box">
                     <button type="submit" @click="login" :disabled="loading" :loading="loading">

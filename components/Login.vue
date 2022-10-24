@@ -2,7 +2,7 @@
 
     <div class="login-form">
         <div class="form">
-            <span class="text-right pb-5 text-muted" style="float:right">لطفا شماره موبایل یا ایمیل خود را وارد کنید.</span>
+            <span class="text-right pb-5 text-muted" style="float:right"><b class="text-body">لطفا شماره موبایل یا ایمیل خود را وارد کنید .</b>( تلفن همراه با صفر وارد شود)</span>
             <input type="text" name="user-name" placeholder="" v-model="data.key" @keyup.enter="login">
             <div class="button-box">
                 <button type="submit" @click="login" :disabled="loading" :loading="loading">

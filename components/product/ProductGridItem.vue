@@ -34,7 +34,7 @@
             <h3>
                 <n-link :to="`/product/${product.id}`">{{ product.name }}</n-link>
             </h3>
-            <div class="product-price">
+            <div class="product-price" v-if="auth">
                <span style="font-family:persianNumber;">{{ product.state[0].discounted_price.replace(/\B(?=(\d{3})+(?!\d))/g, ',') }} تومان </span>
                <span class="old" v-if="product.discount > 0" style="font-family:persianNumber;">{{ product.state[0].price.replace(/\B(?=(\d{3})+(?!\d))/g, ',') }}تومان</span>
             </div>
@@ -65,6 +65,16 @@
 <script>
     export default {
         props: ["product", "layout"],
+        data(){
+            return{
+           auth: false,
+            }
+        },
+        mounted(){
+            if (localStorage.getItem('116111107101110')) {
+      this.auth = true
+    }
+        },
 
       computed: {
             checkIsLiked()

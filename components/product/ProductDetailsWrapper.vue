@@ -19,7 +19,7 @@
         <div class="col-lg-6 col-md-6">
           <div class="product-details-content ml-70">
             <h2>{{ product.name }}</h2>
-            <div class="product-details-price">
+            <div class="product-details-price" v-if="auth">
               <span style="font-family:persianNumber;">  {{ discounted_price.replace(/\B(?=(\d{3})+(?!\d))/g, ',') }} تومان  </span>
               <span class="old" v-if="product.discount > 0" style="font-family:persianNumber;">{{ pricee.replace(/\B(?=(\d{3})+(?!\d))/g, ',') }} تومان</span>
             </div>
@@ -156,7 +156,7 @@ export default {
   data() {
     return {
       singleQuantity: 1,
-
+      auth: false,
       swiperOptionTop: {
         loop: true,
         slidesPerView: 1,
@@ -187,6 +187,9 @@ export default {
   //   return console.log(this.product)
   // },
     mounted() {
+      if (localStorage.getItem('116111107101110')) {
+      this.auth = true
+    }
       this.indexOfState=(this.states.length-1)
    this.settingPrice()
     },
