@@ -30,6 +30,7 @@
                             <span class="old" v-if="product.discount > 0">{{ pricee.replace(/\B(?=(\d{3})+(?!\d))/g, ',') }} تومان</span>
                         </div>
                         <p>{{ product.description_excerpt }}</p>
+                    <h6 v-if="!auth"><a href="/login-register">برای مشاهده قیمت وارد حساب کاربری خود شوید.</a></h6>
                         <div class="pro-details-size-color" v-if="product.state">
                             <div class="pro-details-size-wrap">
                                 <h6 class="label">ظرفیت ها</h6>

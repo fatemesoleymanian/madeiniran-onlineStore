@@ -62,6 +62,8 @@
               <!--                            <span><a href="#">{{ product.discount }} Reviews</a></span>-->
             </div>
             <div class="p" v-html="product.description_excerpt"></div>
+              <br>
+                 <h6 v-if="!auth"><a href="/login-register">برای مشاهده قیمت وارد حساب کاربری خود شوید.</a></h6>
             <div class="pro-details-size-color" v-if="product.state">
               <!--                            <div class="pro-details-color-wrap">-->
               <!--                                <h6 class="label">Color</h6>-->
