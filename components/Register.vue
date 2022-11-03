@@ -67,7 +67,7 @@ export default {
         localStorage.setItem('099097114100', log.data.card);
         this.$router.go(-1);
       }
-      console.log(log.status)
+      // console.log(log.status)
     },
     countDownTimer() {
       if (this.countDown > 0) {

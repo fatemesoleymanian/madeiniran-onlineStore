@@ -55,9 +55,6 @@
                       <n-link to="/my-account">پروفایل من</n-link>
                     </li>
                     <li v-if="auth">
-                      <n-link to="/orders">سفارش های من</n-link>
-                    </li>
-                    <li v-if="auth">
                       <n-link to="/comments">دیدگاه های من</n-link>
                     </li>
                     <li v-if="auth">
@@ -73,13 +70,6 @@
                    class="same-style header-wishlist  d-none d-lg-block">
                 <n-link to="/wishlist"><i class="pe-7s-like"></i></n-link>
                 <span class="count-style">{{ wishlistItemCount }}</span>
-              </div>
-              <div class="same-style cart-wrap" v-if="auth">
-                <button class="icon-cart" @click="openCart = !openCart">
-                  <i class="pe-7s-shopbag"></i>
-                  <span class="count-style">{{ cartItemCount }}</span>
-                </button>
-                <MiniCart :miniCart="{ visible:openCart }" @minicartClose="openCart = !openCart"/>
               </div>
               <div class="same-style mobile-menu-toggler d-block d-lg-none">
                 <button class="mobile-aside-button" @click="navOpen = !navOpen">
@@ -149,10 +139,10 @@ export default {
       this.$axios.setToken(localStorage.getItem('116111107101110'), 'Bearer')
       await this.$axios.post('logout')
           .then(resp => {
-            console.log(resp)
+            // console.log(resp)
           })
           .catch(error => {
-            console.log(error)
+            // console.log(error)
           });
       localStorage.removeItem('116111107101110');
       localStorage.removeItem('117115101114');

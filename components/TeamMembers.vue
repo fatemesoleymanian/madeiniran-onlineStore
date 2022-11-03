@@ -37,7 +37,7 @@
       {
         let p = await this.$axios.get('/departments')
         this.teamMemberData = p.data
-        console.log(p)
+        
       }
     };
 </script>

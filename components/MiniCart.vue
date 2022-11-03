@@ -62,21 +62,5 @@
             }
         },
 
-        methods: {
-           async removeProduct(product) {
-                // for notification
-              const data = {
-                id: product.id,
-              }
-              this.$axios.setToken(localStorage.getItem('116111107101110'), 'Bearer');
-              const card = await this.$axios.delete(`/card`, {data})
-              this.$notify({
-                type:'success',
-                title: 'محصول از سبد شما حذف گردید!'})
-              this.$store.dispatch('removeProductFromCart', product)
-            },
-
-
-        },
     };
 </script>

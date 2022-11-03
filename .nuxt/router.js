@@ -6,9 +6,7 @@ import scrollBehavior from './router.scrollBehavior.js'
 
 const _7c513aec = () => interopDefault(import('..\\pages\\about.vue' /* webpackChunkName: "pages/about" */))
 const _3b74b92d = () => interopDefault(import('..\\pages\\blog\\index.vue' /* webpackChunkName: "pages/blog/index" */))
-const _2fc1db9a = () => interopDefault(import('..\\pages\\cart.vue' /* webpackChunkName: "pages/cart" */))
 const _6d8d53d6 = () => interopDefault(import('..\\pages\\catalog.vue' /* webpackChunkName: "pages/catalog" */))
-const _3b54a84e = () => interopDefault(import('..\\pages\\checkout.vue' /* webpackChunkName: "pages/checkout" */))
 const _88c394f2 = () => interopDefault(import('..\\pages\\comments.vue' /* webpackChunkName: "pages/comments" */))
 const _ddfc2abc = () => interopDefault(import('..\\pages\\compare.vue' /* webpackChunkName: "pages/compare" */))
 const _a7f48746 = () => interopDefault(import('..\\pages\\contact.vue' /* webpackChunkName: "pages/contact" */))
@@ -22,7 +20,6 @@ const _654821a4 = () => interopDefault(import('..\\pages\\home-fashion-three.vue
 const _66cd22dc = () => interopDefault(import('..\\pages\\home-fashion-two.vue' /* webpackChunkName: "pages/home-fashion-two" */))
 const _47ef134c = () => interopDefault(import('..\\pages\\login-register.vue' /* webpackChunkName: "pages/login-register" */))
 const _116a47df = () => interopDefault(import('..\\pages\\my-account.vue' /* webpackChunkName: "pages/my-account" */))
-const _54915cb8 = () => interopDefault(import('..\\pages\\orders.vue' /* webpackChunkName: "pages/orders" */))
 const _c233ee2c = () => interopDefault(import('..\\pages\\privacy-policy.vue' /* webpackChunkName: "pages/privacy-policy" */))
 const _59b2d1ee = () => interopDefault(import('..\\pages\\shop.vue' /* webpackChunkName: "pages/shop" */))
 const _95362baa = () => interopDefault(import('..\\pages\\shop-grid-full-width.vue' /* webpackChunkName: "pages/shop-grid-full-width" */))
@@ -59,17 +56,9 @@ export const routerOptions = {
     component: _3b74b92d,
     name: "blog"
   }, {
-    path: "/cart",
-    component: _2fc1db9a,
-    name: "cart"
-  }, {
     path: "/catalog",
     component: _6d8d53d6,
     name: "catalog"
-  }, {
-    path: "/checkout",
-    component: _3b54a84e,
-    name: "checkout"
   }, {
     path: "/comments",
     component: _88c394f2,
@@ -122,10 +111,6 @@ export const routerOptions = {
     path: "/my-account",
     component: _116a47df,
     name: "my-account"
-  }, {
-    path: "/orders",
-    component: _54915cb8,
-    name: "orders"
   }, {
     path: "/privacy-policy",
     component: _c233ee2c,

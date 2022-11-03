@@ -1,10 +1,11 @@
 <template>
-  <div class="description-review-area pb-90">
-    <div class="container">
-      <div class="description-review-wrapper">
+  <div class="description-review-area pb-90" >
+    <div class="container" >
+      <div class="description-review-wrapper" >
+        <div id="description"></div>
         <div class="description-review-topbar nav">
           <a data-bs-toggle="tab" class="active" href="#details">مشخصات فنی</a>
-          <a data-bs-toggle="tab" href="#representation">فرم درخواست نمایندگی</a>
+          <a data-bs-toggle="tab" href="#representation" id="ask_form">فرم درخواست نمایندگی</a>
           <a data-bs-toggle="tab" href="#fqs">پرسش های متداول</a>
           <a data-bs-toggle="tab" href="#comments">دیدگاه ها</a>
         </div>
@@ -14,6 +15,8 @@
               <div class="col-lg-2"></div>
               <div class="col-lg-8 col-12">
                 <div class="ratting-form-wrapper pl-50">
+                  <h4>برای دریافت مشاوره یا درخواست نمایندگی این خط تولید فرم زیر را پر کنید.</h4>
+                  <br>
                   <div class="ratting-form">
                     <form>
                       <div class="row">

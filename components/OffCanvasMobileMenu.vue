@@ -43,6 +43,25 @@
                         </li>
 
                     </ul>
+                    <ul class="pr-20">
+                        <li>
+                            <i class="fa fa-whatsapp"></i>
+                            <a href="https://api.whatsapp.com/send?phone=989190808506" target="_blank">09190808506</a>
+                        </li>
+                        <li>
+                            <i class="fa fa-whatsapp"></i>
+                          <a href="https://api.whatsapp.com/send?phone=09190808507" target="_blank">09190808507</a>
+                        </li>
+                        <li>
+                            <i class="fa fa-whatsapp"></i>
+                          <a href="https://api.whatsapp.com/send?phone=09902121045" target="_blank">09902121045</a>
+                        </li>
+                        <li>
+                            <i class="fa fa-whatsapp"></i>
+                          <a href="https://api.whatsapp.com/send?phone=09902121046" target="_blank">09902121046</a>
+                        </li>
+
+                    </ul>
                 </div>
             </div>
             </div>

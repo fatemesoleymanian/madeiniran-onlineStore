@@ -18,10 +18,10 @@
                     <n-link :to="`/product/${product.id}`" class="btn" v-if="product.state">
                         مشاهده جزئیات
                     </n-link>
-                    <button class="btn" title="افزودن به سبد خرید" @click="addToCart(product)" v-else>
+                    <!-- <button class="btn" title="افزودن به سبد خرید" @click="addToCart(product)" v-else>
                         <i class="pe-7s-cart"></i>
                        افزودن به سبد خرید
-                    </button>
+                    </button> -->
                 </div>
                 <div class="pro-same-action pro-quickview">
                     <button class="btn" title="مشاهده سریع محصول" @click="onClick(product)">
@@ -45,10 +45,10 @@
                         <n-link :to="`/product/${product.id}`" class="btn" v-if="product.state">
                             مشاهده جزئیات
                         </n-link>
-                        <button class="btn" title="افزودن به سبد خرید" @click="addToCart(product)" v-else>
+                        <!-- <button class="btn" title="افزودن به سبد خرید" @click="addToCart(product)" v-else>
                             <i class="pe-7s-cart"></i>
                             افزودن به سبد خرید
-                        </button>
+                        </button> -->
                     </div>
                     <div class="pro-wishlist">
                         <button @click="addToWishlist(product)">

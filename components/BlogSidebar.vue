@@ -95,9 +95,9 @@
                 if(this.str)
                 {
                     const result = await this.$axios.get(`blogs/search/${this.str}`);
-                    console.log(result.data.blogs.data)
+                    // console.log(result.data.blogs.data)
                    this.$store.dispatch('updateBlogs', result.data.blogs.data);
-                   console.log(this.$store.getters.getBlogs)
+                //    console.log(this.$store.getters.getBlogs)
                 }
             },
             filterCat(key)

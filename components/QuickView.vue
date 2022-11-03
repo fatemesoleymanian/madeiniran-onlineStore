@@ -31,6 +31,7 @@
                         </div>
                         <p>{{ product.description_excerpt }}</p>
                     <h6 v-if="!auth"><a href="/login-register">برای مشاهده قیمت وارد حساب کاربری خود شوید.</a></h6>
+                    
                         <div class="pro-details-size-color" v-if="product.state">
                             <div class="pro-details-size-wrap">
                                 <h6 class="label">ظرفیت ها</h6>
@@ -43,14 +44,14 @@
                             </div>
                         </div>
                         <div class="pro-details-quality">
-                            <div class="cart-plus-minus">
+                            <!-- <div class="cart-plus-minus">
                                 <button @click="decreaseQuantity()" class="dec qtybutton">-</button>
                                 <input class="cart-plus-minus-box" type="text" :value="singleQuantity" readonly>
                                 <button @click="increaseQuantity()" class="inc qtybutton">+</button>
-                            </div>
-                            <div class="pro-details-cart btn-hover">
+                            </div> -->
+                            <!-- <div class="pro-details-cart btn-hover">
                                 <button @click="addToCart(product)">افزودن به سبد خرید</button>
-                            </div>
+                            </div> -->
                             <div class="pro-details-wishlist">
                                 <button @click="addToWishlist(product)">
                                   <i :class="checkIsLiked === true ? 'fa fa-heart' : 'fa fa-heart-o'"></i></button>
@@ -175,52 +176,12 @@
 
             }
           },
-          async addToCart(product) {
-            if (!localStorage.getItem('116111107101110')) return window.location = '/login-register';
-
-            if (this.state_id === '') return  this.$notify({title: 'لطفا ظرفیت محصول را انتخاب کنید!'})
-
-
-            const prod = {...product, cartQuantity: this.singleQuantity}
-            // for notification
-            if (this.$store.state.cart.find(el => this.state_id === el.state_id  )) {
-              this.$notify({title: 'این محصول در سبد خرید شما وجود دارد!'})
-            }
-            else {
-              const user = localStorage.getItem('117115101114');
-              const userr = JSON.parse(user)
-
-              const data = {
-                user_id: userr.id,
-                product: product.id,
-                state: this.state_id,
-                count:this.singleQuantity
-              }
-              this.$axios.setToken(localStorage.getItem('116111107101110'), 'Bearer');
-              const card = await this.$axios.post(`/card`, data);
-              this.$notify({
-                type:'success',
-                title: 'محصول با موفقیت به سبد خرید افزوده شد!'})
-              const newPro = await  this.$axios.get(`/card_one_pro/${card.data.msg.id}`);
-              this.$store.dispatch('addToCartItem',newPro.data.product[0] )
-            }
-
-          },
-
+         
             discountedPrice(product) {
                 return product.price - (product.price * product.discount / 100)
             },
 
-            increaseQuantity(){
-              if (!localStorage.getItem('116111107101110')) return  window.location = '/login-register';
-              if (this.product.inventory >= this.singleQuantity) this.singleQuantity++
-            },
-
-            decreaseQuantity() {
-              if (!localStorage.getItem('116111107101110')) return  window.location = '/login-register';
-              if (this.singleQuantity > 1) this.singleQuantity--
-            },
-
+         
             async addToWishlist(product) {
               if (!localStorage.getItem('116111107101110')) return window.location = '/login-register';
                 // for notification
