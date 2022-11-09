@@ -67,7 +67,7 @@
 
             <div class="pro-details-size-color" v-if="product.state">
               <button @click="navigateToRepresentationForm" class="btn btn-outline-primary">
-                <a href="#description" style="color: #0b4dfc" >برای دریافت مشاوره فرم زیر را پر کنید.</a>
+                <a href="#description" style="color: #0b4dfc;font-size: 13px">برای دریافت مشاوره فرم درخواست نمایندگی خط تولید مورد نظر خود را پر کنید.</a>
                 <i class="fa fa-arrow-down"></i>
               </button>
               <!--                            <div class="pro-details-color-wrap">-->

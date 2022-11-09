@@ -23,7 +23,7 @@
                   <div class="copyright mb-30 ">
                     <div class="footer-logo">
                       <a referrerpolicy="origin" target="_blank"
-                         href="https://trustseal.enamad.ir/?id=293199&amp;Code=G6w73PAJDl7irj1t0umR"><img
+                         href="https://trustseal.enamad.ir/?id=293199&amp;Code=G6w73PAJDl7irj1t0umR"><img width="75" height="75"
                           referrerpolicy="origin"
                           src="https://Trustseal.eNamad.ir/logo.aspx?id=293199&amp;Code=G6w73PAJDl7irj1t0umR" alt=""
                           style="cursor:pointer" id="G6w73PAJDl7irj1t0umR"></a>
@@ -31,10 +31,12 @@
                   </div>
                   <div class="copyright mb-30 ">
                     <div class="footer-logo">
-                      <img referrerpolicy='origin' id='rgvjjxlzjzpeesgtapfuesgt' style='cursor:pointer'
-                           onclick='window.open("https://logo.samandehi.ir/Verify.aspx?id=317050&p=xlaorfthjyoeobpddshwobpd", "Popup","toolbar=no, scrollbars=no, location=no, statusbar=no, menubar=no, resizable=0, width=450, height=630, top=30")'
-                           alt='logo-samandehi'
-                           src='https://logo.samandehi.ir/logo.aspx?id=317050&p=qftinbpdyndtlymaujynlyma'/>
+                      <img referrerpolicy="origin" id="rgvjjxlzjzpeesgtapfuesgt" style="cursor:pointer"
+                           width="75" height="75"
+                           @click="window.open('https://logo.samandehi.ir/Verify.aspx?id=317050&p=xlaorfthjyoeobpddshwobpd', 'Popup','toolbar=no, scrollbars=no, location=no, statusbar=no, menubar=no, resizable=0, width=450, height=630, top=30')"
+                           alt="logo-samandehi"
+                           src="https://logo.samandehi.ir/logo.aspx?id=317050&p=qftinbpdyndtlymaujynlyma" >
+
                     </div>
                   </div>
                 </div>

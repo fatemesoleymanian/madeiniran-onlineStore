@@ -24,11 +24,11 @@
             <!-- Swiper Navigation Start -->
             <div class="hero-slider-nav swiper-button-prev">
               <i class="pe-7s-angle-left ml-5 pl-5"
-                 style="margin-left: 30px;color:#0b4dfc;font-size: 2.5rem;font-weight: 700; transform: rotate(180deg); "></i>
+                 style="margin-left: 30px;color:#fff;font-size: 2.5rem;font-weight: 700; transform: rotate(180deg); "></i>
             </div>
             <div class="hero-slider-nav swiper-button-next">
               <i class="pe-7s-angle-right mr-5 pr-5"
-                 style="margin-right: 30px;color:#0b4dfc;font-size: 2.5rem;font-weight: 700; transform: rotate(180deg); "></i>
+                 style="margin-right: 30px;color:#fff;font-size: 2.5rem;font-weight: 700; transform: rotate(180deg); "></i>
             </div>
             <!-- Swiper Navigation End -->
           </swiper>
@@ -43,7 +43,7 @@ export default {
   data() {
     return {
       testimonialOption: {
-        loop: true,
+        loop: false,
         speed: 950,
         navigation: {
           nextEl: '.hero-slider-nav.swiper-button-next',
