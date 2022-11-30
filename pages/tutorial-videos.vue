@@ -94,6 +94,13 @@ export default {
           title:'قسمت اول',
           time:'59:12'
         },
+        {
+          id:"cat1-pt2",
+          poster:"./static/thumbnails/ep-02.png",
+          src:"https://api.madein-iran.com/public/storage/videos/part-02-low.mp4",
+          title:'قسمت دوم',
+          time:'34:24'
+        },
       ]
     }
   },
