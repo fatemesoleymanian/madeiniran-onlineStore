@@ -60,6 +60,12 @@
             this.$store.dispatch('initWishlist',bProd)
 
           }
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+
+          gtag('config', 'G-D7DCQ6RL0W');
+
         },
     };
 </script>
