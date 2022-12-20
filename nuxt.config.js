@@ -17,7 +17,7 @@ export default {
         //     return [products , blogs]
         // }
         // or
-        routes: ['/product/32','/product/31','/product/30','/product/29','/product/21', '/product/20', '/product/19', '/blog/17',
+        routes: ['/product/33','/product/32','/product/31','/product/30','/product/29','/product/21', '/product/20', '/product/19', '/blog/17',
             '/blog/21', '/blog/22', '/blog/24', '/blog/26', '/blog/28', '/blog/29', '/blog/30', '/blog/31', '/blog/32',
             '/blog/33', '/blog/34', '/blog/35', '/blog/36']
     },

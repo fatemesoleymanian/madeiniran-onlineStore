@@ -20,6 +20,9 @@
   "Breadcrumb": {
     "description": "Auto imported from components/Breadcrumb.vue"
   },
+  "Confirmation": {
+    "description": "Auto imported from components/Confirmation.vue"
+  },
   "ContactInfo": {
     "description": "Auto imported from components/ContactInfo.vue"
   },
@@ -76,6 +79,9 @@
   },
   "Register": {
     "description": "Auto imported from components/Register.vue"
+  },
+  "RegisterContainer": {
+    "description": "Auto imported from components/RegisterContainer.vue"
   },
   "ResponsiveMobileMenu": {
     "description": "Auto imported from components/ResponsiveMobileMenu.vue"

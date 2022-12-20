@@ -5,16 +5,22 @@
 
     <div class="login-register-area pt-100 pb-100">
       <div class="container">
+        <div class="login-register-tab-list nav">
+          <button @click="comA('Login')" :class="{ active: isActive === 'Login' }" >
+            ورود
+          </button>
+          <button @click="comA('RegisterContainer')" :class="{ active: isActive === 'Register' }" >
+            ثبت نام
+          </button>
+        </div>
         <div class="row">
           <div class="col-lg-7 col-12 ms-auto me-auto">
-            <div class="entrance">
-              <Login v-if="!flag"/>
-              <Register v-if="flag"/>
-            </div>
+            <component :is="isActive" />
           </div>
         </div>
       </div>
     </div>
+
     <TheFooter/>
   </div>
 </template>
@@ -23,6 +29,8 @@
 import HeaderWithTopbar from "@/components/TheHeader";
 import Login from "@/components/Login";
 import Register from "@/components/Register";
+import Confirmation from "@/components/Confirmation";
+import RegisterContainer from "@/components/RegisterContainer";
 import Breadcrumb from "@/components/Breadcrumb";
 import TheFooter from "@/components/TheFooter";
 
@@ -30,24 +38,29 @@ export default {
   components: {
     HeaderWithTopbar,
     Login,
+    Confirmation,
+    RegisterContainer,
     Register,
     Breadcrumb,
     TheFooter
   },
 
   data() {
-    return {};
+    return {
+      isActive: "Login",
+
+    };
   },
 
-  methods: {},
+  methods: {
+    comA(item) {
+      this.isActive = item;
+    }
+  },
   mounted() {
     if (localStorage.getItem('116111107101110')) window.location = '/my-account';
   },
-  computed: {
-    flag() {
-      return this.$store.getters.getFlag
-    }
-  },
+
   head() {
     return {
       title: "ورود | ثبت نام"
@@ -55,3 +68,7 @@ export default {
   }
 };
 </script>
+<style scoped>
+input{
+}
+</style>

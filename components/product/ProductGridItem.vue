@@ -34,8 +34,8 @@
             <h3>
                 <n-link :to="`/product/${product.id}`">{{ product.name }}</n-link>
             </h3>
-            <div class="product-price" v-if="auth">
-               <span style="font-family:persianNumber;">{{ product.state[0].discounted_price.replace(/\B(?=(\d{3})+(?!\d))/g, ',') }} تومان </span>
+            <div class="product-price" v-if="auth && states.length">
+               <span style="font-family:persianNumber;" >{{ product.state[0].discounted_price.replace(/\B(?=(\d{3})+(?!\d))/g, ',') }} تومان </span>
                <span class="old" v-if="product.discount > 0" style="font-family:persianNumber;">{{ product.state[0].price.replace(/\B(?=(\d{3})+(?!\d))/g, ',') }}تومان</span>
             </div>
             <div class="product-content__list-view" v-if="layout === 'list'">
@@ -68,12 +68,14 @@
         data(){
             return{
            auth: false,
+              states:[]
             }
         },
         mounted(){
             if (localStorage.getItem('116111107101110')) {
       this.auth = true
     }
+            this.states = this.product.state
         },
 
       computed: {

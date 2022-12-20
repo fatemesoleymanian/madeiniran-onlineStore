@@ -25,14 +25,14 @@
                             </button>
                         </div>
                         <h2>{{ product.name }}</h2>
-                        <div class="product-details-price" v-if="auth">
+                        <div class="product-details-price" v-if="auth && states.length">
                             <span style="font-family:persianNumber;" > {{ discounted_price.replace(/\B(?=(\d{3})+(?!\d))/g, ',') }} تومان </span>
                             <span class="old" v-if="product.discount > 0">{{ pricee.replace(/\B(?=(\d{3})+(?!\d))/g, ',') }} تومان</span>
                         </div>
                         <p>{{ product.description_excerpt }}</p>
                     <h6 v-if="!auth"><a href="/login-register">برای مشاهده قیمت وارد حساب کاربری خود شوید.</a></h6>
-                    
-                        <div class="pro-details-size-color" v-if="product.state">
+
+                        <div class="pro-details-size-color" v-if="states.length">
                             <div class="pro-details-size-wrap">
                                 <h6 class="label">ظرفیت ها</h6>
                                 <div class="pro-details-size-content">
@@ -176,12 +176,12 @@
 
             }
           },
-         
+
             discountedPrice(product) {
                 return product.price - (product.price * product.discount / 100)
             },
 
-         
+
             async addToWishlist(product) {
               if (!localStorage.getItem('116111107101110')) return window.location = '/login-register';
                 // for notification

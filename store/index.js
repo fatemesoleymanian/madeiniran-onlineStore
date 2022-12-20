@@ -10,7 +10,7 @@ export const state = () => ({
     compare: [],
     blogs: [],
     latestBlogs:[],
-    flag : false,
+    flag : true,
     newUser:false,
     categories:[],
     tags:[],

@@ -19,8 +19,8 @@
         <div class="col-lg-6 col-md-6">
           <div class="product-details-content ml-70">
             <h2>{{ product.name }}</h2>
-            <div class="product-details-price" v-if="auth">
-              <span style="font-family:persianNumber;">  {{ discounted_price.replace(/\B(?=(\d{3})+(?!\d))/g, ',') }} تومان  </span>
+            <div class="product-details-price" v-if="auth && states.length">
+              <span style="font-family:persianNumber;" >  {{ discounted_price.replace(/\B(?=(\d{3})+(?!\d))/g, ',') }} تومان  </span>
               <span class="old" v-if="product.discount > 0" style="font-family:persianNumber;">{{ pricee.replace(/\B(?=(\d{3})+(?!\d))/g, ',') }} تومان</span>
             </div>
             <div class="pro-details-rating-wrap">
@@ -65,7 +65,7 @@
               <br>
                  <h6 v-if="!auth"><a href="/login-register">برای مشاهده قیمت وارد حساب کاربری خود شوید.</a></h6>
 
-            <div class="pro-details-size-color" v-if="product.state">
+            <div class="pro-details-size-color" v-if="states.length">
               <button @click="navigateToRepresentationForm" class="btn btn-outline-primary">
                 <a href="#description" style="color: #0b4dfc;font-size: 13px">برای دریافت مشاوره فرم درخواست نمایندگی خط تولید مورد نظر خود را پر کنید.</a>
                 <i class="fa fa-arrow-down"></i>
