@@ -85,7 +85,7 @@ export default {
           title: 'شما باموفقیت وارد حساب کاربری خود شدید!',
           type: 'success'
         });
-        if (log.data.user.is_customer === 1) window.location = 'tutorial-videos';
+        if (log.data.user.is_customer === 1) window.location = '/tutorial-videos';
         else this.$router.go(-1);
 
       }

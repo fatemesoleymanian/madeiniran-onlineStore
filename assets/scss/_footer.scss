@@ -7,6 +7,25 @@
         @media #{$xs-layout, $md-layout}{
             margin-top: 0px;
         }
+        img#logo-footer-sm {
+            @media screen and (max-width: 710px) {
+                width:35% ;
+                height:35% ;
+                display: block;
+            }
+            @media screen and (min-width: 711px){
+                display: none;
+            }
+        }
+        img#logo-footer-md{
+            @media screen and (max-width: 710px)
+            {
+                display: none;
+            }
+            @media screen and (min-width: 711px){
+                display: block;
+            }
+        }
         @media #{$lg-layout}{
             margin-top: 28px;
         }

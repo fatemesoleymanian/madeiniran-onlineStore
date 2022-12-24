@@ -13,10 +13,11 @@
           <div class="copyright mb-30">
             <div class="footer-logo mt-0 pt-0 text-center">
               <n-link to="/">
-                <img src="/img/logo/logo.png" alt="logo">
+                <img src="/img/logo/logo-sm.png" alt="logo" id="logo-footer-sm" >
+                <img src="/img/logo/logo-md.png" alt="logo" id="logo-footer-md" >
               </n-link>
             </div>
-            <p class="pt-5">© 2022 <a href="#" target="_blank">ساخت ایران</a>.<br> All Rights Reserved</p>
+            <h5 class="pt-5">© 2022 <a href="#" target="_blank">ساخت ایران</a>.<br> All Rights Reserved</h5>
             <div class="row pt-3">
               <div class="col-12">
                 <div class="d-flex align-content-between justify-content-between">
@@ -175,7 +176,7 @@ export default {
 };
 </script>
 <style>
-/** {*/
-/*  font-family: 'persianNumber' !important;*/
-/*}*/
+#logo-footer{
+
+}
 </style>

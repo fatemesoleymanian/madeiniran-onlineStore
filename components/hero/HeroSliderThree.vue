@@ -10,7 +10,7 @@
                             <div class="slider-content-3 slider-animation-1 text-center">
                                 <h3 v-show="slider.sub_title">{{ slider.sub_title  }}</h3>
                                 <h1 v-show="slider.title">{{ slider.title }}</h1>
-                                <p v-show="slider.text">{{ slider.text }}</p>
+                                <h4 v-show="slider.text">{{ slider.text }}</h4>
                                 <div v-show="slider.link" class="slider-btn btn-hover">
                                     <a v-show="slider.link" :href="slider.link">{{slider.button_content}}</a>
                                 </div>
