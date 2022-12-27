@@ -3,224 +3,192 @@
     "name": "about",
     "path": "/about",
     "component": "E:\\\\My Portfolio\\\\Freelancing\\\\MadeInIr\\\\front\\\\MadeInIran\\\\pages\\\\about.vue",
-    "chunkName": "pages/about",
-    "_name": "_7c513aec"
+    "chunkName": "pages/about"
   },
   {
     "name": "blog",
     "path": "/blog",
     "component": "E:\\\\My Portfolio\\\\Freelancing\\\\MadeInIr\\\\front\\\\MadeInIran\\\\pages\\\\blog\\\\index.vue",
-    "chunkName": "pages/blog/index",
-    "_name": "_3b74b92d"
+    "chunkName": "pages/blog/index"
   },
   {
     "name": "campaign-one",
     "path": "/campaign-one",
     "component": "E:\\\\My Portfolio\\\\Freelancing\\\\MadeInIr\\\\front\\\\MadeInIran\\\\pages\\\\campaign-one.vue",
-    "chunkName": "pages/campaign-one",
-    "_name": "_561c5bbc"
+    "chunkName": "pages/campaign-one"
   },
   {
     "name": "catalog",
     "path": "/catalog",
     "component": "E:\\\\My Portfolio\\\\Freelancing\\\\MadeInIr\\\\front\\\\MadeInIran\\\\pages\\\\catalog.vue",
-    "chunkName": "pages/catalog",
-    "_name": "_6d8d53d6"
+    "chunkName": "pages/catalog"
   },
   {
     "name": "comments",
     "path": "/comments",
     "component": "E:\\\\My Portfolio\\\\Freelancing\\\\MadeInIr\\\\front\\\\MadeInIran\\\\pages\\\\comments.vue",
-    "chunkName": "pages/comments",
-    "_name": "_88c394f2"
+    "chunkName": "pages/comments"
   },
   {
     "name": "compare",
     "path": "/compare",
     "component": "E:\\\\My Portfolio\\\\Freelancing\\\\MadeInIr\\\\front\\\\MadeInIran\\\\pages\\\\compare.vue",
-    "chunkName": "pages/compare",
-    "_name": "_ddfc2abc"
+    "chunkName": "pages/compare"
   },
   {
     "name": "contact",
     "path": "/contact",
     "component": "E:\\\\My Portfolio\\\\Freelancing\\\\MadeInIr\\\\front\\\\MadeInIran\\\\pages\\\\contact.vue",
-    "chunkName": "pages/contact",
-    "_name": "_a7f48746"
+    "chunkName": "pages/contact"
   },
   {
     "name": "delsey-packages",
     "path": "/delsey-packages",
     "component": "E:\\\\My Portfolio\\\\Freelancing\\\\MadeInIr\\\\front\\\\MadeInIran\\\\pages\\\\delsey-packages.vue",
-    "chunkName": "pages/delsey-packages",
-    "_name": "_b45d414a"
+    "chunkName": "pages/delsey-packages"
   },
   {
     "name": "home-cosmetics",
     "path": "/home-cosmetics",
     "component": "E:\\\\My Portfolio\\\\Freelancing\\\\MadeInIr\\\\front\\\\MadeInIran\\\\pages\\\\home-cosmetics.vue",
-    "chunkName": "pages/home-cosmetics",
-    "_name": "_36c66e69"
+    "chunkName": "pages/home-cosmetics"
   },
   {
     "name": "home-fashion-five",
     "path": "/home-fashion-five",
     "component": "E:\\\\My Portfolio\\\\Freelancing\\\\MadeInIr\\\\front\\\\MadeInIran\\\\pages\\\\home-fashion-five.vue",
-    "chunkName": "pages/home-fashion-five",
-    "_name": "_2270695c"
+    "chunkName": "pages/home-fashion-five"
   },
   {
     "name": "home-fashion-four",
     "path": "/home-fashion-four",
     "component": "E:\\\\My Portfolio\\\\Freelancing\\\\MadeInIr\\\\front\\\\MadeInIran\\\\pages\\\\home-fashion-four.vue",
-    "chunkName": "pages/home-fashion-four",
-    "_name": "_2b2f87c6"
+    "chunkName": "pages/home-fashion-four"
   },
   {
     "name": "home-fashion-seven",
     "path": "/home-fashion-seven",
     "component": "E:\\\\My Portfolio\\\\Freelancing\\\\MadeInIr\\\\front\\\\MadeInIran\\\\pages\\\\home-fashion-seven.vue",
-    "chunkName": "pages/home-fashion-seven",
-    "_name": "_54e88bc6"
+    "chunkName": "pages/home-fashion-seven"
   },
   {
     "name": "home-fashion-six",
     "path": "/home-fashion-six",
     "component": "E:\\\\My Portfolio\\\\Freelancing\\\\MadeInIr\\\\front\\\\MadeInIran\\\\pages\\\\home-fashion-six.vue",
-    "chunkName": "pages/home-fashion-six",
-    "_name": "_1a81e272"
+    "chunkName": "pages/home-fashion-six"
   },
   {
     "name": "home-fashion-three",
     "path": "/home-fashion-three",
     "component": "E:\\\\My Portfolio\\\\Freelancing\\\\MadeInIr\\\\front\\\\MadeInIran\\\\pages\\\\home-fashion-three.vue",
-    "chunkName": "pages/home-fashion-three",
-    "_name": "_654821a4"
+    "chunkName": "pages/home-fashion-three"
   },
   {
     "name": "home-fashion-two",
     "path": "/home-fashion-two",
     "component": "E:\\\\My Portfolio\\\\Freelancing\\\\MadeInIr\\\\front\\\\MadeInIran\\\\pages\\\\home-fashion-two.vue",
-    "chunkName": "pages/home-fashion-two",
-    "_name": "_66cd22dc"
+    "chunkName": "pages/home-fashion-two"
   },
   {
     "name": "login-register",
     "path": "/login-register",
     "component": "E:\\\\My Portfolio\\\\Freelancing\\\\MadeInIr\\\\front\\\\MadeInIran\\\\pages\\\\login-register.vue",
-    "chunkName": "pages/login-register",
-    "_name": "_47ef134c"
+    "chunkName": "pages/login-register"
   },
   {
     "name": "my-account",
     "path": "/my-account",
     "component": "E:\\\\My Portfolio\\\\Freelancing\\\\MadeInIr\\\\front\\\\MadeInIran\\\\pages\\\\my-account.vue",
-    "chunkName": "pages/my-account",
-    "_name": "_116a47df"
+    "chunkName": "pages/my-account"
   },
   {
     "name": "privacy-policy",
     "path": "/privacy-policy",
     "component": "E:\\\\My Portfolio\\\\Freelancing\\\\MadeInIr\\\\front\\\\MadeInIran\\\\pages\\\\privacy-policy.vue",
-    "chunkName": "pages/privacy-policy",
-    "_name": "_c233ee2c"
+    "chunkName": "pages/privacy-policy"
   },
   {
     "name": "shop",
     "path": "/shop",
     "component": "E:\\\\My Portfolio\\\\Freelancing\\\\MadeInIr\\\\front\\\\MadeInIran\\\\pages\\\\shop.vue",
-    "chunkName": "pages/shop",
-    "_name": "_59b2d1ee"
+    "chunkName": "pages/shop"
   },
   {
     "name": "shop-grid-full-width",
     "path": "/shop-grid-full-width",
     "component": "E:\\\\My Portfolio\\\\Freelancing\\\\MadeInIr\\\\front\\\\MadeInIran\\\\pages\\\\shop-grid-full-width.vue",
-    "chunkName": "pages/shop-grid-full-width",
-    "_name": "_95362baa"
+    "chunkName": "pages/shop-grid-full-width"
   },
   {
     "name": "shop-grid-no-sidebar",
     "path": "/shop-grid-no-sidebar",
     "component": "E:\\\\My Portfolio\\\\Freelancing\\\\MadeInIr\\\\front\\\\MadeInIran\\\\pages\\\\shop-grid-no-sidebar.vue",
-    "chunkName": "pages/shop-grid-no-sidebar",
-    "_name": "_71bc3473"
+    "chunkName": "pages/shop-grid-no-sidebar"
   },
   {
     "name": "shop-grid-right-sidebar",
     "path": "/shop-grid-right-sidebar",
     "component": "E:\\\\My Portfolio\\\\Freelancing\\\\MadeInIr\\\\front\\\\MadeInIran\\\\pages\\\\shop-grid-right-sidebar.vue",
-    "chunkName": "pages/shop-grid-right-sidebar",
-    "_name": "_cde8a950"
+    "chunkName": "pages/shop-grid-right-sidebar"
   },
   {
     "name": "shop-grid-two-column",
     "path": "/shop-grid-two-column",
     "component": "E:\\\\My Portfolio\\\\Freelancing\\\\MadeInIr\\\\front\\\\MadeInIran\\\\pages\\\\shop-grid-two-column.vue",
-    "chunkName": "pages/shop-grid-two-column",
-    "_name": "_17f928cc"
+    "chunkName": "pages/shop-grid-two-column"
   },
   {
     "name": "shop-list-full-width",
     "path": "/shop-list-full-width",
     "component": "E:\\\\My Portfolio\\\\Freelancing\\\\MadeInIr\\\\front\\\\MadeInIran\\\\pages\\\\shop-list-full-width.vue",
-    "chunkName": "pages/shop-list-full-width",
-    "_name": "_105869d3"
+    "chunkName": "pages/shop-list-full-width"
   },
   {
     "name": "shop-list-standard",
     "path": "/shop-list-standard",
     "component": "E:\\\\My Portfolio\\\\Freelancing\\\\MadeInIr\\\\front\\\\MadeInIran\\\\pages\\\\shop-list-standard.vue",
-    "chunkName": "pages/shop-list-standard",
-    "_name": "_378199c8"
+    "chunkName": "pages/shop-list-standard"
   },
   {
     "name": "terms-conditions",
     "path": "/terms-conditions",
     "component": "E:\\\\My Portfolio\\\\Freelancing\\\\MadeInIr\\\\front\\\\MadeInIran\\\\pages\\\\terms-conditions.vue",
-    "chunkName": "pages/terms-conditions",
-    "_name": "_db58b35e"
+    "chunkName": "pages/terms-conditions"
   },
   {
     "name": "tutorial-gate",
     "path": "/tutorial-gate",
     "component": "E:\\\\My Portfolio\\\\Freelancing\\\\MadeInIr\\\\front\\\\MadeInIran\\\\pages\\\\tutorial-gate.vue",
-    "chunkName": "pages/tutorial-gate",
-    "_name": "_cc716d52"
+    "chunkName": "pages/tutorial-gate"
   },
   {
     "name": "tutorial-videos",
     "path": "/tutorial-videos",
     "component": "E:\\\\My Portfolio\\\\Freelancing\\\\MadeInIr\\\\front\\\\MadeInIran\\\\pages\\\\tutorial-videos.vue",
-    "chunkName": "pages/tutorial-videos",
-    "_name": "_28195c64"
+    "chunkName": "pages/tutorial-videos"
   },
   {
     "name": "wishlist",
     "path": "/wishlist",
     "component": "E:\\\\My Portfolio\\\\Freelancing\\\\MadeInIr\\\\front\\\\MadeInIran\\\\pages\\\\wishlist.vue",
-    "chunkName": "pages/wishlist",
-    "_name": "_7987bcd8"
+    "chunkName": "pages/wishlist"
   },
   {
     "name": "blog-slug",
     "path": "/blog/:slug",
     "component": "E:\\\\My Portfolio\\\\Freelancing\\\\MadeInIr\\\\front\\\\MadeInIran\\\\pages\\\\blog\\\\_slug.vue",
-    "chunkName": "pages/blog/_slug",
-    "_name": "_39be17e5"
+    "chunkName": "pages/blog/_slug"
   },
   {
     "name": "product-slug",
     "path": "/product/:slug?",
     "component": "E:\\\\My Portfolio\\\\Freelancing\\\\MadeInIr\\\\front\\\\MadeInIran\\\\pages\\\\product\\\\_slug.vue",
-    "chunkName": "pages/product/_slug",
-    "_name": "_b56657e4"
+    "chunkName": "pages/product/_slug"
   },
   {
     "name": "index",
     "path": "/",
     "component": "E:\\\\My Portfolio\\\\Freelancing\\\\MadeInIr\\\\front\\\\MadeInIran\\\\pages\\\\index.vue",
-    "chunkName": "pages/index",
-    "_name": "_3ce18562"
+    "chunkName": "pages/index"
   }
 ]

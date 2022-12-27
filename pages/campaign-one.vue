@@ -227,19 +227,19 @@
                     <div class="support-icon text-center d-lg-none">
                       <br><br><br>
                       <h5 class="text-white">
-                        پتانسیل درآمدی دستگاه تک رول : <br> ۱۰۰۰ × ۲۰۰۰ = ۲ میلیون تومان<br><br>
+                        پتانسیل درآمدی دستگاه تک رول روزانه : <br> ۱۰۰۰ × ۲۰۰۰ = ۲ میلیون تومان<br><br>
                       </h5>
                       <h5 class="text-white">
-                        پتانسیل درآمدی دستگاه دو رول : <br> ۲۰۰۰ × ۲۰۰۰ = ۴ میلیون تومان
+                        پتانسیل درآمدی دستگاه دو رول روزانه : <br> ۲۰۰۰ × ۲۰۰۰ = ۴ میلیون تومان
                       </h5>
                     </div>
                   <div class="support-icon text-center d-none d-lg-block">
                     <br><br><br>
                     <h5 class="text-white">
-                      پتانسیل درآمدی دستگاه تک رول :  ۱۰۰۰ × ۲۰۰۰ = ۲ میلیون تومان<br><br>
+                      پتانسیل درآمدی دستگاه تک رول روزانه :  ۱۰۰۰ × ۲۰۰۰ = ۲ میلیون تومان<br><br>
                     </h5>
                     <h5 class="text-white">
-                      پتانسیل درآمدی دستگاه دو رول :  ۲۰۰۰ × ۲۰۰۰ = ۴ میلیون تومان
+                      پتانسیل درآمدی دستگاه دو رول روزانه :  ۲۰۰۰ × ۲۰۰۰ = ۴ میلیون تومان
                     </h5>
                   </div>
                 </div>
@@ -257,7 +257,7 @@
           <div class="col-md-9 col-sm-12 mt-30 ">
             <div class="support-wrap support-1">
               <div class="support-content">
-                <h5>
+                <h5 >
                   در صورت نیاز به مشاوره تلفنی راه اندازی انواع خطوط تولید، می‌توانید در ساعات اداری (9 صبح الی 5 عصر)
                   با یکی از شماره‌های زیر تماس حاصل فرمایید.
                 </h5>
@@ -341,7 +341,7 @@
                     </div>
                     <div class="col-6">
                       <div class=" text-center d-md-none d-sm-block d-block">
-                        <div class="support-icon  pt-4">
+                        <div class="support-icon  pt-5">
                           <img class="animated" style="height:5%"
                                src="../static/img/campaign/1/section6.jpg" alt="campagin-one">
                         </div>
@@ -537,6 +537,9 @@ export default {
 };
 </script>
 <style scoped>
+h5 , h4 , p{
+  line-height: normal;
+}
 .h_iframe-aparat_embed_frame {
   position: relative;
 }
