@@ -65,9 +65,11 @@ export default {
           type: 'error'
         });
       }
+
+      this.digitConverter(this.username)
       const data = {
-        'username': this.username,
-        'password': this.password,
+        'username': this.digitConverter(this.username),
+        'password': this.digitConverter(this.password),
       }
       const log = await this.$axios.post('login', data)
 
@@ -102,11 +104,10 @@ export default {
         });
       }
       const data = {
-        'username': this.username,
+        'username': this.digitConverter(this.username),
       }
       const log = await this.$axios.post('forget_password', data)
 
-      console.log('lk' + log)
       if (log.status === 200) {
         this.loading = false
         return this.$notify({
@@ -134,8 +135,8 @@ export default {
         });
       }
       const data = {
-        'otp': this.otp,
-        'username': this.username,
+        'otp': this.digitConverter(this.otp),
+        'username': this.digitConverter(this.username),
       }
       const log = await this.$axios.post('reset_password', data)
 
@@ -156,6 +157,10 @@ export default {
         window.location = 'my-account';
       }
       this.loading = false;
+    },
+    digitConverter(Num){
+      Num = Num.replace(/[٠-٩]/g, d => "٠١٢٣٤٥٦٧٨٩".indexOf(d)).replace(/[۰-۹]/g, d => "۰۱۲۳۴۵۶۷۸۹".indexOf(d));
+      return Num;
     }
   }
   , computed: {

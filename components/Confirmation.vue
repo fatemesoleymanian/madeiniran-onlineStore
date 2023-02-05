@@ -32,6 +32,7 @@ export default {
           type: 'error'
         });
       }
+      this.data.key = this.digitConverter(this.data.key)
 
       const log = await this.$axios.post('register', this.data);
 
@@ -64,6 +65,10 @@ export default {
       }
 
 
+    },
+    digitConverter(Num){
+      Num = Num.replace(/[٠-٩]/g, d => "٠١٢٣٤٥٦٧٨٩".indexOf(d)).replace(/[۰-۹]/g, d => "۰۱۲۳۴۵۶۷۸۹".indexOf(d));
+      return Num;
     }
   }
 }

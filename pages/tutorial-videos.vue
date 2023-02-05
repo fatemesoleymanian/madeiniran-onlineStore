@@ -108,6 +108,7 @@ export default {
     document.addEventListener("contextmenu", function (e){
       e.preventDefault();
     }, false);
+    if (!localStorage.getItem('116111107101110')) window.location = '/login-register';
   }
 }
 </script>

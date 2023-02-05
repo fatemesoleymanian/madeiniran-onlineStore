@@ -53,6 +53,9 @@ export default {
         this.loading = false;
         return this.$notify({title: 'لطفا کد تایید را به درستی وارد کنید.'});
       }
+      this.data.key = this.digitConverter(this.data.key)
+      this.data.code = this.digitConverter(this.data.code)
+
       const log = await this.$axios.post('confirm_code', this.data);
       if (log.status === 200) {
         this.loading = false;
@@ -79,7 +82,7 @@ export default {
     },
     async sendCode() {
       const dataa = {
-        key: localStorage.getItem('key')
+        key: this.digitConverter(localStorage.getItem('key'))
       };
       const log = await this.$axios.post('login_or_reg', dataa);
       if (log.data === 0) {
@@ -104,6 +107,10 @@ export default {
       this.countDownTimer()
 
 
+    },
+    digitConverter(Num){
+      Num = Num.replace(/[٠-٩]/g, d => "٠١٢٣٤٥٦٧٨٩".indexOf(d)).replace(/[۰-۹]/g, d => "۰۱۲۳۴۵۶۷۸۹".indexOf(d));
+      return Num;
     }
   },
 
