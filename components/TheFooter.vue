@@ -93,8 +93,10 @@
                   <p style="font-family: persianNumber">تلفن : <br>021-72418400 | 021-72418401 <br>021-72418402 |
                     021-72418403</p></li>
                 <li>
-                  <p style="font-family: persianNumber">واتس اپ : <br>09190808506 | 09190808507 <br>09902121045 |
-                    09902121046</p>
+                  <p style="font-family: persianNumber">واتس اپ : <br>09902121045 | 09902121046
+                    <br>09902121047 | 09902121048
+                    <br>09190808506 | 09190808507 <br>
+                    </p>
                 </li>
                 <li><p>آدرس : تهران - خیابان ولیعصر - روبروی پارک ملت - برج سایه - طبقه چهاردهم.</p></li>
                 <li><p>شبکه‌های اجتماعی: <a href="https://www.instagram.com/madein_ir.ir/"

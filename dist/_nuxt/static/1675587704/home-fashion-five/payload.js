@@ -1,1 +1,0 @@
-__NUXT_JSONP__("/home-fashion-five", {data:[{}],fetch:{},mutations:[]});

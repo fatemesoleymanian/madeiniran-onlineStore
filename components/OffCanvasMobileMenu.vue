@@ -23,27 +23,24 @@
                     <ResponsiveMobileMenu />
                 </div>
 
-                <div class="offcanvas-widget-area">
+                <div class="offcanvas-widget-area ">
                     <ul>
-                        <li>
-                            <i class="fa fa-phone"></i>
-                            <a href="callto:02172418400">021-72418400</a>
-                        </li>
-                        <li>
-                            <i class="fa fa-phone"></i>
-                            <a href="callto:02172418402">021-72418401</a>
-                        </li>
-                        <li>
-                            <i class="fa fa-phone"></i>
-                            <a href="callto:09190808506">021-72418402</a>
-                        </li>
-                        <li>
-                            <i class="fa fa-phone"></i>
-                            <a href="callto:09902121045">021-72418403</a>
-                        </li>
-
-                    </ul>
-                    <ul class="pr-20">
+                      <li>
+                        <i class="fa fa-whatsapp"></i>
+                        <a href="https://api.whatsapp.com/send?phone=09902121045" target="_blank">09902121045</a>
+                      </li>
+                      <li>
+                        <i class="fa fa-whatsapp"></i>
+                        <a href="https://api.whatsapp.com/send?phone=09902121046" target="_blank">09902121046</a>
+                      </li>
+                      <li>
+                        <i class="fa fa-whatsapp"></i>
+                        <a href="https://api.whatsapp.com/send?phone=09902121047" target="_blank">09902121047</a>
+                      </li>
+                      <li>
+                        <i class="fa fa-whatsapp"></i>
+                        <a href="https://api.whatsapp.com/send?phone=09902121048" target="_blank">09902121048</a>
+                      </li>
                         <li>
                             <i class="fa fa-whatsapp"></i>
                             <a href="https://api.whatsapp.com/send?phone=989190808506" target="_blank">09190808506</a>
@@ -52,16 +49,28 @@
                             <i class="fa fa-whatsapp"></i>
                           <a href="https://api.whatsapp.com/send?phone=09190808507" target="_blank">09190808507</a>
                         </li>
-                        <li>
-                            <i class="fa fa-whatsapp"></i>
-                          <a href="https://api.whatsapp.com/send?phone=09902121045" target="_blank">09902121045</a>
-                        </li>
-                        <li>
-                            <i class="fa fa-whatsapp"></i>
-                          <a href="https://api.whatsapp.com/send?phone=09902121046" target="_blank">09902121046</a>
-                        </li>
+
 
                     </ul>
+                  <ul class="pr-20">
+                    <li>
+                      <i class="fa fa-phone"></i>
+                      <a href="callto:02172418400">021-72418400</a>
+                    </li>
+                    <li>
+                      <i class="fa fa-phone"></i>
+                      <a href="callto:02172418402">021-72418401</a>
+                    </li>
+                    <li>
+                      <i class="fa fa-phone"></i>
+                      <a href="callto:09190808506">021-72418402</a>
+                    </li>
+                    <li>
+                      <i class="fa fa-phone"></i>
+                      <a href="callto:09902121045">021-72418403</a>
+                    </li>
+
+                  </ul>
                 </div>
             </div>
             </div>

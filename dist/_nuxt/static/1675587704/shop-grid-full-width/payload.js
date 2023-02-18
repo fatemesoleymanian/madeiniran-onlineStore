@@ -1,1 +1,0 @@
-__NUXT_JSONP__("/shop-grid-full-width", {data:[{}],fetch:{},mutations:[]});

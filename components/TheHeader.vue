@@ -86,8 +86,10 @@
 </template>
 
 <script>
+import OffCanvasMobileMenu from "./OffCanvasMobileMenu";
 export default {
   components: {
+    OffCanvasMobileMenu,
     Navigation: () => import("@/components/Navigation"),
     MiniCart: () => import("@/components/MiniCart"),
   },

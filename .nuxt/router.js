@@ -12,23 +12,10 @@ const _88c394f2 = () => interopDefault(import('..\\pages\\comments.vue' /* webpa
 const _ddfc2abc = () => interopDefault(import('..\\pages\\compare.vue' /* webpackChunkName: "pages/compare" */))
 const _a7f48746 = () => interopDefault(import('..\\pages\\contact.vue' /* webpackChunkName: "pages/contact" */))
 const _b45d414a = () => interopDefault(import('..\\pages\\delsey-packages.vue' /* webpackChunkName: "pages/delsey-packages" */))
-const _36c66e69 = () => interopDefault(import('..\\pages\\home-cosmetics.vue' /* webpackChunkName: "pages/home-cosmetics" */))
-const _2270695c = () => interopDefault(import('..\\pages\\home-fashion-five.vue' /* webpackChunkName: "pages/home-fashion-five" */))
-const _2b2f87c6 = () => interopDefault(import('..\\pages\\home-fashion-four.vue' /* webpackChunkName: "pages/home-fashion-four" */))
-const _54e88bc6 = () => interopDefault(import('..\\pages\\home-fashion-seven.vue' /* webpackChunkName: "pages/home-fashion-seven" */))
-const _1a81e272 = () => interopDefault(import('..\\pages\\home-fashion-six.vue' /* webpackChunkName: "pages/home-fashion-six" */))
-const _654821a4 = () => interopDefault(import('..\\pages\\home-fashion-three.vue' /* webpackChunkName: "pages/home-fashion-three" */))
-const _66cd22dc = () => interopDefault(import('..\\pages\\home-fashion-two.vue' /* webpackChunkName: "pages/home-fashion-two" */))
 const _47ef134c = () => interopDefault(import('..\\pages\\login-register.vue' /* webpackChunkName: "pages/login-register" */))
 const _116a47df = () => interopDefault(import('..\\pages\\my-account.vue' /* webpackChunkName: "pages/my-account" */))
 const _c233ee2c = () => interopDefault(import('..\\pages\\privacy-policy.vue' /* webpackChunkName: "pages/privacy-policy" */))
 const _59b2d1ee = () => interopDefault(import('..\\pages\\shop.vue' /* webpackChunkName: "pages/shop" */))
-const _95362baa = () => interopDefault(import('..\\pages\\shop-grid-full-width.vue' /* webpackChunkName: "pages/shop-grid-full-width" */))
-const _71bc3473 = () => interopDefault(import('..\\pages\\shop-grid-no-sidebar.vue' /* webpackChunkName: "pages/shop-grid-no-sidebar" */))
-const _cde8a950 = () => interopDefault(import('..\\pages\\shop-grid-right-sidebar.vue' /* webpackChunkName: "pages/shop-grid-right-sidebar" */))
-const _17f928cc = () => interopDefault(import('..\\pages\\shop-grid-two-column.vue' /* webpackChunkName: "pages/shop-grid-two-column" */))
-const _105869d3 = () => interopDefault(import('..\\pages\\shop-list-full-width.vue' /* webpackChunkName: "pages/shop-list-full-width" */))
-const _378199c8 = () => interopDefault(import('..\\pages\\shop-list-standard.vue' /* webpackChunkName: "pages/shop-list-standard" */))
 const _db58b35e = () => interopDefault(import('..\\pages\\terms-conditions.vue' /* webpackChunkName: "pages/terms-conditions" */))
 const _cc716d52 = () => interopDefault(import('..\\pages\\tutorial-gate.vue' /* webpackChunkName: "pages/tutorial-gate" */))
 const _28195c64 = () => interopDefault(import('..\\pages\\tutorial-videos.vue' /* webpackChunkName: "pages/tutorial-videos" */))
@@ -81,34 +68,6 @@ export const routerOptions = {
     component: _b45d414a,
     name: "delsey-packages"
   }, {
-    path: "/home-cosmetics",
-    component: _36c66e69,
-    name: "home-cosmetics"
-  }, {
-    path: "/home-fashion-five",
-    component: _2270695c,
-    name: "home-fashion-five"
-  }, {
-    path: "/home-fashion-four",
-    component: _2b2f87c6,
-    name: "home-fashion-four"
-  }, {
-    path: "/home-fashion-seven",
-    component: _54e88bc6,
-    name: "home-fashion-seven"
-  }, {
-    path: "/home-fashion-six",
-    component: _1a81e272,
-    name: "home-fashion-six"
-  }, {
-    path: "/home-fashion-three",
-    component: _654821a4,
-    name: "home-fashion-three"
-  }, {
-    path: "/home-fashion-two",
-    component: _66cd22dc,
-    name: "home-fashion-two"
-  }, {
     path: "/login-register",
     component: _47ef134c,
     name: "login-register"
@@ -124,30 +83,6 @@ export const routerOptions = {
     path: "/shop",
     component: _59b2d1ee,
     name: "shop"
-  }, {
-    path: "/shop-grid-full-width",
-    component: _95362baa,
-    name: "shop-grid-full-width"
-  }, {
-    path: "/shop-grid-no-sidebar",
-    component: _71bc3473,
-    name: "shop-grid-no-sidebar"
-  }, {
-    path: "/shop-grid-right-sidebar",
-    component: _cde8a950,
-    name: "shop-grid-right-sidebar"
-  }, {
-    path: "/shop-grid-two-column",
-    component: _17f928cc,
-    name: "shop-grid-two-column"
-  }, {
-    path: "/shop-list-full-width",
-    component: _105869d3,
-    name: "shop-list-full-width"
-  }, {
-    path: "/shop-list-standard",
-    component: _378199c8,
-    name: "shop-list-standard"
   }, {
     path: "/terms-conditions",
     component: _db58b35e,

@@ -69,7 +69,6 @@ export default {
     // WelcomeMessage: () => import('@/components/WelcomeMessage'),
     AboutMission: () => import('@/components/AboutMission'),
     // TeamMembers: () => import('@/components/TeamMembers'),
-    BrandLogoCarousel: () => import('@/components/BrandLogoCarousel'),
     TheFooter: () => import('@/components/TheFooter'),
   },
   data() {
