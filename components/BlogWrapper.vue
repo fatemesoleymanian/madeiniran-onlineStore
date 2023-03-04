@@ -7,7 +7,7 @@
                     <BlogItem :blog="blog" />
                 </div>
               <div class="view-more text-center mt-20 toggle-btn2">
-                <n-link to="/blog" class="loadMore2">مشاهده همه</n-link>
+                <a href="https://www.madein-iran.com/blog/" class="loadMore2">مشاهده همه</a>
               </div>
 
             </div>
@@ -28,8 +28,10 @@
             }
         },
       async mounted() {
-        const blog = await this.$axios.get('/blogs-random')
+        const blog = await this.$axios.get('https://www.madein-iran.com/blog/wp-json/wl/v1/posts')
         this.blogs = blog.data
+        console.log(this.blogs)
+
       }
     };
 </script>

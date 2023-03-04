@@ -175,9 +175,9 @@ export default {
       for (let i in suggestion.data.products) {
         this.allSuggestions.push(suggestion.data.products[i].name)
       }
-      for (let i in suggestion.data.blogs) {
-        this.allSuggestions.push(suggestion.data.blogs[i].title)
-      }
+      // for (let i in suggestion.data.blogs) {
+      //   this.allSuggestions.push(suggestion.data.blogs[i].title)
+      // }
       for (let i in suggestion.data.tags) {
         this.allSuggestions.push(suggestion.data.tags[i].name)
       }

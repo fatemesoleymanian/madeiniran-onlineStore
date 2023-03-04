@@ -17,16 +17,16 @@
 
                  <div class="single-sidebar-blog">
                     <div class="sidebar-blog-img">
-                        <n-link :to="`/blog/${blog.id}`">
+                        <a :href="`https://www.madein-iran.com/blog/${blog.id}/`">
                             <img :src="'https://api.madein-iran.com/public'+blog.featuredImage" :alt="blog.title">
-                        </n-link>
+                        </a>
                     </div>
                     <div class="sidebar-blog-content">
                         <span>{{blog.category.name}}</span>
                         <h4>
-                            <n-link :to="`/blog/${blog.id}`">
+                            <a :href="`https://www.madein-iran.com/blog/${blog.id}/`">
                           {{blog.title}}
-                          </n-link>
+                          </a>
                         </h4>
                     </div>
                 </div>

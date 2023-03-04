@@ -1,9 +1,9 @@
 <template>
     <div class="blog-wrap-2 mb-30">
         <div class="blog-img-2">
-            <n-link :to="`/blog/${blog.id}`">
+            <a :href="`https://www.madein-iran.com/blog/${blog.id}/`">
                 <img :src="'https://api.madein-iran.com/public'+blog.featuredImage" :alt="blog.title">
-            </n-link>
+            </a>
         </div>
         <div class="blog-content-2">
             <div class="blog-meta-2">
@@ -13,12 +13,12 @@
                 </ul>
             </div>
             <h4>
-                <n-link :to="`/blog/${blog.id}`">{{ blog.title }}</n-link>
+                <a :href="`https://www.madein-iran.com/blog/${blog.id}/`">{{ blog.title }}</a>
             </h4>
             <p>{{ blog.post_excerpt }}</p>
             <div class="blog-share-comment">
                 <div class="blog-btn-2">
-                    <n-link :to="`/blog/${blog.id}`">بیشتر ...</n-link>
+                    <a :href="`https://www.madein-iran.com/blog/${blog.id}/`">بیشتر ...</a>
                 </div>
                 <div class="blog-share">
                     <div class="share-social">
@@ -54,7 +54,7 @@
             },
              copyToClipboard()
           {
-            navigator.clipboard.writeText(`https://madein-iran.com/blog/${this.blog.id}`).then(() => {
+            navigator.clipboard.writeText(`https://madein-iran.com/blog/${this.blog.id}/`).then(() => {
               this.$notify({
                 type:'success',
                 title: 'لینک پست کپی شد!'})

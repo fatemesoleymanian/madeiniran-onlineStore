@@ -7,13 +7,6 @@
     "_name": "_7c513aec"
   },
   {
-    "name": "blog",
-    "path": "/blog",
-    "component": "E:\\\\My Portfolio\\\\Freelancing\\\\MadeInIr\\\\front\\\\MadeInIran\\\\pages\\\\blog\\\\index.vue",
-    "chunkName": "pages/blog/index",
-    "_name": "_3b74b92d"
-  },
-  {
     "name": "campaign-one",
     "path": "/campaign-one",
     "component": "E:\\\\My Portfolio\\\\Freelancing\\\\MadeInIr\\\\front\\\\MadeInIran\\\\pages\\\\campaign-one.vue",
@@ -110,13 +103,6 @@
     "component": "E:\\\\My Portfolio\\\\Freelancing\\\\MadeInIr\\\\front\\\\MadeInIran\\\\pages\\\\wishlist.vue",
     "chunkName": "pages/wishlist",
     "_name": "_7987bcd8"
-  },
-  {
-    "name": "blog-slug",
-    "path": "/blog/:slug",
-    "component": "E:\\\\My Portfolio\\\\Freelancing\\\\MadeInIr\\\\front\\\\MadeInIran\\\\pages\\\\blog\\\\_slug.vue",
-    "chunkName": "pages/blog/_slug",
-    "_name": "_39be17e5"
   },
   {
     "name": "product-slug",

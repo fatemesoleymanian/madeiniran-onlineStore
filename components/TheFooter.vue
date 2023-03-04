@@ -67,7 +67,7 @@
                   <n-link to="/shop">خطوط تولید</n-link>
                 </li>
                 <li>
-                  <n-link to="/blog">وبلاگ</n-link>
+                  <a href="https://www.madein-iran.com/blog/">وبلاگ</a>
                 </li>
                 <li>
                   <n-link to="/about">درباره ما</n-link>
