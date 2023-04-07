@@ -41,15 +41,18 @@
     border-bottom: 1px solid #d7d7d7;
     a {
         background-color: transparent;
-        border-bottom: 3px solid transparent;
+        border-top: 1px solid gray;
+        border-right: 1px solid gray;
+        border-left: 1px solid gray;
         font-size: 24px;
         font-weight: 500;
         line-height: 1;
         margin: 0 15px 0;
-        padding: 0px 0px 13px;
+        padding: 13px;
         color: #666;
         &.active {
-            color: $black;
+            color: $white;
+            background: #333;
         }
         @media #{$xs-layout} {
             margin: 0 4px 15px;
@@ -63,8 +66,8 @@
         }
     }
     a.active {
-        border-bottom: 2px solid $black;
-        background-color: transparent;
+        color: $white;
+        background: gray;
     }
 }
 

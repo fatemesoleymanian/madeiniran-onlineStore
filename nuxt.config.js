@@ -17,7 +17,8 @@ export default {
         //     return [products , blogs]
         // }
         // or
-        routes: ['/product/33','/product/32','/product/31','/product/30','/product/29','/product/21', '/product/20', '/product/19',
+        routes: ['/product/34','/product/33','/product/32','/product/31','/product/30','/product/29','/product/21', '/product/20',
+            '/product/19',
         // '/blog/17','/blog/21','/blog/22','/blog/24','/blog/26','/blog/28','/blog/29','/blog/30','/blog/31','/blog/32','/blog/33','/blog/34','/blog/35','/blog/36','/blog/37',
         ]
     },
@@ -26,8 +27,8 @@ export default {
 
     // Global page headers (https://go.nuxtjs.dev/config-head)
     head: {
-        title: 'فروشگاه ساخت ایران - خانه',
-        titleTemplate: 'ساخت ایران | %s',
+        title: ' ساخت ایران | راه اندازی انواع کسب و کار تولیدی ',
+        titleTemplate: ' %s | ساخت ایران',
         meta: [
             {charset: 'utf-8'},
             {name: 'viewport', content: 'width=device-width, initial-scale=1'},

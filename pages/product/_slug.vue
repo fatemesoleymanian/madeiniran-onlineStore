@@ -2,7 +2,7 @@
     <div class="product-details-page-wrapper">
         <TheHeader containerClass="container" />
         <Breadcrumb :pageTitle="products.name" />
-        <ProductDetailsWrapper  :product="products" :category="category" :states="states" />
+        <ProductDetailsWrapper  :product="products" :category="category" :states="states" :default_price="default_price" />
         <ProductDetailsDescriptionReview :product="products" :faq="faq" />
         <TheFooter />
     </div>
@@ -17,6 +17,7 @@
               category:'',
               states:'',
               faq:[],
+              default_price:''
             }
         },
       async mounted() {
@@ -25,7 +26,10 @@
         this.products = product.data;
         this.category = product.data.category.name
         this.states = product.data.state
-
+        if (this.states.length>0) {
+          let lengthh = this.states.length - 1
+          this.default_price = JSON.stringify(this.states[lengthh].discounted_price).slice(1, -1)
+        }
         const faqs = await this.$axios.get(`/products_faq${this.slug}`)
             .catch(()=>{
               return this.$notify({
@@ -33,7 +37,6 @@
                 type:'error'})
             });
         this.faq = faqs.data;
-        console.log(this.faq)
       },
 
         head() {

@@ -18,86 +18,35 @@
         </div>
         <div class="col-lg-6 col-md-6">
           <div class="product-details-content ml-70">
-            <h2>{{ product.name }}</h2>
+            <h1 style="font-size: 1.5em;font-weight: bolder">{{ product.name }}</h1>
             <div class="product-details-price" v-if="auth && states.length">
               <span style="font-family:persianNumber;" >  {{ discounted_price.replace(/\B(?=(\d{3})+(?!\d))/g, ',') }} تومان  </span>
               <span class="old" v-if="product.discount > 0" style="font-family:persianNumber;">{{ pricee.replace(/\B(?=(\d{3})+(?!\d))/g, ',') }} تومان</span>
             </div>
             <div class="pro-details-rating-wrap">
-              <!--                            <div class="pro-details-rating" v-if="product.state ">-->
-              <!--                                <i class="fa fa-star-o yellow"></i>-->
-              <!--                                <i class="fa fa-star-o yellow"></i>-->
-              <!--                                <i class="fa fa-star-o yellow"></i>-->
-              <!--                                <i class="fa fa-star-o yellow"></i>-->
-              <!--                                <i class="fa fa-star-o yellow"></i>-->
-              <!--                            </div>-->
-              <!--                            <div class="pro-details-rating" v-if="product.rating == 4">-->
-              <!--                                <i class="fa fa-star-o yellow"></i>-->
-              <!--                                <i class="fa fa-star-o yellow"></i>-->
-              <!--                                <i class="fa fa-star-o yellow"></i>-->
-              <!--                                <i class="fa fa-star-o yellow"></i>-->
-              <!--                                <i class="fa fa-star-o"></i>-->
-              <!--                            </div>-->
-              <!--                            <div class="pro-details-rating" v-if="product.rating == 3">-->
-              <!--                                <i class="fa fa-star-o yellow"></i>-->
-              <!--                                <i class="fa fa-star-o yellow"></i>-->
-              <!--                                <i class="fa fa-star-o yellow"></i>-->
-              <!--                                <i class="fa fa-star-o"></i>-->
-              <!--                                <i class="fa fa-star-o"></i>-->
-              <!--                            </div>-->
-              <!--                            <div class="pro-details-rating" v-if="product.rating == 2">-->
-              <!--                                <i class="fa fa-star-o yellow"></i>-->
-              <!--                                <i class="fa fa-star-o yellow"></i>-->
-              <!--                                <i class="fa fa-star-o"></i>-->
-              <!--                                <i class="fa fa-star-o"></i>-->
-              <!--                                <i class="fa fa-star-o"></i>-->
-              <!--                            </div>-->
-              <!--                            <div class="pro-details-rating" v-if="product.rating == 1">-->
-              <!--                                <i class="fa fa-star-o yellow"></i>-->
-              <!--                                <i class="fa fa-star-o"></i>-->
-              <!--                                <i class="fa fa-star-o"></i>-->
-              <!--                                <i class="fa fa-star-o"></i>-->
-              <!--                                <i class="fa fa-star-o"></i>-->
-              <!--                            </div>-->
-              <!--                            <span><a href="#">{{ product.discount }} Reviews</a></span>-->
+
             </div>
             <div class="p" v-html="product.description_excerpt"></div>
               <br>
                  <h6 v-if="!auth"><a href="/login-register">برای مشاهده قیمت وارد حساب کاربری خود شوید.</a></h6>
 
             <div class="pro-details-size-color" v-if="states.length">
-              <button @click="navigateToRepresentationForm" class="btn btn-outline-primary">
-                <a href="#description" style="color: #0b4dfc;font-size: 13px">برای دریافت مشاوره فرم درخواست نمایندگی خط تولید مورد نظر خود را پر کنید.</a>
+              <button @click="navigateToRepresentationForm" class="btn btn-outline-primary" id="form-leader">
+                <a href="#description" style="font-size: 13px" >برای دریافت مشاوره فرم درخواست نمایندگی خط تولید مورد نظر خود را پر کنید.</a>
                 <i class="fa fa-arrow-down"></i>
               </button>
-              <!--                            <div class="pro-details-color-wrap">-->
-              <!--                                <h6 class="label">Color</h6>-->
-              <!--                                <div class="pro-details-color-content">-->
-              <!--                                    <label :class="item" class="radio" v-for="(item, index) in product.variation.color" :key="index" >-->
-              <!--                                        <input type="radio" name="colorGroup"/>-->
-              <!--                                        <span class="check-mark"></span>-->
-              <!--                                    </label>-->
-              <!--                                </div>-->
-              <!--                            </div>-->
+
               <div class="pro-details-size-wrap">
                 <h6 class="label">ظرفیت ها :</h6>
                 <div class="pro-details-size-content">
                   <label class="radio" v-for="(item, index) in product.state" :key="index">
-                    <input type="radio" name="sizeGroup" checked  @click="priceByState(index)"/>
+                    <input type="radio" name="sizeGroup"   @click="priceByState(index)"  checked/>
                     <span class="check-mark" style="font-family:persianNumber;">{{ item.type }}</span>
                   </label>
                 </div>
               </div>
             </div>
             <div class="pro-details-quality">
-              <!-- <div class="cart-plus-minus">
-                <button @click="decreaseQuantity()" class="dec qtybutton">-</button>
-                <input class="cart-plus-minus-box" type="text" :value="singleQuantity" readonly>
-                <button @click="increaseQuantity()" class="inc qtybutton">+</button>
-              </div> -->
-              <!-- <div class="pro-details-cart btn-hover">
-                <button @click="addToCart(product)">افزودن به سبد خرید</button>
-              </div> -->
               <div class="pro-details-wishlist">
                 <button @click="addToWishlist(product)" title="لیست علاقمندیها">
                   <i :class="checkIsLiked === true ? 'fa fa-heart' : 'fa fa-heart-o'"></i>
@@ -120,35 +69,7 @@
                 </li>
               </ul>
             </div>
-            <!--                        <div class="pro-details-social">-->
-            <!--                            <ul>-->
-            <!--                                <li>-->
-            <!--                                    <a href="https://www.facebook.com/" target="_blank">-->
-            <!--                                        <i class="fa fa-facebook"></i>-->
-            <!--                                    </a>-->
-            <!--                                </li>-->
-            <!--                                <li>-->
-            <!--                                    <a href="https://dribbble.com/" target="_blank">-->
-            <!--                                        <i class="fa fa-dribbble"></i>-->
-            <!--                                    </a>-->
-            <!--                                </li>-->
-            <!--                                <li>-->
-            <!--                                    <a href="https://www.pinterest.com/" target="_blank">-->
-            <!--                                        <i class="fa fa-pinterest-p"></i>-->
-            <!--                                    </a>-->
-            <!--                                </li>-->
-            <!--                                <li>-->
-            <!--                                    <a href="https://twitter.com/" target="_blank">-->
-            <!--                                        <i class="fa fa-twitter"></i>-->
-            <!--                                    </a>-->
-            <!--                                </li>-->
-            <!--                                <li>-->
-            <!--                                    <a href="https://www.linkedin.com/" target="_blank">-->
-            <!--                                        <i class="fa fa-linkedin"></i>-->
-            <!--                                    </a>-->
-            <!--                                </li>-->
-            <!--                            </ul>-->
-            <!--                        </div>-->
+
           </div>
         </div>
       </div>
@@ -159,7 +80,7 @@
 <script>
 export default {
 
-  props: ['product','category','states'],
+  props: ['product','category','states','default_price'],
   data() {
     return {
       singleQuantity: 1,
@@ -184,28 +105,21 @@ export default {
     }
   },
 
-  // mounted() {
-  //     // this.$nextTick(() => {
-  //     //     const swiperTop = this.$refs.swiperTop.$swiper
-  //     //     const swiperThumbs = this.$refs.swiperThumbs.$swiper
-  //     //     swiperTop.controller.control = swiperThumbs
-  //     //     swiperThumbs.controller.control = swiperTop
-  //     // })
-  //   return console.log(this.product)
-  // },
     mounted() {
       if (localStorage.getItem('116111107101110')) {
       this.auth = true
     }
-      this.indexOfState=(this.states.length-1)
-   this.settingPrice()
+      this.indexOfState = this.states.length-1
+      this.settingPrice()
+
     },
   computed:{
     checkIsLiked()
     {
+      this.discounted_price = this.default_price
       if (this.$store.state.wishlist.find(el => this.product.id === el.id)) return true;
       else return  false;
-    }
+    },
   },
 
   methods: {
@@ -217,7 +131,6 @@ export default {
     {
     this.indexOfState = index;
     this.settingPrice()
-
     },
     settingPrice()
     {
@@ -231,6 +144,7 @@ export default {
         }
 
       }
+      console.log(this.discounted_price+" discounted")
     },
 
     discountedPrice(product) {
@@ -269,5 +183,8 @@ export default {
   },
 };
 </script>
-
-
+<style>
+#form-leader:hover a{
+  color: #FFFFFF;
+}
+</style>
