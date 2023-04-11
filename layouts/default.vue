@@ -1,6 +1,14 @@
 <template>
-    <div>
-        <Nuxt />
+
+  <div>
+    <!-- Google Tag Manager (noscript) -->
+    <noscript>
+      <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MBSH36F"
+              height="0" width="0" style="display:none;visibility:hidden"></iframe>
+    </noscript>
+    <!-- End Google Tag Manager (noscript) -->
+
+      <Nuxt />
 
         <client-only>
             <notifications position="bottom right" classes='vue-notification error' style="z-index:9999;"/>
@@ -17,7 +25,7 @@
         name: "default",
         data() {
             return {
-                isVisible: false,
+                isVisible: false
             };
         },
         methods: {

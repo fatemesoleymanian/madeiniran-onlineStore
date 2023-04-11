@@ -88,7 +88,7 @@ async function createApp(ssrContext, config = {}) {
   // here we inject the router and store to all child components,
   // making them available everywhere as `this.$router` and `this.$store`.
   const app = {
-    head: {"title":" ساخت ایران | راه اندازی انواع کسب و کار تولیدی ","titleTemplate":" %s | ساخت ایران","meta":[{"charset":"utf-8"},{"name":"viewport","content":"width=device-width, initial-scale=1"},{"hid":"description","name":"description","content":""}],"link":[{"rel":"icon","type":"image\u002Fx-icon","href":"\u002Ffavicon.ico"}],"htmlAttrs":{"lang":"fa","dir":"rtl"},"style":[],"script":[]},
+    head: {"title":" ساخت ایران | راه اندازی انواع کسب و کار تولیدی ","titleTemplate":" %s | ساخت ایران","meta":[{"charset":"utf-8"},{"name":"viewport","content":"width=device-width, initial-scale=1"},{"hid":"description","name":"description","content":""}],"link":[{"rel":"icon","type":"image\u002Fx-icon","href":"\u002Ffavicon.ico"}],"htmlAttrs":{"lang":"fa","dir":"rtl"},"script":[{"src":"\u002FgoogleTagManager.js"},{"innerHTML":"\n               (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':\n                    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],\n                    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=\n                    'https:\u002F\u002Fwww.googletagmanager.com\u002Fgtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);\n                    })(window,document,'script','dataLayer','GTM-MBSH36F');"}],"style":[]},
 
     store,
     router,
