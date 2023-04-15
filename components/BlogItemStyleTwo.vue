@@ -1,7 +1,7 @@
 <template>
     <div class="blog-wrap-2 mb-30">
         <div class="blog-img-2">
-            <a :href="`https://www.madein-iran.com/blog/${blog.id}/`">
+            <a :href="`https://madein-iran.com/blog/${blog.id}/`">
                 <img :src="'https://api.madein-iran.com/public'+blog.featuredImage" :alt="blog.title">
             </a>
         </div>
@@ -13,12 +13,12 @@
                 </ul>
             </div>
             <h4>
-                <a :href="`https://www.madein-iran.com/blog/${blog.id}/`">{{ blog.title }}</a>
+                <a :href="`https://madein-iran.com/blog/${blog.id}/`">{{ blog.title }}</a>
             </h4>
             <p>{{ blog.post_excerpt }}</p>
             <div class="blog-share-comment">
                 <div class="blog-btn-2">
-                    <a :href="`https://www.madein-iran.com/blog/${blog.id}/`">بیشتر ...</a>
+                    <a :href="`https://madein-iran.com/blog/${blog.id}/`">بیشتر ...</a>
                 </div>
                 <div class="blog-share">
                     <div class="share-social">

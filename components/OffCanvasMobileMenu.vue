@@ -97,7 +97,7 @@
           e.preventDefault();
           if (this.srch) {
             localStorage.setItem('srch',this.srch)
-            window.location = '/compare';
+            window.location = `/search/?query=${this.srch}`;
           }
         },
         suggestion() {

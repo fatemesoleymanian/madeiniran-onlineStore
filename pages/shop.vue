@@ -233,7 +233,39 @@ export default {
 
   head() {
     return {
-      title: "لیست خطوط تولید"
+      title: "لیست خطوط تولید",
+      meta:[
+        {
+          hid:'description',
+          name:'description',
+          content:'لیست خطوط تولید شرکت ساخت ایران مانند دستمال کاغذی رومیزی و توالت، نایلون، کیسه فریزر و زباله، آب معدنی، لیوان کاغذی، عطر و سفره یکبارمصرف با تصاویر و قیمت.'
+        }
+      ],
+      link:[
+        {
+          rel:'canonical' , href: 'https://madein-iran.com/shop/'
+        }
+      ],
+      script:[
+        {
+          type: 'application/ld+json',
+          json:{
+            "@context": "https://schema.org/",
+            "@type": "BreadcrumbList",
+            "itemListElement": [{
+              "@type": "ListItem",
+              "position": 1,
+              "name": "خانه",
+              "item": "https://madein-iran.com/"
+            },{
+              "@type": "ListItem",
+              "position": 2,
+              "name": "لیست خطوط تولید",
+              "item": "https://madein-iran.com/shop"
+            }]
+          }
+        }
+      ]
     }
   },
 };

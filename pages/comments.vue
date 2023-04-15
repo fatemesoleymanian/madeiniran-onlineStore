@@ -30,7 +30,7 @@
               <div class="col-3"><h5>ایجاد در {{ c.created_at }}</h5></div>
               <div class="col-3"><p>{{ c.status ? 'تایید شده' : 'هنوز تایید نشده' }}</p></div>
               <div class="col-3">
-                <p><a style="color: #0b4dfc" :href="`https://www.madein-iran.com/blog/${c.blog_id}/`">
+                <p><a style="color: #0b4dfc" :href="`https://madein-iran.com/blog/${c.blog_id}/`">
                   مشاهده پست
                 </a>
                 </p></div>

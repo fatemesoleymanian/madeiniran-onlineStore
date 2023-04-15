@@ -64,7 +64,7 @@
                         ]
                     },
                     {
-                        url: 'https://www.madein-iran.com/blog/',
+                        url: 'https://madein-iran.com/blog/',
                         title: 'وبلاگ',
                     },
                   {

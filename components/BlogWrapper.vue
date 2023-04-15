@@ -7,7 +7,7 @@
                     <BlogItem :blog="blog" />
                 </div>
               <div class="view-more text-center mt-20 toggle-btn2">
-                <a href="https://www.madein-iran.com/blog/" class="loadMore2">مشاهده همه</a>
+                <a href="https://madein-iran.com/blog/" class="loadMore2">مشاهده همه</a>
               </div>
 
             </div>
@@ -28,7 +28,7 @@
             }
         },
       async mounted() {
-        const blog = await this.$axios.get('https://www.madein-iran.com/blog/wp-json/wl/v1/posts')
+        const blog = await this.$axios.get('https://madein-iran.com/blog/wp-json/wl/v1/posts')
         this.blogs = blog.data
         console.log(this.blogs)
 
