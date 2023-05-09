@@ -19,6 +19,7 @@
             display: flex;
         }
         .shop-select {
+            font-family: persianNumber;
             margin-left: 50px;
             @media #{$xs-layout}{
                 margin-left: 0;
@@ -36,6 +37,7 @@
             }
         }
         p {
+            font-family: persianNumber;
             color: #606060;
             margin: 0;
             @media #{$xs-layout}{

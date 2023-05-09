@@ -50,6 +50,7 @@
                 line-height: 1;
                 color: #404040;
                 margin: 0 0 9px;
+                font-family: persianNumber;
                 a {
                     color: #404040;
                     &:hover {
@@ -69,6 +70,7 @@
 }
 
 .contact-social {
+    font-family: persianNumber;
     margin-top: 58px;
     h3 {
         font-weight: 500;
@@ -89,6 +91,9 @@
                 }
             }
         }
+    }
+    h5{
+        font-family: persianNumber;
     }
 }
 

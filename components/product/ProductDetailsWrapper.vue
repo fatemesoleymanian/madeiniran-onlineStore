@@ -30,13 +30,14 @@
               <br>
                  <h6 v-if="!auth"><a href="/login-register">برای مشاهده قیمت وارد حساب کاربری خود شوید.</a></h6>
 
-            <div class="pro-details-size-color" v-if="states.length">
-              <button @click="navigateToRepresentationForm" class="btn btn-outline-primary" id="form-leader">
-                <a href="#description" style="font-size: 13px" >برای دریافت مشاوره فرم درخواست نمایندگی خط تولید مورد نظر خود را پر کنید.</a>
+            <div class="pro-details-size-color" >
+              <button @click="navigateToRepresentationForm" class="btn btn-primary text-white"
+               id="form-leader">
+                <a href="#description" style="font-size: 13px;color:white;" > مشاوره رایگان</a>
                 <i class="fa fa-arrow-down"></i>
               </button>
 
-              <div class="pro-details-size-wrap">
+              <div class="pro-details-size-wrap" v-if="states.length">
                 <h6 class="label">ظرفیت ها :</h6>
                 <div class="pro-details-size-content">
                   <label class="radio" v-for="(item, index) in product.state" :key="index">

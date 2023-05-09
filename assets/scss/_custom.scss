@@ -25,6 +25,7 @@
 }
 .ql-align-right{
     text-align: right;
+    font-family: persianNumber;
 }
 .ql-align-justify{
     text-align: justify;
@@ -69,4 +70,9 @@ iframe.ql-video{
 p{
     font-size: 1.3em;
     text-align: justify;
+    font-family: persianNumber !important;
+}
+h4, h5{
+    font-family: persianNumber !important;
+
 }
