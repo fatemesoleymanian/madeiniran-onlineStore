@@ -55,14 +55,14 @@
             background: #333;
         }
         @media #{$xs-layout} {
-            margin: 0 4px 15px;
+            margin:0 8px;
             font-size: 12px;
-            padding: 0px 0px 8px;
+            padding: 8px;
         }
         @media #{$sm-layout} {
-            margin: 0 8px 0px 0;
+            margin: 0 8px;
             font-size: 14px;
-            padding: 0px 5px 0px;
+            padding: 5px ;
         }
     }
     a.active {
@@ -189,7 +189,7 @@
         margin: 0;
         font-size: 16px;
         font-weight: 500;
-        line-height: 1;
+        line-height: 2;
     }
     .ratting-form {
         form {

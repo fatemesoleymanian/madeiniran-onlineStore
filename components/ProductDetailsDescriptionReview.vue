@@ -230,12 +230,13 @@
                   <div class="col-lg-2"></div>
                 </div>
               </div>
-              <div class="tab-pane active" :id="'descriptions'+i" v-html="m.description"></div>
+              <div class="tab-pane active" :id="'descriptions'+i" v-html="m.description" style="line-height: 40px;"></div>
             </div>
           </div>
           <!--          dynamic-->
 
-          <div id="details" class="tab-pane active" v-html="product.description" v-if="product.has_models === 0">
+          <div id="details" class="tab-pane active" v-html="product.description" v-if="product.has_models === 0"
+          style="    line-height: 40px;">
           </div>
         </div>
       </div>
