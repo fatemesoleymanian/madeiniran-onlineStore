@@ -47,7 +47,12 @@
                   hid:this.products.metaKeyword,
                   name:this.products.pageTitle,
                   content:this.products.metaDescription
-                }]
+                }],
+              link:[
+                {
+                  rel:'canonical' , href: `https://madein-iran.com/product/${this.slug}`
+                }
+              ],
             }
         },
 

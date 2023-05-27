@@ -22,10 +22,10 @@
 
             <!-- Swiper Navigation Start -->
             <div class="hero-slider-nav swiper-button-prev">
-                <i class="pe-7s-angle-left"></i>
+                <i class="pe-7s-angle-left fw-bolder" ></i>
             </div>
             <div class="hero-slider-nav swiper-button-next">
-                <i class="pe-7s-angle-right"></i>
+                <i class="pe-7s-angle-right fw-bolder"></i>
             </div>
             <!-- Swiper Navigation End -->
         </swiper>

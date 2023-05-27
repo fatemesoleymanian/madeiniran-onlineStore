@@ -3,16 +3,54 @@
     <div class="container">
       <div class="row">
         <div class="col-md-6">
-          <div class="product-details-slider">
-            <div class="product-details-img">
-              <div class="product-badges">
-                <span class="product-label purple" v-if="product.discount> 0">{{ product.discount }}%</span>
-              </div>
-              <swiper :options="swiperOptionTop" ref="swiperTop">
-                <div class="large-img swiper-slide">
-                  <img class="img-fluid" :src="'https://api.madein-iran.com/public'+product.image" :alt="product.name">
+          <div class="row">
+            <div class="col-12">
+              <div class="product-details-slider">
+                <div class="product-details-img">
+                  <div class="product-badges">
+                    <span class="product-label purple" v-if="product.discount> 0">{{ product.discount }}%</span>
+                  </div>
+                  <swiper :options="swiperOptionTop" ref="swiperTop">
+                    <div class="large-img swiper-slide">
+                      <img class="img-fluid" :src="'https://api.madein-iran.com/public'+product.image" :alt="product.name">
+                    </div>
+                  </swiper>
                 </div>
-              </swiper>
+              </div>
+            </div>
+            <div class="col-12 d-none d-md-block product-details-content">
+              <div class="pro-details-quality justify-content-end">
+                <div class="pro-details-wishlist">
+                  <button @click="addToWishlist(product)" title="لیست علاقمندیها">
+                    <i :class="checkIsLiked === true ? 'fa fa-heart' : 'fa fa-heart-o'" style="color:darkred;font-size: 22px;display: inline "></i>
+                  </button>
+                </div>
+              </div>
+              <div class="pro-details-size-wrap" v-if="states.length">
+                <h6 class="label">ظرفیت ها :</h6>
+                <div class="pro-details-size-content">
+                  <label class="radio" v-for="(item, index) in product.state" :key="index">
+                    <input type="radio" name="sizeGroup"   @click="priceByState(index)"  checked/>
+                    <span class="check-mark" style="font-family:persianNumber;">{{ item.type }}</span>
+                  </label>
+                </div>
+              </div>
+              <div class="pro-details-meta pt-30">
+                <span class="label">دسته بندی :</span>
+                <ul>
+                  <li>
+                    <n-link :to="`/shop?category=`">{{ category }}</n-link>
+                  </li>
+                </ul>
+              </div>
+              <div class="pro-details-meta pt-20">
+                <span class="label">تگ ها :</span>
+                <ul>
+                  <li v-for="(tag, index) in product.tag" :key="index">
+                    <n-link :to="`/shop?tag=`">{{ tag.name }},</n-link>
+                  </li>
+                </ul>
+              </div>
             </div>
           </div>
         </div>
@@ -28,7 +66,7 @@
             </div>
             <div class="p" v-html="product.description_excerpt"></div>
               <br>
-                 <h6 v-if="!auth"><a href="/login-register">برای مشاهده قیمت وارد حساب کاربری خود شوید.</a></h6>
+                 <h6 v-if="!auth"><a href="/login-register" style="color: #0b4dfc;text-decoration: underline">برای مشاهده قیمت وارد حساب کاربری خود شوید.</a></h6>
 
             <div class="pro-details-size-color" >
               <button @click="navigateToRepresentationForm" class="btn btn-primary text-white"
@@ -37,7 +75,7 @@
                 <i class="fa fa-arrow-down"></i>
               </button>
 
-              <div class="pro-details-size-wrap" v-if="states.length">
+              <div class="pro-details-size-wrap d-md-none d-block" v-if="states.length">
                 <h6 class="label">ظرفیت ها :</h6>
                 <div class="pro-details-size-content">
                   <label class="radio" v-for="(item, index) in product.state" :key="index">
@@ -47,14 +85,14 @@
                 </div>
               </div>
             </div>
-            <div class="pro-details-quality">
+            <div class="pro-details-quality d-md-none d-block">
               <div class="pro-details-wishlist">
                 <button @click="addToWishlist(product)" title="لیست علاقمندیها">
-                  <i :class="checkIsLiked === true ? 'fa fa-heart' : 'fa fa-heart-o'"></i>
+                  <i :class="checkIsLiked === true ? 'fa fa-heart' : 'fa fa-heart-o'" style="color:darkred;font-size: 22px;display: inline "></i>
                 </button>
               </div>
             </div>
-            <div class="pro-details-meta">
+            <div class="pro-details-meta d-md-none d-block">
               <span class="label">دسته بندی :</span>
               <ul>
                 <li>
@@ -62,7 +100,7 @@
                 </li>
               </ul>
             </div>
-            <div class="pro-details-meta">
+            <div class="pro-details-meta d-md-none d-block">
               <span class="label">تگ ها :</span>
               <ul>
                 <li v-for="(tag, index) in product.tag" :key="index">

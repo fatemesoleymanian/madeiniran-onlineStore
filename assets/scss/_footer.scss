@@ -71,10 +71,10 @@
                    margin: 0 0 0px;
                 }
                 a {
-                    color: #5d5d5d;
+                    color: $bg-white;
                     letter-spacing: .3px;
                     &:hover {
-                        color: $theme-color;
+                        color: rgba(11, 75, 252, 0.2);
                     }
                 }
             }
@@ -83,17 +83,22 @@
     &.footer-widget-white {
         .footer-title {
             h3{
-                color: $white;
+                color: $bg-white;
             }
         }
         .footer-list {
             ul {
                 li{
+
+                    color: $bg-white;
+                    p{
+                        color: $bg-white;
+
+                    }
                     a {
-                        color: #e6e6e6;
-                        &:hover {
-                            color: $theme-color;
-                        }
+                        color: $bg-white;
+                        transition: 0.5s linear;
+
                     }
                 }
             }
@@ -101,7 +106,7 @@
     }
     .subscribe-style {
         p {
-            color: #7a7a7a;
+            color: $bg-white;
             margin: 0 0 20px;
         }
         .subscribe-form {
@@ -109,25 +114,28 @@
                 input {
                     background: transparent;
                     font-size: 13px;
-                    color: $dark;
+                    color: $bg-white;
                     border: none;
-                    border-bottom: 2px solid #ebebeb;
+                    border-bottom: 2px solid $bg-white;
                     padding: 2px 10px 2px 0;
                 }
                 .button {
                     width: auto;
                     height: auto;
-                    color: $dark;
+                    color: $bg-white;
                     font-size: 14px;
-                    padding: 0 0 1px;
+                    padding: 8px;
                     line-height: 1;
-                    border-bottom: 2px solid #9b9b9c;
+                    border: 2px solid #f3f3f3;
                     text-transform: uppercase;
                     margin: 13px 0 0;
-                    &:hover {
-                        color: $theme-color;
-                        border-bottom: 2px solid $theme-color;
-                    }
+                    box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
+
+
+                    // &:hover {
+                    //     color: $theme-color;
+                    //     border-bottom: 2px solid $theme-color;
+                    // }
                 }
             }
         }
@@ -215,6 +223,7 @@
 
 .footer-area {
     position: relative;
+    background-image: $the_gradient;
     &.ml-10 {
         margin-left: 0;
     }
@@ -263,6 +272,7 @@
         height: 50px;
         background-color: $theme-color;
         color: $white;
+        box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
         right: 20px;
         bottom: 18px;
         border-radius: 50%;

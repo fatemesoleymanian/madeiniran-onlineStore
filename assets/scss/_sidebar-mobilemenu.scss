@@ -6,6 +6,7 @@
     &.offcanvas-mobile-menu-wrapper {
         opacity: 1;
         visibility: visible;
+
         .mobile-menu-inner {
             transform: none;
         }
@@ -20,7 +21,7 @@
     height: 100vh;
     visibility: hidden;
     opacity: 0;
-    transition: all .3s cubic-bezier(.645,.045,.355,1);
+    transition: all .3s cubic-bezier(.645, .045, .355, 1);
     z-index: 99999;
 
     .mobile-menu-overlay {
@@ -32,6 +33,7 @@
         position: absolute;
         background: rgba($black, 0.8);
     }
+
     .mobile-menu-inner {
         position: relative;
         width: 400px;
@@ -41,6 +43,7 @@
         transition: all .3s;
         transform: translateX(-100%);
         background-color: $white;
+
         .close-btn {
             position: absolute;
             height: 65px;
@@ -52,9 +55,11 @@
             font-size: 50px;
             color: $black;
             background-color: $white;
+
             &:hover {
                 background-color: $theme-color;
                 color: $white;
+
                 i {
                     transform: rotate(90deg);
                 }
@@ -62,39 +67,84 @@
         }
     }
 }
+
 .mobile-menu-inner-wrapper {
     height: 100%;
     overflow-y: auto;
 }
 
+.offcanvas-mobile-search {
+    background-image: $the_gradient;
+}
+
 .mobile-search-inner {
     display: flex;
     height: 65px;
-    background-color: #e6e6e6;
+    background-color: $the_gradient;
+
     input {
         padding: 0 15px;
         height: 100%;
         border: none;
         background-color: transparent;
+        color: $bg-white;
     }
+
+    ::-webkit-input-placeholder {
+        /* WebKit, Blink, Edge */
+        color: $bg-white;
+    }
+
+    :-moz-placeholder {
+        /* Mozilla Firefox 4 to 18 */
+        color: $bg-white;
+        opacity: 1;
+    }
+
+    ::-moz-placeholder {
+        /* Mozilla Firefox 19+ */
+        color: $bg-white;
+        opacity: 1;
+    }
+
+    :-ms-input-placeholder {
+        /* Internet Explorer 10-11 */
+        color: $bg-white;
+    }
+
+    ::-ms-input-placeholder {
+        /* Microsoft Edge */
+        color: $bg-white;
+    }
+
+    ::placeholder {
+        /* Most modern browsers support this now. */
+        color: $bg-white;
+    }
+
     button {
         width: 60px;
         height: 100%;
         font-size: 25px;
+        color: $bg-white;
     }
 }
 
 .offcanvas-body-inner {
     padding: 30px 20px;
 }
+
 .offcanvas-tools {
     margin-top: 30px;
+
     .same-language-currency {
         margin-bottom: 15px;
+
         select {
             border: 1px solid #ddd;
             padding: 5px 10px;
         }
+
         span {
             display: flex;
             font-weight: 500;
@@ -102,12 +152,20 @@
         }
     }
 }
+
 .offcanvas-widget-area {
     margin-top: 30px;
+
     ul {
         display: inline-block;
+
         li {
             margin-bottom: 10px;
+
+            i {
+                color: $theme-color;
+            }
+
             a {
                 padding-left: 10px;
             }

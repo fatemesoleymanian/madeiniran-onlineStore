@@ -62,11 +62,17 @@
   "ShopSidebar": {
     "description": "Auto imported from components/ShopSidebar.vue"
   },
+  "Steps": {
+    "description": "Auto imported from components/Steps.vue"
+  },
   "TeamMembers": {
     "description": "Auto imported from components/TeamMembers.vue"
   },
-  "TestimonialOne": {
-    "description": "Auto imported from components/TestimonialOne.vue"
+  "Testimonial": {
+    "description": "Auto imported from components/Testimonial.vue"
+  },
+  "TestimonialItem": {
+    "description": "Auto imported from components/TestimonialItem.vue"
   },
   "TheFooter": {
     "description": "Auto imported from components/TheFooter.vue"

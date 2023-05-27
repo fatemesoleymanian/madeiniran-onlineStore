@@ -1,5 +1,5 @@
 <template>
-    <div class="product-area pb-90">
+    <div class="product-area pb-90 pt-90">
         <div class="container">
             <SectionTitleWithSubTitle title="خطوط تولید" classes="section-title"
                                       v-if="isSectionTitle ? true : false" />
@@ -19,7 +19,7 @@
                     </div>
                 </div>
               <div class="view-more text-center mt-20 toggle-btn2">
-                <n-link to="/shop" class="loadMore2">مشاهده همه</n-link>
+                <n-link to="/shop" class="loadMore2 gradient-link">مشاهده همه</n-link>
               </div>
             </div>
         </div>
@@ -47,3 +47,8 @@
         },
     };
 </script>
+<style>
+.gradient-link{
+  border-radius: 10px;
+}
+</style>

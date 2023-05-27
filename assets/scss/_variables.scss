@@ -1,10 +1,15 @@
 // Font Family
-$poppins: 'Poppins', sans-serif;
-$abrilfatface: 'Abril Fatface', cursive;
+$poppins: 'Poppins',
+sans-serif;
+$abrilfatface: 'Abril Fatface',
+cursive;
 $cormorantgaramond: 'Cormorant Garamond';
-$greatvibes: 'Great Vibes', cursive;
-$lobster: 'Lobster', cursive;
-$josefin: 'Josefin Sans', sans-serif;
+$greatvibes: 'Great Vibes',
+cursive;
+$lobster: 'Lobster',
+cursive;
+$josefin: 'Josefin Sans',
+sans-serif;
 
 
 // text Colors ---------------
@@ -24,7 +29,7 @@ $bg-light: #799cf7;
 
 // Heading Color
 $heading-color: $black;
-
+$the_gradient: linear-gradient(to left bottom, #0b4dfc, #3647c6, #3f4193, #3d3a61, #333333);
 // Theme Color
 $theme-color: #0b4dfc;
 

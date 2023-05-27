@@ -27,10 +27,13 @@
             background-color: $black;
             width: 80px;
             height: 2px;
-            top: 17px;
+            top: 27px;
             @media #{$xs-layout}{
                 left: -40px;
                 width: 30px;
+            }
+            @media #{$sm-layout}{
+                top: 17px;
             }
         }
         &::after {
@@ -40,10 +43,14 @@
             background-color: $black;
             width: 80px;
             height: 2px;
-            top: 17px;
+            top: 27px;
             @media #{$xs-layout}{
                 right: -40px;
                 width: 30px;
+            }
+        
+            @media #{$sm-layout}{
+                top: 17px;
             }
         }
     }

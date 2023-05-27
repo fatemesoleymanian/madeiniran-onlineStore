@@ -1,11 +1,13 @@
 /*----- 19. Product details page  ---*/
 .product-details-img {
     position: relative;
+
     @media #{$lg-layout, $md-layout, $xs-layout} {
         &.mr-20 {
             margin-right: 0;
         }
     }
+
     .product-badges {
         .product-label {
             position: absolute;
@@ -19,17 +21,21 @@
             border-radius: 3px;
             font-weight: 500;
             z-index: 2;
+
             &.pink {
                 background-color: #0b4dfc;
             }
+
             &.purple {
                 background-color: $theme-color;
             }
+
             &:nth-of-type(2) {
                 top: 60px;
             }
         }
     }
+
     .thumb-img {
         cursor: pointer;
     }
@@ -38,41 +44,53 @@
 .description-review-topbar {
     display: flex;
     justify-content: center;
-    border-bottom: 1px solid #d7d7d7;
+    border-bottom: 1px solid $theme-color;
+
     a {
         background-color: transparent;
-        border-top: 1px solid gray;
-        border-right: 1px solid gray;
-        border-left: 1px solid gray;
-        font-size: 24px;
+        border-top: 1px solid $theme-color;
+        border-right: 1px solid $theme-color;
+        border-left: 1px solid $theme-color;
+        border-radius: 5px;
+        font-size: 14pt;
         font-weight: 500;
         line-height: 1;
         margin: 0 15px 0;
         padding: 13px;
-        color: #666;
+        color: $theme-color;
+
         &.active {
             color: $white;
-            background: #333;
+            background:
+                $theme-color;
         }
-        @media #{$xs-layout} {
-            margin:0 8px;
-            font-size: 12px;
-            padding: 8px;
+
+        @media #{$md-layout} {
+            font-size: 20px;
         }
+
         @media #{$sm-layout} {
-            margin: 0 8px;
-            font-size: 14px;
-            padding: 5px ;
+            margin: 0 5px;
+            font-size: 18px;
         }
+
+        @media #{$xs-layout} {
+            margin: 0 5px;
+            font-size: 18px;
+            padding: 7px 9px;
+        }
+
     }
+
     a.active {
         color: $white;
-        background: gray;
+        background: $theme-color;
     }
 }
 
 .description-review-bottom {
     padding: 33px 0 0;
+
     .product-description-wrapper {
         p {
             margin: 0 0 8px;
@@ -80,14 +98,17 @@
             line-height: 28px;
             color: $dark;
             width: 84%;
+
             @media #{$xs-layout} {
                 width: 100%;
             }
+
             &:last-child {
                 margin: 0 0 0px;
             }
         }
     }
+
     .product-anotherinfo-wrapper {
         ul {
             li {
@@ -95,6 +116,7 @@
                 font-size: 14px;
                 list-style: outside none none;
                 margin: 0 0 13px;
+
                 span {
                     color: $black;
                     display: inline-block;
@@ -110,31 +132,40 @@
 .single-review {
     display: flex;
     margin: 0 50px 50px 0;
+
     @media #{$xs-layout} {
         display: block;
     }
+
     @media #{$sm-layout} {
         display: flex;
     }
+
     .review-img {
         flex: 0 0 90px;
         margin: 0 15px 0 0;
+
         @media #{$xs-layout} {
             margin: 0 0px 20px 0;
         }
+
         @media #{$sm-layout} {
             margin: 0 15px 0px 0;
         }
     }
+
     .review-top-wrap {
         display: flex;
         justify-content: space-between;
-        margin: 0 10px 10px 0 ;
+        margin: 0 10px 10px 0;
         align-items: center;
+
         .review-left {
             display: flex;
+
             .review-name {
                 margin-left: 25px;
+
                 h4 {
                     font-size: 16px;
                     margin: 0;
@@ -142,8 +173,10 @@
                     font-weight: 500;
                 }
             }
+
             .review-rating {
                 line-height: 1;
+
                 i {
                     font-size: 12px;
                     margin-right: 1px;
@@ -151,19 +184,23 @@
                 }
             }
         }
-        a{
-            background:  $theme-color;
+
+        a {
+            background: $theme-color;
             color: white;
-            &:hover{
+
+            &:hover {
                 background: $dark;
                 color: white;
             }
         }
+
         .review-btn a {
             font-weight: 500;
             line-height: 1;
         }
     }
+
     .review-bottom p {
         margin: 0;
         width: 93%;
@@ -173,6 +210,7 @@
 .single-review.child-review {
     margin-right: 70px;
     margin-bottom: 0;
+
     @media #{$xs-layout} {
         margin-right: 0px;
     }
@@ -185,40 +223,48 @@
             margin-top: 50px;
         }
     }
+
     h3 {
         margin: 0;
         font-size: 16px;
         font-weight: 500;
         line-height: 2;
     }
+
     .ratting-form {
         form {
             .star-box {
                 display: flex;
                 margin: 6px 0 20px;
+
                 span {
                     margin: 0 15px 0 0;
                 }
+
                 .ratting-star {
                     font-size: 12px;
                     color: #ffa900;
                     margin: 2px 0 0;
                 }
             }
+
             .rating-form-style {
+
                 input,
                 textarea {
                     padding: 2px 10px 2px 20px;
                     background: transparent;
-                    border: 1px solid #e6e6e6;
-                    color: #333
+                    border: 0.01em solid $theme-color;
+                    color: $dark
                 }
+
                 textarea {
                     height: 180px;
                     padding: 20px 10px 2px 20px;
                     margin-bottom: 20px;
                 }
             }
+
             .form-submit input {
                 width: auto;
                 padding: 12px 50px;
@@ -228,9 +274,13 @@
                 background-color: $theme-color;
                 color: $white;
                 border: 1px solid $theme-color;
+                border-radius: 10px;
+                box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
+
                 &:hover {
-                    background-color: $dark;
-                    border: 1px solid #333;
+                    background-color: $bg-white;
+                    border: 1px solid $theme-color;
+                    color: #0b4dfc;
                 }
             }
         }

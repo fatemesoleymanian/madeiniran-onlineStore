@@ -19,6 +19,9 @@
     font-family: persianNumber;
     font-weight: bold;
 }
+i{
+    color: $the_gradient;
+}
 @font-face {
     font-family: persianNumber;
     src: url('../fonts/IRANYekanRegular(FaNum).ttf');
