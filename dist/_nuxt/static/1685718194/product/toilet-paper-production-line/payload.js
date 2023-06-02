@@ -1,0 +1,1 @@
+__NUXT_JSONP__("/product/toilet-paper-production-line", {data:[{}],fetch:{},mutations:[]});

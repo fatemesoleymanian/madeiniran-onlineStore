@@ -6,11 +6,10 @@
 export default {
   name: "catalog",
   beforeCreate() {
-    this.$router.push('/product/19')
-  }
-}
+    this.$router.push("/product/tissue-production-line");
+  },
+};
 </script>
 
 <style scoped>
-
 </style>

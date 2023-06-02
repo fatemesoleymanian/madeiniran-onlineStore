@@ -1,0 +1,1 @@
+__NUXT_JSONP__("/product/disposable-tablecloth-production-line", {data:[{}],fetch:{},mutations:[]});

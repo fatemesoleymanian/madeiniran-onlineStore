@@ -1,0 +1,1 @@
+__NUXT_JSONP__("/product/bottled-water-production-line", {data:[{}],fetch:{},mutations:[]});

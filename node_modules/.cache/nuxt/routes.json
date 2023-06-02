@@ -56,18 +56,18 @@
     "_name": "_116a47df"
   },
   {
+    "name": "production-lines",
+    "path": "/production-lines",
+    "component": "E:\\\\My Portfolio\\\\Freelancing\\\\MadeInIr\\\\front\\\\MadeInIran\\\\pages\\\\production-lines.vue",
+    "chunkName": "pages/production-lines",
+    "_name": "_12ddfdfe"
+  },
+  {
     "name": "search",
     "path": "/search",
     "component": "E:\\\\My Portfolio\\\\Freelancing\\\\MadeInIr\\\\front\\\\MadeInIran\\\\pages\\\\search.vue",
     "chunkName": "pages/search",
     "_name": "_07d1740a"
-  },
-  {
-    "name": "shop",
-    "path": "/shop",
-    "component": "E:\\\\My Portfolio\\\\Freelancing\\\\MadeInIr\\\\front\\\\MadeInIran\\\\pages\\\\shop.vue",
-    "chunkName": "pages/shop",
-    "_name": "_59b2d1ee"
   },
   {
     "name": "terms-conditions",

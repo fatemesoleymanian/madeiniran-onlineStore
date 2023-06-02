@@ -6,11 +6,10 @@
 export default {
   name: "delsey-packages",
   beforeCreate() {
-    this.$router.push('/product/20')
-  }
-}
+    this.$router.push("/product/toilet-paper-production-line");
+  },
+};
 </script>
 
 <style scoped>
-
 </style>

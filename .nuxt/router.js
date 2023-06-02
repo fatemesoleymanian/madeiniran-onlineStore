@@ -12,8 +12,8 @@ const _a7f48746 = () => interopDefault(import('..\\pages\\contact.vue' /* webpac
 const _b45d414a = () => interopDefault(import('..\\pages\\delsey-packages.vue' /* webpackChunkName: "pages/delsey-packages" */))
 const _47ef134c = () => interopDefault(import('..\\pages\\login-register.vue' /* webpackChunkName: "pages/login-register" */))
 const _116a47df = () => interopDefault(import('..\\pages\\my-account.vue' /* webpackChunkName: "pages/my-account" */))
+const _12ddfdfe = () => interopDefault(import('..\\pages\\production-lines.vue' /* webpackChunkName: "pages/production-lines" */))
 const _07d1740a = () => interopDefault(import('..\\pages\\search.vue' /* webpackChunkName: "pages/search" */))
-const _59b2d1ee = () => interopDefault(import('..\\pages\\shop.vue' /* webpackChunkName: "pages/shop" */))
 const _db58b35e = () => interopDefault(import('..\\pages\\terms-conditions.vue' /* webpackChunkName: "pages/terms-conditions" */))
 const _cc716d52 = () => interopDefault(import('..\\pages\\tutorial-gate.vue' /* webpackChunkName: "pages/tutorial-gate" */))
 const _28195c64 = () => interopDefault(import('..\\pages\\tutorial-videos.vue' /* webpackChunkName: "pages/tutorial-videos" */))
@@ -65,13 +65,13 @@ export const routerOptions = {
     component: _116a47df,
     name: "my-account"
   }, {
+    path: "/production-lines",
+    component: _12ddfdfe,
+    name: "production-lines"
+  }, {
     path: "/search",
     component: _07d1740a,
     name: "search"
-  }, {
-    path: "/shop",
-    component: _59b2d1ee,
-    name: "shop"
   }, {
     path: "/terms-conditions",
     component: _db58b35e,

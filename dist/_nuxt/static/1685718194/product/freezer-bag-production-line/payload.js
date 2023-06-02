@@ -1,0 +1,1 @@
+__NUXT_JSONP__("/product/freezer-bag-production-line", {data:[{}],fetch:{},mutations:[]});

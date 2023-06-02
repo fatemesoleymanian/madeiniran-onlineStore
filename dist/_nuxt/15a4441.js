@@ -1,0 +1,1 @@
+(window.webpackJsonp=window.webpackJsonp||[]).push([[41],{393:function(e,t,n){"use strict";n.r(t);var r={name:"delsey-packages",beforeCreate:function(){this.$router.push("/product/toilet-paper-production-line")}},o=n(34),component=Object(o.a)(r,(function(){var e=this.$createElement;return(this._self._c||e)("div")}),[],!1,null,"2f7b2a21",null);t.default=component.exports}}]);

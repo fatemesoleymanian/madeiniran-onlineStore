@@ -54,19 +54,19 @@
             <div class="footer-list text-white size">
               <ul>
                 <li>
-                  <n-link to="/shop">خطوط تولید</n-link>
+                  <n-link to="/production-lines/">خطوط تولید</n-link>
                 </li>
                 <li>
                   <a href="https://madein-iran.com/blog/">وبلاگ</a>
                 </li>
                 <li>
-                  <n-link to="/about">درباره ما</n-link>
+                  <n-link to="/about/">درباره ما</n-link>
                 </li>
                 <li>
-                  <n-link to="/contact">تماس با ما</n-link>
+                  <n-link to="/contact/">تماس با ما</n-link>
                 </li>
                 <li>
-                  <n-link to="/terms-conditions">قوانین و مقررات</n-link>
+                  <n-link to="/terms-conditions/">قوانین و مقررات</n-link>
                 </li>
               </ul>
             </div>
@@ -86,20 +86,23 @@
               <ul>
                 <li>
                   <p style="font-family: persianNumber; color: #f3f3f3">
-                    <i class="fa fa-phone" style="font-size: 28px"></i> : <br />021-72418400 | 021-72418401 <br />021-72418402
-                    | 021-72418403
+                    <i class="fa fa-phone" style="font-size: 28px"></i> :
+                    <br />021-72418400 | 021-72418401 <br />021-72418402 |
+                    021-72418403
                   </p>
                 </li>
                 <li>
                   <p style="color: #f3f3f3; font-family: persianNumber">
-                    <i class="fa fa-whatsapp" style="font-size: 28px"></i> : <br />09902121045 | 09902121046 <br />09902121047 |
+                    <i class="fa fa-whatsapp" style="font-size: 28px"></i> :
+                    <br />09902121045 | 09902121046 <br />09902121047 |
                     09902121048 <br />09190808506 | 09190808507 <br />
                   </p>
                 </li>
                 <li>
                   <p style="color: #f3f3f3">
-                    <i class="fa fa-map-marker" style="font-size: 28px"></i> : تهران - خیابان ولیعصر - روبروی پارک ملت - برج سایه -
-                    طبقه چهاردهم.
+                    <i class="fa fa-map-marker" style="font-size: 28px"></i> :
+                    تهران - خیابان ولیعصر - روبروی پارک ملت - برج سایه - طبقه
+                    چهاردهم.
                   </p>
                 </li>
                 <li>
@@ -129,7 +132,7 @@
                       target="_blank"
                     >
                       <svg
-                        style="color: white; "
+                        style="color: white"
                         role="img"
                         viewBox="0 0 24 24"
                         xmlns="http://www.w3.org/2000/svg"
@@ -422,16 +425,15 @@ a {
   -webkit-transform: translateX(-5px);
   transform: translateX(-5px);
 }
-li a svg{
-  margin:8px;
+li a svg {
+  margin: 8px;
   width: 24px;
   height: 24px;
 }
 @media screen and (max-width: 700px) {
-  li a svg{
+  li a svg {
     width: 21px;
     height: 21px;
   }
-
 }
 </style>

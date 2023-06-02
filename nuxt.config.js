@@ -1,6 +1,9 @@
 const axios = require('axios');
 
 export default {
+
+    target: 'static', // default is 'server'
+    mode: 'universal',
     generate: {
         fallback: true,
         // routes() {
@@ -17,13 +20,15 @@ export default {
         //     return [products , blogs]
         // }
         // or
-        routes: ['/product/34','/product/33','/product/32','/product/31','/product/30','/product/29','/product/21', '/product/20',
-            '/product/19',
+        routes: ['/product/perfume-production-line','/product/paper-cup-production-line',
+            '/product/bottled-water-production-line','/product/garbage-bag-production-line',
+            '/product/freezer-bag-production-line','/product/plastic-nylex-bag-production-line',
+            '/product/disposable-tablecloth-production-line', '/product/toilet-paper-production-line',
+            '/product/tissue-production-line',
         // '/blog/17','/blog/21','/blog/22','/blog/24','/blog/26','/blog/28','/blog/29','/blog/30','/blog/31','/blog/32','/blog/33','/blog/34','/blog/35','/blog/36','/blog/37',
         ]
     },
 
-    target: 'static', // default is 'server'
 
     // Global page headers (https://go.nuxtjs.dev/config-head)
     head: {

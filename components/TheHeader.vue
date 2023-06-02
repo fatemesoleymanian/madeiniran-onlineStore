@@ -87,16 +87,16 @@
                 >
                   <ul>
                     <li v-if="!auth">
-                      <n-link to="/login-register">ورود | ثبت نام</n-link>
+                      <n-link to="/login-register/">ورود | ثبت نام</n-link>
                     </li>
                     <li v-if="auth">
-                      <n-link to="/my-account">پروفایل من</n-link>
+                      <n-link to="/my-account/">پروفایل من</n-link>
                     </li>
                     <li v-if="auth">
-                      <n-link to="/comments">دیدگاه های من</n-link>
+                      <n-link to="/comments/">دیدگاه های من</n-link>
                     </li>
                     <li v-if="auth">
-                      <n-link to="/tutorial-gate">ویدئو های آموزشی</n-link>
+                      <n-link to="/tutorial-gate/">ویدئو های آموزشی</n-link>
                     </li>
                     <li v-if="auth">
                       <a href="#" @click="logout"> خروج از حساب </a>

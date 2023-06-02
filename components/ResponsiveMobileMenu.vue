@@ -34,7 +34,7 @@ export default {
           title: "صفحه اصلی",
         },
         {
-          url: "/shop",
+          url: "/production-lines/",
           title: "خطوط تولید",
         },
         {
@@ -68,11 +68,11 @@ export default {
           title: "وبلاگ",
         },
         {
-          url: "/about",
+          url: "/about/",
           title: "درباره ما",
         },
         {
-          url: "/contact",
+          url: "/contact/",
           title: "تماس با ما",
         },
       ],

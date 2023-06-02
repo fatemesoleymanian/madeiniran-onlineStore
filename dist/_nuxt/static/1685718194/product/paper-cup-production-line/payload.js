@@ -1,0 +1,1 @@
+__NUXT_JSONP__("/product/paper-cup-production-line", {data:[{}],fetch:{},mutations:[]});

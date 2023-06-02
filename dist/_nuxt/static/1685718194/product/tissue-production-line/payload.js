@@ -1,0 +1,1 @@
+__NUXT_JSONP__("/product/tissue-production-line", {data:[{}],fetch:{},mutations:[]});

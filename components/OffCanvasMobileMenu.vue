@@ -50,7 +50,7 @@
               <li>
                 <i class="fa fa-whatsapp"></i>
                 <a
-                  href="https://api.whatsapp.com/send?phone=09902121045"
+                  href="https://api.whatsapp.com/send?phone=09902121045/"
                   target="_blank"
                   >09902121045</a
                 >
@@ -66,7 +66,7 @@
               <li>
                 <i class="fa fa-whatsapp"></i>
                 <a
-                  href="https://api.whatsapp.com/send?phone=09902121047"
+                  href="https://api.whatsapp.com/send?phone=09902121047/"
                   target="_blank"
                   >09902121047</a
                 >
@@ -74,7 +74,7 @@
               <li>
                 <i class="fa fa-whatsapp"></i>
                 <a
-                  href="https://api.whatsapp.com/send?phone=09902121048"
+                  href="https://api.whatsapp.com/send?phone=09902121048/"
                   target="_blank"
                   >09902121048</a
                 >
@@ -82,7 +82,7 @@
               <li>
                 <i class="fa fa-whatsapp"></i>
                 <a
-                  href="https://api.whatsapp.com/send?phone=989190808506"
+                  href="https://api.whatsapp.com/send?phone=989190808506/"
                   target="_blank"
                   >09190808506</a
                 >
@@ -90,7 +90,7 @@
               <li>
                 <i class="fa fa-whatsapp"></i>
                 <a
-                  href="https://api.whatsapp.com/send?phone=09190808507"
+                  href="https://api.whatsapp.com/send?phone=09190808507/"
                   target="_blank"
                   >09190808507</a
                 >
