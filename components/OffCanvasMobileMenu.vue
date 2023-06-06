@@ -50,7 +50,7 @@
               <li>
                 <i class="fa fa-whatsapp"></i>
                 <a
-                  href="https://api.whatsapp.com/send?phone=09902121045/"
+                  href="https://wa.me/+989902121045"
                   target="_blank"
                   >09902121045</a
                 >
@@ -58,7 +58,7 @@
               <li>
                 <i class="fa fa-whatsapp"></i>
                 <a
-                  href="https://api.whatsapp.com/send?phone=09902121046"
+                  href="https://wa.me/+989902121046"
                   target="_blank"
                   >09902121046</a
                 >
@@ -66,7 +66,7 @@
               <li>
                 <i class="fa fa-whatsapp"></i>
                 <a
-                  href="https://api.whatsapp.com/send?phone=09902121047/"
+                  href="https://wa.me/+989902121047"
                   target="_blank"
                   >09902121047</a
                 >
@@ -74,7 +74,7 @@
               <li>
                 <i class="fa fa-whatsapp"></i>
                 <a
-                  href="https://api.whatsapp.com/send?phone=09902121048/"
+                  href="https://wa.me/+989902121048"
                   target="_blank"
                   >09902121048</a
                 >
@@ -82,7 +82,7 @@
               <li>
                 <i class="fa fa-whatsapp"></i>
                 <a
-                  href="https://api.whatsapp.com/send?phone=989190808506/"
+                  href="https://wa.me/+989190808506"
                   target="_blank"
                   >09190808506</a
                 >
@@ -90,7 +90,7 @@
               <li>
                 <i class="fa fa-whatsapp"></i>
                 <a
-                  href="https://api.whatsapp.com/send?phone=09190808507/"
+                  href="https://wa.me/+989190808507"
                   target="_blank"
                   >09190808507</a
                 >
@@ -99,19 +99,19 @@
             <ul class="pr-20">
               <li>
                 <i class="fa fa-phone"></i>
-                <a href="callto:+982172418400">021-72418400</a>
+                <a href="tel:+982172418400">021-72418400</a>
               </li>
               <li>
                 <i class="fa fa-phone"></i>
-                <a href="callto:+982172418402">021-72418401</a>
+                <a href="tel:+982172418401">021-72418401</a>
               </li>
               <li>
                 <i class="fa fa-phone"></i>
-                <a href="callto:09190808506">021-72418402</a>
+                <a href="tel:+982172418402">021-72418402</a>
               </li>
               <li>
                 <i class="fa fa-phone"></i>
-                <a href="callto:+982172418403">021-72418403</a>
+                <a href="tel:+982172418403">021-72418403</a>
               </li>
             </ul>
           </div>
