@@ -3,96 +3,112 @@
     "name": "about",
     "path": "/about",
     "component": "E:\\\\My Portfolio\\\\Freelancing\\\\MadeInIr\\\\front\\\\MadeInIran\\\\pages\\\\about.vue",
-    "chunkName": "pages/about"
+    "chunkName": "pages/about",
+    "_name": "_7c513aec"
   },
   {
     "name": "campaign-one",
     "path": "/campaign-one",
     "component": "E:\\\\My Portfolio\\\\Freelancing\\\\MadeInIr\\\\front\\\\MadeInIran\\\\pages\\\\campaign-one.vue",
-    "chunkName": "pages/campaign-one"
+    "chunkName": "pages/campaign-one",
+    "_name": "_561c5bbc"
   },
   {
     "name": "catalog",
     "path": "/catalog",
     "component": "E:\\\\My Portfolio\\\\Freelancing\\\\MadeInIr\\\\front\\\\MadeInIran\\\\pages\\\\catalog.vue",
-    "chunkName": "pages/catalog"
+    "chunkName": "pages/catalog",
+    "_name": "_6d8d53d6"
   },
   {
     "name": "comments",
     "path": "/comments",
     "component": "E:\\\\My Portfolio\\\\Freelancing\\\\MadeInIr\\\\front\\\\MadeInIran\\\\pages\\\\comments.vue",
-    "chunkName": "pages/comments"
+    "chunkName": "pages/comments",
+    "_name": "_88c394f2"
   },
   {
     "name": "contact",
     "path": "/contact",
     "component": "E:\\\\My Portfolio\\\\Freelancing\\\\MadeInIr\\\\front\\\\MadeInIran\\\\pages\\\\contact.vue",
-    "chunkName": "pages/contact"
+    "chunkName": "pages/contact",
+    "_name": "_a7f48746"
   },
   {
     "name": "delsey-packages",
     "path": "/delsey-packages",
     "component": "E:\\\\My Portfolio\\\\Freelancing\\\\MadeInIr\\\\front\\\\MadeInIran\\\\pages\\\\delsey-packages.vue",
-    "chunkName": "pages/delsey-packages"
+    "chunkName": "pages/delsey-packages",
+    "_name": "_b45d414a"
   },
   {
     "name": "login-register",
     "path": "/login-register",
     "component": "E:\\\\My Portfolio\\\\Freelancing\\\\MadeInIr\\\\front\\\\MadeInIran\\\\pages\\\\login-register.vue",
-    "chunkName": "pages/login-register"
+    "chunkName": "pages/login-register",
+    "_name": "_47ef134c"
   },
   {
     "name": "my-account",
     "path": "/my-account",
     "component": "E:\\\\My Portfolio\\\\Freelancing\\\\MadeInIr\\\\front\\\\MadeInIran\\\\pages\\\\my-account.vue",
-    "chunkName": "pages/my-account"
+    "chunkName": "pages/my-account",
+    "_name": "_116a47df"
   },
   {
     "name": "production-lines",
     "path": "/production-lines",
     "component": "E:\\\\My Portfolio\\\\Freelancing\\\\MadeInIr\\\\front\\\\MadeInIran\\\\pages\\\\production-lines.vue",
-    "chunkName": "pages/production-lines"
+    "chunkName": "pages/production-lines",
+    "_name": "_12ddfdfe"
   },
   {
     "name": "search",
     "path": "/search",
     "component": "E:\\\\My Portfolio\\\\Freelancing\\\\MadeInIr\\\\front\\\\MadeInIran\\\\pages\\\\search.vue",
-    "chunkName": "pages/search"
+    "chunkName": "pages/search",
+    "_name": "_07d1740a"
   },
   {
     "name": "terms-conditions",
     "path": "/terms-conditions",
     "component": "E:\\\\My Portfolio\\\\Freelancing\\\\MadeInIr\\\\front\\\\MadeInIran\\\\pages\\\\terms-conditions.vue",
-    "chunkName": "pages/terms-conditions"
+    "chunkName": "pages/terms-conditions",
+    "_name": "_db58b35e"
   },
   {
     "name": "tutorial-gate",
     "path": "/tutorial-gate",
     "component": "E:\\\\My Portfolio\\\\Freelancing\\\\MadeInIr\\\\front\\\\MadeInIran\\\\pages\\\\tutorial-gate.vue",
-    "chunkName": "pages/tutorial-gate"
+    "chunkName": "pages/tutorial-gate",
+    "_name": "_cc716d52"
   },
   {
     "name": "tutorial-videos",
     "path": "/tutorial-videos",
     "component": "E:\\\\My Portfolio\\\\Freelancing\\\\MadeInIr\\\\front\\\\MadeInIran\\\\pages\\\\tutorial-videos.vue",
-    "chunkName": "pages/tutorial-videos"
+    "chunkName": "pages/tutorial-videos",
+    "_name": "_28195c64"
   },
   {
     "name": "wishlist",
     "path": "/wishlist",
     "component": "E:\\\\My Portfolio\\\\Freelancing\\\\MadeInIr\\\\front\\\\MadeInIran\\\\pages\\\\wishlist.vue",
-    "chunkName": "pages/wishlist"
+    "chunkName": "pages/wishlist",
+    "_name": "_7987bcd8"
   },
   {
     "name": "product-slug",
     "path": "/product/:slug?",
     "component": "E:\\\\My Portfolio\\\\Freelancing\\\\MadeInIr\\\\front\\\\MadeInIran\\\\pages\\\\product\\\\_slug.vue",
-    "chunkName": "pages/product/_slug"
+    "chunkName": "pages/product/_slug",
+    "_name": "_b56657e4"
   },
   {
     "name": "index",
     "path": "/",
     "component": "E:\\\\My Portfolio\\\\Freelancing\\\\MadeInIr\\\\front\\\\MadeInIran\\\\pages\\\\index.vue",
-    "chunkName": "pages/index"
+    "chunkName": "pages/index",
+    "_name": "_3ce18562"
   }
 ]

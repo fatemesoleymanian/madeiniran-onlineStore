@@ -230,14 +230,28 @@
                   <div class="col-lg-2"></div>
                 </div>
               </div>
-              <div class="tab-pane active" :id="'descriptions'+i" v-html="m.description" style="line-height: 40px;"></div>
+              <div class="tab-pane active w-100 overflow-hidden shadow p-3"
+                   :id="'descriptions'+i" v-html="m.description" :class="hid_or_show ? 'view-more-2' :''"
+                   style="line-height: 40px;border-radius: 7px;">
+              </div>
+              <p class="w-100 text-center fw-bold click-to-more py-4" style="cursor: pointer;border-radius: 7px"
+                 v-if="hid_or_show" @click="hid_or_show =! hid_or_show">
+                مشاهده بیشتر
+              </p>
             </div>
           </div>
           <!--          dynamic-->
 
-          <div id="details" class="tab-pane active" v-html="product.description" v-if="product.has_models === 0"
-          style="    line-height: 40px;">
+          <div id="details" class="tab-pane active w-100 overflow-hidden shadow p-3"
+               :class="hid_or_show ? 'view-more-2' :''"
+               v-html="product.description" v-if="product.has_models === 0"
+          style="line-height: 40px;border-radius: 7px">
+
           </div>
+          <p class="w-100 text-center fw-bold click-to-more py-4" style="cursor: pointer;border-radius: 7px"
+             v-if="hid_or_show" @click="hid_or_show =! hid_or_show">
+            مشاهده بیشتر
+          </p>
         </div>
       </div>
       <br>
@@ -371,6 +385,7 @@ export default {
   props: ['product', 'faq'],
   data() {
     return {
+      hid_or_show: true,
       saving: false,
       sending: false,
       commenting: false,
@@ -570,5 +585,21 @@ export default {
 <style scoped>
 #fqs .accordion-button::after {
   display: none;
+}
+.click-to-more {
+  color: #0b4dfc !important;
+  position: relative;
+  z-index: 99;
+  margin-top: -70px;
+  background: linear-gradient(
+      0deg,
+      #fff,
+      hsla(0, 0%, 100%, 0.86),
+      hsla(0, 0%, 100%, 0.9),
+      hsla(0, 0%, 100%, 0.36)
+  );
+}
+.view-more-2 {
+  max-height: 450px;
 }
 </style>

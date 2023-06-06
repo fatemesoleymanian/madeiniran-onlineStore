@@ -46,7 +46,8 @@
                 >{{ pricee.replace(/\B(?=(\d{3})+(?!\d))/g, ",") }} تومان</span
               >
             </div>
-            <p>{{ product.description_excerpt }}</p>
+            <br>
+            <div class="p" v-html="product.description_excerpt"></div>
             <h6 v-if="!auth">
               <a href="/login-register"
                 >برای مشاهده قیمت وارد حساب کاربری خود شوید.</a

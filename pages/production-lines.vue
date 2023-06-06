@@ -89,7 +89,7 @@
 
             <div class="row pt-4 rounded">
               <div
-                  class="col-12 shadow px-4 py-3 rounded w-100 overflow-hidden d-none d-md-block"
+                  class="col-12 shadow px-4 py-3 w-100 overflow-hidden d-none d-md-block" style="border-radius: 7px"
                 :class="hid_or_show ? 'view-more-2' :''">
                 <p>
                   <strong
@@ -417,7 +417,7 @@
                   ><strong>!</strong>
                 </p>
               </div>
-              <p class="w-100 text-center fw-bold click-to-more" style="cursor: pointer"
+              <p class="w-100 text-center fw-bold click-to-more d-none d-md-block" style="cursor: pointer"
                  v-if="hid_or_show" @click="hid_or_show =! hid_or_show">
                 مشاهده بیشتر
               </p>
@@ -757,7 +757,7 @@
                   ><strong>!</strong>
                 </p>
               </div>
-              <p class="w-100 text-center fw-bold click-to-more" style="cursor: pointer"
+              <p class="w-100 text-center fw-bold click-to-more d-block d-lg-none" style="cursor: pointer"
                  v-if="hid_or_show" @click="hid_or_show =! hid_or_show">
                 مشاهده بیشتر
               </p>
@@ -987,6 +987,7 @@ export default {
 <style scoped>
 @import url(https://fonts.googleapis.com/css?family=Roboto:100);
 .click-to-more {
+  border-radius: 7px;
   color: #0b4dfc !important;
   position: relative;
   z-index: 99;
