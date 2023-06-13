@@ -230,28 +230,20 @@
                   <div class="col-lg-2"></div>
                 </div>
               </div>
-              <div class="tab-pane active w-100 overflow-hidden shadow p-3"
-                   :id="'descriptions'+i" v-html="m.description" :class="hid_or_show ? 'view-more-2' :''"
+              <div class="tab-pane active  shadow p-3"
+                   :id="'descriptions'+i" v-html="m.description"
                    style="line-height: 40px;border-radius: 7px;">
               </div>
-              <p class="w-100 text-center fw-bold click-to-more py-4" style="cursor: pointer;border-radius: 7px"
-                 v-if="hid_or_show" @click="hid_or_show =! hid_or_show">
-                مشاهده بیشتر
-              </p>
+
             </div>
           </div>
           <!--          dynamic-->
 
-          <div id="details" class="tab-pane active w-100 overflow-hidden shadow p-3"
-               :class="hid_or_show ? 'view-more-2' :''"
+          <div id="details" class="tab-pane active shadow p-3"
                v-html="product.description" v-if="product.has_models === 0"
           style="line-height: 40px;border-radius: 7px">
 
           </div>
-          <p class="w-100 text-center fw-bold click-to-more py-4" style="cursor: pointer;border-radius: 7px"
-             v-if="hid_or_show" @click="hid_or_show =! hid_or_show">
-            مشاهده بیشتر
-          </p>
         </div>
       </div>
       <br>

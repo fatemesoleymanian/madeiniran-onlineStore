@@ -25,7 +25,6 @@ export default {
             '/product/freezer-bag-production-line','/product/plastic-nylex-bag-production-line',
             '/product/disposable-tablecloth-production-line', '/product/toilet-paper-production-line',
             '/product/tissue-production-line',
-        // '/blog/17','/blog/21','/blog/22','/blog/24','/blog/26','/blog/28','/blog/29','/blog/30','/blog/31','/blog/32','/blog/33','/blog/34','/blog/35','/blog/36','/blog/37',
         ]
     },
 
